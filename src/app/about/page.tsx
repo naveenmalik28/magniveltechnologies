@@ -1,8 +1,22 @@
+import { Metadata } from "next";
 import { PageHeader, PageShell, SectionTitle } from "@/components/page-shell";
 import { Icon } from "@/components/icon";
 import { processSteps } from "@/lib/site";
 
-export const metadata = { title: "About Us | Magnivel Technologies" };
+export const metadata: Metadata = {
+  title: "About Us | Magnivel Technologies",
+  description: "Learn about Magnivel Technologies - a digital agency specializing in AI-powered websites, web apps, SaaS platforms, and custom software development for startups and enterprises.",
+  keywords: ["about magnivel", "software development company", "digital agency", "SaaS development"],
+  openGraph: {
+    title: "About Magnivel Technologies",
+    description: "We engineer secure, scalable software systems built to grow. Learn about our mission, vision, and approach to building high-performance digital products.",
+    url: "https://magnivel.com/about",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://magnivel.com/about",
+  },
+};
 
 export default function AboutPage() {
   return (

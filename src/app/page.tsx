@@ -1,8 +1,36 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { PageShell, SectionTitle } from "@/components/page-shell";
 import { Icon } from "@/components/icon";
 import { projects, services, technologies, testimonials, trustedBy, stats } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Magnivel Technologies | AI-Powered Websites, Apps & SaaS Development",
+  description: "Build scalable digital products with Magnivel Technologies. We specialize in AI-powered websites, web applications, mobile apps, SaaS platforms, and custom software development for ambitious companies.",
+  keywords: [
+    "software development",
+    "web development",
+    "SaaS development",
+    "mobile app development",
+    "AI solutions",
+    "startup technology partner",
+  ],
+  openGraph: {
+    title: "Magnivel Technologies | AI-Powered Digital Products",
+    description: "We help startups, businesses and enterprises build scalable digital products that drive growth and innovation.",
+    url: "https://magnivel.com",
+    type: "website",
+    images: [
+      {
+        url: "https://magnivel.com/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Magnivel Technologies",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (

@@ -1,0 +1,32 @@
+# Robots.txt for Magnivel Technologies
+# Allows all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /portfolio
+Allow: /technologies
+Allow: /contact
+
+# Disallow private/admin pages
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://magnivel.com/sitemap.xml
+
+# Crawl delay (optional - remove if not needed)
+Crawl-delay: 1
+
+# Allow Google to crawl at faster rate
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Block certain bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

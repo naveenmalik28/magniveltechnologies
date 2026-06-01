@@ -1,7 +1,21 @@
+import { Metadata } from "next";
 import { PageHeader, PageShell } from "@/components/page-shell";
 import { projects } from "@/lib/site";
 
-export const metadata = { title: "Portfolio | Magnivel Technologies" };
+export const metadata: Metadata = {
+  title: "Portfolio | Magnivel Technologies",
+  description: "Explore our portfolio of high-performance web applications, mobile apps, SaaS platforms, and custom software solutions built for leading companies.",
+  keywords: ["portfolio", "case studies", "web applications", "SaaS products", "mobile apps"],
+  openGraph: {
+    title: "Portfolio | Magnivel Technologies",
+    description: "High-performance products we've brought to production. Custom enterprise portals, lead-generation platforms, mobile apps, and SaaS dashboards.",
+    url: "https://magnivel.com/portfolio",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://magnivel.com/portfolio",
+  },
+};
 
 export default function PortfolioPage() {
   return (

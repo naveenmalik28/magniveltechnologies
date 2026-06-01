@@ -12,6 +12,7 @@
     "start": "next start",
     "seed:admin": "node scripts/seed-admin.mjs",
     "check:db": "node scripts/check-db.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate deploy",
     "lint": "eslint"
@@ -24,7 +25,8 @@
     "nodemailer": "^8.0.10",
     "prisma": "^6.19.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "web-vitals": "^4.2.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

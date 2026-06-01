@@ -1,9 +1,23 @@
+import { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { PageHeader, PageShell } from "@/components/page-shell";
 import { Icon } from "@/components/icon";
 import { site } from "@/lib/site";
 
-export const metadata = { title: "Contact Us | Magnivel Technologies" };
+export const metadata: Metadata = {
+  title: "Contact Us | Magnivel Technologies",
+  description: "Get in touch with Magnivel Technologies to discuss your software development needs. Free consultation for custom web apps, SaaS platforms, mobile apps, and AI solutions.",
+  keywords: ["contact", "get in touch", "software consultation", "development inquiry"],
+  openGraph: {
+    title: "Contact Us | Magnivel Technologies",
+    description: "Start your next software project with Magnivel Technologies. Have an idea? Tell us about your timeline and budget, and our team will follow up promptly.",
+    url: "https://magnivel.com/contact",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://magnivel.com/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

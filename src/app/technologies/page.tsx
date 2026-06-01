@@ -1,8 +1,22 @@
+import { Metadata } from "next";
 import { PageHeader, PageShell } from "@/components/page-shell";
 import { Icon } from "@/components/icon";
 import { techCategories } from "@/lib/site";
 
-export const metadata = { title: "Technology Stack | Magnivel Technologies" };
+export const metadata: Metadata = {
+  title: "Technology Stack | Magnivel Technologies",
+  description: "Discover the modern, reliable technologies we use for building scalable and high-performance software solutions. Next.js, React, TypeScript, Node.js, and more.",
+  keywords: ["technology stack", "development tools", "frameworks", "Next.js", "React", "TypeScript"],
+  openGraph: {
+    title: "Technology Stack | Magnivel Technologies",
+    description: "Modern, reliable tools chosen for scale and stability. Industry-proven stacks that guarantee optimal performance and security.",
+    url: "https://magnivel.com/technologies",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://magnivel.com/technologies",
+  },
+};
 
 export default function TechnologiesPage() {
   return (

@@ -36,6 +36,14 @@ export const metadata: Metadata = {
     "full stack development",
     "digital product agency",
   ],
+  authors: [{ name: "Magnivel Technologies" }],
+  creator: "Magnivel Technologies",
+  publisher: "Magnivel Technologies",
+  formatDetection: {
+    email: true,
+    telephone: true,
+    address: true,
+  },
   openGraph: {
     title: "Magnivel Technologies | AI-Powered Digital Products",
     description:
@@ -44,28 +52,54 @@ export const metadata: Metadata = {
     siteName: "Magnivel Technologies",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://magnivel.com/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Magnivel Technologies",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Magnivel Technologies",
     description: "Building AI-Powered Websites, Applications & SaaS Platforms",
+    site: "@magnivelinc",
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    // Add your Google Search Console verification code
+    google: "YOUR_GOOGLE_VERIFICATION_CODE",
+  },
+  alternates: {
+    canonical: "https://magnivel.com",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://magnivel.com/#organization",
   name: "Magnivel Technologies",
   url: "https://magnivel.com",
   email: "contact@magnivel.com",
@@ -73,6 +107,14 @@ const jsonLd = {
     "Software development company specializing in AI-powered websites, web applications, mobile apps, SaaS platforms, and custom software solutions.",
   foundingDate: "2021",
   areaServed: "Worldwide",
+  knowsAbout: [
+    "Website Development",
+    "Web Application Development",
+    "Mobile App Development",
+    "SaaS Development",
+    "AI Solutions",
+    "Custom Software Development",
+  ],
   serviceType: [
     "Website Development",
     "Web Application Development",
@@ -80,6 +122,17 @@ const jsonLd = {
     "SaaS Development",
     "AI Solutions",
     "Custom Software Development",
+  ],
+  logo: {
+    "@type": "ImageObject",
+    url: "https://magnivel.com/logo.jpg",
+    width: 200,
+    height: 200,
+  },
+  sameAs: [
+    "https://twitter.com/magnivelinc",
+    "https://linkedin.com/company/magnivel-technologies",
+    "https://github.com/magnivel",
   ],
 };
 
@@ -93,11 +146,57 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <head>
+        {/* Preload critical fonts for better performance */}
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
+        
+        {/* DNS prefetch for external services */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        
+        {/* Web Vitals Monitoring */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.vitalsUrl = "https://api.web-vitals.dev/v1/report";
+              
+              function getConnectionSpeed() {
+                return 'connection' in navigator &&
+                  navigator['connection'] &&
+                  'effectiveType' in navigator['connection']
+                  ? navigator['connection']['effectiveType']
+                  : '';
+              }
+              
+              function sendToAnalytics(metric) {
+                const analyticsData = {
+                  dsn: "https://YOUR_ANALYTICS_KEY",
+                  id: "YOUR_SITE_ID",
+                  name: metric.name,
+                  value: metric.value.toString(),
+                  delta: metric.delta.toString(),
+                  rating: metric.rating,
+                  tag: metric.id,
+                  speed: getConnectionSpeed(),
+                };
+                
+                // Send to your analytics service
+                if (window.location.hostname !== 'localhost') {
+                  navigator.sendBeacon(window.vitalsUrl, JSON.stringify(analyticsData));
+                }
+              }
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
       </body>
     </html>

@@ -1,9 +1,23 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { PageHeader, PageShell } from "@/components/page-shell";
 import { Icon } from "@/components/icon";
 import { services } from "@/lib/site";
 
-export const metadata = { title: "Services | Magnivel Technologies" };
+export const metadata: Metadata = {
+  title: "Services | Magnivel Technologies",
+  description: "Explore our comprehensive software development services including website design, web apps, mobile apps, SaaS platforms, AI solutions, and custom software development.",
+  keywords: ["software services", "web development services", "SaaS development", "mobile app development", "AI solutions"],
+  openGraph: {
+    title: "Services | Magnivel Technologies",
+    description: "High-performance software tailored for exact business stages. Website design, web applications, mobile apps, SaaS development, and more.",
+    url: "https://magnivel.com/services",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://magnivel.com/services",
+  },
+};
 
 export default function ServicesPage() {
   return (
