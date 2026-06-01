@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install && npm run db:push",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["iad"],
+  "functions": {
+    "src/app/api/**": {
+      "maxDuration": 60,
+      "memory": 512
+    }
+  }
+}
