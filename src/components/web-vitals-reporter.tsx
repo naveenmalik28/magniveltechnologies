@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect } from 'react';
+import type { MetricType } from 'web-vitals';
 
 export function WebVitalsReporter() {
   useEffect(() => {
     // Dynamic import to avoid blocking page load
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      const sendVitalToAnalytics = (metric: { name: string; value: number; rating?: string; delta?: number; id: string; attribution?: unknown }) => {
+    import('web-vitals').then(({ onCLS, onFCP, onINP, onLCP, onTTFB }) => {
+      const sendVitalToAnalytics = (metric: MetricType) => {
         // Log to console in development
         if (process.env.NODE_ENV === 'development') {
           console.log(`${metric.name}:`, metric.value);
@@ -20,7 +21,6 @@ export function WebVitalsReporter() {
             rating: metric.rating,
             delta: metric.delta?.toFixed(2),
             id: metric.id,
-            attribution: metric.attribution,
           });
 
           navigator.sendBeacon('/api/vitals', body);
@@ -28,11 +28,11 @@ export function WebVitalsReporter() {
       };
 
       // Measure Web Vitals
-      getCLS(sendVitalToAnalytics);
-      getFID(sendVitalToAnalytics);
-      getFCP(sendVitalToAnalytics);
-      getLCP(sendVitalToAnalytics);
-      getTTFB(sendVitalToAnalytics);
+      onCLS(sendVitalToAnalytics);
+      onFCP(sendVitalToAnalytics);
+      onINP(sendVitalToAnalytics);
+      onLCP(sendVitalToAnalytics);
+      onTTFB(sendVitalToAnalytics);
     });
   }, []);
 

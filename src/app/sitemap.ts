@@ -13,10 +13,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/contact',
   ];
 
-  const baseRoutes = publicRoutes.map((route) => ({
+  const baseRoutes: MetadataRoute.Sitemap = publicRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === '' ? 'weekly' : 'monthly' as const,
+    changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : 0.8,
   }));
 
