@@ -11,25 +11,32 @@ export function ContactForm() {
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setState("loading");
     setMessage("");
 
-    const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const result = (await response.json()) as { message?: string };
+    try {
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = (await response.json()) as { message?: string };
 
-    if (response.ok) {
-      event.currentTarget.reset();
-      setState("success");
-      setMessage(result.message || "Your inquiry has been sent.");
-    } else {
+      if (response.ok) {
+        form.reset();
+        setState("success");
+        setMessage(result.message || "Your inquiry has been sent.");
+        return;
+      }
+
       setState("error");
       setMessage(result.message || "Please check the form and try again.");
+    } catch {
+      setState("error");
+      setMessage("Unable to submit inquiry right now. Please try again.");
     }
   }
 

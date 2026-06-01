@@ -13,21 +13,27 @@ export function AdminLoginForm() {
     setLoading(true);
     setError("");
     const payload = Object.fromEntries(new FormData(event.currentTarget).entries());
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
 
-    if (response.ok) {
-      router.push("/admin/dashboard");
-      router.refresh();
-      return;
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        router.push("/admin/dashboard");
+        router.refresh();
+        return;
+      }
+
+      const result = (await response.json()) as { message?: string };
+      setError(result.message || "Unable to sign in.");
+    } catch {
+      setError("Unable to sign in right now. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    const result = (await response.json()) as { message?: string };
-    setError(result.message || "Unable to sign in.");
-    setLoading(false);
   }
 
   return (

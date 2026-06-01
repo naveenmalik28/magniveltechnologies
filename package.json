@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "seed:admin": "node scripts/seed-admin.mjs",
+    "check:db": "node scripts/check-db.mjs",
     "lint": "eslint"
   },
   "dependencies": {

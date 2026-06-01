@@ -12,6 +12,9 @@ function required(name: string) {
 
 export function getPool() {
   if (!globalForDb.magnivelPool) {
+    const sslEnabled = process.env.DB_SSL === "true";
+    const rejectUnauthorized = process.env.DB_SSL_REJECT_UNAUTHORIZED !== "false";
+
     globalForDb.magnivelPool = mysql.createPool({
       host: required("DB_HOST"),
       port: Number(process.env.DB_PORT || 3306),
@@ -19,11 +22,18 @@ export function getPool() {
       user: required("DB_USER"),
       password: required("DB_PASSWORD"),
       connectionLimit: 10,
+      connectTimeout: 10000,
       namedPlaceholders: true,
+      ssl: sslEnabled ? { rejectUnauthorized } : undefined,
     });
   }
 
   return globalForDb.magnivelPool;
+}
+
+export async function assertDatabaseConnection() {
+  const [rows] = await getPool().query("SELECT 1 AS ok");
+  return rows;
 }
 
 export type LeadStatus = "new" | "contacted" | "closed";

@@ -7,7 +7,14 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
-    const validation = validateContact(await request.json());
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ message: "Invalid request body." }, { status: 400 });
+    }
+
+    const validation = validateContact(body);
     if (!validation.data) {
       return NextResponse.json({ message: validation.error }, { status: 400 });
     }

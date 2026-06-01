@@ -1,37 +1,14 @@
-import fs from "node:fs";
-import path from "node:path";
 import process from "node:process";
 import bcrypt from "bcryptjs";
 import mysql from "mysql2/promise";
+import { loadEnv, required } from "./env.mjs";
 
-const envFiles = [".env.local", ".env"];
-
-for (const file of envFiles) {
-  const filePath = path.join(process.cwd(), file);
-  if (!fs.existsSync(filePath)) continue;
-
-  const lines = fs.readFileSync(filePath, "utf8").split(/\r?\n/);
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-
-    const equalsIndex = trimmed.indexOf("=");
-    if (equalsIndex === -1) continue;
-
-    const key = trimmed.slice(0, equalsIndex).trim();
-    const value = trimmed.slice(equalsIndex + 1).trim().replace(/^['"]|['"]$/g, "");
-    if (!(key in process.env)) process.env[key] = value;
-  }
-}
-
-function required(name) {
-  const value = process.env[name];
-  if (!value) throw new Error(`${name} is not configured.`);
-  return value;
-}
+loadEnv();
 
 const adminEmail = (process.env.ADMIN_EMAIL || "contact@magnivel.com").trim().toLowerCase();
 const adminPassword = required("ADMIN_SEED_PASSWORD");
+const sslEnabled = process.env.DB_SSL === "true";
+const rejectUnauthorized = process.env.DB_SSL_REJECT_UNAUTHORIZED !== "false";
 
 const connection = await mysql.createConnection({
   host: required("DB_HOST"),
@@ -39,7 +16,9 @@ const connection = await mysql.createConnection({
   database: required("DB_DATABASE"),
   user: required("DB_USER"),
   password: required("DB_PASSWORD"),
+  connectTimeout: 10000,
   namedPlaceholders: true,
+  ssl: sslEnabled ? { rejectUnauthorized } : undefined,
 });
 
 try {
