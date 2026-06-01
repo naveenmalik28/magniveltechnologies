@@ -6,7 +6,7 @@ export function WebVitalsReporter() {
   useEffect(() => {
     // Dynamic import to avoid blocking page load
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      const sendVitalToAnalytics = (metric: any) => {
+      const sendVitalToAnalytics = (metric: { name: string; value: number; rating?: string; delta?: number; id: string; attribution?: unknown }) => {
         // Log to console in development
         if (process.env.NODE_ENV === 'development') {
           console.log(`${metric.name}:`, metric.value);
