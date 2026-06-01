@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { Icon } from "@/components/icon";
+import { LogoutButton } from "@/components/logout-button";
 
 export const metadata = { title: "Admin Console | Magnivel Technologies" };
 export const dynamic = "force-dynamic";
@@ -108,14 +109,18 @@ export function AdminFrame({ title, children }: { title: string; children: React
             </span>
           </div>
           
-          <nav className="flex gap-6 text-sm font-semibold text-muted">
-            <Link href="/admin/dashboard" className="hover:text-white transition-colors py-1 relative hover:after:w-full">
-              Dashboard
-            </Link>
-            <Link href="/admin/leads" className="hover:text-white transition-colors py-1 relative hover:after:w-full">
-              Leads List
-            </Link>
-          </nav>
+          <div className="flex items-center gap-6">
+            <nav className="flex gap-6 text-sm font-semibold text-muted">
+              <Link href="/admin/dashboard" className="hover:text-white transition-colors py-1 relative hover:after:w-full">
+                Dashboard
+              </Link>
+              <Link href="/admin/leads" className="hover:text-white transition-colors py-1 relative hover:after:w-full">
+                Leads List
+              </Link>
+            </nav>
+            <div className="h-4 w-[1px] bg-subtle-border/60" />
+            <LogoutButton />
+          </div>
         </div>
       </header>
       

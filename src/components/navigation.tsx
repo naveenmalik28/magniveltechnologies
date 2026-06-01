@@ -9,6 +9,14 @@ const links = [
   ["Contact", "/contact"],
 ];
 
+const serviceLinks = [
+  "Website Development",
+  "Web Application Development",
+  "Mobile App Development",
+  "SaaS Development",
+  "AI Solutions",
+];
+
 export function Navigation() {
   return (
     <header className="sticky top-0 z-50 border-b border-subtle-border bg-background/80 backdrop-blur-md">
@@ -74,13 +82,18 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-4 text-sm text-muted">
-          <p className="font-semibold text-white tracking-wide uppercase text-xs">Administration</p>
-          <Link 
-            className="hover:text-white transition-colors inline-flex items-center gap-2 text-accent-light hover:underline" 
-            href="/admin/login"
-          >
-            🔒 Command Lead Dashboard
-          </Link>
+          <p className="font-semibold text-white tracking-wide uppercase text-xs">Core Services</p>
+          <div className="flex flex-col gap-2">
+            {serviceLinks.map((service) => (
+              <Link 
+                key={service} 
+                className="hover:text-white transition-colors inline-flex items-center gap-1.5" 
+                href="/services"
+              >
+                ✦ {service}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
       <div className="border-t border-subtle-border/40 py-6 text-center text-xs text-dimmed">
