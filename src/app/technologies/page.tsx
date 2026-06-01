@@ -1,25 +1,56 @@
 import { PageHeader, PageShell } from "@/components/page-shell";
-import { technologies } from "@/lib/site";
+import { Icon } from "@/components/icon";
+import { techCategories } from "@/lib/site";
 
-export const metadata = { title: "Technologies" };
+export const metadata = { title: "Technology Stack | Magnivel Technologies" };
 
 export default function TechnologiesPage() {
   return (
     <PageShell>
       <PageHeader
-        eyebrow="Technology stack"
-        title="Reliable tools for modern software delivery."
-        description="Magnivel uses proven technologies that balance developer speed, production stability and long-term scalability."
+        eyebrow="Our Engineering Stack"
+        title="Modern, reliable tools chosen for scale and stability."
+        description="We don't chase every passing framework. Magnivel Technologies relies on industry-proven stacks that guarantee optimal performance, server-side security, and developer efficiency."
       />
-      <section className="mx-auto grid max-w-7xl gap-4 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        {technologies.map((tech) => (
-          <div key={tech} className="rounded-lg border border-emerald-950/10 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-emerald-950">{tech}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-700">
-              Used to build secure, scalable and maintainable digital products.
-            </p>
-          </div>
-        ))}
+      
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {techCategories.map((category) => (
+            <article 
+              key={category.name} 
+              className="rounded-xl border border-subtle-border bg-surface p-6 flex flex-col justify-between hover:border-accent-light/30 transition-all duration-300 shadow-xl glow-card group relative"
+            >
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    <Icon name={category.icon} size={18} />
+                  </span>
+                  <h2 className="text-xl font-bold text-white group-hover:text-accent-light transition-colors">
+                    {category.name}
+                  </h2>
+                </div>
+                
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-muted">
+                  {category.description}
+                </p>
+              </div>
+              
+              <div className="mt-6 border-t border-subtle-border/40 pt-4">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-dimmed mb-2">Primary Tools</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {category.items.map((item) => (
+                    <span 
+                      key={item} 
+                      className="rounded-md bg-background border border-subtle-border px-2.5 py-1 text-xs text-white font-medium hover:border-accent-light/40 transition-all duration-200"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </PageShell>
   );

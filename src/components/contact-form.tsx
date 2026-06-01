@@ -28,7 +28,7 @@ export function ContactForm() {
       if (response.ok) {
         form.reset();
         setState("success");
-        setMessage(result.message || "Your inquiry has been sent.");
+        setMessage(result.message || "Your inquiry has been sent successfully.");
         return;
       }
 
@@ -41,33 +41,56 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-lg border border-emerald-950/10 bg-white p-5 shadow-sm">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field name="fullName" label="Full Name" />
-        <Field name="email" label="Email" type="email" />
-        <Field name="phone" label="Phone Number" />
-        <Field name="companyName" label="Company Name" required={false} />
+    <form 
+      onSubmit={onSubmit} 
+      className="grid gap-5 rounded-xl border border-subtle-border bg-surface/50 p-6 sm:p-8 backdrop-blur-md shadow-2xl relative glow-card"
+    >
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field name="fullName" label="Full Name" placeholder="John Doe" />
+        <Field name="email" label="Email Address" type="email" placeholder="john@example.com" />
+        <Field name="phone" label="Phone Number" placeholder="+91 99999 99999" />
+        <Field name="companyName" label="Company Name" required={false} placeholder="Optional" />
         <Select name="serviceType" label="Service Required" options={serviceOptions} />
-        <Select name="budget" label="Budget" options={budgets} />
+        <Select name="budget" label="Project Budget" options={budgets} />
       </div>
-      <label className="grid gap-2 text-sm font-medium text-slate-800">
-        Project Description
+      
+      <label className="grid gap-2 text-sm font-medium text-muted">
+        <span>Project Description <span className="text-accent">*</span></span>
         <textarea
           name="message"
           required
           minLength={20}
           rows={5}
-          className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100"
+          placeholder="Tell us what you want to build (min 20 characters)..."
+          className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all resize-none"
         />
       </label>
+
       <button
         disabled={state === "loading"}
-        className="rounded-md bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-slate-400"
+        className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-[#8b5cf6] px-5 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 disabled:transform-none disabled:shadow-none"
       >
-        {state === "loading" ? "Sending..." : "Submit Inquiry"}
+        {state === "loading" ? (
+          <>
+            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+            </svg>
+            Submitting Inquiry...
+          </>
+        ) : (
+          "Submit Project Request"
+        )}
       </button>
+
       {message ? (
-        <p className={state === "error" ? "text-sm text-red-700" : "text-sm text-emerald-700"}>{message}</p>
+        <div className={`mt-3 text-center p-3 rounded-lg border text-sm font-medium ${
+          state === "error" 
+            ? "bg-red-950/20 border-red-500/20 text-red-400" 
+            : "bg-emerald-950/20 border-emerald-500/20 text-emerald-400"
+        }`}>
+          {message}
+        </div>
       ) : null}
     </form>
   );
@@ -78,20 +101,23 @@ function Field({
   label,
   type = "text",
   required = true,
+  placeholder,
 }: {
   name: string;
   label: string;
   type?: string;
   required?: boolean;
+  placeholder?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-slate-800">
-      {label}
+    <label className="grid gap-2 text-sm font-medium text-muted">
+      <span>{label} {required && <span className="text-accent">*</span>}</span>
       <input
         name={name}
         type={type}
         required={required}
-        className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100"
+        placeholder={placeholder}
+        className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all"
       />
     </label>
   );
@@ -99,19 +125,19 @@ function Field({
 
 function Select({ name, label, options }: { name: string; label: string; options: string[] }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-slate-800">
-      {label}
+    <label className="grid gap-2 text-sm font-medium text-muted">
+      <span>{label} <span className="text-accent">*</span></span>
       <select
         name={name}
         required
         defaultValue=""
-        className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100"
+        className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
       >
-        <option value="" disabled>
-          Select
+        <option value="" disabled className="bg-surface text-muted">
+          Select budget / service
         </option>
         {options.map((option) => (
-          <option key={option} value={option}>
+          <option key={option} value={option} className="bg-surface text-white">
             {option}
           </option>
         ))}

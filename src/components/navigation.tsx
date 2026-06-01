@@ -11,24 +11,35 @@ const links = [
 
 export function Navigation() {
   return (
-    <header className="sticky top-0 z-30 border-b border-emerald-950/10 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-subtle-border bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-emerald-950">
-          Magnivel
+        <Link href="/" className="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#8b5cf6] text-white shadow-lg shadow-accent/25 transition-transform group-hover:scale-105">
+            M
+          </span>
+          <span className="font-sans">
+            Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent group-hover:from-accent group-hover:to-[#8b5cf6] transition-all duration-300">Technologies</span>
+          </span>
         </Link>
-        <div className="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+        <div className="hidden items-center gap-8 text-sm font-medium text-muted md:flex">
           {links.map(([label, href]) => (
-            <Link key={href} href={href} className="hover:text-emerald-700">
+            <Link 
+              key={href} 
+              href={href} 
+              className="transition-colors hover:text-white relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+            >
               {label}
             </Link>
           ))}
         </div>
-        <a
-          href={`mailto:${site.email}`}
-          className="rounded-md bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-800"
-        >
-          Get Free Consultation
-        </a>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/contact"
+            className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 hover:bg-accent-light hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+          >
+            Get Consultation
+          </Link>
+        </div>
       </nav>
     </header>
   );
@@ -36,28 +47,46 @@ export function Navigation() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-emerald-950/10 bg-emerald-950 text-white">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8">
-        <div>
-          <p className="text-lg font-semibold">{site.name}</p>
-          <p className="mt-3 max-w-sm text-sm text-emerald-50/75">
-            Websites, apps, SaaS products and AI solutions for growing businesses.
+    <footer className="border-t border-subtle-border bg-surface text-foreground">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+        <div className="flex flex-col gap-4">
+          <Link href="/" className="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-white">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#8b5cf6] text-white shadow-lg shadow-accent/20">
+              M
+            </span>
+            <span className="font-sans">
+              Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent">Technologies</span>
+            </span>
+          </Link>
+          <p className="max-w-sm text-sm text-muted leading-relaxed">
+            High-performance websites, custom web applications, mobile experiences, and secure SaaS/AI integrations structured for speed, stability, and growth.
           </p>
         </div>
-        <div className="text-sm text-emerald-50/75">
-          <p className="font-semibold text-white">Contact</p>
-          <a className="mt-3 block hover:text-white" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
-          <a className="mt-2 block hover:text-white" href={site.url}>
-            {site.url}
-          </a>
+        <div className="flex flex-col gap-4 text-sm text-muted">
+          <p className="font-semibold text-white tracking-wide uppercase text-xs">Contact & Support</p>
+          <div className="flex flex-col gap-2">
+            <a className="hover:text-white transition-colors flex items-center gap-2" href={`mailto:${site.email}`}>
+              <span className="text-accent">✉</span> {site.email}
+            </a>
+            <a className="hover:text-white transition-colors flex items-center gap-2" href={site.url} target="_blank" rel="noopener noreferrer">
+              <span className="text-accent">🌍</span> {site.url.replace("https://", "")}
+            </a>
+          </div>
         </div>
-        <div className="text-sm text-emerald-50/75">
-          <p className="font-semibold text-white">Admin</p>
-          <Link className="mt-3 block hover:text-white" href="/admin/login">
-            Lead dashboard
+        <div className="flex flex-col gap-4 text-sm text-muted">
+          <p className="font-semibold text-white tracking-wide uppercase text-xs">Administration</p>
+          <Link 
+            className="hover:text-white transition-colors inline-flex items-center gap-2 text-accent-light hover:underline" 
+            href="/admin/login"
+          >
+            🔒 Command Lead Dashboard
           </Link>
+        </div>
+      </div>
+      <div className="border-t border-subtle-border/40 py-6 text-center text-xs text-dimmed">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p>© {new Date().getFullYear()} Magnivel Technologies. All rights reserved.</p>
+          <p className="text-dimmed/50">Designed with passion for stable, secure software growth.</p>
         </div>
       </div>
     </footer>

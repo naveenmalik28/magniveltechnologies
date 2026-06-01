@@ -1,31 +1,54 @@
 import { PageHeader, PageShell } from "@/components/page-shell";
 import { projects } from "@/lib/site";
 
-export const metadata = { title: "Portfolio" };
+export const metadata = { title: "Portfolio | Magnivel Technologies" };
 
 export default function PortfolioPage() {
   return (
     <PageShell>
       <PageHeader
-        eyebrow="Portfolio"
-        title="Featured projects and case-study patterns."
-        description="A snapshot of the kinds of digital systems Magnivel Technologies builds for lead generation, operations and AI-enabled workflows."
+        eyebrow="Representative Cases"
+        title="High-performance products we've brought to production."
+        description="Explore the snapshot of digital systems we build: custom enterprise web portals, responsive lead-generation agency platforms, cross-platform mobile apps, secure multi-tenant SaaS dashboards, and automated AI software pipelines."
       />
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
-        {projects.map((project) => (
-          <article key={project.title} className="rounded-lg border border-emerald-950/10 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">{project.category}</p>
-            <h2 className="mt-3 text-xl font-semibold text-emerald-950">{project.title}</h2>
-            <p className="mt-4 text-sm leading-6 text-slate-700">{project.description}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.stack.map((item) => (
-                <span key={item} className="rounded-md bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-900">
-                  {item}
+      
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <article 
+              key={project.title} 
+              className="rounded-xl border border-subtle-border bg-surface p-6 flex flex-col justify-between hover:border-accent-light/30 transition-all duration-300 shadow-xl glow-card relative"
+            >
+              <div>
+                <span className="inline-flex rounded-md bg-accent-subtle px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-accent-light border border-accent/10">
+                  {project.category}
                 </span>
-              ))}
-            </div>
-          </article>
-        ))}
+                
+                <h2 className="mt-4 text-xl font-bold text-white leading-tight">
+                  {project.title}
+                </h2>
+                
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {project.description}
+                </p>
+              </div>
+              
+              <div className="mt-8 border-t border-subtle-border/40 pt-4">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-dimmed mb-2">Technologies Used</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.stack.map((item) => (
+                    <span 
+                      key={item} 
+                      className="rounded-md bg-background border border-subtle-border px-2.5 py-1 text-xs text-muted font-semibold hover:text-white transition-colors duration-200"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </PageShell>
   );

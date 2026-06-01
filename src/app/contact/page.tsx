@@ -1,28 +1,70 @@
 import { ContactForm } from "@/components/contact-form";
 import { PageHeader, PageShell } from "@/components/page-shell";
+import { Icon } from "@/components/icon";
 import { site } from "@/lib/site";
 
-export const metadata = { title: "Contact" };
+export const metadata = { title: "Contact Us | Magnivel Technologies" };
 
 export default function ContactPage() {
   return (
     <PageShell>
       <PageHeader
-        eyebrow="Contact"
-        title="Start your Magnivel Technologies project."
-        description="Send an inquiry for websites, web apps, mobile apps, SaaS development, AI integration or custom software."
+        eyebrow="Get In Touch"
+        title="Start your next software project with Magnivel Technologies."
+        description="Have an idea for a custom SaaS, enterprise dashboard, high-performance website, or mobile application? Tell us about your timeline and budget, and our engineering team will follow up promptly."
       />
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-        <div className="rounded-lg border border-emerald-950/10 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-emerald-950">Business contact</h2>
-          <a className="mt-5 block text-emerald-700" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
-          <a className="mt-3 block text-emerald-700" href={site.url}>
-            {site.url}
-          </a>
+      
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:gap-12 lg:px-8 items-start">
+        {/* Left Side Details */}
+        <div className="rounded-xl border border-subtle-border bg-surface p-6 sm:p-8 shadow-2xl relative overflow-hidden glow-card mb-10 lg:mb-0 flex flex-col gap-6">
+          <div>
+            <h2 className="text-xl font-bold text-white">Business Connections</h2>
+            <p className="mt-2 text-xs text-muted leading-relaxed">
+              Partner with Magnivel Technologies to build stable, maintainable, and high-conversion software solutions.
+            </p>
+          </div>
+          
+          <div className="flex flex-col gap-4 border-t border-subtle-border/50 pt-5">
+            <div className="flex gap-4 items-center">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+                <Icon name="mail" size={16} />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Send an Inquiry</p>
+                <a className="text-sm font-semibold text-white mt-0.5 hover:text-accent-light transition-colors" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              </div>
+            </div>
+            
+            <div className="flex gap-4 items-center">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+                <Icon name="globe" size={16} />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Official Hub</p>
+                <a className="text-sm font-semibold text-white mt-0.5 hover:text-accent-light transition-colors" href={site.url} target="_blank" rel="noopener noreferrer">
+                  {site.url.replace("https://", "")}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-center">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+                <Icon name="shield" size={16} />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Secure Defaults</p>
+                <p className="text-xs text-muted mt-0.5 font-medium">NDAs & data-encryption ready</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <ContactForm />
+
+        {/* Right Side Form */}
+        <div className="w-full">
+          <ContactForm />
+        </div>
       </section>
     </PageShell>
   );

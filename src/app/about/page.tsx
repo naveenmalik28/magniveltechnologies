@@ -1,30 +1,86 @@
 import { PageHeader, PageShell, SectionTitle } from "@/components/page-shell";
+import { Icon } from "@/components/icon";
+import { processSteps } from "@/lib/site";
 
-export const metadata = { title: "About" };
+export const metadata = { title: "About Us | Magnivel Technologies" };
 
 export default function AboutPage() {
   return (
     <PageShell>
       <PageHeader
-        eyebrow="About Magnivel"
-        title="A software company focused on practical, growth-ready digital products."
-        description="Magnivel Technologies partners with businesses to plan, design and build websites, applications, SaaS platforms and AI-enabled workflows."
+        eyebrow="About Magnivel Technologies"
+        title="We engineer secure, scalable software systems built to grow."
+        description="Magnivel Technologies is a modern digital agency partnering with startups and enterprises to design, develop, and deploy production-grade websites, web portals, SaaS products, mobile apps, and custom AI systems."
       />
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
-        {[
-          ["Company Overview", "We combine product thinking, clean engineering and business-focused design to deliver reliable digital systems."],
-          ["Mission", "Help businesses grow with software that is clear, fast, secure and easy to operate."],
-          ["Vision", "Become a trusted technology partner for companies building modern products and scalable SaaS platforms."],
-        ].map(([title, text]) => (
-          <article key={title} className="rounded-lg border border-emerald-950/10 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-emerald-950">{title}</h2>
-            <p className="mt-4 text-sm leading-6 text-slate-700">{text}</p>
-          </article>
-        ))}
+      
+      {/* ─── Pillars Section ─── */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            [
+              "Company Overview", 
+              "We combine engineering discipline, business intelligence, and high-fidelity user experiences. Every script and schema we build is structured to withstand massive organic growth.",
+              "monitor"
+            ],
+            [
+              "Our Mission", 
+              "To empower growing businesses by delivering robust, clean-coded, and highly performant digital products. We replace manual bottlenecks with secure, automated software pipelines.",
+              "shield"
+            ],
+            [
+              "Our Vision", 
+              "To be the premier global technology partner for ambitious companies. We aim to establish high standards in code clarity, conversion optimization, and stable SaaS architectures.",
+              "rocket"
+            ],
+          ].map(([title, text, icon]) => (
+            <article 
+              key={title} 
+              className="rounded-xl border border-subtle-border bg-surface p-6 shadow-sm hover:border-accent-light/30 transition-all glow-card"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+                <Icon name={icon} size={18} />
+              </span>
+              <h2 className="mt-5 text-xl font-bold text-white">{title}</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted">{text}</p>
+            </article>
+          ))}
+        </div>
       </section>
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <SectionTitle eyebrow="Approach" title="Discovery, design, development and production support." />
+
+      {/* ─── Approach/Process Section ─── */}
+      <section className="bg-surface/30 border-t border-subtle-border py-20 relative overflow-hidden">
+        <div className="absolute top-1/2 right-1/4 h-[300px] w-[500px] rounded-full bg-accent/5 blur-[100px] pointer-events-none" />
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            eyebrow="Our Approach" 
+            title="A structured, collaborative development model." 
+            description="From discovery workshops to product launch reviews, we operate with absolute transparency and meticulous code reviews."
+          />
+          
+          <div className="mt-16 grid gap-6 md:grid-cols-5 relative">
+            {processSteps.map((step) => (
+              <div 
+                key={step.step} 
+                className="rounded-xl border border-subtle-border bg-surface/60 p-6 flex flex-col justify-between hover:border-accent-light/30 transition-all duration-300 relative group"
+              >
+                <div className="absolute top-4 right-4 text-3xl font-extrabold text-accent/10 group-hover:text-accent/20 transition-colors">
+                  0{step.step}
+                </div>
+                <div>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+                    <Icon name={step.icon} size={18} />
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold text-white group-hover:text-accent-light transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-xs leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </PageShell>

@@ -28,7 +28,7 @@ export function AdminLoginForm() {
       }
 
       const result = (await response.json()) as { message?: string };
-      setError(result.message || "Unable to sign in.");
+      setError(result.message || "Unable to sign in. Verify your email and password.");
     } catch {
       setError("Unable to sign in right now. Please try again.");
     } finally {
@@ -37,19 +37,54 @@ export function AdminLoginForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-lg border border-emerald-950/10 bg-white p-6 shadow-sm">
-      <label className="grid gap-2 text-sm font-medium text-slate-800">
-        Email
-        <input name="email" type="email" required className="rounded-md border border-slate-300 px-3 py-2" />
+    <form 
+      onSubmit={onSubmit} 
+      className="grid gap-5 rounded-xl border border-subtle-border bg-surface/50 p-6 sm:p-8 shadow-2xl relative glow-card backdrop-blur-md"
+    >
+      <label className="grid gap-2 text-sm font-medium text-muted">
+        <span>Email Address</span>
+        <input 
+          name="email" 
+          type="email" 
+          required 
+          placeholder="admin@magnivel.com"
+          className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all"
+        />
       </label>
-      <label className="grid gap-2 text-sm font-medium text-slate-800">
-        Password
-        <input name="password" type="password" required className="rounded-md border border-slate-300 px-3 py-2" />
+      
+      <label className="grid gap-2 text-sm font-medium text-muted">
+        <span>Password</span>
+        <input 
+          name="password" 
+          type="password" 
+          required 
+          placeholder="••••••••"
+          className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all"
+        />
       </label>
-      <button disabled={loading} className="rounded-md bg-emerald-700 px-5 py-3 text-sm font-semibold text-white">
-        {loading ? "Signing in..." : "Sign in"}
+      
+      <button 
+        disabled={loading} 
+        className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-[#8b5cf6] px-5 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        {loading ? (
+          <>
+            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+            </svg>
+            Verifying...
+          </>
+        ) : (
+          "Sign In to Console"
+        )}
       </button>
-      {error ? <p className="text-sm text-red-700">{error}</p> : null}
+      
+      {error ? (
+        <div className="mt-2 text-center p-3 rounded-lg border border-red-500/20 bg-red-950/20 text-red-400 text-xs font-semibold">
+          {error}
+        </div>
+      ) : null}
     </form>
   );
 }
