@@ -5,11 +5,10 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "regions": ["iad"],
+  "regions": ["iad1"],
   "functions": {
     "src/app/api/**": {
-      "maxDuration": 60,
-      "memory": 512
+      "maxDuration": 60
     }
   }
 }
