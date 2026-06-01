@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPool } from "@/lib/db";
+import { prisma } from "@/lib/db";
 
 export const metadata = { title: "Admin Dashboard" };
 export const dynamic = "force-dynamic";
@@ -12,15 +12,13 @@ type Summary = {
 };
 
 export default async function AdminDashboardPage() {
-  const [rows] = await getPool().execute(
-    `SELECT
-      COUNT(*) AS total,
-      COALESCE(SUM(status = 'new'), 0) AS newLeads,
-      COALESCE(SUM(status = 'contacted'), 0) AS contacted,
-      COALESCE(SUM(status = 'closed'), 0) AS closed
-     FROM leads`,
-  );
-  const summary = (rows as Summary[])[0];
+  const [total, newLeads, contacted, closed] = await Promise.all([
+    prisma.lead.count(),
+    prisma.lead.count({ where: { status: "new" } }),
+    prisma.lead.count({ where: { status: "contacted" } }),
+    prisma.lead.count({ where: { status: "closed" } }),
+  ]);
+  const summary: Summary = { total, newLeads, contacted, closed };
 
   return (
     <AdminFrame title="Dashboard">

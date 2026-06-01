@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPool, Lead } from "@/lib/db";
+import { prisma } from "@/lib/db";
 
 export const metadata = { title: "Leads" };
 export const dynamic = "force-dynamic";
@@ -12,15 +12,24 @@ export default async function AdminLeadsPage({
   const params = await searchParams;
   const search = params.search || "";
   const status = params.status || "";
-  const where = [
-    search ? "(full_name LIKE :search OR email LIKE :search OR phone LIKE :search OR company_name LIKE :search)" : "",
-    ["new", "contacted", "closed"].includes(status) ? "status = :status" : "",
-  ].filter(Boolean);
-  const [rows] = await getPool().execute(
-    `SELECT * FROM leads ${where.length ? `WHERE ${where.join(" AND ")}` : ""} ORDER BY created_at DESC LIMIT 100`,
-    { search: `%${search}%`, status },
-  );
-  const leads = rows as Lead[];
+  const statusFilter = ["new", "contacted", "closed"].includes(status) ? status : undefined;
+  const leads = await prisma.lead.findMany({
+    where: {
+      ...(search
+        ? {
+            OR: [
+              { full_name: { contains: search, mode: "insensitive" } },
+              { email: { contains: search, mode: "insensitive" } },
+              { phone: { contains: search, mode: "insensitive" } },
+              { company_name: { contains: search, mode: "insensitive" } },
+            ],
+          }
+        : {}),
+      ...(statusFilter ? { status: statusFilter } : {}),
+    },
+    orderBy: { created_at: "desc" },
+    take: 100,
+  });
 
   return (
     <main className="min-h-screen bg-slate-50">

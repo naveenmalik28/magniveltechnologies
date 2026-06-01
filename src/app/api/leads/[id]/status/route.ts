@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPool, LeadStatus } from "@/lib/db";
+import { prisma, LeadStatus } from "@/lib/db";
 import { requireAdminFromRequest } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -14,9 +14,9 @@ export async function PATCH(request: NextRequest, context: { params: Promise<{ i
   }
 
   const { id } = await context.params;
-  await getPool().execute("UPDATE leads SET status = :status WHERE id = :id", {
-    id: Number(id),
-    status: body.status,
+  await prisma.lead.update({
+    where: { id: Number(id) },
+    data: { status: body.status },
   });
   return NextResponse.json({ message: "Lead updated." });
 }

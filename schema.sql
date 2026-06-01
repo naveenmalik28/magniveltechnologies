@@ -1,19 +1,19 @@
-CREATE TABLE leads (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  full_name VARCHAR(255),
-  email VARCHAR(255),
-  phone VARCHAR(50),
+CREATE TABLE IF NOT EXISTS leads (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(50) NOT NULL,
   company_name VARCHAR(255),
-  service_type VARCHAR(100),
-  budget VARCHAR(100),
-  message TEXT,
-  status ENUM('new','contacted','closed') DEFAULT 'new',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  service_type VARCHAR(100) NOT NULL,
+  budget VARCHAR(100) NOT NULL,
+  message TEXT NOT NULL,
+  status VARCHAR(20) NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'contacted', 'closed')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE admins (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS admins (
+  id SERIAL PRIMARY KEY,
   email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

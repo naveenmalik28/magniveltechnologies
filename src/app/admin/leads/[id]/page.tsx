@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LeadActions } from "@/components/lead-actions";
-import { getPool, Lead } from "@/lib/db";
+import { isLeadStatus, prisma } from "@/lib/db";
 
 export const metadata = { title: "Lead Details" };
 export const dynamic = "force-dynamic";
 
 export default async function LeadDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const [rows] = await getPool().execute("SELECT * FROM leads WHERE id = :id LIMIT 1", { id: Number(id) });
-  const lead = (rows as Lead[])[0];
+  const lead = await prisma.lead.findUnique({ where: { id: Number(id) } });
   if (!lead) notFound();
+  if (!isLeadStatus(lead.status)) notFound();
 
   return (
     <main className="min-h-screen bg-slate-50">

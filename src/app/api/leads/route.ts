@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPool } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import { requireAdminFromRequest } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -10,19 +10,25 @@ export async function GET(request: NextRequest) {
 
   const search = request.nextUrl.searchParams.get("search") || "";
   const status = request.nextUrl.searchParams.get("status") || "";
-  const values = {
-    search: `%${search}%`,
-    status,
-  };
-  const where = [
-    search ? "(full_name LIKE :search OR email LIKE :search OR phone LIKE :search OR company_name LIKE :search)" : "",
-    ["new", "contacted", "closed"].includes(status) ? "status = :status" : "",
-  ].filter(Boolean);
+  const statusFilter = ["new", "contacted", "closed"].includes(status) ? status : undefined;
 
-  const [rows] = await getPool().execute(
-    `SELECT * FROM leads ${where.length ? `WHERE ${where.join(" AND ")}` : ""} ORDER BY created_at DESC LIMIT 100`,
-    values,
-  );
+  const leads = await prisma.lead.findMany({
+    where: {
+      ...(search
+        ? {
+            OR: [
+              { full_name: { contains: search, mode: "insensitive" } },
+              { email: { contains: search, mode: "insensitive" } },
+              { phone: { contains: search, mode: "insensitive" } },
+              { company_name: { contains: search, mode: "insensitive" } },
+            ],
+          }
+        : {}),
+      ...(statusFilter ? { status: statusFilter } : {}),
+    },
+    orderBy: { created_at: "desc" },
+    take: 100,
+  });
 
-  return NextResponse.json({ leads: rows });
+  return NextResponse.json({ leads });
 }

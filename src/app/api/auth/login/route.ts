@@ -34,20 +34,18 @@ function loginFailureResponse(error: unknown) {
     );
   }
 
-  if (code === "ER_NO_SUCH_TABLE") {
+  if (code === "P2021") {
     console.error("Admin login database error: admins table is missing");
     return NextResponse.json(
-      { message: "Admin table is missing. Please run schema.sql and seed the admin user." },
+      { message: "Admin table is missing. Please run npm run db:push and seed the admin user." },
       { status: 500 },
     );
   }
 
-  if (
-    ["ECONNREFUSED", "ETIMEDOUT", "ENOTFOUND", "ER_ACCESS_DENIED_ERROR", "ER_BAD_DB_ERROR"].includes(code)
-  ) {
+  if (["P1000", "P1001", "P1002", "P1003"].includes(code)) {
     console.error("Admin login database connection error:", code, message);
     return NextResponse.json(
-      { message: "Database connection failed. Please check MySQL host, user, password, database, and remote access." },
+      { message: "Database connection failed. Please check DATABASE_URL and Neon access." },
       { status: 503 },
     );
   }

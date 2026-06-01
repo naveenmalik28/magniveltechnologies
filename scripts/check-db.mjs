@@ -1,32 +1,19 @@
-import process from "node:process";
-import mysql from "mysql2/promise";
-import { loadEnv, required } from "./env.mjs";
+import { PrismaClient } from "@prisma/client";
+import { loadEnv } from "./env.mjs";
 
 loadEnv();
 
-const sslEnabled = process.env.DB_SSL === "true";
-const rejectUnauthorized = process.env.DB_SSL_REJECT_UNAUTHORIZED !== "false";
-
-const connection = await mysql.createConnection({
-  host: required("DB_HOST"),
-  port: Number(process.env.DB_PORT || 3306),
-  database: required("DB_DATABASE"),
-  user: required("DB_USER"),
-  password: required("DB_PASSWORD"),
-  connectTimeout: 10000,
-  namedPlaceholders: true,
-  ssl: sslEnabled ? { rejectUnauthorized } : undefined,
-});
+const prisma = new PrismaClient();
 
 try {
-  const [dbRows] = await connection.execute("SELECT DATABASE() AS db, 1 AS ok");
-  const [adminRows] = await connection.execute(
-    "SELECT id, email, created_at FROM admins WHERE email = :email LIMIT 1",
-    { email: (process.env.ADMIN_EMAIL || "contact@magnivel.com").trim().toLowerCase() },
-  );
+  const databaseRows = await prisma.$queryRaw`SELECT current_database() AS db, 1 AS ok`;
+  const admin = await prisma.admin.findUnique({
+    where: { email: (process.env.ADMIN_EMAIL || "contact@magnivel.com").trim().toLowerCase() },
+    select: { id: true, email: true, createdAt: true },
+  });
 
-  console.log("Database connection OK:", dbRows[0]);
-  console.log(adminRows.length ? "Admin seed user exists." : "Admin seed user is missing.");
+  console.log("PostgreSQL connection OK:", databaseRows[0]);
+  console.log(admin ? "Admin seed user exists." : "Admin seed user is missing.");
 } finally {
-  await connection.end();
+  await prisma.$disconnect();
 }

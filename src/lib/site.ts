@@ -44,7 +44,7 @@ export const services = [
   },
 ];
 
-export const technologies = ["React", "Next.js", "TypeScript", "MySQL", "Node.js", "Python", "AWS"];
+export const technologies = ["React", "Next.js", "TypeScript", "PostgreSQL", "Node.js", "Python", "AWS"];
 
 export const budgets = [
   "Under Rs 50,000",
@@ -67,13 +67,13 @@ export const projects = [
     title: "B2B Lead Generation Website",
     category: "Website Development",
     description: "A fast agency site with SEO landing pages, inquiry capture and analytics-ready forms.",
-    stack: ["Next.js", "TypeScript", "MySQL"],
+    stack: ["Next.js", "TypeScript", "PostgreSQL"],
   },
   {
     title: "Operations Dashboard",
     category: "Web Application",
     description: "A role-based dashboard for tracking customers, work status and internal team actions.",
-    stack: ["React", "Node.js", "MySQL"],
+    stack: ["React", "Node.js", "PostgreSQL"],
   },
   {
     title: "AI Support Workflow",

@@ -3,7 +3,7 @@ import "server-only";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
-import { getPool } from "./db";
+import { prisma } from "./db";
 import { adminCookieName, createAdminToken, verifyToken } from "./session";
 
 export { adminCookieName, createAdminToken, verifyToken };
@@ -29,11 +29,10 @@ export function adminCookieOptions() {
 }
 
 export async function verifyAdminCredentials(email: string, password: string) {
-  const [rows] = await getPool().execute(
-    "SELECT email, password FROM admins WHERE email = :email LIMIT 1",
-    { email },
-  );
-  const admin = (rows as { email: string; password: string }[])[0];
+  const admin = await prisma.admin.findUnique({
+    where: { email },
+    select: { email: true, password: true },
+  });
   if (!admin) return false;
   return bcrypt.compare(password, admin.password);
 }

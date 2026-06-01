@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { LeadStatus } from "@/lib/db";
+import type { LeadStatus } from "@/lib/db";
 
 export function LeadActions({ id, status }: { id: number; status: LeadStatus }) {
   const router = useRouter();

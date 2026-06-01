@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getPool } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import { sendLeadEmails } from "@/lib/mail";
 import { validateContact } from "@/lib/validation";
 
@@ -20,13 +20,17 @@ export async function POST(request: Request) {
     }
 
     const lead = validation.data;
-    await getPool().execute(
-      `INSERT INTO leads
-        (full_name, email, phone, company_name, service_type, budget, message)
-       VALUES
-        (:fullName, :email, :phone, :companyName, :serviceType, :budget, :message)`,
-      lead,
-    );
+    await prisma.lead.create({
+      data: {
+        full_name: lead.fullName,
+        email: lead.email,
+        phone: lead.phone,
+        company_name: lead.companyName || null,
+        service_type: lead.serviceType,
+        budget: lead.budget,
+        message: lead.message,
+      },
+    });
 
     try {
       await sendLeadEmails(lead);
