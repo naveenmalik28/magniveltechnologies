@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { prisma } from "@/lib/db";
 import { Icon } from "@/components/icon";
 import { LogoutButton } from "@/components/logout-button";
@@ -97,9 +98,13 @@ export function AdminFrame({ title, children }: { title: string; children: React
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link href="/" className="group inline-flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#8b5cf6] text-white">
-                M
-              </span>
+              <Image 
+                src="/logo.jpg" 
+                alt="Magnivel Technologies Logo" 
+                width={32} 
+                height={32} 
+                className="rounded-full object-cover shadow-sm shadow-accent/15" 
+              />
               <span>
                 Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent">Technologies</span>
               </span>

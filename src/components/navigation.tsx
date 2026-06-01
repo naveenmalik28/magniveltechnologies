@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 const links = [
@@ -22,9 +23,14 @@ export function Navigation() {
     <header className="sticky top-0 z-50 border-b border-subtle-border bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#8b5cf6] text-white shadow-lg shadow-accent/25 transition-transform group-hover:scale-105">
-            M
-          </span>
+          <Image 
+            src="/logo.jpg" 
+            alt="Magnivel Technologies Logo" 
+            width={32} 
+            height={32} 
+            className="rounded-full object-cover transition-transform group-hover:scale-105 shadow-md shadow-accent/15" 
+            priority
+          />
           <span className="font-sans">
             Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent group-hover:from-accent group-hover:to-[#8b5cf6] transition-all duration-300">Technologies</span>
           </span>
@@ -59,9 +65,13 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
         <div className="flex flex-col gap-4">
           <Link href="/" className="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-white">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#8b5cf6] text-white shadow-lg shadow-accent/20">
-              M
-            </span>
+            <Image 
+              src="/logo.jpg" 
+              alt="Magnivel Technologies Logo" 
+              width={32} 
+              height={32} 
+              className="rounded-full object-cover shadow-md shadow-accent/10" 
+            />
             <span className="font-sans">
               Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent">Technologies</span>
             </span>

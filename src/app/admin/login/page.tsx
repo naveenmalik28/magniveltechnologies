@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { AdminLoginForm } from "@/components/admin-login";
 import { requireAdminFromCookies } from "@/lib/auth";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = { title: "Admin Portal | Magnivel Technologies" };
 export const dynamic = "force-dynamic";
@@ -19,9 +20,13 @@ export default async function AdminLoginPage() {
         {/* Brand Header */}
         <div className="text-center flex flex-col items-center gap-3">
           <Link href="/" className="group inline-flex items-center gap-2.5 text-2xl font-extrabold tracking-tight text-white">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-[#8b5cf6] text-white shadow-lg shadow-accent/25">
-              M
-            </span>
+            <Image 
+              src="/logo.jpg" 
+              alt="Magnivel Technologies Logo" 
+              width={40} 
+              height={40} 
+              className="rounded-full object-cover shadow-lg shadow-accent/20" 
+            />
             <span>
               Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent">Technologies</span>
             </span>
