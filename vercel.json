@@ -1,7 +1,7 @@
 {
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "installCommand": "npm install && npm run db:push",
+  "installCommand": "npm install && npm run db:push && npm run seed:admin",
   "env": {
     "NODE_ENV": "production"
   },
