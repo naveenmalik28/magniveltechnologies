@@ -4,6 +4,58 @@ import { validateLogin } from "@/lib/validation";
 
 export const dynamic = "force-dynamic";
 
+function getErrorCode(error: unknown) {
+  return typeof error === "object" && error !== null && "code" in error
+    ? String((error as { code?: unknown }).code)
+    : "";
+}
+
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : String(error);
+}
+
+function loginFailureResponse(error: unknown) {
+  const code = getErrorCode(error);
+  const message = getErrorMessage(error);
+
+  if (message.includes("JWT_SECRET is not configured")) {
+    console.error("Admin login configuration error: JWT_SECRET is missing");
+    return NextResponse.json(
+      { message: "Server authentication is not configured. Please set JWT_SECRET in Vercel." },
+      { status: 500 },
+    );
+  }
+
+  if (message.includes("is not configured")) {
+    console.error("Admin login configuration error:", message);
+    return NextResponse.json(
+      { message: "Database is not configured. Please check Vercel environment variables." },
+      { status: 500 },
+    );
+  }
+
+  if (code === "ER_NO_SUCH_TABLE") {
+    console.error("Admin login database error: admins table is missing");
+    return NextResponse.json(
+      { message: "Admin table is missing. Please run schema.sql and seed the admin user." },
+      { status: 500 },
+    );
+  }
+
+  if (
+    ["ECONNREFUSED", "ETIMEDOUT", "ENOTFOUND", "ER_ACCESS_DENIED_ERROR", "ER_BAD_DB_ERROR"].includes(code)
+  ) {
+    console.error("Admin login database connection error:", code, message);
+    return NextResponse.json(
+      { message: "Database connection failed. Please check MySQL host, user, password, database, and remote access." },
+      { status: 503 },
+    );
+  }
+
+  console.error("Admin login failed", error);
+  return NextResponse.json({ message: "Unable to sign in right now." }, { status: 500 });
+}
+
 export async function POST(request: Request) {
   try {
     let body: unknown;
@@ -24,7 +76,6 @@ export async function POST(request: Request) {
     response.cookies.set({ ...adminCookieOptions(), value: token });
     return response;
   } catch (error) {
-    console.error("Admin login failed", error);
-    return NextResponse.json({ message: "Unable to sign in right now." }, { status: 500 });
+    return loginFailureResponse(error);
   }
 }
