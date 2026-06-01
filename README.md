@@ -1,0 +1,37 @@
+# Magnivel Technologies
+
+Production-ready Next.js App Router website for Magnivel Technologies.
+
+## Stack
+
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- MySQL via `mysql2`
+- JWT admin auth with `jose`
+- Password hashing with `bcryptjs`
+- Email via Nodemailer and Hostinger SMTP
+
+## Setup
+
+Create a `.env.local` file from `.env.example`, then install and run:
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Database
+
+Run the SQL in `schema.sql` on the Hostinger MySQL database.
+
+Admin passwords must be stored as bcrypt hashes in the `admins.password` column.
+
+## Production
+
+```bash
+npm run build
+npm run start
+```
