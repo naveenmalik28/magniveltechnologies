@@ -29,6 +29,14 @@ Run the SQL in `schema.sql` on the Hostinger MySQL database.
 
 Admin passwords must be stored as bcrypt hashes in the `admins.password` column.
 
+Create the default admin after configuring `.env.local`:
+
+```bash
+ADMIN_SEED_PASSWORD="your-admin-password" npm run seed:admin
+```
+
+The seed script hashes the password with bcrypt cost 12 and skips creation when `ADMIN_EMAIL` already exists.
+
 ## Production
 
 ```bash

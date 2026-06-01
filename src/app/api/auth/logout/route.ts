@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { adminCookieName } from "@/lib/auth";
+import { adminCookieOptions } from "@/lib/auth";
 
 export async function POST() {
   const response = NextResponse.json({ message: "Signed out." });
-  response.cookies.set(adminCookieName, "", { path: "/", maxAge: 0 });
+  response.cookies.set({ ...adminCookieOptions(), value: "", maxAge: 0 });
   return response;
 }

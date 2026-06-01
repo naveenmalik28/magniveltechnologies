@@ -21,11 +21,15 @@ export async function POST(request: Request) {
       lead,
     );
 
-    await sendLeadEmails(lead);
+    try {
+      await sendLeadEmails(lead);
+    } catch (emailError) {
+      console.error("Lead saved, but email delivery failed", emailError);
+    }
 
     return NextResponse.json({ message: "Thank you. Your inquiry has been received." });
   } catch (error) {
-    console.error("Contact form failed", error);
+    console.error("Contact form database submission failed", error);
     return NextResponse.json({ message: "Unable to submit inquiry right now." }, { status: 500 });
   }
 }

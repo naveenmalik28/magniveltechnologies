@@ -9,6 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "seed:admin": "node scripts/seed-admin.mjs",
     "lint": "eslint"
   },
   "dependencies": {
