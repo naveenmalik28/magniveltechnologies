@@ -131,7 +131,8 @@ const jsonLd = {
   },
   sameAs: [
     "https://twitter.com/magnivelinc",
-    "https://linkedin.com/company/magnivel-technologies",
+    "https://www.linkedin.com/company/magnivel-technologies",
+    "https://www.instagram.com/magniveltechnologies",
     "https://github.com/magnivel",
   ],
 };

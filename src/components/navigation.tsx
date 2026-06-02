@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
+import { Icon } from "@/components/icon";
 
 const links = [
   ["About", "/about"],
@@ -16,6 +17,11 @@ const serviceLinks = [
   "Mobile App Development",
   "SaaS Development",
   "AI Solutions",
+];
+
+const socialLinks = [
+  { label: "LinkedIn", href: site.socials.linkedin, icon: "linkedin" },
+  { label: "Instagram", href: site.socials.instagram, icon: "instagram" },
 ];
 
 export function Navigation() {
@@ -79,6 +85,24 @@ export function Footer() {
           <p className="max-w-sm text-sm text-muted leading-relaxed">
             High-performance websites, custom web applications, mobile experiences, and secure SaaS/AI integrations structured for speed, stability, and growth.
           </p>
+          <div className="flex flex-col gap-3 pt-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-white">Follow Us</p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow Magnivel Technologies on ${social.label}`}
+                  title={social.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-subtle-border bg-background text-muted transition-all hover:-translate-y-0.5 hover:border-accent/60 hover:text-white hover:shadow-lg hover:shadow-accent/10"
+                >
+                  <Icon name={social.icon} size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="flex flex-col gap-4 text-sm text-muted">
           <p className="font-semibold text-white tracking-wide uppercase text-xs">Contact & Support</p>

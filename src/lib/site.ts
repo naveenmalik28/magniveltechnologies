@@ -6,6 +6,10 @@ export const site = {
   tagline: "Building AI-Powered Websites, Applications & SaaS Platforms",
   description:
     "We help startups, businesses and enterprises build scalable digital products that drive growth and innovation.",
+  socials: {
+    linkedin: "https://www.linkedin.com/company/magnivel-technologies",
+    instagram: "https://www.instagram.com/magniveltechnologies",
+  },
 };
 
 /* ─── Services ─── */
