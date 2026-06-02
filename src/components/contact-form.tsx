@@ -50,8 +50,18 @@ export function ContactForm() {
         <Field name="email" label="Email Address" type="email" placeholder="john@example.com" />
         <Field name="phone" label="Phone Number" placeholder="+91 99999 99999" />
         <Field name="companyName" label="Company Name" required={false} placeholder="Optional" />
-        <Select name="serviceType" label="Service Required" options={serviceOptions} />
-        <Select name="budget" label="Project Budget" options={budgets} />
+        <Select
+          name="serviceType"
+          label="Service Required"
+          placeholder="Select Service"
+          options={serviceOptions}
+        />
+        <Select
+          name="budget"
+          label="Project Budget"
+          placeholder="Select Project Budget"
+          options={budgets}
+        />
       </div>
       
       <label className="grid gap-2 text-sm font-medium text-muted">
@@ -123,25 +133,49 @@ function Field({
   );
 }
 
-function Select({ name, label, options }: { name: string; label: string; options: string[] }) {
+function Select({
+  name,
+  label,
+  placeholder,
+  options,
+}: {
+  name: string;
+  label: string;
+  placeholder: string;
+  options: string[];
+}) {
   return (
     <label className="grid gap-2 text-sm font-medium text-muted">
       <span>{label} <span className="text-accent">*</span></span>
-      <select
-        name={name}
-        required
-        defaultValue=""
-        className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
-      >
-        <option value="" disabled className="bg-surface text-muted">
-          Select budget / service
-        </option>
-        {options.map((option) => (
-          <option key={option} value={option} className="bg-surface text-white">
-            {option}
+      <span className="relative">
+        <select
+          name={name}
+          required
+          defaultValue=""
+          className="w-full appearance-none rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 pr-10 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+        >
+          <option value="" disabled className="bg-surface text-muted">
+            {placeholder}
           </option>
-        ))}
-      </select>
+          {options.map((option) => (
+            <option key={option} value={option} className="bg-surface text-white">
+              {option}
+            </option>
+          ))}
+        </select>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-dimmed"
+        >
+          <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </span>
+      </span>
     </label>
   );
 }

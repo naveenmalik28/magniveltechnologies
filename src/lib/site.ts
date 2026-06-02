@@ -168,10 +168,14 @@ export const techCategories = [
 
 /* ─── Form Options (must match validation.ts) ─── */
 export const budgets = [
-  "Under Rs 50,000",
-  "Rs 50,000 - Rs 1,00,000",
-  "Rs 1,00,000 - Rs 5,00,000",
-  "Above Rs 5,00,000",
+  "Under ₹25,000",
+  "₹25,000 - ₹50,000",
+  "₹50,000 - ₹1,00,000",
+  "₹1,00,000 - ₹3,00,000",
+  "₹3,00,000 - ₹5,00,000",
+  "₹5,00,000 - ₹10,00,000",
+  "Above ₹10,00,000",
+  "Let's Discuss",
 ];
 
 export const serviceOptions = [
