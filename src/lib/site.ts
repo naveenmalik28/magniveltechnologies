@@ -110,11 +110,17 @@ export const services = [
 export const technologies = [
   "React",
   "Next.js",
+  "Angular",
+  "JavaScript",
   "TypeScript",
   "Tailwind CSS",
   "Node.js",
+  "Express.js",
   "Python",
+  "Django",
+  "FastAPI",
   "PostgreSQL",
+  "MySQL",
   "MongoDB",
   "AWS",
   "Docker",
@@ -128,21 +134,21 @@ export const techCategories = [
     icon: "monitor" as const,
     description:
       "Modern frameworks for building responsive, high-performance user interfaces.",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5 / CSS3"],
+    items: ["React", "Next.js", "Angular", "JavaScript", "TypeScript", "Tailwind CSS", "HTML5 / CSS3"],
   },
   {
     name: "Backend",
     icon: "server" as const,
     description:
       "Scalable server-side technologies for robust APIs and services.",
-    items: ["Node.js", "Python", "Express", "FastAPI", "GraphQL"],
+    items: ["Node.js", "Express.js", "Python", "Django", "FastAPI", "GraphQL"],
   },
   {
     name: "Database",
     icon: "database" as const,
     description:
       "Reliable data storage solutions for every scale and use case.",
-    items: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "Supabase"],
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma ORM", "Supabase"],
   },
   {
     name: "Cloud & DevOps",
@@ -268,7 +274,7 @@ export const faqs = [
   {
     question: "What technologies do you specialize in?",
     answer:
-      "Our core stack includes React, Next.js, TypeScript, Node.js, Python, PostgreSQL, and AWS. We also work with MongoDB, Redis, Docker, and AI technologies like OpenAI and LangChain. We choose the best tools for each project\u2019s specific requirements.",
+      "Our core stack includes React, Next.js, Angular, JavaScript, TypeScript, Node.js, Express.js, Python, Django, FastAPI, PostgreSQL, MySQL, MongoDB, and AWS. We also work with Redis, Docker, Prisma, and AI technologies like OpenAI and LangChain. We choose the best tools for each project\u2019s specific requirements.",
   },
   {
     question: "How much does a typical project cost?",
