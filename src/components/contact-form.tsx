@@ -48,7 +48,7 @@ export function ContactForm() {
   return (
     <form 
       onSubmit={onSubmit} 
-      className="grid gap-5 rounded-xl border border-subtle-border bg-surface/50 p-6 sm:p-8 backdrop-blur-md shadow-2xl relative glow-card"
+      className="glow-card grid gap-5 p-6 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <Field name="fullName" label="Full Name" placeholder="John Doe" />
@@ -84,7 +84,7 @@ export function ContactForm() {
         </div>
       </div>
       
-      <label className="grid gap-2 text-sm font-medium text-muted">
+      <label className="grid gap-2 text-sm font-semibold text-heading">
         <span>Project Description <span className="text-accent">*</span></span>
         <textarea
           name="message"
@@ -92,13 +92,13 @@ export function ContactForm() {
           minLength={20}
           rows={5}
           placeholder="Tell us what you want to build (min 20 characters)..."
-          className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all resize-none"
+          className="rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-heading outline-none transition-all placeholder:text-dimmed focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
         />
       </label>
 
       <button
         disabled={state === "loading"}
-        className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-[#8b5cf6] px-5 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 disabled:transform-none disabled:shadow-none"
+        className="btn-primary mt-2 w-full py-3.5 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {state === "loading" ? (
           <>
@@ -116,8 +116,8 @@ export function ContactForm() {
       {message ? (
         <div className={`mt-3 text-center p-3 rounded-lg border text-sm font-medium ${
           state === "error" 
-            ? "bg-red-950/20 border-red-500/20 text-red-400" 
-            : "bg-emerald-950/20 border-emerald-500/20 text-emerald-400"
+            ? "bg-red-50 border-red-200 text-red-700" 
+            : "bg-emerald-50 border-emerald-200 text-emerald-700"
         }`}>
           {message}
         </div>
@@ -140,14 +140,14 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-muted">
+    <label className="grid gap-2 text-sm font-semibold text-heading">
       <span>{label} {required && <span className="text-accent">*</span>}</span>
       <input
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
-        className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all"
+        className="rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-heading outline-none transition-all placeholder:text-dimmed focus:border-accent focus:ring-2 focus:ring-accent/15"
       />
     </label>
   );
@@ -169,7 +169,7 @@ function Select({
   onChange?: (value: string) => void;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-muted">
+    <label className="grid gap-2 text-sm font-semibold text-heading">
       <span>{label} <span className="text-accent">*</span></span>
       <span className="relative transition-all duration-300 ease-out">
         <select
@@ -178,13 +178,13 @@ function Select({
           value={value}
           defaultValue={value === undefined ? "" : undefined}
           onChange={(event) => onChange?.(event.target.value)}
-          className="w-full appearance-none rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 pr-10 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+          className="w-full appearance-none rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 pr-10 text-heading outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/15"
         >
-          <option value="" disabled className="bg-surface text-muted">
+          <option value="" disabled className="bg-white text-muted">
             {placeholder}
           </option>
           {options.map((option) => (
-            <option key={option} value={option} className="bg-surface text-white">
+            <option key={option} value={option} className="bg-white text-heading">
               {option}
             </option>
           ))}

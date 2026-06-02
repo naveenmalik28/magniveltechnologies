@@ -3,180 +3,136 @@ export const site = {
   url: "https://magnivel.com",
   email: "contact@magnivel.com",
   phone: "+91 00000 00000",
-  tagline: "Building AI-Powered Websites, Applications & SaaS Platforms",
+  tagline: "Transforming ideas into powerful digital solutions",
   description:
-    "We help startups, businesses and enterprises build scalable digital products that drive growth and innovation.",
+    "Magnivel Technologies builds scalable websites, mobile apps, AI-powered platforms, cloud systems, and custom software for businesses worldwide.",
   socials: {
     linkedin: "https://www.linkedin.com/company/magnivel-technologies",
     instagram: "https://www.instagram.com/magniveltechnologies",
   },
 };
 
-/* ─── Services ─── */
 export const services = [
   {
-    title: "Website Development",
+    title: "Web Development",
     icon: "globe" as const,
     description:
-      "High-performance, SEO-optimized websites designed to convert visitors into qualified leads and establish market credibility.",
-    features: [
-      "SEO-ready architecture",
-      "CMS-friendly structure",
-      "Core Web Vitals optimization",
-      "Conversion-focused design",
-      "Mobile-first responsive",
-    ],
+      "Custom business websites, portals, and enterprise applications built for performance, SEO, and qualified lead generation.",
+    features: ["SEO-ready architecture", "Core Web Vitals optimization", "Responsive UI", "Lead capture flows", "CMS-friendly structure"],
     benefits:
-      "Launch a credible web presence that supports paid ads, organic search, and sales outreach with measurable ROI.",
-  },
-  {
-    title: "Web Application Development",
-    icon: "code" as const,
-    description:
-      "Secure, scalable web applications for operations, customer portals, and complex business workflows.",
-    features: [
-      "Role-based access control",
-      "Real-time data sync",
-      "Third-party API integrations",
-      "Production-grade security",
-      "Automated testing",
-    ],
-    benefits:
-      "Replace manual processes with reliable software that your team can use every day, reducing costs and errors.",
+      "Launch a credible web presence that supports organic search, paid campaigns, and sales outreach with measurable ROI.",
   },
   {
     title: "Mobile App Development",
     icon: "smartphone" as const,
     description:
-      "Native and cross-platform mobile experiences for customer engagement, internal tools, and on-the-go productivity.",
-    features: [
-      "Cross-platform development",
-      "Offline-first architecture",
-      "Push notifications",
-      "Biometric authentication",
-      "App Store optimization",
-    ],
+      "Android, iOS, and cross-platform applications for customer engagement, internal tools, and mobile-first workflows.",
+    features: ["Cross-platform builds", "Offline-ready flows", "Push notifications", "Secure authentication", "App Store support"],
     benefits:
-      "Bring your service closer to users with intuitive mobile access that drives engagement and retention.",
+      "Bring your service closer to users with intuitive mobile access that improves engagement and retention.",
   },
   {
-    title: "SaaS Development",
-    icon: "layers" as const,
-    description:
-      "Full-stack SaaS platforms with multi-tenancy, subscriptions, analytics dashboards, and scalable infrastructure.",
-    features: [
-      "Multi-tenant architecture",
-      "Subscription billing",
-      "Usage analytics",
-      "Admin dashboards",
-      "API-first design",
-    ],
-    benefits:
-      "Move from idea to recurring-revenue product with a maintainable, scalable foundation built for growth.",
-  },
-  {
-    title: "AI Solutions",
+    title: "AI & Automation",
     icon: "sparkles" as const,
     description:
-      "Practical AI integrations for intelligent automation, knowledge systems, conversational interfaces, and data-driven insights.",
-    features: [
-      "AI-powered chatbots",
-      "Workflow automation",
-      "Document processing",
-      "Predictive analytics",
-      "Custom model training",
-    ],
+      "AI agents, chatbots, workflow automation, RAG systems, document intelligence, and business insight tools.",
+    features: ["AI chatbots", "Workflow automation", "Document processing", "Business intelligence", "RAG systems"],
     benefits:
-      "Use AI where it saves time, improves service quality, and creates measurable competitive advantage.",
+      "Apply AI where it saves time, improves service quality, and creates practical competitive advantage.",
   },
   {
     title: "Custom Software Development",
-    icon: "wrench" as const,
+    icon: "code" as const,
     description:
-      "Bespoke software solutions tailored to your unique business processes that off-the-shelf tools cannot accommodate.",
-    features: [
-      "Requirements discovery",
-      "Custom architecture design",
-      "Legacy system integration",
-      "Data migration",
-      "Long-term maintenance",
-    ],
+      "Tailor-made software solutions for unique business processes, internal operations, and enterprise workflows.",
+    features: ["Requirements discovery", "Role-based access", "API integrations", "Data migration", "Long-term maintenance"],
     benefits:
-      "Own software shaped around your actual business needs, not a generic template that forces compromise.",
+      "Replace manual work with reliable software that matches your actual business process instead of forcing compromise.",
+  },
+  {
+    title: "E-Commerce Solutions",
+    icon: "layers" as const,
+    description:
+      "Online stores, marketplaces, checkout systems, and secure payment integrations designed to convert.",
+    features: ["Product catalogs", "Secure payments", "Inventory workflows", "Order dashboards", "Performance tuning"],
+    benefits:
+      "Launch a reliable commerce experience that makes buying simple and operations manageable.",
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: "cloud" as const,
+    description:
+      "Scalable cloud infrastructure, CI/CD pipelines, monitoring, and deployment systems for growing products.",
+    features: ["Cloud deployment", "CI/CD automation", "Docker environments", "Monitoring setup", "Scalable architecture"],
+    benefits:
+      "Keep your application fast, secure, observable, and ready for traffic growth.",
   },
 ];
 
-/* ─── Technologies ─── */
 export const technologies = [
   "React",
   "Next.js",
   "Angular",
-  "JavaScript",
-  "TypeScript",
-  "Tailwind CSS",
+  "Vue.js",
   "Node.js",
   "Express.js",
   "Python",
   "Django",
-  "FastAPI",
+  "Laravel",
   "PostgreSQL",
   "MySQL",
   "MongoDB",
   "AWS",
+  "Vercel",
   "Docker",
-  "Redis",
-  "Prisma",
+  "OpenAI",
+  "LangChain",
+  "RAG Systems",
 ];
 
 export const techCategories = [
   {
     name: "Frontend",
     icon: "monitor" as const,
-    description:
-      "Modern frameworks for building responsive, high-performance user interfaces.",
-    items: ["React", "Next.js", "Angular", "JavaScript", "TypeScript", "Tailwind CSS", "HTML5 / CSS3"],
+    description: "Modern frameworks for responsive, high-performance user interfaces.",
+    items: ["React", "Next.js", "Angular", "Vue.js", "TypeScript", "Tailwind CSS"],
   },
   {
     name: "Backend",
     icon: "server" as const,
-    description:
-      "Scalable server-side technologies for robust APIs and services.",
-    items: ["Node.js", "Express.js", "Python", "Django", "FastAPI", "GraphQL"],
+    description: "Scalable server-side technologies for robust APIs and services.",
+    items: ["Node.js", "Express.js", "Python", "Django", "Laravel", "GraphQL"],
   },
   {
-    name: "Database",
+    name: "Databases",
     icon: "database" as const,
-    description:
-      "Reliable data storage solutions for every scale and use case.",
+    description: "Reliable data storage for transactional, analytical, and document-based systems.",
     items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma ORM", "Supabase"],
   },
   {
     name: "Cloud & DevOps",
     icon: "cloud" as const,
-    description:
-      "Enterprise-grade infrastructure for deployment and scaling.",
+    description: "Infrastructure, deployment, and observability tooling for production applications.",
     items: ["AWS", "Vercel", "Docker", "GitHub Actions", "Cloudflare"],
   },
   {
-    name: "AI & ML",
+    name: "AI",
     icon: "brain" as const,
-    description:
-      "Cutting-edge AI technologies for intelligent automation.",
-    items: ["OpenAI", "LangChain", "Pinecone", "TensorFlow", "Hugging Face"],
+    description: "Applied AI tools for automation, agents, knowledge systems, and analytics.",
+    items: ["OpenAI", "LangChain", "RAG Systems", "Vector Search", "Hugging Face"],
   },
 ];
 
-/* ─── Form Options (must match validation.ts) ─── */
 export const clientRegions = ["India", "International"];
 
 export const budgets = [
-  "Under ₹25,000",
-  "₹25,000 - ₹50,000",
-  "₹50,000 - ₹1,00,000",
-  "₹1,00,000 - ₹3,00,000",
-  "₹3,00,000 - ₹5,00,000",
-  "₹5,00,000 - ₹10,00,000",
-  "Above ₹10,00,000",
+  "Under INR 25,000",
+  "INR 25,000 - INR 50,000",
+  "INR 50,000 - INR 1,00,000",
+  "INR 1,00,000 - INR 3,00,000",
+  "INR 3,00,000 - INR 5,00,000",
+  "INR 5,00,000 - INR 10,00,000",
+  "Above INR 10,00,000",
   "Let's Discuss",
 ];
 
@@ -192,172 +148,165 @@ export const internationalBudgets = [
 ];
 
 export const serviceOptions = [
-  "Website Development",
-  "Web Application Development",
+  "Web Development",
   "Mobile App Development",
-  "SaaS Development",
-  "AI Integration",
+  "AI & Automation",
   "Custom Software Development",
+  "E-Commerce Solutions",
+  "Cloud & DevOps",
 ];
 
-/* ─── Portfolio Projects ─── */
 export const projects = [
   {
     title: "B2B Lead Generation Platform",
-    category: "Website Development",
+    category: "Web Development",
     description:
-      "A high-conversion agency website with SEO-optimized landing pages, intelligent lead capture, and real-time analytics dashboard. Achieved 3x increase in qualified leads.",
+      "A conversion-focused agency website with SEO landing pages, intelligent lead capture, and analytics. Qualified inquiries increased by 3x.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
   },
   {
     title: "Enterprise Operations Dashboard",
-    category: "Web Application",
+    category: "Custom Software",
     description:
-      "Role-based operations platform for tracking customers, workflows, and team performance with automated reporting. Reduced manual work by 60%.",
+      "Role-based operations platform for tracking customers, workflows, and team performance with automated reporting. Manual work dropped by 60%.",
     stack: ["React", "Node.js", "PostgreSQL", "Redis"],
   },
   {
     title: "AI-Powered Support System",
-    category: "AI Solutions",
+    category: "AI & Automation",
     description:
-      "Knowledge-assisted support platform with AI routing, automated response drafting, and sentiment analysis. Cut response times by 75%.",
+      "Knowledge-assisted support platform with AI routing, response drafting, and sentiment analysis. Response times dropped by 75%.",
     stack: ["Next.js", "OpenAI", "Python", "AWS"],
   },
   {
     title: "Multi-Tenant SaaS Platform",
-    category: "SaaS Development",
+    category: "SaaS",
     description:
-      "Subscription-based project management SaaS with real-time collaboration, billing integration, and analytics. Scaled to 500+ active teams.",
+      "Subscription-based collaboration platform with billing, dashboards, analytics, and scalable tenant architecture.",
     stack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
   },
   {
     title: "Healthcare Appointment System",
     category: "Custom Software",
     description:
-      "HIPAA-compliant appointment scheduling and telemedicine platform with patient portals, video consultations, and automated reminders.",
+      "Secure appointment scheduling and telemedicine workflow with patient portals, reminders, and admin controls.",
     stack: ["React", "Node.js", "WebRTC", "MongoDB"],
   },
   {
     title: "E-Commerce Mobile App",
     category: "Mobile App Development",
     description:
-      "Cross-platform shopping app with personalized recommendations, real-time inventory, push notifications, and seamless checkout flow.",
+      "Cross-platform shopping app with recommendations, real-time inventory, push notifications, and streamlined checkout.",
     stack: ["React Native", "Node.js", "Stripe", "Firebase"],
   },
 ];
 
-/* ─── Testimonials ─── */
 export const testimonials = [
   {
     name: "Rajesh Kumar",
     role: "CEO & Founder",
     company: "TechVentures India",
-    text: "Magnivel Technologies transformed our digital presence completely. Their team delivered a stunning SaaS platform that exceeded our expectations in both design and performance. The attention to detail was remarkable.",
+    text: "Magnivel Technologies transformed our digital presence. Their team delivered a strong platform with impressive design, speed, and attention to detail.",
     rating: 5,
   },
   {
     name: "Sarah Mitchell",
     role: "Head of Product",
     company: "DataFlow Systems",
-    text: "Working with Magnivel was a game-changer. They built our operations dashboard in record time with exceptional quality. The AI integration they implemented saved our team 20+ hours per week.",
+    text: "Working with Magnivel was excellent. They built our operations dashboard quickly, and the AI automation saved our team many hours each week.",
     rating: 5,
   },
   {
     name: "Amit Patel",
     role: "CTO",
     company: "CloudNine Labs",
-    text: "The technical expertise at Magnivel is outstanding. They architected our multi-tenant SaaS from scratch and it scaled beautifully. Their code quality and documentation set a new standard for our team.",
+    text: "Their technical execution is outstanding. Magnivel architected our SaaS platform from scratch and gave us a clean foundation for scale.",
     rating: 5,
   },
 ];
 
-/* ─── FAQ ─── */
 export const faqs = [
   {
-    question: "How long does it take to build a website or application?",
+    question: "Why choose Magnivel Technologies?",
     answer:
-      "Project timelines depend on scope and complexity. A standard business website takes 2-4 weeks, web applications 4-8 weeks, and full SaaS platforms 8-16 weeks. We provide a detailed timeline and milestones during the discovery phase so you always know what to expect.",
+      "Magnivel Technologies combines product strategy, UI/UX design, clean engineering, and transparent communication to deliver scalable digital products with long-term support.",
   },
   {
-    question: "What is your development process?",
+    question: "How much does web development cost?",
     answer:
-      "We follow an agile methodology with five key phases: Discovery (requirements gathering), Design (UI/UX prototyping), Development (iterative coding sprints), Testing (QA and performance optimization), and Launch (deployment and monitoring). You receive regular updates and demos throughout.",
+      "Project cost depends on scope, features, integrations, and timeline. We provide a clear quote after a free consultation and discovery discussion.",
   },
   {
-    question: "Do you provide ongoing support after launch?",
+    question: "Do you provide mobile app development?",
     answer:
-      "Absolutely. We offer flexible maintenance and support plans that include bug fixes, security updates, performance monitoring, feature enhancements, and 24/7 emergency support. We treat every project as a long-term partnership.",
+      "Yes. We build Android, iOS, and cross-platform mobile applications for customer-facing products and internal business tools.",
   },
   {
-    question: "What technologies do you specialize in?",
+    question: "Can you build AI-powered applications?",
     answer:
-      "Our core stack includes React, Next.js, Angular, JavaScript, TypeScript, Node.js, Express.js, Python, Django, FastAPI, PostgreSQL, MySQL, MongoDB, and AWS. We also work with Redis, Docker, Prisma, and AI technologies like OpenAI and LangChain. We choose the best tools for each project\u2019s specific requirements.",
+      "Yes. We build AI agents, chatbots, RAG systems, workflow automation, document processing tools, and analytics solutions.",
   },
   {
-    question: "How much does a typical project cost?",
+    question: "Do you provide support after launch?",
     answer:
-      "Project costs vary based on scope, features, and complexity. Business websites start from \u20B950,000, web applications from \u20B91,00,000, and SaaS platforms from \u20B95,00,000. We provide detailed, transparent quotes after understanding your requirements during a free consultation.",
-  },
-  {
-    question: "Can you work with our existing team?",
-    answer:
-      "Yes, we offer flexible engagement models. We can work as your dedicated development team, augment your existing team with specialized skills, or handle specific project phases. We adapt to your workflow and communication preferences.",
-  },
-  {
-    question: "Do you sign NDAs and ensure data security?",
-    answer:
-      "Yes, we sign NDAs before every engagement and follow industry-standard security practices. All code is developed in private repositories, sensitive data is encrypted, and we follow OWASP security guidelines. Your intellectual property is always protected.",
+      "Yes. We offer ongoing support, maintenance, monitoring, bug fixes, security updates, and growth-focused feature improvements.",
   },
 ];
 
-/* ─── Development Process ─── */
 export const processSteps = [
   {
     step: 1,
-    title: "Discovery",
-    description:
-      "Deep dive into your business goals, target audience, and technical requirements through structured consultations.",
+    title: "Discovery & Strategy",
+    description: "Clarify goals, users, workflows, technical needs, timeline, and success metrics before production begins.",
     icon: "search" as const,
   },
   {
     step: 2,
-    title: "Design",
-    description:
-      "Create wireframes, prototypes, and high-fidelity designs that align with your brand and optimize user experience.",
+    title: "UI/UX Design",
+    description: "Create wireframes and polished interfaces that make the product clear, useful, and conversion-focused.",
     icon: "palette" as const,
   },
   {
     step: 3,
-    title: "Develop",
-    description:
-      "Build your product using modern technologies with clean architecture, automated testing, and iterative reviews.",
+    title: "Agile Development",
+    description: "Build in focused sprints with clean components, scalable architecture, and regular delivery reviews.",
     icon: "code" as const,
   },
   {
     step: 4,
-    title: "Test & Optimize",
-    description:
-      "Rigorous quality assurance, performance optimization, security audits, and cross-device compatibility testing.",
+    title: "Testing & QA",
+    description: "Validate performance, responsiveness, security, forms, APIs, and cross-device behavior before launch.",
     icon: "shield" as const,
   },
   {
     step: 5,
-    title: "Launch & Scale",
-    description:
-      "Deploy to production with monitoring, analytics, and ongoing support to ensure continuous growth and stability.",
+    title: "Deployment & Support",
+    description: "Deploy with monitoring, analytics, documentation, and ongoing improvements for product growth.",
     icon: "rocket" as const,
   },
 ];
 
-/* ─── Stats ─── */
 export const stats = [
   { value: "50+", label: "Projects Delivered" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "24/7", label: "Support Available" },
-  { value: "5+", label: "Years Experience" },
+  { value: "20+", label: "Happy Clients" },
+  { value: "99.9%", label: "System Reliability" },
+  { value: "24/7", label: "Support" },
+  { value: "5+", label: "Technology Domains" },
 ];
 
-/* ─── Trusted By ─── */
+export const industries = [
+  "Healthcare",
+  "Education",
+  "Publishing",
+  "Finance",
+  "Real Estate",
+  "Logistics",
+  "Manufacturing",
+  "SaaS",
+  "E-Commerce",
+  "Startups",
+];
+
 export const trustedBy = [
   "TechVentures",
   "DataFlow Systems",
