@@ -35,6 +35,14 @@ function contactFailureResponse(error: unknown) {
     );
   }
 
+  if (code === "P2022") {
+    console.error("Contact form database error: a leads column is missing");
+    return NextResponse.json(
+      { message: "Database schema is out of date. Please run migrations on your Vercel environment." },
+      { status: 500 },
+    );
+  }
+
   if (["P1000", "P1001", "P1002", "P1003"].includes(code)) {
     console.error("Contact form database connection error:", code, message);
     return NextResponse.json(
@@ -68,6 +76,7 @@ export async function POST(request: Request) {
         email: lead.email,
         phone: lead.phone,
         company_name: lead.companyName || null,
+        client_region: lead.clientRegion,
         service_type: lead.serviceType,
         budget: lead.budget,
         message: lead.message,

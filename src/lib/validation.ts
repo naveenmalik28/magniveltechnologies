@@ -1,10 +1,11 @@
-import { budgets, serviceOptions } from "./site";
+import { budgets, clientRegions, internationalBudgets, serviceOptions } from "./site";
 
 export type ContactInput = {
   fullName: string;
   email: string;
   phone: string;
   companyName: string;
+  clientRegion: string;
   serviceType: string;
   budget: string;
   message: string;
@@ -28,6 +29,7 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
     email: clean(body.email).toLowerCase(),
     phone: clean(body.phone),
     companyName: clean(body.companyName),
+    clientRegion: clean(body.clientRegion),
     serviceType: clean(body.serviceType),
     budget: clean(body.budget),
     message: clean(body.message),
@@ -36,8 +38,10 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
   if (data.fullName.length < 2) return { error: "Full name is required." };
   if (!emailPattern.test(data.email)) return { error: "A valid email is required." };
   if (data.phone.length < 7) return { error: "A valid phone number is required." };
+  if (!clientRegions.includes(data.clientRegion)) return { error: "Please select a valid client region." };
   if (!serviceOptions.includes(data.serviceType)) return { error: "Please select a valid service." };
-  if (!budgets.includes(data.budget)) return { error: "Please select a valid budget." };
+  const validBudgets = data.clientRegion === "International" ? internationalBudgets : budgets;
+  if (!validBudgets.includes(data.budget)) return { error: "Please select a valid project budget." };
   if (data.message.length < 20) return { error: "Project description must be at least 20 characters." };
   if (data.message.length > 3000) return { error: "Project description is too long." };
 

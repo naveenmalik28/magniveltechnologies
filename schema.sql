@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS leads (
   email VARCHAR(255) NOT NULL,
   phone VARCHAR(50) NOT NULL,
   company_name VARCHAR(255),
+  client_region VARCHAR(30) NOT NULL DEFAULT 'India',
   service_type VARCHAR(100) NOT NULL,
   budget VARCHAR(100) NOT NULL,
   message TEXT NOT NULL,

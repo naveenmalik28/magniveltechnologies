@@ -77,6 +77,7 @@ export default async function AdminLeadsPage({
               <tr>
                 <th className="px-6 py-4">Client Name</th>
                 <th className="px-6 py-4">Required Service</th>
+                <th className="px-6 py-4">Client Region</th>
                 <th className="px-6 py-4">Project Budget</th>
                 <th className="px-6 py-4">Status Status</th>
                 <th className="px-6 py-4 text-right">Inquiry Date</th>
@@ -98,6 +99,11 @@ export default async function AdminLeadsPage({
                   </td>
                   <td className="px-6 py-4">
                     <span className="font-semibold text-white">{lead.service_type}</span>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span className="rounded-full border border-accent/15 bg-accent-subtle/60 px-2.5 py-1 text-xs font-semibold text-accent-light">
+                      {lead.client_region}
+                    </span>
                   </td>
                   <td className="px-6 py-4 font-mono text-xs text-muted">{lead.budget}</td>
                   <td className="px-6 py-4">
@@ -125,7 +131,7 @@ export default async function AdminLeadsPage({
               ))}
               {!leads.length ? (
                 <tr>
-                  <td className="px-6 py-12 text-center text-muted" colSpan={5}>
+                  <td className="px-6 py-12 text-center text-muted" colSpan={6}>
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-2xl">📁</span>
                       <p className="font-bold">No Inquiries Found</p>

@@ -58,6 +58,7 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
               ["Contact Email", lead.email, "📧"],
               ["Phone Number", lead.phone, "📱"],
               ["Company Group", lead.company_name || "Not provided", "🏢"],
+              ["Client Region", lead.client_region, "Region"],
               ["Required Service", lead.service_type, "🔧"],
               ["Project Budget", lead.budget, "💰"],
             ].map(([label, value, emoji]) => (

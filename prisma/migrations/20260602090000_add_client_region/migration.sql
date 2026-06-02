@@ -1,0 +1,2 @@
+ALTER TABLE "leads"
+ADD COLUMN "client_region" VARCHAR(30) NOT NULL DEFAULT 'India';

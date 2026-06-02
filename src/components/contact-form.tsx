@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { budgets, serviceOptions } from "@/lib/site";
+import { budgets, clientRegions, internationalBudgets, serviceOptions } from "@/lib/site";
 
 type State = "idle" | "loading" | "success" | "error";
 
 export function ContactForm() {
   const [state, setState] = useState<State>("idle");
   const [message, setMessage] = useState("");
+  const [clientRegion, setClientRegion] = useState(clientRegions[0]);
+  const [budget, setBudget] = useState("");
+  const activeBudgets = clientRegion === "International" ? internationalBudgets : budgets;
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -27,6 +30,8 @@ export function ContactForm() {
 
       if (response.ok) {
         form.reset();
+        setClientRegion(clientRegions[0]);
+        setBudget("");
         setState("success");
         setMessage(result.message || "Your inquiry has been sent successfully.");
         return;
@@ -51,17 +56,32 @@ export function ContactForm() {
         <Field name="phone" label="Phone Number" placeholder="+91 99999 99999" />
         <Field name="companyName" label="Company Name" required={false} placeholder="Optional" />
         <Select
+          name="clientRegion"
+          label="Client Region"
+          placeholder="Select Client Region"
+          options={clientRegions}
+          value={clientRegion}
+          onChange={(value) => {
+            setClientRegion(value);
+            setBudget("");
+          }}
+        />
+        <Select
           name="serviceType"
           label="Service Required"
           placeholder="Select Service"
           options={serviceOptions}
         />
-        <Select
-          name="budget"
-          label="Project Budget"
-          placeholder="Select Project Budget"
-          options={budgets}
-        />
+        <div key={clientRegion} className="animate-fade-in">
+          <Select
+            name="budget"
+            label="Project Budget"
+            placeholder="Select Project Budget"
+            options={activeBudgets}
+            value={budget}
+            onChange={setBudget}
+          />
+        </div>
       </div>
       
       <label className="grid gap-2 text-sm font-medium text-muted">
@@ -138,20 +158,26 @@ function Select({
   label,
   placeholder,
   options,
+  value,
+  onChange,
 }: {
   name: string;
   label: string;
   placeholder: string;
   options: string[];
+  value?: string;
+  onChange?: (value: string) => void;
 }) {
   return (
     <label className="grid gap-2 text-sm font-medium text-muted">
       <span>{label} <span className="text-accent">*</span></span>
-      <span className="relative">
+      <span className="relative transition-all duration-300 ease-out">
         <select
           name={name}
           required
-          defaultValue=""
+          value={value}
+          defaultValue={value === undefined ? "" : undefined}
+          onChange={(event) => onChange?.(event.target.value)}
           className="w-full appearance-none rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 pr-10 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
         >
           <option value="" disabled className="bg-surface text-muted">

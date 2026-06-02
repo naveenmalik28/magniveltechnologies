@@ -167,6 +167,8 @@ export const techCategories = [
 ];
 
 /* ─── Form Options (must match validation.ts) ─── */
+export const clientRegions = ["India", "International"];
+
 export const budgets = [
   "Under ₹25,000",
   "₹25,000 - ₹50,000",
@@ -175,6 +177,17 @@ export const budgets = [
   "₹3,00,000 - ₹5,00,000",
   "₹5,00,000 - ₹10,00,000",
   "Above ₹10,00,000",
+  "Let's Discuss",
+];
+
+export const internationalBudgets = [
+  "Under $350",
+  "$350 - $750",
+  "$750 - $1,500",
+  "$1,500 - $3,000",
+  "$3,000 - $5,000",
+  "$5,000 - $10,000",
+  "$10,000+",
   "Let's Discuss",
 ];
 

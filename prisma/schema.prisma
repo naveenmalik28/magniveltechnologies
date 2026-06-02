@@ -22,6 +22,7 @@ model Lead {
   email        String   @db.VarChar(255)
   phone        String   @db.VarChar(50)
   company_name String?  @db.VarChar(255)
+  client_region String   @default("India") @db.VarChar(30)
   service_type String   @db.VarChar(100)
   budget       String   @db.VarChar(100)
   message      String

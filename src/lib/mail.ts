@@ -33,6 +33,7 @@ export async function sendLeadEmails(lead: ContactInput) {
         `Email: ${lead.email}`,
         `Phone: ${lead.phone}`,
         `Company: ${lead.companyName || "Not provided"}`,
+        `Client Region: ${lead.clientRegion}`,
         `Service: ${lead.serviceType}`,
         `Budget: ${lead.budget}`,
         "",
