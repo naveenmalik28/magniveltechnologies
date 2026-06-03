@@ -35,7 +35,7 @@ export default async function AdminDashboardPage() {
         ].map((item) => (
           <div 
             key={item.label} 
-            className={`rounded-xl border bg-gradient-to-br bg-surface p-6 shadow-xl relative overflow-hidden group hover:border-white/10 transition-all duration-300 glow-card`}
+            className={`rounded-xl border bg-linear-to-br bg-surface p-6 shadow-xl relative overflow-hidden group hover:border-white/10 transition-all duration-300 glow-card`}
           >
             <div className="flex justify-between items-start">
               <span className={`flex h-10 w-10 items-center justify-center rounded-lg bg-surface/80 border ${item.color.split(" ")[2]}`}>
@@ -106,7 +106,7 @@ export function AdminFrame({ title, children }: { title: string; children: React
                 className="rounded-full object-cover shadow-sm shadow-accent/15" 
               />
               <span>
-                Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent">Technologies</span>
+                Magnivel <span className="bg-linear-to-r from-accent to-accent-light bg-clip-text text-transparent">Technologies</span>
               </span>
             </Link>
             <span className="text-xs font-semibold px-2 py-0.5 rounded border border-white/10 bg-white/5 text-muted/80 ml-2">
@@ -123,7 +123,7 @@ export function AdminFrame({ title, children }: { title: string; children: React
                 Leads List
               </Link>
             </nav>
-            <div className="h-4 w-[1px] bg-subtle-border/60" />
+            <div className="h-4 w-px bg-subtle-border/60" />
             <LogoutButton />
           </div>
         </div>

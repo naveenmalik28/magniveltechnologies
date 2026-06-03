@@ -62,7 +62,7 @@ export default async function AdminLeadsPage({
         </label>
         
         <div className="pt-5 w-full">
-          <button className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-[#8b5cf6] px-5 py-2 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer">
+          <button className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-accent to-accent-light px-5 py-2 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer">
             <Icon name="filter" size={14} />
             Filter Database
           </button>

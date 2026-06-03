@@ -14,7 +14,7 @@ export default async function AdminLoginPage() {
   return (
     <main className="relative grid min-h-screen place-items-center bg-background bg-grid gradient-mesh px-4 py-16 overflow-hidden">
       {/* Glow mesh */}
-      <div className="absolute top-1/4 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 h-100 w-150 -translate-x-1/2 rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
       
       <div className="relative w-full max-w-md flex flex-col gap-6 z-10">
         {/* Brand Header */}
@@ -28,7 +28,7 @@ export default async function AdminLoginPage() {
               className="rounded-full object-cover shadow-lg shadow-accent/20" 
             />
             <span>
-              Magnivel <span className="bg-gradient-to-r from-accent-light to-[#a855f7] bg-clip-text text-transparent">Technologies</span>
+              Magnivel <span className="bg-linear-to-r from-accent to-accent-light bg-clip-text text-transparent">Technologies</span>
             </span>
           </Link>
           <h1 className="mt-4 text-xl font-bold tracking-tight text-white">
