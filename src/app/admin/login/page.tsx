@@ -34,7 +34,7 @@ export default async function AdminLoginPage() {
           <h1 className="mt-4 text-xl font-bold tracking-tight text-white">
             Control Console
           </h1>
-          <p className="text-xs text-muted leading-relaxed max-w-xs">
+          <p className="text-xs text-slate-300 leading-relaxed max-w-xs">
             Sign in with authorized administrative credentials to review project leads and client inquiries.
           </p>
         </div>

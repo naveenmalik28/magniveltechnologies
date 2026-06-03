@@ -31,7 +31,7 @@ export function LeadActions({ id, status }: { id: number; status: LeadStatus }) 
         <button 
           disabled={loading} 
           onClick={() => update("contacted")} 
-          className="inline-flex items-center gap-1.5 border border-yellow-500/20 bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500/20 hover:border-yellow-400 transition-all font-semibold rounded-lg text-xs sm:text-sm px-3.5 py-2 cursor-pointer disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 border border-yellow-200 bg-yellow-50 text-yellow-700 hover:bg-yellow-100 hover:border-yellow-300 transition-all font-semibold rounded-lg text-xs sm:text-sm px-3.5 py-2 cursor-pointer disabled:opacity-50"
         >
           <Icon name="message-circle" size={14} />
           Mark Contacted
@@ -42,7 +42,7 @@ export function LeadActions({ id, status }: { id: number; status: LeadStatus }) 
         <button 
           disabled={loading} 
           onClick={() => update("closed")} 
-          className="inline-flex items-center gap-1.5 border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all font-semibold rounded-lg text-xs sm:text-sm px-3.5 py-2 cursor-pointer disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 hover:border-emerald-300 transition-all font-semibold rounded-lg text-xs sm:text-sm px-3.5 py-2 cursor-pointer disabled:opacity-50"
         >
           <Icon name="check-circle" size={14} />
           Mark Closed
@@ -52,7 +52,7 @@ export function LeadActions({ id, status }: { id: number; status: LeadStatus }) 
       <button 
         disabled={loading} 
         onClick={() => update(undefined, true)} 
-        className="inline-flex items-center gap-1.5 border border-red-500/20 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:border-red-400 transition-all font-semibold rounded-lg text-xs sm:text-sm px-3.5 py-2 cursor-pointer disabled:opacity-50"
+        className="inline-flex items-center gap-1.5 border border-red-200 bg-red-50 text-red-700 hover:bg-red-100 hover:border-red-300 transition-all font-semibold rounded-lg text-xs sm:text-sm px-3.5 py-2 cursor-pointer disabled:opacity-50"
       >
         <Icon name="trash" size={14} />
         Delete Record

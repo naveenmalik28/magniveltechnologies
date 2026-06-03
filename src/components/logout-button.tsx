@@ -30,7 +30,7 @@ export function LogoutButton() {
     <button
       disabled={loading}
       onClick={handleLogout}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-1.5 text-xs font-semibold text-red-400 hover:bg-red-500/20 hover:border-red-400 transition-all duration-250 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-semibold text-red-700 hover:bg-red-100 hover:border-red-300 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       title="Sign out of Admin Console"
     >
       <Icon name="logout" size={13} />

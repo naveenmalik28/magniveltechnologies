@@ -39,33 +39,33 @@ export function AdminLoginForm() {
   return (
     <form 
       onSubmit={onSubmit} 
-      className="grid gap-5 rounded-xl border border-subtle-border bg-surface/50 p-6 sm:p-8 shadow-2xl relative glow-card backdrop-blur-md"
+      className="grid gap-5 rounded-xl border border-white/10 bg-slate-950/45 p-6 sm:p-8 shadow-2xl relative glow-card backdrop-blur-xl"
     >
-      <label className="grid gap-2 text-sm font-medium text-muted">
+      <label className="grid gap-2 text-sm font-medium text-slate-300">
         <span>Email Address</span>
         <input 
           name="email" 
           type="email" 
           required 
           placeholder="admin@magnivel.com"
-          className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all"
+          className="rounded-lg border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/25 placeholder:text-slate-500 transition-all"
         />
       </label>
       
-      <label className="grid gap-2 text-sm font-medium text-muted">
+      <label className="grid gap-2 text-sm font-medium text-slate-300">
         <span>Password</span>
         <input 
           name="password" 
           type="password" 
           required 
           placeholder="••••••••"
-          className="rounded-lg border border-subtle-border bg-background/50 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 placeholder:text-dimmed transition-all"
+          className="rounded-lg border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/25 placeholder:text-slate-500 transition-all"
         />
       </label>
       
       <button 
         disabled={loading} 
-        className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent-light px-5 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+        className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent-light px-5 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
       >
         {loading ? (
           <>
