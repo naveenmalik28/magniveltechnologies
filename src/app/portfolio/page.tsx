@@ -34,11 +34,11 @@ export default function PortfolioPage() {
               className="rounded-xl border border-subtle-border bg-surface p-6 flex flex-col justify-between hover:border-accent-light/30 transition-all duration-300 shadow-xl glow-card relative"
             >
               <div>
-                <span className="inline-flex rounded-md bg-accent-subtle px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-accent-light border border-accent/10">
+                <span className="inline-flex rounded-md bg-accent-subtle px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-accent-dark border border-accent/10">
                   {project.category}
                 </span>
                 
-                <h2 className="mt-4 text-xl font-bold text-white leading-tight">
+                <h2 className="mt-4 text-xl font-bold text-heading leading-tight">
                   {project.title}
                 </h2>
                 
@@ -53,7 +53,7 @@ export default function PortfolioPage() {
                   {project.stack.map((item) => (
                     <span 
                       key={item} 
-                      className="rounded-md bg-background border border-subtle-border px-2.5 py-1 text-xs text-muted font-semibold hover:text-white transition-colors duration-200"
+                      className="rounded-md bg-background border border-subtle-border px-2.5 py-1 text-xs text-muted font-semibold hover:text-accent-dark hover:border-accent/40 transition-colors duration-200"
                     >
                       {item}
                     </span>

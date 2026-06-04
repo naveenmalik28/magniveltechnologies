@@ -36,10 +36,10 @@ export default function TechnologiesPage() {
             >
               <div>
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                     <Icon name={category.icon} size={18} />
                   </span>
-                  <h2 className="text-xl font-bold text-white group-hover:text-accent-light transition-colors">
+                  <h2 className="text-xl font-bold text-heading group-hover:text-accent-dark transition-colors">
                     {category.name}
                   </h2>
                 </div>
@@ -55,7 +55,7 @@ export default function TechnologiesPage() {
                   {category.items.map((item) => (
                     <span 
                       key={item} 
-                      className="rounded-md bg-background border border-subtle-border px-2.5 py-1 text-xs text-white font-medium hover:border-accent-light/40 transition-all duration-200"
+                      className="rounded-md bg-background border border-subtle-border px-2.5 py-1 text-xs text-heading font-medium hover:border-accent-dark/40 transition-all duration-200"
                     >
                       {item}
                     </span>

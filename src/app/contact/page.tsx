@@ -32,7 +32,7 @@ export default function ContactPage() {
         {/* Left Side Details */}
         <div className="rounded-xl border border-subtle-border bg-surface p-6 sm:p-8 shadow-2xl relative overflow-hidden glow-card mb-10 lg:mb-0 flex flex-col gap-6">
           <div>
-            <h2 className="text-xl font-bold text-white">Business Connections</h2>
+            <h2 className="text-xl font-bold text-heading">Business Connections</h2>
             <p className="mt-2 text-xs text-muted leading-relaxed">
               Partner with Magnivel Technologies to build stable, maintainable, and high-conversion software solutions.
             </p>
@@ -40,31 +40,31 @@ export default function ContactPage() {
           
           <div className="flex flex-col gap-4 border-t border-subtle-border/50 pt-5">
             <div className="flex gap-4 items-center">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
                 <Icon name="mail" size={16} />
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Send an Inquiry</p>
-                <a className="text-sm font-semibold text-muted mt-0.5 hover:text-accent-light transition-colors" href={`mailto:${site.email}`}>
+                <a className="text-sm font-semibold text-muted mt-0.5 hover:text-accent-dark transition-colors" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
               </div>
             </div>
             
             <div className="flex gap-4 items-center">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
                 <Icon name="globe" size={16} />
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Official Hub</p>
-                <a className="text-sm font-semibold text-muted mt-0.5 hover:text-accent-light transition-colors" href={site.url} target="_blank" rel="noopener noreferrer">
+                <a className="text-sm font-semibold text-muted mt-0.5 hover:text-accent-dark transition-colors" href={site.url} target="_blank" rel="noopener noreferrer">
                   {site.url.replace("https://", "")}
                 </a>
               </div>
             </div>
 
             <div className="flex gap-4 items-center">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
                 <Icon name="shield" size={16} />
               </span>
               <div>

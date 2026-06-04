@@ -51,10 +51,10 @@ export default function AboutPage() {
               key={title} 
               className="rounded-xl border border-subtle-border bg-surface p-6 shadow-sm hover:border-accent-light/30 transition-all glow-card"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
                 <Icon name={icon} size={18} />
               </span>
-              <h2 className="mt-5 text-xl font-bold text-white">{title}</h2>
+              <h2 className="mt-5 text-xl font-bold text-heading">{title}</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted">{text}</p>
             </article>
           ))}
@@ -82,10 +82,10 @@ export default function AboutPage() {
                   0{step.step}
                 </div>
                 <div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-light border border-accent/15">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
                     <Icon name={step.icon} size={18} />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold text-white group-hover:text-accent-light transition-colors">
+                  <h3 className="mt-5 text-lg font-bold text-heading group-hover:text-accent-dark transition-colors">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-xs leading-relaxed text-muted">
