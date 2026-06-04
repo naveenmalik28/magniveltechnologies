@@ -89,7 +89,7 @@ body {
   background: #94a3b8;
 }
 
-*:focus-visible {
+*:focus-visible:not(input):not(textarea):not(select) {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }

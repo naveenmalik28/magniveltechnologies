@@ -1,16 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { budgets, clientRegions, internationalBudgets, serviceOptions } from "@/lib/site";
+import { serviceOptions } from "@/lib/site";
 
 type State = "idle" | "loading" | "success" | "error";
 
 export function ContactForm() {
   const [state, setState] = useState<State>("idle");
   const [message, setMessage] = useState("");
-  const [clientRegion, setClientRegion] = useState(clientRegions[0]);
-  const [budget, setBudget] = useState("");
-  const activeBudgets = clientRegion === "International" ? internationalBudgets : budgets;
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -30,8 +27,6 @@ export function ContactForm() {
 
       if (response.ok) {
         form.reset();
-        setClientRegion(clientRegions[0]);
-        setBudget("");
         setState("success");
         setMessage(result.message || "Your inquiry has been sent successfully.");
         return;
@@ -53,35 +48,16 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <Field name="fullName" label="Full Name" placeholder="John Doe" />
         <Field name="email" label="Email Address" type="email" placeholder="john@example.com" />
-        <Field name="phone" label="Phone Number" placeholder="+91 99999 99999" />
+        <Field name="phone" label="Phone Number" required={false} placeholder="Optional (e.g. +91 99999 99999)" />
         <Field name="companyName" label="Company Name" required={false} placeholder="Optional" />
-        <Select
-          name="clientRegion"
-          label="Client Region"
-          placeholder="Select Client Region"
-          options={clientRegions}
-          value={clientRegion}
-          onChange={(value) => {
-            setClientRegion(value);
-            setBudget("");
-          }}
-        />
+        <Field name="clientRegion" label="Client Region" placeholder="Enter country name (e.g. India)" />
         <Select
           name="serviceType"
           label="Service Required"
           placeholder="Select Service"
           options={serviceOptions}
         />
-        <div key={clientRegion} className="animate-fade-in">
-          <Select
-            name="budget"
-            label="Project Budget"
-            placeholder="Select Project Budget"
-            options={activeBudgets}
-            value={budget}
-            onChange={setBudget}
-          />
-        </div>
+        <Field name="budget" label="Project Budget" placeholder="Enter your budget (e.g. $5,000)" />
       </div>
       
       <label className="grid gap-2 text-sm font-semibold text-heading">
@@ -92,7 +68,7 @@ export function ContactForm() {
           minLength={20}
           rows={5}
           placeholder="Tell us what you want to build (min 20 characters)..."
-          className="rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-heading outline-none transition-all placeholder:text-dimmed focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
+          className="rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-heading focus:outline-none transition-all placeholder:text-dimmed focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
         />
       </label>
 
@@ -147,7 +123,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-heading outline-none transition-all placeholder:text-dimmed focus:border-accent focus:ring-2 focus:ring-accent/15"
+        className="rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-heading focus:outline-none transition-all placeholder:text-dimmed focus:border-accent focus:ring-2 focus:ring-accent/15"
       />
     </label>
   );
@@ -178,7 +154,7 @@ function Select({
           value={value}
           defaultValue={value === undefined ? "" : undefined}
           onChange={(event) => onChange?.(event.target.value)}
-          className="w-full appearance-none rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 pr-10 text-heading outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/15"
+          className="w-full appearance-none rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 pr-10 text-heading focus:outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/15"
         >
           <option value="" disabled className="bg-white text-muted">
             {placeholder}
