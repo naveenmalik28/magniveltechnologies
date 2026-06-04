@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LeadActions } from "@/components/lead-actions";
 import { isLeadStatus, prisma } from "@/lib/db";
-import { AdminFrame } from "../../dashboard/page";
+import { AdminFrame } from "@/components/admin-frame";
 
 export const metadata = { title: "Lead Record | Magnivel Technologies" };
 export const dynamic = "force-dynamic";

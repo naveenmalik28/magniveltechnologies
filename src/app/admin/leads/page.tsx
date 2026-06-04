@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/db";
-import { AdminFrame } from "../dashboard/page";
+import { AdminFrame } from "@/components/admin-frame";
 import { Icon } from "@/components/icon";
 
 export const metadata = { title: "Inquiries Console | Magnivel Technologies" };
