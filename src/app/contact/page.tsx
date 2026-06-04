@@ -45,7 +45,7 @@ export default function ContactPage() {
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Send an Inquiry</p>
-                <a className="text-sm font-semibold text-white mt-0.5 hover:text-accent-light transition-colors" href={`mailto:${site.email}`}>
+                <a className="text-sm font-semibold text-black mt-0.5 hover:text-accent-light transition-colors" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
               </div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-dimmed">Official Hub</p>
-                <a className="text-sm font-semibold text-white mt-0.5 hover:text-accent-light transition-colors" href={site.url} target="_blank" rel="noopener noreferrer">
+                <a className="text-sm font-semibold text-black mt-0.5 hover:text-accent-light transition-colors" href={site.url} target="_blank" rel="noopener noreferrer">
                   {site.url.replace("https://", "")}
                 </a>
               </div>
