@@ -31,7 +31,7 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
     companyName: clean(body.companyName),
     clientRegion: clean(body.clientRegion),
     serviceType: clean(body.serviceType),
-    budget: clean(body.budget),
+    budget: clean(body.budget) || "Not provided",
     message: clean(body.message),
   };
 
@@ -40,7 +40,6 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
   if (data.phone && data.phone.length < 7) return { error: "Please enter a valid phone number (at least 7 digits)." };
   if (data.clientRegion.length < 2) return { error: "Client region/country name is required." };
   if (!serviceOptions.includes(data.serviceType)) return { error: "Please select a valid service." };
-  if (data.budget.length < 1) return { error: "Project budget is required." };
   if (data.message.length < 20) return { error: "Project description must be at least 20 characters." };
   if (data.message.length > 3000) return { error: "Project description is too long." };
 

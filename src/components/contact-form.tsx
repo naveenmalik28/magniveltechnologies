@@ -57,7 +57,6 @@ export function ContactForm() {
           placeholder="Select Service"
           options={serviceOptions}
         />
-        <Field name="budget" label="Project Budget" placeholder="Enter your budget (e.g. $5,000)" />
       </div>
       
       <label className="grid gap-2 text-sm font-semibold text-heading">
