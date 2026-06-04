@@ -19,8 +19,9 @@ export async function GET(request: NextRequest) {
             OR: [
               { full_name: { contains: search, mode: "insensitive" } },
               { email: { contains: search, mode: "insensitive" } },
-              { phone: { contains: search, mode: "insensitive" } },
+              { phone_number: { contains: search, mode: "insensitive" } },
               { company_name: { contains: search, mode: "insensitive" } },
+              { country: { contains: search, mode: "insensitive" } },
             ],
           }
         : {}),

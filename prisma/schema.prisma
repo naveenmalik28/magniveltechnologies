@@ -20,9 +20,10 @@ model Lead {
   id           Int      @id @default(autoincrement())
   full_name    String   @db.VarChar(255)
   email        String   @db.VarChar(255)
-  phone        String   @db.VarChar(50)
+  phone_code   String   @default("") @db.VarChar(10)
+  phone_number String   @default("") @db.VarChar(50)
   company_name String?  @db.VarChar(255)
-  client_region String   @default("India") @db.VarChar(30)
+  country      String   @default("") @db.VarChar(100)
   service_type String   @db.VarChar(100)
   budget       String   @db.VarChar(100)
   message      String

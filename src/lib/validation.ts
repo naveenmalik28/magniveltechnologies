@@ -3,9 +3,10 @@ import { serviceOptions } from "./site";
 export type ContactInput = {
   fullName: string;
   email: string;
-  phone: string;
+  phoneCode: string;
+  phoneNumber: string;
   companyName: string;
-  clientRegion: string;
+  country: string;
   serviceType: string;
   budget: string;
   message: string;
@@ -27,20 +28,24 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
   const data: ContactInput = {
     fullName: clean(body.fullName),
     email: clean(body.email).toLowerCase(),
-    phone: clean(body.phone),
+    phoneCode: clean(body.phoneCode),
+    phoneNumber: clean(body.phoneNumber),
     companyName: clean(body.companyName),
-    clientRegion: clean(body.clientRegion),
+    country: clean(body.country),
     serviceType: clean(body.serviceType),
     budget: clean(body.budget) || "Not provided",
     message: clean(body.message),
   };
 
-  if (data.fullName.length < 2) return { error: "Full name is required." };
-  if (!emailPattern.test(data.email)) return { error: "A valid email is required." };
-  if (data.phone && data.phone.length < 7) return { error: "Please enter a valid phone number (at least 7 digits)." };
-  if (data.clientRegion.length < 2) return { error: "Client region/country name is required." };
-  if (!serviceOptions.includes(data.serviceType)) return { error: "Please select a valid service." };
-  if (data.message.length < 20) return { error: "Project description must be at least 20 characters." };
+  if (data.fullName.length < 2) return { error: "Full name must be at least 2 characters." };
+  if (!emailPattern.test(data.email)) return { error: "Please enter a valid email address." };
+  if (!data.phoneCode) return { error: "Country code is required." };
+  if (!data.phoneNumber) return { error: "Phone number is required." };
+  if (!/^\d+$/.test(data.phoneNumber)) return { error: "Phone number must contain only numbers." };
+  if (data.phoneNumber.length < 7 || data.phoneNumber.length > 15) return { error: "Please enter a valid phone number (7 to 15 digits)." };
+  if (data.country.length < 2) return { error: "Country name is required (minimum 2 characters)." };
+  if (!serviceOptions.includes(data.serviceType)) return { error: "Please select a valid service option." };
+  if (data.message.length < 20) return { error: "Please describe your project (minimum 20 characters)." };
   if (data.message.length > 3000) return { error: "Project description is too long." };
 
   return { data };

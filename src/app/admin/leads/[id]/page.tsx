@@ -56,9 +56,9 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
           <dl className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {[
               ["Contact Email", lead.email, "📧"],
-              ["Phone Number", lead.phone, "📱"],
+              ["Phone Number", `${lead.phone_code} ${lead.phone_number}`, "📱"],
               ["Company Group", lead.company_name || "Not provided", "🏢"],
-              ["Client Region", lead.client_region, "Region"],
+              ["Country", lead.country, "🌍"],
               ["Required Service", lead.service_type, "🔧"],
               ["Project Budget", lead.budget, "💰"],
             ].map(([label, value, emoji]) => (

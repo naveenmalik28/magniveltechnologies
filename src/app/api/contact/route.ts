@@ -74,9 +74,10 @@ export async function POST(request: Request) {
       data: {
         full_name: lead.fullName,
         email: lead.email,
-        phone: lead.phone,
+        phone_code: lead.phoneCode,
+        phone_number: lead.phoneNumber,
         company_name: lead.companyName || null,
-        client_region: lead.clientRegion,
+        country: lead.country,
         service_type: lead.serviceType,
         budget: lead.budget,
         message: lead.message,

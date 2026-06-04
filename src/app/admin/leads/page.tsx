@@ -22,8 +22,9 @@ export default async function AdminLeadsPage({
             OR: [
               { full_name: { contains: search, mode: "insensitive" } },
               { email: { contains: search, mode: "insensitive" } },
-              { phone: { contains: search, mode: "insensitive" } },
+              { phone_number: { contains: search, mode: "insensitive" } },
               { company_name: { contains: search, mode: "insensitive" } },
+              { country: { contains: search, mode: "insensitive" } },
             ],
           }
         : {}),
@@ -77,7 +78,7 @@ export default async function AdminLeadsPage({
               <tr>
                 <th className="px-6 py-4">Client Name</th>
                 <th className="px-6 py-4">Required Service</th>
-                <th className="px-6 py-4">Client Region</th>
+                <th className="px-6 py-4">Country</th>
                 <th className="px-6 py-4">Project Budget</th>
                 <th className="px-6 py-4">Status</th>
                 <th className="px-6 py-4 text-right">Inquiry Date</th>
@@ -101,8 +102,8 @@ export default async function AdminLeadsPage({
                     <span className="font-semibold text-heading">{lead.service_type}</span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="rounded-full border border-accent/15 bg-accent-subtle px-2.5 py-1 text-xs font-semibold text-accent-dark">
-                      {lead.client_region}
+                    <span className="rounded-lg border border-accent/15 bg-accent-subtle px-2.5 py-1 text-xs font-semibold text-accent-dark">
+                      {lead.country}
                     </span>
                   </td>
                   <td className="px-6 py-4 font-mono text-xs text-muted">{lead.budget}</td>
