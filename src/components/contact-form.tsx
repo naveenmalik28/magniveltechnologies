@@ -1,36 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { serviceOptions, budgets } from "@/lib/site";
+import { serviceOptions } from "@/lib/site";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
-const countryCodes = [
-  { code: "IN", name: "India", dial: "+91", flag: "🇮🇳" },
-  { code: "US", name: "United States", dial: "+1", flag: "🇺🇸" },
-  { code: "GB", name: "United Kingdom", dial: "+44", flag: "🇬🇧" },
-  { code: "CA", name: "Canada", dial: "+1", flag: "🇨🇦" },
-  { code: "AU", name: "Australia", dial: "+61", flag: "🇦🇺" },
-  { code: "SG", name: "Singapore", dial: "+65", flag: "🇸🇬" },
-  { code: "AE", name: "United Arab Emirates", dial: "+971", flag: "🇦🇪" },
-  { code: "DE", name: "Germany", dial: "+49", flag: "🇩🇪" },
-  { code: "FR", name: "France", dial: "+33", flag: "🇫🇷" },
-  { code: "JP", name: "Japan", dial: "+81", flag: "🇯🇵" },
-  { code: "NZ", name: "New Zealand", dial: "+64", flag: "🇳🇿" },
-  { code: "ZA", name: "South Africa", dial: "+27", flag: "🇿🇦" },
-  { code: "IE", name: "Ireland", dial: "+353", flag: "🇮🇪" },
-  { code: "MY", name: "Malaysia", dial: "+60", flag: "🇲🇾" },
-  { code: "HK", name: "Hong Kong", dial: "+852", flag: "🇭🇰" },
-  { code: "SA", name: "Saudi Arabia", dial: "+966", flag: "🇸🇦" },
-  { code: "NL", name: "Netherlands", dial: "+31", flag: "🇳🇱" },
-  { code: "SE", name: "Sweden", dial: "+46", flag: "🇸🇪" },
-  { code: "CH", name: "Switzerland", dial: "+41", flag: "🇨🇭" },
-  { code: "DK", name: "Denmark", dial: "+45", flag: "🇩🇰" },
-  { code: "NO", name: "Norway", dial: "+47", flag: "🇳🇴" },
-  { code: "FI", name: "Finland", dial: "+358", flag: "🇫🇮" },
-  { code: "ES", name: "Spain", dial: "+34", flag: "🇪🇸" },
-  { code: "IT", name: "Italy", dial: "+39", flag: "🇮🇹" },
-];
+
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
@@ -47,8 +22,7 @@ export function ContactForm() {
     const formData = new FormData(form);
     const fullName = formData.get("fullName") as string;
     const email = formData.get("email") as string;
-    const phoneCode = formData.get("phoneCode") as string;
-    const phoneNumber = formData.get("phoneNumber") as string;
+
     const country = formData.get("country") as string;
     const messageText = formData.get("message") as string;
     const serviceType = formData.get("serviceType") as string;
@@ -61,16 +35,6 @@ export function ContactForm() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailPattern.test(email.trim())) {
       errors.email = "Please enter a valid email address.";
-    }
-    if (!phoneCode) {
-      errors.phoneCode = "Country code is required.";
-    }
-    if (!phoneNumber) {
-      errors.phoneNumber = "Phone number is required.";
-    } else if (!/^\d+$/.test(phoneNumber)) {
-      errors.phoneNumber = "Phone number must contain only numbers.";
-    } else if (phoneNumber.trim().length < 7) {
-      errors.phoneNumber = "Phone number must be at least 7 digits.";
     }
     if (!country || country.trim().length < 2) {
       errors.country = "Country name is required.";
@@ -112,7 +76,7 @@ export function ContactForm() {
     }
   }
 
-  const budgetOptions = budgets;
+
 
   if (state === "success") {
     return (
@@ -157,69 +121,12 @@ export function ContactForm() {
             error={validationErrors.email}
           />
           
-          {/* Responsive Phone Number Group */}
-          <div className="grid gap-2 text-sm font-semibold text-heading">
-            <span>Phone Number <span className="text-accent">*</span></span>
-            <div className="flex gap-2 min-w-0">
-              <div className="w-[100px] sm:w-[130px] shrink-0 relative">
-                <select
-                  name="phoneCode"
-                  required
-                  defaultValue="+91"
-                  className={`w-full appearance-none rounded-lg border bg-white px-3 py-2.5 pr-8 text-heading text-sm focus:outline-none transition-all focus:ring-2 focus:ring-accent/15 cursor-pointer ${
-                    validationErrors.phoneCode ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
-                  }`}
-                >
-                  {countryCodes.map((c) => (
-                    <option key={c.code} value={c.dial}>
-                      {c.flag} {c.dial}
-                    </option>
-                  ))}
-                </select>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-dimmed"
-                >
-                  <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <input
-                  name="phoneNumber"
-                  type="tel"
-                  required
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  placeholder="98765 43210"
-                  className={`w-full rounded-lg border bg-white px-3.5 py-2.5 text-heading text-sm focus:outline-none transition-all placeholder:text-dimmed focus:ring-2 focus:ring-accent/15 ${
-                    validationErrors.phoneNumber ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
-                  }`}
-                  onKeyPress={(e) => {
-                    if (!/[0-9]/.test(e.key)) {
-                      e.preventDefault();
-                    }
-                  }}
-                />
-              </div>
-            </div>
-            {(validationErrors.phoneCode || validationErrors.phoneNumber) && (
-              <p className="text-xs font-semibold text-red-500">
-                {validationErrors.phoneNumber || validationErrors.phoneCode}
-              </p>
-            )}
-          </div>
-
           <Field
             name="companyName"
             label="Company Name"
             required={false}
             placeholder="Optional"
+            className="sm:col-span-2"
           />
         </div>
       </div>
@@ -245,14 +152,6 @@ export function ContactForm() {
             placeholder="Select service area"
             options={serviceOptions}
             error={validationErrors.serviceType}
-          />
-
-          {/* Project Budget (INR) */}
-          <Select
-            name="budget"
-            label="Project Budget (INR)"
-            placeholder="Select budget range"
-            options={budgetOptions}
           />
         </div>
 
@@ -316,6 +215,7 @@ function Field({
   required = true,
   placeholder,
   error,
+  className = "",
 }: {
   name: string;
   label: string;
@@ -323,9 +223,10 @@ function Field({
   required?: boolean;
   placeholder?: string;
   error?: string;
+  className?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-semibold text-heading">
+    <label className={`grid gap-2 text-sm font-semibold text-heading ${className}`}>
       <span>{label} {required && <span className="text-accent">*</span>}</span>
       <input
         name={name}

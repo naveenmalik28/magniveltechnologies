@@ -31,11 +31,9 @@ export async function sendLeadEmails(lead: ContactInput) {
       text: [
         `Name: ${lead.fullName}`,
         `Email: ${lead.email}`,
-        `Phone: ${lead.phoneCode} ${lead.phoneNumber}`,
         `Company: ${lead.companyName || "Not provided"}`,
         `Country: ${lead.country}`,
         `Service: ${lead.serviceType}`,
-        `Budget: ${lead.budget}`,
         "",
         lead.message,
       ].join("\n"),

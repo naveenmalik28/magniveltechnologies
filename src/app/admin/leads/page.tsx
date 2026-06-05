@@ -79,7 +79,6 @@ export default async function AdminLeadsPage({
                 <th className="px-6 py-4">Client Name</th>
                 <th className="px-6 py-4">Required Service</th>
                 <th className="px-6 py-4">Country</th>
-                <th className="px-6 py-4">Project Budget</th>
                 <th className="px-6 py-4">Status</th>
                 <th className="px-6 py-4 text-right">Inquiry Date</th>
               </tr>
@@ -106,7 +105,6 @@ export default async function AdminLeadsPage({
                       {lead.country}
                     </span>
                   </td>
-                  <td className="px-6 py-4 font-mono text-xs text-muted">{lead.budget}</td>
                   <td className="px-6 py-4">
                     <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wider border shadow-sm ${
                       lead.status === "new" 
@@ -132,7 +130,7 @@ export default async function AdminLeadsPage({
               ))}
               {!leads.length ? (
                 <tr>
-                  <td className="px-6 py-12 text-center text-muted" colSpan={6}>
+                  <td className="px-6 py-12 text-center text-muted" colSpan={5}>
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-2xl">📁</span>
                       <p className="font-bold text-heading">No Inquiries Found</p>
