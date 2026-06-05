@@ -308,6 +308,7 @@ export const industries = [
 ];
 
 export const trustedBy = [
+  "Govixa India",
   "TechVentures",
   "DataFlow Systems",
   "CloudNine Labs",
