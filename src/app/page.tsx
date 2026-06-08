@@ -244,32 +244,6 @@ function MagnivelInternationalBacking() {
                 This ecosystem strengthens our work as a software development company providing digital transformation services, AI solutions, web development, mobile app development, technology consulting, research and innovation support, international conferences, and publishing solutions.
               </p>
             </div>
-
-            <div
-              aria-label="Magnivel brand relationship"
-              className="mt-8 rounded-lg border border-subtle-border bg-background/70 p-4 shadow-sm"
-            >
-              {[
-                "Magnivel International",
-                "Magnivel Technologies",
-                "Web Development | Mobile Apps | AI Solutions | Custom Software",
-              ].map((item, index, arr) => (
-                <div key={item} className="flex flex-col items-center text-center">
-                  <div
-                    className={`w-full rounded-lg border px-4 py-3 text-xs font-extrabold ${
-                      index === 1
-                        ? "border-accent/25 bg-white text-accent-dark shadow-sm"
-                        : "border-subtle-border bg-white/70 text-heading"
-                    }`}
-                  >
-                    {item}
-                  </div>
-                  {index < arr.length - 1 ? (
-                    <Icon name="chevron-down" size={18} className="my-2 text-accent" />
-                  ) : null}
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
