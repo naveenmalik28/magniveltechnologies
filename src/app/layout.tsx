@@ -16,12 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://magnivel.com"),
-  title: {
-    default: "Magnivel Technologies | AI-Powered Websites, Apps & SaaS Development",
-    template: "%s | Magnivel Technologies",
-  },
+  title: "Magnivel Technologies",
   description:
-    "Magnivel Technologies builds AI-powered websites, web applications, mobile apps, SaaS platforms, and custom software solutions that drive growth and innovation for startups and enterprises.",
+    "Web Development, Mobile Apps, AI Solutions and Custom Software Development",
   keywords: [
     "Magnivel Technologies",
     "software development company",
@@ -89,11 +86,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
   },
+  manifest: "/site.webmanifest",
 };
 
 const jsonLd = {
