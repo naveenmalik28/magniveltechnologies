@@ -1,15 +1,20 @@
 import { Metadata } from "next";
-import { PageHeader, PageShell, SectionTitle } from "@/components/page-shell";
+import { ProcessTimeline } from "@/components/home/process-timeline";
 import { Icon } from "@/components/icon";
-import { processSteps } from "@/lib/site";
+import { AnimatedCounter } from "@/components/motion";
+import { PageCta } from "@/components/page-cta";
+import { PageHeader, PageShell, SectionTitle } from "@/components/page-shell";
+import { processSteps, stats } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us | Magnivel Technologies",
-  description: "Learn about Magnivel Technologies - a digital agency specializing in AI-powered websites, web apps, SaaS platforms, and custom software development for startups and enterprises.",
+  description:
+    "Learn about Magnivel Technologies — a premium software development company specializing in AI-powered websites, web apps, SaaS platforms, and custom software for startups and enterprises.",
   keywords: ["about magnivel", "software development company", "digital agency", "SaaS development"],
   openGraph: {
     title: "About Magnivel Technologies",
-    description: "We engineer secure, scalable software systems built to grow. Learn about our mission, vision, and approach to building high-performance digital products.",
+    description:
+      "We engineer secure, scalable software systems built to grow. Learn about our mission, vision, and approach to building high-performance digital products.",
     url: "https://magnivel.com/about",
     type: "website",
   },
@@ -17,6 +22,31 @@ export const metadata: Metadata = {
     canonical: "https://magnivel.com/about",
   },
 };
+
+const pillars = [
+  {
+    title: "Company Overview",
+    text: "We combine engineering discipline, business intelligence, and high-fidelity user experiences. Every script and schema we build is structured to withstand massive organic growth.",
+    icon: "monitor",
+  },
+  {
+    title: "Our Mission",
+    text: "To empower growing businesses by delivering robust, clean-coded, and highly performant digital products. We replace manual bottlenecks with secure, automated software pipelines.",
+    icon: "shield",
+  },
+  {
+    title: "Our Vision",
+    text: "To be the premier global technology partner for ambitious companies. We aim to establish high standards in code clarity, conversion optimization, and stable SaaS architectures.",
+    icon: "rocket",
+  },
+];
+
+const values = [
+  { title: "Engineering Excellence", desc: "Clean architecture, rigorous code reviews, and production-grade deployments.", icon: "code" },
+  { title: "Client Partnership", desc: "Transparent communication, weekly demos, and collaborative decision-making.", icon: "users" },
+  { title: "Innovation First", desc: "AI, cloud-native systems, and modern frameworks at the core of every build.", icon: "sparkles" },
+  { title: "Global Delivery", desc: "Serving clients across India, North America, Europe, UAE, and Southeast Asia.", icon: "globe" },
+];
 
 export default function AboutPage() {
   return (
@@ -26,77 +56,68 @@ export default function AboutPage() {
         title="We engineer secure, scalable software systems built to grow."
         description="Magnivel Technologies is a modern digital agency partnering with startups and enterprises to design, develop, and deploy production-grade websites, web portals, SaaS products, mobile apps, and custom AI systems."
       />
-      
-      {/* ─── Pillars Section ─── */}
+
+      {/* Stats */}
+      <section className="border-b border-subtle-border py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+          {stats.map((stat) => (
+            <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
+          ))}
+        </div>
+      </section>
+
+      {/* Pillars */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            [
-              "Company Overview", 
-              "We combine engineering discipline, business intelligence, and high-fidelity user experiences. Every script and schema we build is structured to withstand massive organic growth.",
-              "monitor"
-            ],
-            [
-              "Our Mission", 
-              "To empower growing businesses by delivering robust, clean-coded, and highly performant digital products. We replace manual bottlenecks with secure, automated software pipelines.",
-              "shield"
-            ],
-            [
-              "Our Vision", 
-              "To be the premier global technology partner for ambitious companies. We aim to establish high standards in code clarity, conversion optimization, and stable SaaS architectures.",
-              "rocket"
-            ],
-          ].map(([title, text, icon]) => (
-            <article 
-              key={title} 
-              className="rounded-xl border border-subtle-border bg-surface p-6 shadow-sm hover:border-accent-light/30 transition-all glow-card"
-            >
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
-                <Icon name={icon} size={18} />
+        <SectionTitle
+          eyebrow="Who We Are"
+          title="Built on purpose, driven by innovation"
+          description="A team of engineers, designers, and strategists committed to delivering software that creates lasting business value."
+          centered
+          className="mx-auto"
+        />
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {pillars.map((pillar) => (
+            <article key={pillar.title} className="glass-card p-6">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent-dark">
+                <Icon name={pillar.icon} size={22} />
               </span>
-              <h2 className="mt-5 text-xl font-bold text-heading">{title}</h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted">{text}</p>
+              <h2 className="mt-5 text-xl font-extrabold text-heading">{pillar.title}</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted">{pillar.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* ─── Approach/Process Section ─── */}
-      <section className="bg-surface/30 border-t border-subtle-border py-20 relative overflow-hidden">
-        <div className="absolute top-1/2 right-1/4 h-[300px] w-[500px] rounded-full bg-accent/5 blur-[100px] pointer-events-none" />
-        
+      {/* Values */}
+      <section className="border-y border-subtle-border bg-surface/30 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle 
-            eyebrow="Our Approach" 
-            title="A structured, collaborative development model." 
-            description="From discovery workshops to product launch reviews, we operate with absolute transparency and meticulous code reviews."
+          <SectionTitle
+            eyebrow="Our Values"
+            title="What drives every project we deliver"
+            centered
+            className="mx-auto"
           />
-          
-          <div className="mt-16 grid gap-6 md:grid-cols-5 relative">
-            {processSteps.map((step) => (
-              <div 
-                key={step.step} 
-                className="rounded-xl border border-subtle-border bg-surface/60 p-6 flex flex-col justify-between hover:border-accent-light/30 transition-all duration-300 relative group"
-              >
-                <div className="absolute top-4 right-4 text-3xl font-extrabold text-accent/10 group-hover:text-accent/20 transition-colors">
-                  0{step.step}
-                </div>
-                <div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
-                    <Icon name={step.icon} size={18} />
-                  </span>
-                  <h3 className="mt-5 text-lg font-bold text-heading group-hover:text-accent-dark transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-xs leading-relaxed text-muted">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((value) => (
+              <article key={value.title} className="glass-card p-5 text-center">
+                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg border border-accent/20 bg-accent/10 text-accent-dark">
+                  <Icon name={value.icon} size={18} />
+                </span>
+                <h3 className="mt-4 text-sm font-extrabold text-heading">{value.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted">{value.desc}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
+
+      <ProcessTimeline steps={processSteps} />
+
+      <PageCta
+        title="Let's Build Your Next Product"
+        description="Partner with Magnivel Technologies to turn your vision into production-grade software."
+        primaryLabel="Start Your Project"
+      />
     </PageShell>
   );
 }

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PageHeader, PageShell } from "@/components/page-shell";
 import { Icon } from "@/components/icon";
+import { PageHeader, PageShell } from "@/components/page-shell";
 import { blogPosts, blogCategories } from "@/lib/blog";
 
 export default function BlogListPage() {
@@ -31,30 +31,27 @@ export default function BlogListPage() {
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Search & Category Filter Section */}
-        <div className="grid gap-6 md:grid-cols-[1fr_2.5fr] items-center mb-12">
-          {/* Search bar */}
+        <div className="mb-12 grid items-center gap-6 md:grid-cols-[1fr_2.5fr]">
           <div className="relative">
             <input
               type="text"
               placeholder="Search articles..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-subtle-border bg-white px-4 py-2.5 pr-10 text-xs sm:text-sm text-heading focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15"
+              className="input pr-10"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-dimmed">
               <Icon name="search" size={16} />
             </span>
           </div>
 
-          {/* Categories Tab buttons */}
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedCategory("all")}
               className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === "all"
-                  ? "bg-accent text-white shadow-sm"
-                  : "bg-slate-100 text-muted hover:bg-slate-200"
+                  ? "bg-accent text-white shadow-lg shadow-accent/25"
+                  : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-heading"
               }`}
             >
               All Articles
@@ -65,8 +62,8 @@ export default function BlogListPage() {
                 onClick={() => setSelectedCategory(cat.slug)}
                 className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   selectedCategory === cat.slug
-                    ? "bg-accent text-white shadow-sm"
-                    : "bg-slate-100 text-muted hover:bg-slate-200"
+                    ? "bg-accent text-white shadow-lg shadow-accent/25"
+                    : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-heading"
                 }`}
               >
                 {cat.label}
@@ -75,48 +72,47 @@ export default function BlogListPage() {
           </div>
         </div>
 
-        {/* Blog Post Grid */}
         {filteredPosts.length > 0 ? (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {filteredPosts.map((post) => (
               <article
                 key={post.slug}
-                className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md hover:border-accent/30 transition-all glow-card flex flex-col justify-between"
+                className="glass-card group flex flex-col justify-between p-6"
               >
                 <div>
-                  <div className="flex justify-between items-center gap-2">
+                  <div className="flex items-center justify-between gap-2">
                     <Link
                       href={`/blog/category/${post.category}`}
-                      className="rounded-full bg-accent-subtle px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-accent-dark hover:bg-accent-light/10"
+                      className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-accent-dark transition hover:border-accent/40"
                     >
                       {post.categoryLabel}
                     </Link>
                     <span className="text-[10px] font-bold text-dimmed">{post.publishedAt}</span>
                   </div>
 
-                  <Link href={`/blog/${post.slug}`} className="group">
-                    <h3 className="mt-4 text-lg font-extrabold text-heading group-hover:text-accent transition-colors leading-snug">
+                  <Link href={`/blog/${post.slug}`} className="block">
+                    <h3 className="mt-4 text-lg font-extrabold text-heading transition group-hover:text-accent-dark leading-snug">
                       {post.title}
                     </h3>
                   </Link>
 
-                  <p className="mt-3 text-xs leading-relaxed text-muted line-clamp-3">
+                  <p className="mt-3 text-sm leading-relaxed text-muted line-clamp-3">
                     {post.excerpt}
                   </p>
                 </div>
 
-                <div className="mt-6 border-t border-subtle-border/50 pt-4 flex items-center justify-between">
+                <div className="mt-6 flex items-center justify-between border-t border-subtle-border pt-4">
                   <div className="flex items-center gap-2.5">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-dark text-white font-bold text-[10px]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-secondary text-[10px] font-bold text-white">
                       {post.author.avatar}
                     </span>
                     <div>
-                      <p className="text-[10px] font-bold text-heading leading-none">{post.author.name}</p>
-                      <p className="text-[9px] text-dimmed mt-0.5 leading-none">{post.author.role}</p>
+                      <p className="text-xs font-bold text-heading leading-none">{post.author.name}</p>
+                      <p className="mt-0.5 text-[10px] text-dimmed leading-none">{post.author.role}</p>
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-semibold text-dimmed flex items-center gap-1">
+                  <span className="flex items-center gap-1 text-[10px] font-semibold text-dimmed">
                     <Icon name="clock" size={11} />
                     {post.readTime}
                   </span>
@@ -125,10 +121,10 @@ export default function BlogListPage() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 border border-dashed border-subtle-border rounded-2xl bg-slate-50/50">
+          <div className="rounded-2xl border border-dashed border-white/10 bg-surface/50 py-20 text-center">
             <Icon name="search" size={32} className="mx-auto text-dimmed" />
             <h3 className="mt-4 text-base font-extrabold text-heading">No articles found</h3>
-            <p className="mt-2 text-xs text-muted">Try refining your keywords or changing category filters.</p>
+            <p className="mt-2 text-sm text-muted">Try refining your keywords or changing category filters.</p>
           </div>
         )}
       </section>

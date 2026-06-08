@@ -256,42 +256,113 @@ export const faqs = [
 export const processSteps = [
   {
     step: 1,
-    title: "Discovery & Strategy",
-    description: "Clarify goals, users, workflows, technical needs, timeline, and success metrics before production begins.",
+    title: "Discovery",
+    description: "Deep-dive into your business goals, users, technical requirements, and success metrics.",
     icon: "search" as const,
   },
   {
     step: 2,
-    title: "UI/UX Design",
-    description: "Create wireframes and polished interfaces that make the product clear, useful, and conversion-focused.",
-    icon: "palette" as const,
+    title: "Strategy",
+    description: "Define architecture, technology stack, roadmap, and delivery milestones.",
+    icon: "target" as const,
   },
   {
     step: 3,
-    title: "Agile Development",
-    description: "Build in focused sprints with clean components, scalable architecture, and regular delivery reviews.",
-    icon: "code" as const,
+    title: "Design",
+    description: "Craft intuitive UI/UX with wireframes, prototypes, and polished visual systems.",
+    icon: "palette" as const,
   },
   {
     step: 4,
-    title: "Testing & QA",
-    description: "Validate performance, responsiveness, security, forms, APIs, and cross-device behavior before launch.",
-    icon: "shield" as const,
+    title: "Development",
+    description: "Build in agile sprints with clean code, scalable architecture, and regular demos.",
+    icon: "code" as const,
   },
   {
     step: 5,
-    title: "Deployment & Support",
-    description: "Deploy with monitoring, analytics, documentation, and ongoing improvements for product growth.",
+    title: "Testing",
+    description: "Rigorous QA across performance, security, responsiveness, and cross-device behavior.",
+    icon: "shield" as const,
+  },
+  {
+    step: 6,
+    title: "Deployment",
+    description: "Launch with CI/CD pipelines, monitoring, analytics, and production hardening.",
     icon: "rocket" as const,
+  },
+  {
+    step: 7,
+    title: "Support",
+    description: "Ongoing maintenance, feature enhancements, and proactive scalability planning.",
+    icon: "headphones" as const,
   },
 ];
 
 export const stats = [
   { value: "50+", label: "Projects Delivered" },
-  { value: "20+", label: "Happy Clients" },
-  { value: "99.9%", label: "System Reliability" },
-  { value: "24/7", label: "Support" },
-  { value: "5+", label: "Technology Domains" },
+  { value: "100%", label: "Client Focused" },
+  { value: "20+", label: "Technologies" },
+  { value: "Global", label: "Service Reach" },
+];
+
+export const homeServices = [
+  {
+    title: "Custom Software Development",
+    href: "/custom-software-development",
+    icon: "code" as const,
+    description: "Tailored enterprise systems, operations dashboards, and scalable backend architectures.",
+  },
+  {
+    title: "AI & Machine Learning Solutions",
+    href: "/ai-chatbot-development",
+    icon: "brain" as const,
+    description: "Intelligent agents, RAG systems, predictive models, and workflow automation powered by AI.",
+  },
+  {
+    title: "Web Application Development",
+    href: "/website-development-services",
+    icon: "globe" as const,
+    description: "High-performance web platforms, portals, and SaaS interfaces built for growth.",
+  },
+  {
+    title: "Mobile App Development",
+    href: "/mobile-app-development",
+    icon: "smartphone" as const,
+    description: "Native and cross-platform iOS & Android apps with seamless user experiences.",
+  },
+  {
+    title: "SaaS Product Development",
+    href: "/saas-development",
+    icon: "layers" as const,
+    description: "Multi-tenant cloud platforms with subscription billing and team collaboration.",
+  },
+  {
+    title: "Cloud & DevOps Services",
+    href: "/aws-development",
+    icon: "cloud" as const,
+    description: "AWS infrastructure, CI/CD pipelines, containerization, and production monitoring.",
+  },
+  {
+    title: "UI/UX Design",
+    href: "/ui-ux-design-services",
+    icon: "palette" as const,
+    description: "Premium interface design, design systems, and conversion-focused user experiences.",
+  },
+  {
+    title: "API Development & Integration",
+    href: "/nodejs-development",
+    icon: "server" as const,
+    description: "RESTful APIs, GraphQL endpoints, third-party integrations, and microservices.",
+  },
+];
+
+export const whyChoose = [
+  { title: "Fast Development", emoji: "⚡", description: "Agile sprints and rapid prototyping get your product to market faster without sacrificing quality.", icon: "zap" as const },
+  { title: "AI-Powered Innovation", emoji: "🤖", description: "Cutting-edge LLMs, agents, and automation woven into every solution we build.", icon: "brain" as const },
+  { title: "Enterprise Security", emoji: "🔒", description: "Encrypted data, secure auth, compliance-ready architecture, and NDA protection.", icon: "shield" as const },
+  { title: "Cloud-Native Architecture", emoji: "☁️", description: "Scalable, resilient infrastructure designed for global traffic and zero-downtime deploys.", icon: "cloud" as const },
+  { title: "Scalable Solutions", emoji: "📈", description: "Architecture that grows with your business from MVP to enterprise scale.", icon: "trending-up" as const },
+  { title: "Global Support", emoji: "🌍", description: "Serving clients across India, North America, Europe, UAE, and Southeast Asia.", icon: "globe" as const },
 ];
 
 export const industries = [

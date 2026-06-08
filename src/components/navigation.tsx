@@ -78,8 +78,8 @@ export function Navigation() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-subtle-border bg-white/90 shadow-md backdrop-blur-xl py-3"
-          : "border-b border-transparent bg-white/70 backdrop-blur-md py-4"
+          ? "border-b border-white/8 bg-background/90 shadow-lg shadow-black/20 backdrop-blur-xl py-3"
+          : "border-b border-transparent bg-background/60 backdrop-blur-md py-4"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -115,7 +115,7 @@ export function Navigation() {
               <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[600px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-subtle-border bg-white p-6 shadow-2xl grid grid-cols-2 gap-4">
+              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40 grid grid-cols-2 gap-4">
                 {servicesList.map((srv) => (
                   <Link key={srv.href} href={srv.href} className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-surface-hover">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/10">
@@ -142,7 +142,7 @@ export function Navigation() {
               <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "pricing" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-subtle-border bg-white p-4 shadow-2xl flex flex-col gap-1">
+              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-4 shadow-2xl shadow-black/40 flex flex-col gap-1">
                 {pricingList.map((prc) => (
                   <Link key={prc.href} href={prc.href} className="rounded-lg p-2.5 transition-colors hover:bg-surface-hover">
                     <h4 className="text-xs font-bold text-heading">{prc.label}</h4>
@@ -164,7 +164,7 @@ export function Navigation() {
               <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[240px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-subtle-border bg-white p-3 shadow-2xl flex flex-col gap-0.5">
+              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-3 shadow-2xl shadow-black/40 flex flex-col gap-0.5">
                 {industriesList.map((ind) => (
                   <Link key={ind.href} href={ind.href} className="flex items-center gap-2.5 rounded-lg p-2 transition-colors hover:bg-surface-hover">
                     <span className="text-accent-dark">
@@ -188,7 +188,7 @@ export function Navigation() {
               <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[240px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-subtle-border bg-white p-3 shadow-2xl flex flex-col gap-0.5">
+              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-3 shadow-2xl shadow-black/40 flex flex-col gap-0.5">
                 {techList.map((tc) => (
                   <Link key={tc.href} href={tc.href} className="flex items-center gap-2.5 rounded-lg p-2 transition-colors hover:bg-surface-hover">
                     <span className="text-accent-dark">
@@ -212,7 +212,7 @@ export function Navigation() {
               <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "resources" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute right-0 top-full z-50 w-[560px] pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-subtle-border bg-white p-5 shadow-2xl grid grid-cols-[1.2fr_1fr] gap-5">
+              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-5 shadow-2xl shadow-black/40 grid grid-cols-[1.2fr_1fr] gap-5">
                 <div>
                   <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-dimmed px-2.5 mb-2">Resource Library</h4>
                   <div className="flex flex-col gap-1">
@@ -252,11 +252,11 @@ export function Navigation() {
         {/* Action Button & Hamburger */}
         <div className="flex items-center gap-3">
           <Link href="/contact" className="btn-primary hidden px-4 py-2.5 text-xs sm:inline-flex">
-            Get Free Consultation
+            Start Your Project
           </Link>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-subtle-border bg-white text-heading hover:bg-surface-hover transition-colors lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-surface text-heading hover:bg-surface-hover transition-colors lg:hidden"
             aria-label="Toggle Navigation Menu"
           >
             <Icon name={mobileMenuOpen ? "x" : "menu"} size={20} />
@@ -266,7 +266,7 @@ export function Navigation() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-subtle-border bg-white animate-fade-in shadow-xl">
+        <div className="lg:hidden border-t border-white/10 bg-surface/95 backdrop-blur-xl animate-fade-in shadow-xl">
           <div className="mx-auto max-w-7xl space-y-4 px-4 py-6 sm:px-6 font-semibold text-muted">
             <Link
               href="/about"
@@ -392,7 +392,7 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(false)}
               className="btn-primary block w-full py-3 text-center text-xs"
             >
-              Get Free Consultation
+              Start Your Project
             </Link>
           </div>
         </div>
@@ -419,23 +419,23 @@ function AccordionSection({ title, children }: { title: string; children: React.
 
 export function Footer() {
   return (
-    <footer className="dark-panel border-t border-white/10">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        <div className="flex flex-col gap-4">
-          <Link href="/" className="group flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white">
+    <footer className="border-t border-white/8 bg-surface">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-5 lg:px-8">
+        <div className="flex flex-col gap-4 lg:col-span-2">
+          <Link href="/" className="group flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-heading">
             <Image
               src="/logo.jpg"
               alt="Magnivel Technologies logo"
               width={36}
               height={36}
-              className="rounded-lg object-cover shadow-md shadow-cyan-400/20"
+              className="rounded-lg object-cover shadow-md shadow-accent/20"
             />
             <span>
-              Magnivel <span className="text-cyan-200">Technologies</span>
+              Magnivel <span className="gradient-text">Technologies</span>
             </span>
           </Link>
-          <p className="max-w-xs text-xs leading-relaxed text-slate-300">
-            Premium AI-powered software engineering. We build high-conversion websites, mobile app systems, SaaS dashboards, and automated RAG workflows for ambitious brands.
+          <p className="max-w-sm text-sm leading-relaxed text-muted">
+            Premium AI-powered software engineering. We build intelligent web platforms, mobile applications, SaaS products, and enterprise solutions for ambitious brands worldwide.
           </p>
           <div className="flex items-center gap-3 pt-1">
             <a
@@ -443,7 +443,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition-all hover:-translate-y-0.5 hover:border-cyan-300/60 hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent-dark"
             >
               <Icon name="linkedin" size={16} />
             </a>
@@ -452,65 +452,58 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition-all hover:-translate-y-0.5 hover:border-cyan-300/60 hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent-dark"
             >
               <Icon name="instagram" size={16} />
             </a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-xs text-slate-300">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white">Core Services</p>
-          <div className="grid gap-2">
-            <Link className="transition-colors hover:text-cyan-200" href="/website-development-services">Website Design & Dev</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/mobile-app-development">Mobile App Engineering</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/custom-software-development">Custom Business Systems</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/ai-chatbot-development">AI Chatbots (GPT/Claude)</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/ai-automation-services">AI Automation & Agents</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/saas-development">SaaS Product Architecture</Link>
+        <div className="flex flex-col gap-4 text-sm text-muted">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-heading">Services</p>
+          <div className="grid gap-2.5">
+            <Link className="transition-colors hover:text-accent-dark" href="/custom-software-development">Custom Software</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/ai-chatbot-development">AI & ML Solutions</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/website-development-services">Web Development</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/mobile-app-development">Mobile Apps</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/saas-development">SaaS Development</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/aws-development">Cloud & DevOps</Link>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-xs text-slate-300">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white">Resources & Tools</p>
-          <div className="grid gap-2">
-            <Link className="transition-colors hover:text-cyan-200" href="/blog">Our Insights Blog</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/resources">Resource Center</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/resources/website-cost-calculator">Web Cost Calculator</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/resources/ai-prompt-generator">AI Prompt Generator</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/resources/seo-meta-generator">SEO Tags Builder</Link>
-            <Link className="transition-colors hover:text-cyan-200" href="/resources/roi-calculator">ROI Automation Calc</Link>
+        <div className="flex flex-col gap-4 text-sm text-muted">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-heading">Technologies</p>
+          <div className="grid gap-2.5">
+            <Link className="transition-colors hover:text-accent-dark" href="/react-development">React & Next.js</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/python-development">Python & Django</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/nodejs-development">Node.js</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/aws-development">AWS Cloud</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/technologies">All Technologies</Link>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-xs text-slate-300">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white">Contact & Support</p>
-          <a className="flex items-center gap-2 transition-colors hover:text-white" href={`mailto:${site.email}`}>
-            <Icon name="mail" size={14} className="text-cyan-300" />
-            {site.email}
-          </a>
-          <p className="flex items-center gap-2">
-            <Icon name="clock" size={14} className="text-cyan-300" />
-            Responds within 24 Hours
-          </p>
-          <p className="flex items-center gap-2">
-            <Icon name="shield" size={14} className="text-cyan-300" />
-            NDAs signed for custom work
-          </p>
-          <p className="mt-2 text-[10px] text-slate-400 leading-normal">
-            Global Delivery Hub: serving clients in India, USA, Europe, UAE, and Singapore.
-          </p>
+        <div className="flex flex-col gap-4 text-sm text-muted">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-heading">Quick Links</p>
+          <div className="grid gap-2.5">
+            <Link className="transition-colors hover:text-accent-dark" href="/about">About Us</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/portfolio">Portfolio</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/blog">Blog</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/contact">Contact</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/resources">Resources</Link>
+          </div>
+          <div className="mt-2 border-t border-white/8 pt-4">
+            <a className="flex items-center gap-2 transition-colors hover:text-accent-dark" href={`mailto:${site.email}`}>
+              <Icon name="mail" size={14} className="text-accent-light" />
+              {site.email}
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-6 text-[11px] text-slate-400">
+      <div className="border-t border-white/8 py-6 text-xs text-dimmed">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 sm:flex-row sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Magnivel Technologies. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/about" className="hover:text-white">About Us</Link>
-            <Link href="/portfolio" className="hover:text-white">Portfolio</Link>
-            <Link href="/contact" className="hover:text-white">Contact</Link>
-          </div>
+          <p className="text-dimmed">Global delivery across India, USA, Europe, UAE &amp; Southeast Asia</p>
         </div>
       </div>
     </footer>

@@ -77,7 +77,7 @@ export function ServicePageTemplate({
 
       {/* Overview Section */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-subtle-border bg-surface p-8 shadow-xl glow-card">
+        <div className="glass-card p-8">
           <h2 className="text-xl font-extrabold text-heading">Service Overview</h2>
           <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base whitespace-pre-line">
             {overview}
@@ -97,7 +97,7 @@ export function ServicePageTemplate({
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-xl border border-subtle-border bg-surface p-6 shadow-sm hover:border-accent-light/30 transition-all glow-card"
+                className="glass-card p-6"
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/15">
                   <Icon name={benefit.icon} size={16} />
@@ -124,7 +124,7 @@ export function ServicePageTemplate({
               className="rounded-xl border border-subtle-border bg-background p-5 hover:border-accent-light/20 transition-all"
             >
               <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-400 border border-emerald-400/20">
                   <Icon name="check" size={12} />
                 </span>
                 <h4 className="text-xs font-extrabold text-heading uppercase tracking-wide">{feat.title}</h4>
@@ -161,7 +161,7 @@ export function ServicePageTemplate({
       </section>
 
       {/* FAQs Section */}
-      <section className="border-t border-subtle-border bg-white py-16">
+      <section className="border-t border-subtle-border py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-5">
             <SectionTitle
@@ -174,7 +174,7 @@ export function ServicePageTemplate({
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-xl border border-subtle-border bg-background p-4 hover:bg-background/80 transition-all"
+                className="group glass-card p-4"
               >
                 <summary className="cursor-pointer font-bold text-heading text-xs sm:text-sm flex justify-between items-center select-none">
                   {faq.question}
@@ -194,14 +194,14 @@ export function ServicePageTemplate({
       {/* CTA Section */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 mb-8">
         <div className="rounded-2xl dark-panel p-8 text-center sm:p-12 shadow-2xl relative overflow-hidden">
-          <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-cyan-300/10 blur-3xl pointer-events-none" />
-          <h2 className="text-xl font-extrabold text-white sm:text-3xl">{ctaTitle}</h2>
-          <p className="mt-4 text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-accent/15 blur-3xl pointer-events-none" />
+          <h2 className="text-xl font-extrabold text-heading sm:text-3xl">{ctaTitle}</h2>
+          <p className="mt-4 text-xs sm:text-sm text-muted max-w-2xl mx-auto leading-relaxed">
             {ctaDesc}
           </p>
           <div className="mt-8 flex justify-center">
             <Link href="/contact" className="btn-primary text-xs uppercase tracking-wider">
-              Get Free Consultation
+              Start Your Project
               <Icon name="arrow-right" size={14} />
             </Link>
           </div>

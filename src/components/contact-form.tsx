@@ -82,7 +82,7 @@ export function ContactForm() {
     return (
       <div className="glow-card flex flex-col items-center justify-center p-8 text-center sm:p-12 animate-fade-up">
         {/* Animated Checkmark */}
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-inner">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-400 shadow-inner">
           <svg className="h-10 w-10 animate-bounce" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
@@ -102,7 +102,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="glow-card grid gap-6 p-6 sm:p-8">
+    <form onSubmit={onSubmit} className="glass-card grid gap-6 p-6 sm:p-8">
       {/* Step 1: Contact Information */}
       <div>
         <h3 className="text-sm font-bold uppercase tracking-wider text-accent-dark">1. Personal & Company Info</h3>
@@ -165,7 +165,7 @@ export function ContactForm() {
               minLength={20}
               rows={5}
               placeholder="Explain the scope, timeline, integrations, or automation goals (minimum 20 characters)..."
-              className={`rounded-lg border bg-white px-3.5 py-2.5 text-heading text-sm focus:outline-none transition-all placeholder:text-dimmed focus:ring-2 focus:ring-accent/15 resize-none ${
+              className={`input resize-none ${
                 validationErrors.message ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
               }`}
             />
@@ -180,8 +180,8 @@ export function ContactForm() {
       {message && (
         <div className={`text-center p-3 rounded-lg border text-xs font-semibold ${
           state === "error"
-            ? "bg-red-50 border-red-200 text-red-700"
-            : "bg-emerald-50 border-emerald-200 text-emerald-700"
+            ? "bg-red-500/10 border-red-500/30 text-red-400"
+            : "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
         }`}>
           {message}
         </div>
@@ -233,8 +233,8 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className={`rounded-lg border bg-white px-3.5 py-2.5 text-heading text-sm focus:outline-none transition-all placeholder:text-dimmed focus:ring-2 focus:ring-accent/15 ${
-          error ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
+        className={`input ${
+          error ? "border-red-500 focus:border-red-500" : ""
         }`}
       />
       {error && <p className="text-xs font-semibold text-red-500">{error}</p>}
@@ -263,15 +263,15 @@ function Select({
           name={name}
           required
           defaultValue=""
-          className={`w-full appearance-none rounded-lg border bg-white px-3.5 py-2.5 pr-10 text-heading text-sm focus:outline-none transition-all focus:ring-2 focus:ring-accent/15 ${
-            error ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
+          className={`input appearance-none pr-10 ${
+            error ? "border-red-500 focus:border-red-500" : ""
           }`}
         >
-          <option value="" disabled className="bg-white text-muted">
+          <option value="" disabled className="bg-surface text-muted">
             {placeholder}
           </option>
           {options.map((option) => (
-            <option key={option} value={option} className="bg-white text-heading">
+            <option key={option} value={option} className="bg-surface text-heading">
               {option}
             </option>
           ))}
