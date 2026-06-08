@@ -89,6 +89,35 @@ const serviceCards = [
   }
 ];
 
+const backingCards = [
+  {
+    title: "Global Business Network",
+    icon: "users",
+    description:
+      "Connecting professionals, organizations, and businesses across industries through innovation and collaboration.",
+  },
+  {
+    title: "International Conferences & Events",
+    icon: "globe",
+    description:
+      "Supporting global conferences, summits, and knowledge-sharing platforms across multiple industries.",
+    href: "https://magnivelinternational.com/conferences",
+  },
+  {
+    title: "Research & Publishing Initiatives",
+    icon: "book",
+    description:
+      "Contributing to academic publishing, research dissemination, and scientific knowledge exchange worldwide.",
+    href: "https://magnivelinternational.com/journals",
+  },
+  {
+    title: "Technology & Innovation",
+    icon: "sparkles",
+    description:
+      "Delivering modern software solutions, AI applications, cloud platforms, and digital transformation services.",
+  },
+];
+
 const choosePillars = [
   {
     title: "AI Expertise",
@@ -183,6 +212,113 @@ const faqJsonLd = {
   })),
 };
 
+function MagnivelInternationalBacking() {
+  return (
+    <section
+      aria-labelledby="magnivel-international-heading"
+      className="border-b border-subtle-border bg-white py-20"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div className="animate-fade-up">
+            <span className="inline-flex rounded-full border border-accent/15 bg-accent-subtle px-3 py-1 text-xs font-bold uppercase tracking-widest text-accent-dark">
+              Group Strength
+            </span>
+            <h2
+              id="magnivel-international-heading"
+              className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-heading sm:text-4xl"
+            >
+              Backed by Magnivel International
+            </h2>
+            <p className="mt-3 text-sm font-extrabold uppercase tracking-widest text-accent-dark">
+              Global Reach. Industry Expertise. Technology Excellence.
+            </p>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted sm:text-base">
+              <p>
+                Magnivel Technologies operates as the technology and digital solutions division of Magnivel International, a global organization focused on conferences, research, publishing, business networking, and innovation-driven initiatives.
+              </p>
+              <p>
+                Through this association, we combine industry expertise, international reach, and technical excellence to deliver modern digital solutions for businesses, startups, organizations, and enterprises worldwide.
+              </p>
+              <p className="text-xs font-semibold leading-relaxed text-dimmed">
+                This ecosystem strengthens our work as a software development company providing digital transformation services, AI solutions, web development, mobile app development, technology consulting, research and innovation support, international conferences, and publishing solutions.
+              </p>
+            </div>
+
+            <div
+              aria-label="Magnivel brand relationship"
+              className="mt-8 rounded-lg border border-subtle-border bg-background/70 p-4 shadow-sm"
+            >
+              {[
+                "Magnivel International",
+                "Magnivel Technologies",
+                "Web Development | Mobile Apps | AI Solutions | Custom Software",
+              ].map((item, index, arr) => (
+                <div key={item} className="flex flex-col items-center text-center">
+                  <div
+                    className={`w-full rounded-lg border px-4 py-3 text-xs font-extrabold ${
+                      index === 1
+                        ? "border-accent/25 bg-white text-accent-dark shadow-sm"
+                        : "border-subtle-border bg-white/70 text-heading"
+                    }`}
+                  >
+                    {item}
+                  </div>
+                  {index < arr.length - 1 ? (
+                    <Icon name="chevron-down" size={18} className="my-2 text-accent" />
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {backingCards.map((card, index) => {
+              const className = `glow-card group min-h-52 p-6 animate-fade-up ${
+                index === 1 ? "delay-75" : index === 2 ? "delay-150" : ""
+              }`;
+              const content = (
+                <>
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-accent/10 bg-accent-subtle text-accent-dark">
+                      <Icon name={card.icon} size={18} />
+                    </span>
+                    {card.href ? (
+                      <Icon name="external-link" size={14} className="text-dimmed transition-colors group-hover:text-accent-dark" />
+                    ) : null}
+                  </div>
+                  <h3 className="mt-5 text-base font-extrabold text-heading">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-xs leading-relaxed text-muted">
+                    {card.description}
+                  </p>
+                </>
+              );
+
+              return card.href ? (
+                <a
+                  key={card.title}
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {content}
+                </a>
+              ) : (
+                <article key={card.title} className={className}>
+                  {content}
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <PageShell>
@@ -272,6 +408,8 @@ export default function Home() {
       </section>
 
       {/* ─── SERVICES GRID ─── */}
+      <MagnivelInternationalBacking />
+
       <section id="services" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 scroll-mt-20">
         <SectionTitle
           eyebrow="Services"
