@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@/components/icon";
+import { ProjectVisual } from "@/components/portfolio/project-visual";
 import { ScrollReveal } from "@/components/motion";
 import { caseStudies } from "@/lib/home-data";
 
@@ -56,22 +57,27 @@ export function CaseStudiesSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.4 }}
-            className="mt-10 grid gap-8 lg:grid-cols-2"
+            className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center"
           >
-            {/* Visual mockup */}
-            <div className={`glass-card relative aspect-[4/3] overflow-hidden bg-gradient-to-br ${study.gradient}`}>
+            {/* Template design showcase */}
+            <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${study.gradient}`}>
               <div className="absolute inset-0 bg-grid opacity-20" />
-              <div className="absolute inset-0 bg-[#0b1020]/50" />
-              <div className="relative flex h-full flex-col p-6 sm:p-8">
-                <span className="inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
-                  {study.industry}
-                </span>
-                <h3 className="mt-auto text-2xl font-extrabold text-white sm:text-3xl">{study.title}</h3>
-                <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="absolute inset-0 bg-[#0b1020]/30" />
+              <div className="relative min-h-[280px] sm:min-h-[340px]">
+                <div className="absolute left-4 top-4 z-10">
+                  <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                    {study.industry}
+                  </span>
+                </div>
+                <ProjectVisual type={study.visual} />
+              </div>
+              <div className="relative border-t border-white/10 bg-[#0b1020]/60 px-5 py-4 backdrop-blur-sm">
+                <h3 className="text-lg font-extrabold text-white sm:text-xl">{study.title}</h3>
+                <div className="mt-3 grid grid-cols-3 gap-2">
                   {study.metrics.map((m) => (
-                    <div key={m.label} className="rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
-                      <p className="text-lg font-extrabold text-white">{m.value}</p>
-                      <p className="text-[9px] font-semibold uppercase tracking-wider text-white/70">{m.label}</p>
+                    <div key={m.label} className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-center">
+                      <p className="text-sm font-extrabold text-white">{m.value}</p>
+                      <p className="text-[8px] font-semibold uppercase tracking-wider text-white/60">{m.label}</p>
                     </div>
                   ))}
                 </div>
@@ -93,7 +99,7 @@ export function CaseStudiesSection() {
                 <p className="mt-2 text-sm font-semibold text-foreground">{study.impact}</p>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-dimmed mb-2">Technologies Used</p>
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-dimmed">Technologies Used</p>
                 <div className="flex flex-wrap gap-2">
                   {study.tech.map((t) => (
                     <span

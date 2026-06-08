@@ -158,46 +158,130 @@ export const serviceOptions = [
 
 export const projects = [
   {
+    id: "b2b-lead-platform",
     title: "B2B Lead Generation Platform",
     category: "Web Development",
+    industry: "Marketing & Agencies",
     description:
-      "A conversion-focused agency website with SEO landing pages, intelligent lead capture, and analytics. Qualified inquiries increased by 3x.",
+      "A conversion-focused agency website with SEO landing pages, intelligent lead capture, and analytics.",
+    challenge:
+      "The client needed a high-conversion web presence that could rank organically, capture qualified leads automatically, and replace a slow legacy WordPress site.",
+    solution:
+      "We built a Next.js platform with dynamic SEO landing pages, intelligent form routing, CRM integrations, and a real-time analytics dashboard for marketing teams.",
+    impact: "Qualified inquiries increased by 3x within four months of launch.",
+    metrics: [
+      { label: "Lead Growth", value: "3x" },
+      { label: "Page Speed", value: "97/100" },
+      { label: "Conversion Rate", value: "+42%" },
+    ],
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    gradient: "from-indigo-600/60 via-violet-600/40 to-cyan-600/50",
+    visual: "analytics" as const,
   },
   {
+    id: "enterprise-ops-dashboard",
     title: "Enterprise Operations Dashboard",
     category: "Custom Software",
+    industry: "Enterprise / Operations",
     description:
-      "Role-based operations platform for tracking customers, workflows, and team performance with automated reporting. Manual work dropped by 60%.",
+      "Role-based operations platform for tracking customers, workflows, and team performance with automated reporting.",
+    challenge:
+      "Operations teams were juggling spreadsheets and disconnected tools, causing reporting delays and inconsistent customer data across departments.",
+    solution:
+      "Delivered a role-based operations hub with workflow automation, customer lifecycle tracking, team performance dashboards, and scheduled PDF reports.",
+    impact: "Manual reporting work dropped by 60% across operations teams.",
+    metrics: [
+      { label: "Manual Work Saved", value: "60%" },
+      { label: "Active Users", value: "200+" },
+      { label: "Report Time", value: "-80%" },
+    ],
     stack: ["React", "Node.js", "PostgreSQL", "Redis"],
+    gradient: "from-violet-600/60 via-purple-600/40 to-indigo-600/50",
+    visual: "dashboard" as const,
   },
   {
+    id: "ai-support-system",
     title: "AI-Powered Support System",
     category: "AI & Automation",
+    industry: "Customer Support",
     description:
-      "Knowledge-assisted support platform with AI routing, response drafting, and sentiment analysis. Response times dropped by 75%.",
+      "Knowledge-assisted support platform with AI routing, response drafting, and sentiment analysis.",
+    challenge:
+      "Support volume was overwhelming agents with repetitive tickets, slow first-response times, and no intelligent routing based on issue complexity.",
+    solution:
+      "Implemented an AI-assisted support layer with knowledge-base RAG, auto-drafted responses, sentiment detection, and smart ticket routing to the right specialists.",
+    impact: "Average response times dropped by 75% while CSAT scores improved.",
+    metrics: [
+      { label: "Response Time", value: "-75%" },
+      { label: "CSAT Score", value: "4.8/5" },
+      { label: "Tickets Auto-Routed", value: "85%" },
+    ],
     stack: ["Next.js", "OpenAI", "Python", "AWS"],
+    gradient: "from-cyan-600/60 via-teal-600/40 to-emerald-600/50",
+    visual: "ai" as const,
   },
   {
+    id: "multi-tenant-saas",
     title: "Multi-Tenant SaaS Platform",
     category: "SaaS",
+    industry: "B2B SaaS",
     description:
       "Subscription-based collaboration platform with billing, dashboards, analytics, and scalable tenant architecture.",
+    challenge:
+      "A growing startup needed to launch a subscription product with multi-tenant isolation, usage-based billing, and team collaboration without rebuilding from scratch.",
+    solution:
+      "Architected a scalable multi-tenant SaaS with Stripe billing, tenant-aware data isolation, collaborative workspaces, and admin analytics for growth teams.",
+    impact: "Launched MVP in 12 weeks; scaled to 120+ paying tenants in year one.",
+    metrics: [
+      { label: "Time to Launch", value: "12 wks" },
+      { label: "Paying Tenants", value: "120+" },
+      { label: "MRR Growth", value: "+180%" },
+    ],
     stack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    gradient: "from-blue-600/60 via-indigo-600/40 to-violet-600/50",
+    visual: "saas" as const,
   },
   {
+    id: "healthcare-appointments",
     title: "Healthcare Appointment System",
     category: "Custom Software",
+    industry: "Healthcare",
     description:
       "Secure appointment scheduling and telemedicine workflow with patient portals, reminders, and admin controls.",
+    challenge:
+      "A healthcare provider faced double-bookings, missed appointments, and no secure way for patients to access records or join telemedicine sessions.",
+    solution:
+      "Built a HIPAA-aware scheduling system with patient portals, SMS/email reminders, WebRTC telemedicine rooms, and admin controls for practitioners.",
+    impact: "No-show rates reduced by 45% with fully automated reminder workflows.",
+    metrics: [
+      { label: "No-Shows Reduced", value: "45%" },
+      { label: "Appointments/mo", value: "8K+" },
+      { label: "Patient Satisfaction", value: "94%" },
+    ],
     stack: ["React", "Node.js", "WebRTC", "MongoDB"],
+    gradient: "from-emerald-600/60 via-cyan-600/40 to-blue-600/50",
+    visual: "healthcare" as const,
   },
   {
+    id: "ecommerce-mobile-app",
     title: "E-Commerce Mobile App",
     category: "Mobile App Development",
+    industry: "E-Commerce / Retail",
     description:
       "Cross-platform shopping app with recommendations, real-time inventory, push notifications, and streamlined checkout.",
+    challenge:
+      "A retail brand needed a mobile-first shopping experience with real-time stock, personalized recommendations, and frictionless checkout to compete with larger marketplaces.",
+    solution:
+      "Developed a React Native app with AI-driven product recommendations, live inventory sync, push notification campaigns, and one-tap Stripe checkout.",
+    impact: "Mobile revenue grew 2.5x in the first quarter after app launch.",
+    metrics: [
+      { label: "Mobile Revenue", value: "2.5x" },
+      { label: "App Downloads", value: "25K+" },
+      { label: "Checkout Time", value: "-50%" },
+    ],
     stack: ["React Native", "Node.js", "Stripe", "Firebase"],
+    gradient: "from-rose-600/60 via-violet-600/40 to-indigo-600/50",
+    visual: "mobile" as const,
   },
 ];
 

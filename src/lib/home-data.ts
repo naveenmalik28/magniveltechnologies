@@ -38,6 +38,7 @@ export const caseStudies = [
       { label: "Response Time", value: "<2s" },
     ],
     gradient: "from-indigo-600/60 via-violet-600/40 to-cyan-600/50",
+    visual: "healthcare" as const,
   },
   {
     id: "b2b-analytics-saas",
@@ -55,6 +56,7 @@ export const caseStudies = [
       { label: "API Latency", value: "45ms" },
     ],
     gradient: "from-violet-600/60 via-purple-600/40 to-indigo-600/50",
+    visual: "saas" as const,
   },
   {
     id: "real-estate-portal",
@@ -72,6 +74,7 @@ export const caseStudies = [
       { label: "Mobile Traffic", value: "68%" },
     ],
     gradient: "from-cyan-600/60 via-teal-600/40 to-emerald-600/50",
+    visual: "realestate" as const,
   },
 ];
 
