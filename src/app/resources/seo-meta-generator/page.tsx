@@ -16,15 +16,15 @@ export default function SEOMetaGenerator() {
   const getTitleStatus = () => {
     if (titleLength === 0) return { label: "Empty", class: "text-dimmed" };
     if (titleLength < 40) return { label: "Too Short", class: "text-amber-500 font-bold" };
-    if (titleLength <= 60) return { label: "Optimal (40-60)", class: "text-emerald-600 font-bold" };
-    return { label: "Too Long (Over 60)", class: "text-red-500 font-bold" };
+    if (titleLength <= 60) return { label: "Optimal (40-60)", class: "text-emerald-400 font-bold" };
+    return { label: "Too Long (Over 60)", class: "text-red-400 font-bold" };
   };
 
   const getDescStatus = () => {
     if (descLength === 0) return { label: "Empty", class: "text-dimmed" };
     if (descLength < 110) return { label: "Too Short", class: "text-amber-500 font-bold" };
-    if (descLength <= 160) return { label: "Optimal (110-160)", class: "text-emerald-600 font-bold" };
-    return { label: "Too Long (Over 160)", class: "text-red-500 font-bold" };
+    if (descLength <= 160) return { label: "Optimal (110-160)", class: "text-emerald-400 font-bold" };
+    return { label: "Too Long (Over 160)", class: "text-red-400 font-bold" };
   };
 
   const handleCopy = () => {
@@ -45,7 +45,7 @@ export default function SEOMetaGenerator() {
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1.8fr] items-start">
           {/* Form inputs */}
-          <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md grid gap-5">
+          <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md grid gap-5">
             {/* Title input */}
             <label className="grid gap-2 text-sm font-semibold text-heading">
               <div className="flex justify-between items-center text-xs">
@@ -57,7 +57,7 @@ export default function SEOMetaGenerator() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Magnivel Technologies | Premium Software & AI Solutions"
-                className="w-full rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-xs sm:text-sm text-heading focus:outline-none focus:border-accent"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent"
               />
             </label>
 
@@ -72,7 +72,7 @@ export default function SEOMetaGenerator() {
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
                 placeholder="e.g. We design and build secure, fast, and scalable digital products. Contact our AI and software engineering team today for a free consultation."
-                className="w-full rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-xs sm:text-sm text-heading focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
               />
             </label>
 
@@ -84,17 +84,18 @@ export default function SEOMetaGenerator() {
                 value={slug}
                 onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/\s+/g, "-"))}
                 placeholder="e.g. website-development-services"
-                className="w-full rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-xs sm:text-sm text-heading focus:outline-none focus:border-accent"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent"
               />
             </label>
           </div>
 
           {/* Real-time Google Card Preview */}
           <div className="grid gap-6">
-            <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md">
-              <span className="font-mono text-[10px] uppercase text-dimmed tracking-wider font-bold block mb-4 border-b border-subtle-border pb-2">
+            <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md">
+              <span className="font-mono text-[10px] uppercase text-muted tracking-wider font-bold block mb-4 border-b border-subtle-border pb-2">
                 Google Desktop Search Snippet Preview
               </span>
+              {/* Google preview intentionally uses light background to simulate real SERP */}
               <div className="font-sans max-w-xl text-left bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <span className="text-xs text-slate-600 block truncate leading-none">
                   https://www.magnivel.com › <span className="text-slate-500 font-semibold">{slug || "slug"}</span>

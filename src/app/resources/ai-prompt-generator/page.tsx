@@ -44,14 +44,14 @@ OUTPUT GUIDELINES:
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1.8fr] items-start">
           {/* Controls Form */}
-          <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md grid gap-5">
+          <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md grid gap-5">
             {/* Persona Role */}
             <label className="grid gap-2 text-sm font-semibold text-heading">
               <span>1. Choose Persona / Role</span>
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full rounded-lg border border-subtle-border bg-white px-3 py-2 text-xs text-heading focus:outline-none focus:border-accent"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3 py-2 text-xs text-foreground focus:outline-none focus:border-accent"
               >
                 <option value="System Analyst">System Analyst</option>
                 <option value="Senior Code Engineer">Senior Code Engineer</option>
@@ -62,16 +62,16 @@ OUTPUT GUIDELINES:
 
             {/* Tone Selector */}
             <label className="grid gap-2 text-sm font-semibold text-heading">
-              <span>2. Style & Tone</span>
+              <span>2. Style &amp; Tone</span>
               <select
                 value={tone}
                 onChange={(e) => setTone(e.target.value)}
-                className="w-full rounded-lg border border-subtle-border bg-white px-3 py-2 text-xs text-heading focus:outline-none focus:border-accent"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3 py-2 text-xs text-foreground focus:outline-none focus:border-accent"
               >
-                <option value="Professional & Direct">Professional & Direct</option>
-                <option value="Conversational & Warm">Conversational & Warm</option>
-                <option value="Highly Technical & Structured">Highly Technical & Structured</option>
-                <option value="Academic & Explanatory">Academic & Explanatory</option>
+                <option value="Professional & Direct">Professional &amp; Direct</option>
+                <option value="Conversational & Warm">Conversational &amp; Warm</option>
+                <option value="Highly Technical & Structured">Highly Technical &amp; Structured</option>
+                <option value="Academic & Explanatory">Academic &amp; Explanatory</option>
               </select>
             </label>
 
@@ -81,7 +81,7 @@ OUTPUT GUIDELINES:
               <select
                 value={format}
                 onChange={(e) => setFormat(e.target.value)}
-                className="w-full rounded-lg border border-subtle-border bg-white px-3 py-2 text-xs text-heading focus:outline-none focus:border-accent"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3 py-2 text-xs text-foreground focus:outline-none focus:border-accent"
               >
                 <option value="Markdown Headers">Markdown Headers</option>
                 <option value="Structured JSON object">Structured JSON object</option>
@@ -98,7 +98,7 @@ OUTPUT GUIDELINES:
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
                 placeholder="e.g. Write an API routing checklist for a multi-tenant node server..."
-                className="w-full rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-xs sm:text-sm text-heading focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 resize-none"
               />
             </label>
           </div>

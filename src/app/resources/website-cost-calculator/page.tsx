@@ -56,7 +56,7 @@ export default function WebsiteCostCalculator() {
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.5fr_1fr] items-start">
           {/* Controls Panel */}
-          <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md grid gap-6">
+          <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md grid gap-6">
             {/* Currency Selector */}
             <div className="flex justify-between items-center">
               <span className="text-sm font-bold text-heading">1. Select Currency</span>
@@ -65,7 +65,7 @@ export default function WebsiteCostCalculator() {
                   type="button"
                   onClick={() => setCurrency("INR")}
                   className={`flex-1 rounded-md py-1 text-xs font-bold transition-all cursor-pointer ${
-                    currency === "INR" ? "bg-white text-accent shadow-sm" : "text-dimmed"
+                    currency === "INR" ? "bg-accent text-white shadow-sm" : "text-muted"
                   }`}
                 >
                   INR (₹)
@@ -74,7 +74,7 @@ export default function WebsiteCostCalculator() {
                   type="button"
                   onClick={() => setCurrency("USD")}
                   className={`flex-1 rounded-md py-1 text-xs font-bold transition-all cursor-pointer ${
-                    currency === "USD" ? "bg-white text-accent shadow-sm" : "text-dimmed"
+                    currency === "USD" ? "bg-accent text-white shadow-sm" : "text-muted"
                   }`}
                 >
                   USD ($)
@@ -88,7 +88,7 @@ export default function WebsiteCostCalculator() {
             <div className="grid gap-2">
               <div className="flex justify-between items-center text-sm font-bold text-heading">
                 <span>2. Number of Pages</span>
-                <span className="text-accent">{pages} Pages</span>
+                <span className="text-accent-dark">{pages} Pages</span>
               </div>
               <input
                 type="range"
@@ -96,9 +96,9 @@ export default function WebsiteCostCalculator() {
                 max="50"
                 value={pages}
                 onChange={(e) => setPages(Number(e.target.value))}
-                className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
-              <span className="text-[10px] text-dimmed">Includes headers, content sections, and contact layouts.</span>
+              <span className="text-[10px] text-muted">Includes headers, content sections, and contact layouts.</span>
             </div>
 
             <hr className="border-subtle-border/50" />
@@ -115,7 +115,7 @@ export default function WebsiteCostCalculator() {
                   <label
                     key={val}
                     className={`rounded-xl border p-3 flex gap-3 cursor-pointer select-none transition-all ${
-                      design === val ? "bg-accent-subtle/30 border-accent" : "border-subtle-border bg-slate-50/30"
+                      design === val ? "bg-accent-subtle/30 border-accent" : "border-subtle-border bg-white/5"
                     }`}
                   >
                     <input

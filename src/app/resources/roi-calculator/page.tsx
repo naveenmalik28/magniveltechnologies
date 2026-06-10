@@ -31,7 +31,7 @@ export default function ROICalculator() {
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.5fr_1fr] items-start">
           {/* Controls box */}
-          <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md grid gap-6">
+          <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md grid gap-6">
             {/* Currency selector */}
             <div className="flex justify-between items-center">
               <span className="text-sm font-bold text-heading">1. Choose Currency</span>
@@ -43,7 +43,7 @@ export default function ROICalculator() {
                     setRate(800); // Set default INR rate
                   }}
                   className={`flex-1 rounded-md py-1 text-xs font-bold transition-all cursor-pointer ${
-                    currency === "INR" ? "bg-white text-accent shadow-sm" : "text-dimmed"
+                    currency === "INR" ? "bg-accent text-white shadow-sm" : "text-muted"
                   }`}
                 >
                   INR (₹)
@@ -55,7 +55,7 @@ export default function ROICalculator() {
                     setRate(30); // Set default USD rate
                   }}
                   className={`flex-1 rounded-md py-1 text-xs font-bold transition-all cursor-pointer ${
-                    currency === "USD" ? "bg-white text-accent shadow-sm" : "text-dimmed"
+                    currency === "USD" ? "bg-accent text-white shadow-sm" : "text-muted"
                   }`}
                 >
                   USD ($)
@@ -69,7 +69,7 @@ export default function ROICalculator() {
             <div className="grid gap-2">
               <div className="flex justify-between items-center text-sm font-bold text-heading">
                 <span>2. Manual Hours Spent per Week (Per Person)</span>
-                <span className="text-accent">{hours} Hours</span>
+                <span className="text-accent-dark">{hours} Hours</span>
               </div>
               <input
                 type="range"
@@ -77,9 +77,9 @@ export default function ROICalculator() {
                 max="60"
                 value={hours}
                 onChange={(e) => setHours(Number(e.target.value))}
-                className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
-              <span className="text-[10px] text-dimmed">Includes data copy-paste, file sorting, and manual verification tasks.</span>
+              <span className="text-[10px] text-muted">Includes data copy-paste, file sorting, and manual verification tasks.</span>
             </div>
 
             <hr className="border-subtle-border/50" />
@@ -88,7 +88,7 @@ export default function ROICalculator() {
             <div className="grid gap-2">
               <div className="flex justify-between items-center text-sm font-bold text-heading">
                 <span>3. Average Hourly Wage</span>
-                <span className="text-accent">{cSign}{rate} / Hour</span>
+                <span className="text-accent-dark">{cSign}{rate} / Hour</span>
               </div>
               <input
                 type="range"
@@ -97,9 +97,9 @@ export default function ROICalculator() {
                 step={currency === "INR" ? 50 : 5}
                 value={rate}
                 onChange={(e) => setRate(Number(e.target.value))}
-                className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
-              <span className="text-[10px] text-dimmed">Average hourly cost including employee benefits and overheads.</span>
+              <span className="text-[10px] text-muted">Average hourly cost including employee benefits and overheads.</span>
             </div>
 
             <hr className="border-subtle-border/50" />
@@ -108,7 +108,7 @@ export default function ROICalculator() {
             <div className="grid gap-2">
               <div className="flex justify-between items-center text-sm font-bold text-heading">
                 <span>4. Number of Employees Executing Task</span>
-                <span className="text-accent">{staff} Staff</span>
+                <span className="text-accent-dark">{staff} Staff</span>
               </div>
               <input
                 type="range"
@@ -116,9 +116,9 @@ export default function ROICalculator() {
                 max="20"
                 value={staff}
                 onChange={(e) => setStaff(Number(e.target.value))}
-                className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
-              <span className="text-[10px] text-dimmed">Number of team members performing this repetitive process.</span>
+              <span className="text-[10px] text-muted">Number of team members performing this repetitive process.</span>
             </div>
           </div>
 

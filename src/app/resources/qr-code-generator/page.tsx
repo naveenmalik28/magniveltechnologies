@@ -23,7 +23,7 @@ export default function QRCodeGenerator() {
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.5fr_1fr] items-center">
           {/* Controls box */}
-          <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md grid gap-5">
+          <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md grid gap-5">
             {/* Input URL/Text */}
             <label className="grid gap-2 text-sm font-semibold text-heading">
               <span>1. Enter URL or Text to Encode</span>
@@ -32,7 +32,7 @@ export default function QRCodeGenerator() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="e.g. https://www.example.com"
-                className="w-full rounded-lg border border-subtle-border bg-white px-3.5 py-2.5 text-xs sm:text-sm text-heading focus:outline-none focus:border-accent"
+                className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent"
               />
             </label>
 
@@ -44,24 +44,24 @@ export default function QRCodeGenerator() {
                   type="color"
                   value={color}
                   onChange={(e) => setColor(e.target.value)}
-                  className="h-9 w-12 rounded border border-subtle-border cursor-pointer bg-white"
+                  className="h-9 w-12 rounded border border-subtle-border cursor-pointer bg-background"
                 />
                 <input
                   type="text"
                   value={color.toUpperCase()}
                   onChange={(e) => setColor(e.target.value)}
-                  className="rounded-lg border border-subtle-border px-3 py-1.5 text-xs font-mono font-semibold w-24 text-heading focus:outline-none focus:border-accent"
+                  className="rounded-lg border border-subtle-border bg-background px-3 py-1.5 text-xs font-mono font-semibold w-24 text-foreground focus:outline-none focus:border-accent"
                 />
               </div>
             </label>
           </div>
 
-          {/* QR Display Card */}
-          <div className="rounded-2xl border border-subtle-border bg-white p-6 shadow-md text-center flex flex-col items-center justify-center">
-            <span className="font-mono text-[10px] uppercase text-dimmed tracking-wider font-bold block mb-4">
+          {/* QR Display Card — white background intentionally kept for QR code scan readability */}
+          <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md text-center flex flex-col items-center justify-center">
+            <span className="font-mono text-[10px] uppercase text-muted tracking-wider font-bold block mb-4">
               Generated QR Code Preview
             </span>
-            <div className="h-52 w-52 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden shadow-inner p-2.5">
+            <div className="h-52 w-52 rounded-xl border border-white/10 bg-white flex items-center justify-center overflow-hidden shadow-inner p-2.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={qrUrl}
@@ -71,7 +71,7 @@ export default function QRCodeGenerator() {
                 height={200}
               />
             </div>
-            <p className="mt-4 text-[10px] text-dimmed leading-normal">
+            <p className="mt-4 text-[10px] text-muted leading-normal">
               Scan with your smartphone camera to load encoded data immediately.
             </p>
             <a
