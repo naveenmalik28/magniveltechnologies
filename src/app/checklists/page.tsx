@@ -86,8 +86,8 @@ export default function ChecklistsPage() {
                 onClick={() => setActiveTab("web")}
                 className={`rounded-lg px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "web"
-                    ? "bg-accent text-white shadow-sm"
-                    : "bg-slate-100 text-muted hover:bg-slate-200"
+                    ? "bg-accent text-white shadow-sm shadow-accent/30"
+                    : "bg-white/5 text-muted border border-subtle-border hover:bg-white/10 hover:text-heading"
                 }`}
               >
                 Website Launch Checklist
@@ -96,8 +96,8 @@ export default function ChecklistsPage() {
                 onClick={() => setActiveTab("saas")}
                 className={`rounded-lg px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "saas"
-                    ? "bg-accent text-white shadow-sm"
-                    : "bg-slate-100 text-muted hover:bg-slate-200"
+                    ? "bg-accent text-white shadow-sm shadow-accent/30"
+                    : "bg-white/5 text-muted border border-subtle-border hover:bg-white/10 hover:text-heading"
                 }`}
               >
                 SaaS MVP Checklist
@@ -106,8 +106,8 @@ export default function ChecklistsPage() {
                 onClick={() => setActiveTab("seo")}
                 className={`rounded-lg px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "seo"
-                    ? "bg-accent text-white shadow-sm"
-                    : "bg-slate-100 text-muted hover:bg-slate-200"
+                    ? "bg-accent text-white shadow-sm shadow-accent/30"
+                    : "bg-white/5 text-muted border border-subtle-border hover:bg-white/10 hover:text-heading"
                 }`}
               >
                 SEO Audit Checklist
@@ -117,8 +117,9 @@ export default function ChecklistsPage() {
             {/* Reset button */}
             <button
               onClick={handleReset}
-              className="text-xs font-bold text-dimmed hover:text-heading cursor-pointer inline-flex items-center gap-1"
+              className="text-xs font-bold text-dimmed hover:text-heading cursor-pointer inline-flex items-center gap-1 transition-colors"
             >
+              <Icon name="x" size={12} />
               Reset Current List
             </button>
           </div>
@@ -127,11 +128,17 @@ export default function ChecklistsPage() {
           <div className="mt-6">
             <div className="flex justify-between items-center text-xs font-bold text-heading mb-2">
               <span>Task Progress</span>
-              <span>{completedTasks} / {totalTasks} Completed ({progressPercent}%)</span>
+              <span className={progressPercent === 100 ? "text-emerald-400" : ""}>
+                {completedTasks} / {totalTasks} Completed ({progressPercent}%)
+              </span>
             </div>
-            <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+            <div className="h-2 w-full rounded-full bg-white/10 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-accent to-accent-light transition-all duration-300 ease-out"
+                className={`h-full transition-all duration-500 ease-out rounded-full ${
+                  progressPercent === 100
+                    ? "bg-gradient-to-r from-emerald-500 to-emerald-400"
+                    : "bg-gradient-to-r from-accent to-accent-light"
+                }`}
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
@@ -140,27 +147,56 @@ export default function ChecklistsPage() {
 
         {/* Tasks Checklist Grid */}
         <div className="grid gap-4">
-          {activeChecklist.map((item) => (
+          {activeChecklist.map((item, index) => (
             <label
               key={item.id}
               onClick={() => handleToggle(item.id)}
-              className={`rounded-xl border p-5 flex gap-4 cursor-pointer transition-all select-none ${
+              className={`rounded-xl border p-5 flex gap-4 cursor-pointer transition-all duration-200 select-none ${
                 checkedItems[item.id]
-                  ? "bg-emerald-50/20 border-emerald-500/30"
-                  : "bg-white border-subtle-border hover:border-accent-light/30"
+                  ? "bg-emerald-500/10 border-emerald-500/30 hover:bg-emerald-500/15"
+                  : "bg-surface border-subtle-border hover:border-accent/30 hover:bg-surface-hover"
               }`}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-subtle-border bg-white transition-all">
+              {/* Custom checkbox */}
+              <div
+                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-all duration-200 ${
+                  checkedItems[item.id]
+                    ? "bg-emerald-500 border-emerald-500 shadow-sm shadow-emerald-500/30"
+                    : "border-white/20 bg-white/5 hover:border-accent/50"
+                }`}
+              >
                 {checkedItems[item.id] && (
-                  <Icon name="check" size={13} className="text-emerald-600 font-bold" />
+                  <Icon name="check" size={12} className="text-white font-bold" />
                 )}
               </div>
-              <div>
-                <h3 className={`text-sm font-extrabold text-heading ${checkedItems[item.id] ? "line-through text-dimmed" : ""}`}>
+
+              {/* Task content */}
+              <div className="flex-1 min-w-0">
+                <h3
+                  className={`text-sm font-extrabold transition-colors duration-200 ${
+                    checkedItems[item.id]
+                      ? "line-through text-muted"
+                      : "text-heading"
+                  }`}
+                >
                   {item.task}
                 </h3>
-                <p className="mt-1.5 text-xs text-muted leading-relaxed">{item.desc}</p>
+                <p
+                  className={`mt-1.5 text-xs leading-relaxed transition-colors duration-200 ${
+                    checkedItems[item.id] ? "text-dimmed" : "text-muted"
+                  }`}
+                >
+                  {item.desc}
+                </p>
               </div>
+
+              {/* Status indicator */}
+              {checkedItems[item.id] && (
+                <span className="mt-0.5 text-[10px] font-bold text-emerald-400 uppercase tracking-wider shrink-0">
+                  Done
+                </span>
+              )}
             </label>
           ))}
         </div>
