@@ -39,8 +39,8 @@ export function HeroDashboard() {
       {/* Glow backdrop */}
       <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent/20 via-accent-secondary/10 to-accent-light/20 blur-2xl" />
 
-      {/* Main card */}
-      <div className="glass-card relative overflow-hidden p-4 sm:p-5 md:p-6">
+      {/* Main card — no overflow-hidden so nothing gets clipped */}
+      <div className="glass-card relative p-4 sm:p-5 md:p-6">
         {/* Title bar */}
         <div className="flex items-center justify-between border-b border-white/8 pb-3 sm:pb-4">
           <div className="flex gap-1.5 sm:gap-2">
@@ -53,10 +53,10 @@ export function HeroDashboard() {
           </span>
         </div>
 
-        {/* Content grid: stacks on mobile, side-by-side on lg */}
+        {/* Content grid — stacks on mobile, side-by-side on lg */}
         <div className="mt-3 grid gap-3 sm:mt-4 sm:gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-          {/* Network visualization */}
-          <div className="relative aspect-[4/3] rounded-xl border border-white/6 bg-[#0b1020]/80 p-3 sm:p-4">
+          {/* Network visualization — aspect-ratio on mobile only, flexible on desktop */}
+          <div className="relative aspect-[4/3] rounded-xl border border-white/6 bg-[#0b1020]/80 p-3 sm:p-4 lg:aspect-auto lg:min-h-[240px]">
             <svg
               viewBox="0 0 100 100"
               className="h-full w-full"
@@ -145,8 +145,8 @@ export function HeroDashboard() {
             </motion.div>
           </div>
 
-          {/* Side panels */}
-          <div className="flex flex-col gap-2.5 sm:gap-3">
+          {/* Side panels — all content visible, no clipping */}
+          <div className="flex flex-col gap-2 sm:gap-2.5">
             {/* Performance mini chart */}
             <div className="rounded-xl border border-white/6 bg-[#0b1020]/60 p-2.5 sm:p-3">
               <p className="text-[9px] font-bold uppercase tracking-wider text-muted sm:text-[10px]">
@@ -165,10 +165,10 @@ export function HeroDashboard() {
               </div>
             </div>
 
-            {/* Mobile preview + AWS status — side-by-side, stack on very small screens */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+            {/* Mobile preview + AWS status — always side-by-side */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
               {/* Mobile App preview */}
-              <div className="rounded-xl border border-white/6 bg-[#0b1020]/60 p-2.5 sm:p-3">
+              <div className="rounded-xl border border-white/6 bg-[#0b1020]/60 p-2 sm:p-2.5">
                 <div className="mx-auto w-10 rounded-lg border border-white/10 bg-surface p-1 sm:w-12 sm:p-1.5">
                   <div className="mx-auto mb-1 h-0.5 w-3 rounded-full bg-white/20 sm:mb-1.5 sm:h-1 sm:w-4" />
                   <div className="space-y-0.5 sm:space-y-1">
@@ -183,14 +183,14 @@ export function HeroDashboard() {
               </div>
 
               {/* AWS Status panel */}
-              <div className="rounded-xl border border-white/6 bg-[#0b1020]/60 p-2.5 sm:p-3">
+              <div className="rounded-xl border border-white/6 bg-[#0b1020]/60 p-2 sm:p-2.5">
                 <div className="flex items-center gap-1 sm:gap-1.5">
                   <Icon
                     name="server"
                     size={12}
-                    className="text-accent-light"
+                    className="shrink-0 text-accent-light"
                   />
-                  <span className="font-mono text-[8px] text-emerald-400 sm:text-[9px]">
+                  <span className="truncate font-mono text-[8px] text-emerald-400 sm:text-[9px]">
                     AWS Live
                   </span>
                 </div>
@@ -200,30 +200,50 @@ export function HeroDashboard() {
                       key={svc.name}
                       className="flex items-center justify-between text-[7px] sm:text-[8px]"
                     >
-                      <span className="text-muted">{svc.name}</span>
-                      <span className="h-1 w-1 rounded-full bg-emerald-400 sm:h-1.5 sm:w-1.5" />
+                      <span className="truncate text-muted">{svc.name}</span>
+                      <span className="ml-1 h-1 w-1 shrink-0 rounded-full bg-emerald-400 sm:h-1.5 sm:w-1.5" />
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Status rows */}
-            {statusItems.map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center justify-between rounded-lg border border-white/5 bg-white/3 px-2.5 py-1.5 sm:px-3 sm:py-2"
-              >
-                <span className="text-[9px] font-semibold text-foreground sm:text-[10px]">
-                  {item.label}
-                </span>
-                <span
-                  className={`text-[9px] font-bold sm:text-[10px] ${item.color}`}
+            {/* Status rows — fully visible with proper padding */}
+            <div className="flex flex-col gap-1.5 sm:gap-2">
+              {statusItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-center justify-between rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-1.5 sm:px-3 sm:py-2"
                 >
-                  {item.status}
-                </span>
-              </div>
-            ))}
+                  <span className="text-[9px] font-semibold text-foreground sm:text-[10px]">
+                    {item.label}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span
+                        className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
+                          item.color === "text-emerald-400"
+                            ? "bg-emerald-400"
+                            : "bg-accent-light"
+                        }`}
+                      />
+                      <span
+                        className={`relative inline-flex h-1.5 w-1.5 rounded-full ${
+                          item.color === "text-emerald-400"
+                            ? "bg-emerald-400"
+                            : "bg-accent-light"
+                        }`}
+                      />
+                    </span>
+                    <span
+                      className={`text-[9px] font-bold sm:text-[10px] ${item.color}`}
+                    >
+                      {item.status}
+                    </span>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
