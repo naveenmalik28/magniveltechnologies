@@ -227,38 +227,87 @@ function SaasTemplate() {
 }
 
 function HealthcareTemplate() {
+  const days = ["M", "T", "W", "T", "F", "S", "S"];
+  const calendarDays = Array.from({ length: 14 }, (_, i) => i + 1);
+  const highlightedDays = [4, 9, 12]; // Mon, Wed, Fri appointments
+
+  const appointments = [
+    { time: "Mon 10:00", desc: "Dr. Sharma", on: true },
+    { time: "Wed 2:30", desc: "Telemedicine", on: true },
+    { time: "Fri 9:00", desc: "Follow-up", on: false },
+  ];
+
   return (
-    <div className="flex h-full flex-col bg-[#0b1020] p-2.5">
+    <div className="flex flex-col bg-[#0b1020] p-2.5 sm:p-3">
+      {/* Header */}
       <div className="flex items-center justify-between">
-        <span className="text-[8px] font-bold text-white">Patient Portal</span>
-        <span className="text-[6px] text-emerald-300">● Secure</span>
+        <div className="flex items-center gap-1.5">
+          <div className="flex h-4 w-4 items-center justify-center rounded bg-gradient-to-br from-emerald-500 to-cyan-500">
+            <span className="text-[6px] font-bold text-white">H</span>
+          </div>
+          <span className="text-[8px] font-bold text-white sm:text-[9px]">
+            Patient Portal
+          </span>
+        </div>
+        <span className="flex items-center gap-1 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-1.5 py-0.5 text-[6px] font-semibold text-emerald-300 sm:text-[7px]">
+          <span className="h-1 w-1 rounded-full bg-emerald-400" />
+          Secure
+        </span>
       </div>
-      <div className="mt-2 grid grid-cols-7 gap-0.5 text-center">
-        {["M", "T", "W", "T", "F", "S", "S"].map((d) => (
-          <span key={d} className="text-[6px] text-white/30">{d}</span>
-        ))}
+
+      {/* Calendar section */}
+      <div className="mt-2 rounded-lg border border-white/8 bg-white/[0.03] p-2">
+        {/* Day headers */}
+        <div className="grid grid-cols-7 gap-0.5 text-center">
+          {days.map((d, i) => (
+            <span
+              key={`${d}-${i}`}
+              className="text-[6px] font-semibold uppercase text-white/40 sm:text-[7px]"
+            >
+              {d}
+            </span>
+          ))}
+        </div>
+
+        {/* Calendar grid with explicit cell height */}
+        <div className="mt-1 grid grid-cols-7 gap-0.5">
+          {calendarDays.map((day) => {
+            const isHighlighted = highlightedDays.includes(day);
+            return (
+              <div
+                key={day}
+                className={`flex h-4 items-center justify-center rounded text-[5px] sm:h-5 sm:text-[6px] ${
+                  isHighlighted
+                    ? "border border-emerald-400/40 bg-emerald-400/15 font-bold text-emerald-300"
+                    : "bg-white/5 text-white/30"
+                }`}
+              >
+                {day}
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="mt-1 grid flex-1 grid-cols-7 gap-0.5">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <div
-            key={i}
-            className={`rounded text-[6px] ${
-              i === 3 || i === 8 || i === 11
-                ? "border border-emerald-400/40 bg-emerald-400/15"
-                : "bg-white/5"
-            }`}
-          />
-        ))}
-      </div>
+
+      {/* Appointment list — always visible */}
       <div className="mt-2 space-y-1">
-        {[
-          { t: "Mon 10:00 — Dr. Sharma", on: true },
-          { t: "Wed 2:30 — Telemedicine", on: true },
-          { t: "Fri 9:00 — Follow-up", on: false },
-        ].map((slot) => (
-          <div key={slot.t} className="flex items-center gap-1.5 rounded border border-white/8 bg-white/5 px-2 py-1">
-            <span className={`h-1.5 w-1.5 rounded-full ${slot.on ? "bg-emerald-400" : "bg-white/20"}`} />
-            <span className="text-[6px] text-white/70">{slot.t}</span>
+        {appointments.map((slot) => (
+          <div
+            key={slot.time}
+            className="flex items-center gap-1.5 rounded-md border border-white/8 bg-white/5 px-2 py-1.5 sm:py-2"
+          >
+            <span
+              className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                slot.on ? "bg-emerald-400" : "bg-white/20"
+              }`}
+            />
+            <span className="text-[7px] font-semibold text-white/80 sm:text-[8px]">
+              {slot.time}
+            </span>
+            <span className="text-[6px] text-white/40 sm:text-[7px]">—</span>
+            <span className="text-[6px] text-white/60 sm:text-[7px]">
+              {slot.desc}
+            </span>
           </div>
         ))}
       </div>

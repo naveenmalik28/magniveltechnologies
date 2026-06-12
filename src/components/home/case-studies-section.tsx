@@ -16,6 +16,7 @@ export function CaseStudiesSection() {
     <section className="relative py-24">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-accent/3 to-transparent" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <ScrollReveal>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -34,6 +35,7 @@ export function CaseStudiesSection() {
           </div>
         </ScrollReveal>
 
+        {/* Filter tabs */}
         <div className="mt-10 flex flex-wrap gap-2">
           {caseStudies.map((cs, i) => (
             <button
@@ -42,7 +44,7 @@ export function CaseStudiesSection() {
               className={`rounded-full px-4 py-2 text-xs font-bold transition ${
                 i === active
                   ? "bg-accent text-white shadow-lg shadow-accent/30"
-                  : "border border-white/10 bg-surface text-muted hover:border-accent/30"
+                  : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-foreground"
               }`}
             >
               {cs.industry}
@@ -50,6 +52,7 @@ export function CaseStudiesSection() {
           ))}
         </div>
 
+        {/* Active case study */}
         <AnimatePresence mode="wait">
           <motion.div
             key={study.id}
@@ -57,49 +60,80 @@ export function CaseStudiesSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.4 }}
-            className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center"
+            className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-stretch"
           >
             {/* Template design showcase */}
-            <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${study.gradient}`}>
-              <div className="absolute inset-0 bg-grid opacity-20" />
-              <div className="absolute inset-0 bg-[#0b1020]/30" />
-              <div className="relative min-h-[280px] sm:min-h-[340px]">
-                <div className="absolute left-4 top-4 z-10">
-                  <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-                    {study.industry}
-                  </span>
-                </div>
+            <div
+              className={`relative flex flex-col rounded-2xl bg-gradient-to-br ${study.gradient}`}
+            >
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-grid opacity-20" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#0b1020]/30" />
+
+              {/* Industry badge */}
+              <div className="absolute left-4 top-4 z-10">
+                <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                  {study.industry}
+                </span>
+              </div>
+
+              {/* Visual showcase — flex-1 to fill available space */}
+              <div className="relative flex-1 min-h-[280px] sm:min-h-[320px]">
                 <ProjectVisual type={study.visual} />
               </div>
-              <div className="relative border-t border-white/10 bg-[#0b1020]/60 px-5 py-4 backdrop-blur-sm">
-                <h3 className="text-lg font-extrabold text-white sm:text-xl">{study.title}</h3>
-                <div className="mt-3 grid grid-cols-3 gap-2">
+
+              {/* Title + metrics footer */}
+              <div className="relative border-t border-white/10 bg-[#0b1020]/60 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4">
+                <h3 className="text-base font-extrabold text-white sm:text-lg lg:text-xl">
+                  {study.title}
+                </h3>
+                <div className="mt-2 grid grid-cols-3 gap-2 sm:mt-3">
                   {study.metrics.map((m) => (
-                    <div key={m.label} className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-center">
-                      <p className="text-sm font-extrabold text-white">{m.value}</p>
-                      <p className="text-[8px] font-semibold uppercase tracking-wider text-white/60">{m.label}</p>
+                    <div
+                      key={m.label}
+                      className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-center"
+                    >
+                      <p className="text-xs font-extrabold text-white sm:text-sm">
+                        {m.value}
+                      </p>
+                      <p className="text-[7px] font-semibold uppercase tracking-wider text-white/60 sm:text-[8px]">
+                        {m.label}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Story */}
-            <div className="flex flex-col justify-center gap-6">
+            {/* Story details */}
+            <div className="flex flex-col justify-center gap-5 sm:gap-6">
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-dark">The Challenge</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{study.challenge}</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-accent-dark">
+                  The Challenge
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {study.challenge}
+                </p>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-light">Our Solution</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{study.solution}</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-accent-light">
+                  Our Solution
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {study.solution}
+                </p>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-emerald-400">Business Impact</p>
-                <p className="mt-2 text-sm font-semibold text-foreground">{study.impact}</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+                  Business Impact
+                </p>
+                <p className="mt-2 text-sm font-semibold text-foreground">
+                  {study.impact}
+                </p>
               </div>
               <div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-dimmed">Technologies Used</p>
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-dimmed">
+                  Technologies Used
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {study.tech.map((t) => (
                     <span
