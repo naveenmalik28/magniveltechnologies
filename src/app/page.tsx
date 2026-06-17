@@ -136,7 +136,7 @@ export default function Home() {
       <TechMarquee />
 
       {/* Services */}
-      <section id="services" className="py-24 scroll-mt-20">
+      <section id="services" className="py-32 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Services"
@@ -145,23 +145,23 @@ export default function Home() {
             centered
             className="mx-auto"
           />
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {homeServices.map((service) => (
               <article
                 key={service.title}
-                className="glass-card interactive-card group flex flex-col p-6"
+                className="glass-card flex flex-col p-8 transition-all"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent-dark transition group-hover:border-accent/40 group-hover:shadow-lg group-hover:shadow-accent/20">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary transition group-hover:border-accent-secondary/50 group-hover:shadow-lg group-hover:shadow-accent-secondary/20">
                   <Icon name={service.icon} size={22} />
                 </span>
-                <h3 className="mt-5 text-base font-extrabold text-heading">{service.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{service.description}</p>
+                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white">{service.title}</h3>
+                <p className="mt-4 flex-1 text-xs leading-relaxed text-muted font-sans">{service.description}</p>
                 <Link
                   href={service.href}
-                  className="link-underline mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-accent-dark transition group-hover:text-accent-light"
+                  className="link-underline mt-8 inline-flex items-center gap-1.5 text-xs font-bold font-heading uppercase tracking-widest text-[#D9B08C] hover:text-accent-secondary"
                 >
                   Learn More
-                  <Icon name="arrow-right" size={14} className="transition-transform group-hover:translate-x-1" />
+                  <Icon name="arrow-right" size={12} className="transition-transform group-hover:translate-x-1" />
                 </Link>
               </article>
             ))}
@@ -173,24 +173,24 @@ export default function Home() {
       <CaseStudiesSection />
 
       {/* Why Choose Magnivel */}
-      <section className="relative overflow-hidden border-y border-subtle-border py-24">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent-secondary/5" />
+      <section className="relative overflow-hidden border-y border-white/5 py-32">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent-secondary/5 via-transparent to-accent/5" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Why Magnivel"
-            title="Why Choose Magnivel"
+            title="Engineered for Scalability"
             description="We combine cutting-edge technology with proven engineering practices to deliver solutions that drive real business outcomes."
             centered
             className="mx-auto"
           />
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.map((item) => (
-              <article key={item.title} className="glass-card interactive-card p-6">
+              <article key={item.title} className="glass-card p-8 transition-all">
                 <span className="text-3xl" role="img" aria-hidden="true">
                   {item.emoji}
                 </span>
-                <h3 className="mt-4 text-lg font-extrabold text-heading">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
+                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white">{item.title}</h3>
+                <p className="mt-4 text-xs leading-relaxed text-muted font-sans">{item.description}</p>
               </article>
             ))}
           </div>
@@ -203,8 +203,8 @@ export default function Home() {
       <TestimonialsCarousel reviews={clientReviews} />
 
       {/* FAQ */}
-      <section className="border-t border-subtle-border py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <section className="border-t border-white/5 py-32">
+        <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-5">
             <SectionTitle
               eyebrow="FAQ"
@@ -212,16 +212,16 @@ export default function Home() {
               description="Learn more about our methodology, timelines, and how we deliver exceptional software."
             />
           </div>
-          <div className="grid gap-4 lg:col-span-7">
+          <div className="grid gap-6 lg:col-span-7">
             {faqs.map((faq) => (
-              <details key={faq.question} className="group glass-card p-5">
-                <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-heading select-none">
+              <details key={faq.question} className="group glass-card p-6">
+                <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-white select-none font-heading uppercase tracking-wide">
                   {faq.question}
-                  <span className="text-accent-dark transition-transform group-open:rotate-180">
+                  <span className="text-accent-secondary transition-transform group-open:rotate-180">
                     <Icon name="chevron-down" size={16} />
                   </span>
                 </summary>
-                <p className="mt-3 border-t border-subtle-border pt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-4 border-t border-white/5 pt-4 text-xs leading-relaxed text-muted font-sans">
                   {faq.answer}
                 </p>
               </details>
@@ -231,18 +231,18 @@ export default function Home() {
       </section>
 
       {/* Contact CTA */}
-      <section className="relative overflow-hidden py-24">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent-light/10" />
+      <section className="relative overflow-hidden py-32 border-t border-white/5 bg-gradient-to-b from-transparent to-[#0B1215]">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-secondary/5 via-transparent to-accent/5 animate-pulse-glow" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-heading sm:text-4xl lg:text-5xl">
+            <h2 className="font-heading text-3xl font-extrabold uppercase tracking-widest text-white sm:text-4xl lg:text-5xl">
               Ready to Build Something{" "}
               <span className="gradient-text">Amazing?</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-muted sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-xs text-muted sm:text-sm font-sans uppercase tracking-widest">
               Let&apos;s discuss your next software, AI, or digital transformation project.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary premium-btn">
                 Book Consultation
                 <Icon name="arrow-right" size={16} />
@@ -254,7 +254,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-16 max-w-2xl">
+          <div className="mx-auto mt-24 max-w-2xl">
             <ContactForm />
           </div>
         </div>

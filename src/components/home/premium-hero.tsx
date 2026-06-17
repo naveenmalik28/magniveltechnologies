@@ -1,138 +1,165 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Icon } from "@/components/icon";
 import { AuroraBackground } from "@/components/premium/aurora-background";
 import { MagneticButton } from "@/components/premium/magnetic-button";
 import { ParticlesBackground } from "@/components/motion";
-import { floatingSnippets, heroPhrases } from "@/lib/home-data";
-import { HeroDashboard } from "./hero-dashboard";
+import { CyberSphere } from "@/components/premium/cyber-sphere";
 
 export function PremiumHero() {
-  const [phraseIndex, setPhraseIndex] = useState(0);
   const { scrollY } = useScroll();
-  const parallaxY = useTransform(scrollY, [0, 600], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0.3]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPhraseIndex((i) => (i + 1) % heroPhrases.length);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0.2]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-grid">
+    <section className="relative min-h-screen overflow-hidden bg-grid flex flex-col justify-center pt-36 pb-20 sm:pt-40 sm:pb-24 lg:pt-44 lg:pb-28">
       <AuroraBackground />
-      <ParticlesBackground count={28} />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
-
-      {/* Floating code snippets */}
-      {floatingSnippets.map((snippet, i) => (
-        <motion.div
-          key={snippet}
-          className="pointer-events-none absolute hidden font-mono text-[10px] text-accent-light/50 lg:block"
-          style={{
-            left: `${12 + i * 18}%`,
-            top: `${20 + (i % 2) * 35}%`,
-          }}
-          animate={{ y: [0, -12, 0], opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 4 + i, repeat: Infinity, delay: i * 0.5 }}
-        >
-          <span className="rounded-lg border border-white/5 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
-            {snippet}
-          </span>
-        </motion.div>
-      ))}
+      <ParticlesBackground count={35} />
+      
+      {/* Dark vignette overlays */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-[#0B1215]" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-[#0B1215]/40 to-transparent hidden lg:block" />
 
       <motion.div
-        style={{ y: parallaxY, opacity }}
-        className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-28 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-0"
+        style={{ opacity }}
+        className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-10"
       >
-        <div className="z-10">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-dark neon-border"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-light animate-pulse" />
-            Global Technology Partner
-          </motion.span>
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          
+          {/* Left Column: Typography Content */}
+          <div className="z-10 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 rounded-full border border-accent-secondary/30 bg-accent-secondary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent-secondary"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
+              Next-Gen Technology Engine
+            </motion.div>
 
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
-            Transforming Ideas Into
-            <br />
-            <span className="relative mt-2 inline-block h-[1.15em] min-w-[280px] overflow-hidden sm:min-w-[360px] lg:min-w-[480px]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={phraseIndex}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -40, opacity: 0 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="gradient-text absolute left-0 top-0"
-                >
-                  {heroPhrases[phraseIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-white sm:text-5xl md:text-6xl lg:text-7xl"
+            >
+              BUILDING THE
+              <br />
+              FUTURE OF
+              <br />
+              <span className="gradient-text">DIGITAL INNOVATION</span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
-          >
-            A global technology partner delivering AI-powered software, enterprise platforms,
-            digital transformation solutions, and scalable innovation for modern businesses.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-6 max-w-xl text-sm leading-relaxed text-muted sm:text-base md:text-lg font-sans"
+            >
+              We create next-generation digital products, AI solutions, and immersive experiences that redefine modern business.
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <MagneticButton href="/contact">
-              Start Your Project
-              <Icon name="arrow-right" size={16} />
-            </MagneticButton>
-            <MagneticButton href="/portfolio" variant="secondary">
-              View Our Work
-              <Icon name="external-link" size={16} />
-            </MagneticButton>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
+              <MagneticButton href="#services">
+                Explore
+                <Icon name="arrow-right" size={14} className="text-white" />
+              </MagneticButton>
+              <MagneticButton href="/portfolio" variant="secondary">
+                View Work
+                <Icon name="external-link" size={14} className="text-muted group-hover:text-white" />
+              </MagneticButton>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-12 flex flex-wrap gap-6 border-t border-white/8 pt-8"
-          >
-            {["Innovation", "Trust", "Excellence", "Global Reach"].map((tag) => (
-              <span key={tag} className="text-xs font-bold uppercase tracking-widest text-muted">
-                <span className="mr-2 text-accent-light">◆</span>
-                {tag}
-              </span>
-            ))}
-          </motion.div>
-        </div>
+            {/* Cyberpunk Specs Info Footer */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="mt-12 flex flex-wrap gap-8 border-t border-white/5 pt-8"
+            >
+              {[
+                { label: "AI & ML Integration", spec: "NEURAL CORE" },
+                { label: "Core Web Vitals Optimized", spec: "99+ LIGHTHOUSE" },
+                { label: "Silicon Valley Design Standard", spec: "PREMIUM UX" },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col gap-1">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-[#D9B08C] font-mono">
+                    {"// "}{item.spec}
+                  </span>
+                  <span className="text-[11px] font-bold text-muted font-heading uppercase tracking-wider">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
 
-        <div className="relative z-10 mt-12 lg:mt-0">
-          <HeroDashboard />
+          {/* Right Column: 3D CyberSphere & Float Cards */}
+          <div className="relative flex items-center justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full max-w-[480px]"
+            >
+              {/* Animated CyberSphere */}
+              <CyberSphere />
+
+              {/* Float Card 1: Neural Core status */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="glass-card absolute left-2 top-[10%] z-20 flex items-center gap-3 p-3 shadow-2xl backdrop-blur-md"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
+                  <Icon name="brain" size={14} />
+                </div>
+                <div>
+                  <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">Neural Core</h4>
+                  <p className="font-mono text-[10px] text-white">{"SYSTEM ACTIVE // 98.4%"}</p>
+                </div>
+              </motion.div>
+
+              {/* Float Card 2: AWS Analytics status */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="glass-card absolute right-4 bottom-[15%] z-20 flex items-center gap-3 p-3 shadow-2xl backdrop-blur-md"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-success/15 text-success border border-success/20 animate-pulse">
+                  <span className="h-2 w-2 rounded-full bg-success" />
+                </div>
+                <div>
+                  <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">Cloud Operations</h4>
+                  <p className="font-mono text-[10px] text-white">{"LATENCY // 14ms"}</p>
+                </div>
+              </motion.div>
+
+            </motion.div>
+          </div>
+
         </div>
       </motion.div>
 
+      {/* Down Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 hidden md:block"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5">
-          <div className="h-2 w-1 rounded-full bg-accent-light" />
-        </div>
+        <a href="#services" className="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5 cursor-pointer">
+          <motion.div 
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="h-1.5 w-1 rounded-full bg-accent-secondary" 
+          />
+        </a>
       </motion.div>
     </section>
   );

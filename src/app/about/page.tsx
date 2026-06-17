@@ -58,7 +58,7 @@ export default function AboutPage() {
       />
 
       {/* Stats */}
-      <section className="border-b border-subtle-border py-16">
+      <section className="border-b border-white/5 py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
           {stats.map((stat) => (
             <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       {/* Pillars */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Who We Are"
           title="Built on purpose, driven by innovation"
@@ -75,21 +75,21 @@ export default function AboutPage() {
           centered
           className="mx-auto"
         />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-20 grid gap-8 md:grid-cols-3">
           {pillars.map((pillar) => (
-            <article key={pillar.title} className="glass-card p-6">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent-dark">
+            <article key={pillar.title} className="glass-card p-8">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary">
                 <Icon name={pillar.icon} size={22} />
               </span>
-              <h2 className="mt-5 text-xl font-extrabold text-heading">{pillar.title}</h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted">{pillar.text}</p>
+              <h2 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white">{pillar.title}</h2>
+              <p className="mt-4 text-xs leading-relaxed text-muted font-sans">{pillar.text}</p>
             </article>
           ))}
         </div>
       </section>
 
       {/* Values */}
-      <section className="border-y border-subtle-border bg-surface/30 py-20">
+      <section className="border-y border-white/5 bg-surface/10 py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Our Values"
@@ -97,14 +97,14 @@ export default function AboutPage() {
             centered
             className="mx-auto"
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
-              <article key={value.title} className="glass-card p-5 text-center">
-                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg border border-accent/20 bg-accent/10 text-accent-dark">
+              <article key={value.title} className="glass-card p-6 text-center">
+                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary">
                   <Icon name={value.icon} size={18} />
                 </span>
-                <h3 className="mt-4 text-sm font-extrabold text-heading">{value.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted">{value.desc}</p>
+                <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-white">{value.title}</h3>
+                <p className="mt-3 text-xs leading-relaxed text-muted font-sans">{value.desc}</p>
               </article>
             ))}
           </div>

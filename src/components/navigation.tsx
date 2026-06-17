@@ -76,31 +76,31 @@ export function Navigation() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-white/8 bg-background/90 shadow-lg shadow-black/20 backdrop-blur-xl py-3"
-          : "border-b border-transparent bg-background/60 backdrop-blur-md py-4"
-      }`}
+      className="fixed top-4 left-1/2 z-50 w-full max-w-7xl -translate-x-1/2 px-4 transition-all duration-500"
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <nav className={`mx-auto flex items-center justify-between gap-4 rounded-full border px-6 py-2.5 shadow-2xl backdrop-blur-2xl transition-all duration-500 ${
+        scrolled
+          ? "border-accent-secondary/20 bg-[#0B1215]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] py-2"
+          : "border-white/5 bg-[#111A1E]/40 py-3.5"
+      }`}>
         {/* Logo */}
-        <Link href="/" className="group flex min-w-0 items-center gap-2.5 text-base font-extrabold tracking-tight text-heading sm:text-lg">
+        <Link href="/" className="group flex min-w-0 items-center gap-2 text-base font-extrabold tracking-widest text-white">
           <Image
             src="/logo.jpg"
             alt="Magnivel Technologies logo"
-            width={38}
-            height={38}
-            className="rounded-lg object-cover shadow-md shadow-accent/15 transition-transform group-hover:scale-105"
+            width={32}
+            height={32}
+            className="rounded-full object-cover border border-accent-secondary/20 transition-transform group-hover:scale-105"
             priority
           />
-          <span className="truncate">
-            Magnivel <span className="gradient-text">Technologies</span>
+          <span className="truncate font-heading uppercase text-[11px] tracking-wider font-bold">
+            Magnivel <span className="text-accent-secondary">Tech</span>
           </span>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden items-center gap-6 text-sm font-semibold text-muted lg:flex">
-          <Link href="/about" className="transition-colors hover:text-accent-dark">
+        <div className="hidden items-center gap-6 font-heading font-bold lg:flex">
+          <Link href="/about" className="link-underline text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors">
             About
           </Link>
 
@@ -110,20 +110,20 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("services")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 transition-colors hover:text-accent-dark cursor-pointer font-semibold text-muted">
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors cursor-pointer font-bold font-heading">
               Services
-              <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`} />
+              <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[600px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-6 shadow-2xl shadow-black/40 grid grid-cols-2 gap-4">
+              <div className="rounded-xl border border-white/5 bg-[#111A1E]/95 backdrop-blur-2xl p-6 shadow-2xl shadow-black/80 grid grid-cols-2 gap-4">
                 {servicesList.map((srv) => (
-                  <Link key={srv.href} href={srv.href} className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-surface-hover">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark border border-accent/10">
+                  <Link key={srv.href} href={srv.href} className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-secondary border border-accent/10">
                       <Icon name={srv.icon} size={16} />
                     </span>
                     <div>
-                      <h4 className="text-xs font-bold text-heading">{srv.label}</h4>
-                      <p className="mt-0.5 text-[10px] text-dimmed font-medium leading-normal">{srv.desc}</p>
+                      <h4 className="text-xs font-bold text-heading font-heading">{srv.label}</h4>
+                      <p className="mt-0.5 text-[10px] text-muted font-medium leading-normal">{srv.desc}</p>
                     </div>
                   </Link>
                 ))}
@@ -137,16 +137,16 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("pricing")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 transition-colors hover:text-accent-dark cursor-pointer font-semibold text-muted">
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors cursor-pointer font-bold font-heading">
               Pricing
-              <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "pricing" ? "rotate-180" : ""}`} />
+              <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "pricing" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-4 shadow-2xl shadow-black/40 flex flex-col gap-1">
+              <div className="rounded-xl border border-white/5 bg-[#111A1E]/95 backdrop-blur-2xl p-4 shadow-2xl shadow-black/80 flex flex-col gap-1">
                 {pricingList.map((prc) => (
-                  <Link key={prc.href} href={prc.href} className="rounded-lg p-2.5 transition-colors hover:bg-surface-hover">
-                    <h4 className="text-xs font-bold text-heading">{prc.label}</h4>
-                    <p className="text-[10px] text-dimmed leading-normal">{prc.desc}</p>
+                  <Link key={prc.href} href={prc.href} className="rounded-lg p-2.5 transition-colors hover:bg-white/5">
+                    <h4 className="text-xs font-bold text-heading font-heading">{prc.label}</h4>
+                    <p className="text-[10px] text-muted leading-normal">{prc.desc}</p>
                   </Link>
                 ))}
               </div>
@@ -159,18 +159,18 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("industries")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 transition-colors hover:text-accent-dark cursor-pointer font-semibold text-muted">
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors cursor-pointer font-bold font-heading">
               Industries
-              <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
+              <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[240px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-3 shadow-2xl shadow-black/40 flex flex-col gap-0.5">
+              <div className="rounded-xl border border-white/5 bg-[#111A1E]/95 backdrop-blur-2xl p-3 shadow-2xl shadow-black/80 flex flex-col gap-0.5">
                 {industriesList.map((ind) => (
-                  <Link key={ind.href} href={ind.href} className="flex items-center gap-2.5 rounded-lg p-2 transition-colors hover:bg-surface-hover">
-                    <span className="text-accent-dark">
+                  <Link key={ind.href} href={ind.href} className="flex items-center gap-2.5 rounded-lg p-2 transition-colors hover:bg-white/5">
+                    <span className="text-accent-secondary">
                       <Icon name={ind.icon === "book-open" || ind.icon === "book" ? "layers" : ind.icon} size={14} />
                     </span>
-                    <span className="text-xs font-bold text-heading">{ind.label}</span>
+                    <span className="text-xs font-bold text-heading font-heading">{ind.label}</span>
                   </Link>
                 ))}
               </div>
@@ -183,18 +183,18 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("tech")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 transition-colors hover:text-accent-dark cursor-pointer font-semibold text-muted">
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors cursor-pointer font-bold font-heading">
               Technologies
-              <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
+              <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute left-1/2 top-full z-50 w-[240px] -translate-x-1/2 pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-3 shadow-2xl shadow-black/40 flex flex-col gap-0.5">
+              <div className="rounded-xl border border-white/5 bg-[#111A1E]/95 backdrop-blur-2xl p-3 shadow-2xl shadow-black/80 flex flex-col gap-0.5">
                 {techList.map((tc) => (
-                  <Link key={tc.href} href={tc.href} className="flex items-center gap-2.5 rounded-lg p-2 transition-colors hover:bg-surface-hover">
-                    <span className="text-accent-dark">
+                  <Link key={tc.href} href={tc.href} className="flex items-center gap-2.5 rounded-lg p-2 transition-colors hover:bg-white/5">
+                    <span className="text-accent-secondary">
                       <Icon name="code" size={14} />
                     </span>
-                    <span className="text-xs font-bold text-heading">{tc.label}</span>
+                    <span className="text-xs font-bold text-heading font-heading">{tc.label}</span>
                   </Link>
                 ))}
               </div>
@@ -207,34 +207,34 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("resources")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 transition-colors hover:text-accent-dark cursor-pointer font-semibold text-muted">
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors cursor-pointer font-bold font-heading">
               Resources & Tools
-              <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${activeDropdown === "resources" ? "rotate-180" : ""}`} />
+              <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "resources" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute right-0 top-full z-50 w-[560px] pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
-              <div className="rounded-xl border border-white/10 bg-surface/95 backdrop-blur-xl p-5 shadow-2xl shadow-black/40 grid grid-cols-[1.2fr_1fr] gap-5">
+              <div className="rounded-xl border border-white/5 bg-[#111A1E]/95 backdrop-blur-2xl p-5 shadow-2xl shadow-black/80 grid grid-cols-[1.2fr_1fr] gap-5">
                 <div>
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-dimmed px-2.5 mb-2">Resource Library</h4>
+                  <h4 className="text-[10px] font-bold font-heading uppercase tracking-widest text-accent-dark px-2.5 mb-2">Resource Library</h4>
                   <div className="flex flex-col gap-1">
                     {resourceList.map((res) => (
-                      <Link key={res.href} href={res.href} className="flex gap-2.5 rounded-lg p-2 transition-colors hover:bg-surface-hover">
-                        <span className="text-accent-dark mt-0.5">
+                      <Link key={res.href} href={res.href} className="flex gap-2.5 rounded-lg p-2 transition-colors hover:bg-white/5">
+                        <span className="text-accent-secondary mt-0.5">
                           <Icon name={res.icon} size={14} />
                         </span>
                         <div>
-                          <h5 className="text-xs font-bold text-heading leading-none">{res.label}</h5>
-                          <p className="mt-0.5 text-[10px] text-dimmed">{res.desc}</p>
+                          <h5 className="text-xs font-bold text-heading font-heading leading-none">{res.label}</h5>
+                          <p className="mt-0.5 text-[10px] text-muted">{res.desc}</p>
                         </div>
                       </Link>
                     ))}
                   </div>
                 </div>
-                <div className="border-l border-subtle-border pl-5">
-                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-dimmed px-1 mb-2">Free Client Tools</h4>
+                <div className="border-l border-white/5 pl-5">
+                  <h4 className="text-[10px] font-bold font-heading uppercase tracking-widest text-accent-dark px-1 mb-2">Free Client Tools</h4>
                   <div className="flex flex-col gap-1">
                     {toolsList.map((tool) => (
-                      <Link key={tool.href} href={tool.href} className="rounded-lg p-2 text-xs font-bold text-heading hover:bg-surface-hover hover:text-accent-dark transition-colors flex items-center gap-1.5">
-                        <Icon name="zap" size={12} className="text-amber-500" />
+                      <Link key={tool.href} href={tool.href} className="rounded-lg p-2 text-xs font-bold text-heading font-heading hover:bg-white/5 hover:text-accent-secondary transition-colors flex items-center gap-1.5">
+                        <Icon name="zap" size={12} className="text-accent-secondary" />
                         {tool.label}
                       </Link>
                     ))}
@@ -244,7 +244,7 @@ export function Navigation() {
             </div>
           </div>
 
-          <Link href="/portfolio" className="transition-colors hover:text-accent-dark">
+          <Link href="/portfolio" className="link-underline text-[10px] uppercase tracking-widest text-muted hover:text-accent-secondary transition-colors">
             Portfolio
           </Link>
         </div>
@@ -252,11 +252,11 @@ export function Navigation() {
         {/* Action Button & Hamburger */}
         <div className="flex items-center gap-3">
           <Link href="/contact" className="btn-primary hidden px-4 py-2.5 text-xs sm:inline-flex">
-            Start Your Project
+            Start Project
           </Link>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-surface text-heading hover:bg-surface-hover transition-colors lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/5 bg-[#111A1E]/80 text-white hover:bg-white/5 transition-colors lg:hidden"
             aria-label="Toggle Navigation Menu"
           >
             <Icon name={mobileMenuOpen ? "x" : "menu"} size={20} />

@@ -80,20 +80,20 @@ export function ContactForm() {
 
   if (state === "success") {
     return (
-      <div className="glow-card flex flex-col items-center justify-center p-8 text-center sm:p-12 animate-fade-up">
+      <div className="glow-card flex flex-col items-center justify-center p-10 text-center sm:p-14 animate-fade-up border border-[#00FFC8]/20 bg-[#111A1E]/80">
         {/* Animated Checkmark */}
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-400 shadow-inner">
-          <svg className="h-10 w-10 animate-bounce" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#00FFC8]/10 text-[#00FFC8] border border-[#00FFC8]/30 shadow-[0_0_30px_rgba(0,255,200,0.25)]">
+          <svg className="h-10 w-10 animate-bounce" fill="none" stroke="currentColor" strokeWidth="3.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="mt-6 text-2xl font-extrabold text-heading">Inquiry Received!</h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted max-w-sm">
-          Thank you for reaching out. We have saved your project details. Our engineering lead will review your request and get back to you within 24 hours.
+        <h3 className="font-heading mt-8 text-2xl font-extrabold uppercase tracking-widest text-white">Verification Success</h3>
+        <p className="mt-4 text-xs leading-relaxed text-muted max-w-sm font-sans">
+          Your secure project transmission is complete. Our engineering lead will review your request and initialize communication within 24 hours.
         </p>
         <button
           onClick={() => setState("idle")}
-          className="btn-secondary mt-8 w-full max-w-xs py-2.5 text-xs font-bold"
+          className="btn-secondary mt-10 w-full max-w-xs py-3 text-xs font-bold"
         >
           Submit Another Request
         </button>
@@ -105,8 +105,8 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="glass-card grid gap-6 p-6 sm:p-8">
       {/* Step 1: Contact Information */}
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-accent-dark">1. Personal & Company Info</h3>
-        <div className="mt-4 grid gap-5 sm:grid-cols-2 animate-fade-in">
+        <h3 className="font-heading text-xs font-bold uppercase tracking-widest text-[#D9B08C]">01 // Personal & Company Info</h3>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 animate-fade-in">
           <Field
             name="fullName"
             label="Full Name"
@@ -131,12 +131,12 @@ export function ContactForm() {
         </div>
       </div>
 
-      <hr className="border-subtle-border/50" />
+      <hr className="border-white/5" />
 
       {/* Step 2: Project Specifications */}
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-accent-dark">2. Project Specifications</h3>
-        <div className="mt-4 grid gap-5 sm:grid-cols-2">
+        <h3 className="font-heading text-xs font-bold uppercase tracking-widest text-[#D9B08C]">02 // Project Specifications</h3>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
           {/* Country Field with Manual entry */}
           <Field
             name="country"
@@ -157,21 +157,21 @@ export function ContactForm() {
 
         {/* Message / Description */}
         <div className="mt-5">
-          <label className="grid gap-2 text-sm font-semibold text-heading font-semibold">
-            <span>Project Description <span className="text-accent">*</span></span>
+          <label className="label">
+            <span>Project Description <span className="text-accent-secondary">*</span></span>
             <textarea
               name="message"
               required
               minLength={20}
               rows={5}
               placeholder="Explain the scope, timeline, integrations, or automation goals (minimum 20 characters)..."
-              className={`input resize-none ${
-                validationErrors.message ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
+              className={`input resize-none mt-2 ${
+                validationErrors.message ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-white/5 focus:border-accent-secondary"
               }`}
             />
           </label>
           {validationErrors.message && (
-            <p className="mt-1 text-xs font-semibold text-red-500">{validationErrors.message}</p>
+            <p className="mt-1.5 text-xs font-semibold text-red-500">{validationErrors.message}</p>
           )}
         </div>
       </div>
@@ -226,18 +226,18 @@ function Field({
   className?: string;
 }) {
   return (
-    <label className={`grid gap-2 text-sm font-semibold text-heading ${className}`}>
-      <span>{label} {required && <span className="text-accent">*</span>}</span>
+    <label className={`label ${className}`}>
+      <span>{label} {required && <span className="text-accent-secondary">*</span>}</span>
       <input
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
-        className={`input ${
+        className={`input mt-2 ${
           error ? "border-red-500 focus:border-red-500" : ""
         }`}
       />
-      {error && <p className="text-xs font-semibold text-red-500">{error}</p>}
+      {error && <p className="mt-1.5 text-xs font-semibold text-red-500">{error}</p>}
     </label>
   );
 }
@@ -256,9 +256,9 @@ function Select({
   error?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-semibold text-heading">
-      <span>{label} <span className="text-accent">*</span></span>
-      <span className="relative">
+    <label className="label">
+      <span>{label} <span className="text-accent-secondary">*</span></span>
+      <span className="relative mt-2 block">
         <select
           name={name}
           required
@@ -267,18 +267,18 @@ function Select({
             error ? "border-red-500 focus:border-red-500" : ""
           }`}
         >
-          <option value="" disabled className="bg-surface text-muted">
+          <option value="" disabled className="bg-[#111A1E] text-muted">
             {placeholder}
           </option>
           {options.map((option) => (
-            <option key={option} value={option} className="bg-surface text-heading">
+            <option key={option} value={option} className="bg-[#111A1E] text-white">
               {option}
             </option>
           ))}
         </select>
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-dimmed"
+          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-muted"
         >
           <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
             <path
@@ -289,7 +289,7 @@ function Select({
           </svg>
         </span>
       </span>
-      {error && <p className="text-xs font-semibold text-red-500">{error}</p>}
+      {error && <p className="mt-1.5 text-xs font-semibold text-red-500">{error}</p>}
     </label>
   );
 }
