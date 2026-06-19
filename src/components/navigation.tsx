@@ -388,6 +388,14 @@ export function Navigation() {
             </Link>
 
             <Link
+              href="/careers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block rounded-lg p-2.5 text-sm hover:bg-surface-hover hover:text-heading"
+            >
+              Careers
+            </Link>
+
+            <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="btn-primary block w-full py-3 text-center text-xs"
@@ -487,6 +495,7 @@ export function Footer() {
           <div className="grid gap-2.5">
             <Link className="transition-colors hover:text-accent-dark" href="/about">About Us</Link>
             <Link className="transition-colors hover:text-accent-dark" href="/portfolio">Portfolio</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/careers">Careers</Link>
             <Link className="transition-colors hover:text-accent-dark" href="/blog">Blog</Link>
             <Link className="transition-colors hover:text-accent-dark" href="/contact">Contact</Link>
             <Link className="transition-colors hover:text-accent-dark" href="/resources">Resources</Link>

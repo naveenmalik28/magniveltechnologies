@@ -471,3 +471,111 @@ export const trustedBy = [
   "ScaleUp AI",
   "NovaByte",
 ];
+
+export const careersBenefits = [
+  {
+    title: "Innovative Projects",
+    description: "Work on real-world software solutions and modern technologies.",
+    icon: "code" as const,
+  },
+  {
+    title: "Growth Opportunities",
+    description: "Learn, grow, and advance your career with challenging projects.",
+    icon: "trending-up" as const,
+  },
+  {
+    title: "Flexible Work Environment",
+    description: "Remote-friendly and collaborative culture.",
+    icon: "globe" as const,
+  },
+  {
+    title: "Latest Technologies",
+    description: "React, Next.js, Node.js, Python, AI, Cloud, and more.",
+    icon: "layers" as const,
+  },
+  {
+    title: "Supportive Team",
+    description: "Work with experienced developers and professionals.",
+    icon: "users" as const,
+  },
+  {
+    title: "Career Development",
+    description: "Continuous learning and skill enhancement opportunities.",
+    icon: "rocket" as const,
+  },
+];
+
+export const jobOpenings = [
+  {
+    id: "full-stack-developer",
+    position: "Full Stack Developer",
+    experience: "2+ Years",
+    location: "Remote / Hybrid",
+    skills: ["React.js", "Next.js", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "REST APIs", "Git"],
+    description: "Develop and maintain scalable web applications, APIs, and enterprise software solutions.",
+  },
+  {
+    id: "react-next-developer",
+    position: "React & Next.js Developer",
+    experience: "1+ Years",
+    location: "Remote / Hybrid",
+    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux"],
+    description: "Build modern, responsive, and high-performance user interfaces and web applications.",
+  },
+  {
+    id: "frontend-developer",
+    position: "Frontend Developer",
+    experience: "1+ Years",
+    location: "Remote / Hybrid",
+    skills: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS"],
+    description: "Create beautiful user experiences and responsive frontend applications.",
+  },
+  {
+    id: "backend-developer",
+    position: "Backend Developer",
+    experience: "2+ Years",
+    location: "Remote / Hybrid",
+    skills: ["Node.js", "Express.js", "Python", "Django", "PostgreSQL", "REST APIs"],
+    description: "Design and develop secure, scalable backend systems and APIs.",
+  },
+  {
+    id: "python-developer",
+    position: "Python Developer",
+    experience: "2+ Years",
+    location: "Remote / Hybrid",
+    skills: ["Python", "Django", "Django REST Framework", "PostgreSQL", "API Development"],
+    description: "Build backend services, APIs, automation tools, and scalable applications.",
+  },
+  {
+    id: "ai-engineer",
+    position: "AI Engineer",
+    experience: "1+ Years",
+    location: "Remote / Hybrid",
+    skills: ["Python", "LLMs", "OpenAI APIs", "LangChain", "Vector Databases", "Machine Learning"],
+    description: "Develop AI-powered applications, automation systems, chatbots, and intelligent solutions.",
+  },
+];
+
+export const applicationSteps = [
+  {
+    step: "01",
+    title: "Select Position",
+    description: "Choose a suitable position from our open list.",
+  },
+  {
+    step: "02",
+    title: "Prepare Assets",
+    description: "Prepare your updated resume and portfolio links.",
+  },
+  {
+    step: "03",
+    title: "Send Application",
+    description: "Send your resume with the job title in the subject line to contact@magnivel.com.",
+  },
+  {
+    step: "04",
+    title: "Evaluation",
+    description: "Our team will review your application and contact shortlisted candidates for interviews.",
+  },
+];
+
