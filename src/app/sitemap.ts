@@ -12,14 +12,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/contact',
     
     // SEO Services Pages
-    '/website-development-services',
-    '/mobile-app-development',
-    '/custom-software-development',
-    '/ai-chatbot-development',
-    '/ai-automation-services',
+    '/website-development',
+    '/web-application-development',
     '/saas-development',
     '/ecommerce-development',
-    '/ui-ux-design-services',
+    '/mobile-app-development',
+    '/ai-solutions',
+    '/ui-ux-design',
+    '/api-development',
+    '/custom-software-development',
     '/seo-services',
     
     // Pricing Pages

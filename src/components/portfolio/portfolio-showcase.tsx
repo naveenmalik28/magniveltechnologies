@@ -100,6 +100,11 @@ export function PortfolioShowcase() {
                     <h3 className="text-xl font-extrabold text-heading sm:text-2xl">{project.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>
 
+                    <div className="mt-4 text-xs text-muted flex items-center gap-1">
+                      <span className="font-extrabold text-heading">Project Industry:</span>
+                      <span className="text-accent-secondary font-bold uppercase tracking-wider text-[10px] font-mono">{project.industry}</span>
+                    </div>
+
                     <div className="mt-5 grid grid-cols-3 gap-3">
                       {project.metrics.map((m) => (
                         <div
@@ -114,15 +119,18 @@ export function PortfolioShowcase() {
                       ))}
                     </div>
 
-                    <div className="mt-5 flex flex-wrap gap-1.5">
-                      {project.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-lg border border-white/8 bg-surface px-2.5 py-1 text-xs font-semibold text-muted"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    <div className="mt-5">
+                      <p className="text-xs font-extrabold text-heading mb-2">Technologies Used:</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-lg border border-white/8 bg-surface px-2.5 py-1 text-[11px] font-semibold text-muted"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
                     <button
@@ -130,7 +138,7 @@ export function PortfolioShowcase() {
                       onClick={() => setExpandedId(isExpanded ? null : project.id)}
                       className="link-underline mt-6 inline-flex items-center gap-2 self-start text-sm font-bold text-accent-dark transition hover:text-accent-light"
                     >
-                      {isExpanded ? "Hide case study" : "Read full case study"}
+                      {isExpanded ? "Hide case study details" : "Read full case study details"}
                       <Icon
                         name="chevron-down"
                         size={16}
@@ -150,27 +158,41 @@ export function PortfolioShowcase() {
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden border-t border-subtle-border"
                     >
-                      <div className="grid gap-6 bg-surface/40 p-6 sm:grid-cols-3 sm:p-8">
+                      <div className="grid gap-6 bg-surface/40 p-6 sm:grid-cols-2 md:grid-cols-4 sm:p-8">
                         <div>
-                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-dark">
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#D9B08C]">
                             <Icon name="target" size={14} />
-                            The Challenge
+                            Business Goal
                           </p>
-                          <p className="mt-3 text-sm leading-relaxed text-muted">{project.challenge}</p>
+                          <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted">{project.businessGoal}</p>
                         </div>
                         <div>
-                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-light">
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-secondary">
                             <Icon name="code" size={14} />
-                            Our Solution
+                            Key Features
                           </p>
-                          <p className="mt-3 text-sm leading-relaxed text-muted">{project.solution}</p>
+                          <ul className="mt-3 list-disc list-inside space-y-1.5 text-xs text-muted font-sans leading-relaxed">
+                            {project.keyFeatures.map((feat) => (
+                              <li key={feat}>{feat}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted">
+                            <Icon name="layers" size={14} />
+                            The Challenge & Solution
+                          </p>
+                          <div className="mt-3 text-xs leading-relaxed text-muted font-sans space-y-2">
+                            <p><strong className="text-heading">Challenge:</strong> {project.challenge}</p>
+                            <p><strong className="text-heading">Solution:</strong> {project.solution}</p>
+                          </div>
                         </div>
                         <div>
                           <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-400">
                             <Icon name="trending-up" size={14} />
                             Business Impact
                           </p>
-                          <p className="mt-3 text-sm font-semibold leading-relaxed text-foreground">
+                          <p className="mt-3 text-xs sm:text-sm font-semibold leading-relaxed text-foreground font-sans">
                             {project.impact}
                           </p>
                           <div className="mt-4 rounded-xl border border-emerald-400/20 bg-emerald-400/5 px-4 py-3">

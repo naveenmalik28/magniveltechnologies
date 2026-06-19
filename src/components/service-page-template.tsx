@@ -35,6 +35,7 @@ interface ServicePageProps {
   features: Feature[];
   process: ProcessStep[];
   faqs: FAQ[];
+  techStack?: string[];
   ctaTitle?: string;
   ctaDesc?: string;
 }
@@ -48,6 +49,7 @@ export function ServicePageTemplate({
   features,
   process,
   faqs,
+  techStack = [],
   ctaTitle = "Ready to build your solution?",
   ctaDesc = "Partner with Magnivel Technologies to turn your concept into reliable, clean-coded software.",
 }: ServicePageProps) {
@@ -159,6 +161,32 @@ export function ServicePageTemplate({
           </div>
         </div>
       </section>
+
+      {/* Technology Stack Section */}
+      {techStack && techStack.length > 0 && (
+        <section className="bg-surface/30 border-t border-subtle-border py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionTitle
+              eyebrow="Technology Stack"
+              title="Built with industry-standard technologies"
+              description="We select secure, performant, and well-maintained frameworks to ensure long-term codebase health."
+              centered
+              className="mx-auto"
+            />
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              {techStack.map((tech) => (
+                <div
+                  key={tech}
+                  className="rounded-xl border border-subtle-border bg-background px-5 py-3 text-xs font-bold text-heading hover:border-accent/20 transition-all flex items-center gap-2"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary" />
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQs Section */}
       <section className="border-t border-subtle-border py-16">

@@ -15,26 +15,26 @@ import { PageShell, SectionTitle } from "@/components/page-shell";
 import { faqs, homeServices, whyChoose } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Magnivel Technologies | Premium AI & Software Development Company",
+  title: "Magnivel Technologies | Web, Mobile App & AI Development Company",
   description:
-    "A global technology partner delivering AI-powered software, enterprise platforms, digital transformation solutions, and scalable innovation for modern businesses.",
+    "Magnivel Technologies provides website development, SaaS applications, mobile apps, AI solutions, e-commerce platforms, and custom software development services for businesses worldwide.",
   keywords: [
-    "AI Software Development Company",
-    "Enterprise Software Development",
-    "Digital Transformation",
-    "AI Solutions",
-    "Custom Software Engineering",
+    "Software Development Company",
+    "Web Development Company",
+    "Mobile App Development Company",
+    "AI Development Company",
+    "Custom Software Development",
     "SaaS Development",
-    "Cloud Solutions",
-    "Global Technology Partner",
+    "E-commerce Development",
+    "API Development",
   ],
   alternates: {
     canonical: "https://magnivel.com",
   },
   openGraph: {
-    title: "Magnivel Technologies | Global AI & Software Partner",
+    title: "Magnivel Technologies | Web, Mobile App & AI Development Company",
     description:
-      "Transforming ideas into intelligent digital solutions. AI-powered software, enterprise platforms, and digital transformation for modern businesses.",
+      "Magnivel Technologies provides website development, SaaS applications, mobile apps, AI solutions, e-commerce platforms, and custom software development services for businesses worldwide.",
     url: "https://magnivel.com",
     type: "website",
     images: [

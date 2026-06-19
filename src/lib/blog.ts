@@ -1,7 +1,7 @@
 export interface BlogPost {
   slug: string;
   title: string;
-  category: "ai" | "web-development" | "mobile-apps" | "software-development" | "saas" | "startups";
+  category: "ai" | "web-development" | "mobile-apps" | "saas" | "business-technology" | "startup-guides";
   categoryLabel: string;
   tags: string[];
   publishedAt: string;
@@ -16,12 +16,12 @@ export interface BlogPost {
 }
 
 export const blogCategories = [
-  { slug: "ai", label: "Artificial Intelligence" },
   { slug: "web-development", label: "Web Development" },
+  { slug: "ai", label: "Artificial Intelligence" },
+  { slug: "saas", label: "SaaS" },
   { slug: "mobile-apps", label: "Mobile Apps" },
-  { slug: "software-development", label: "Software Development" },
-  { slug: "saas", label: "SaaS Platforms" },
-  { slug: "startups", label: "Startups & MVPs" },
+  { slug: "business-technology", label: "Business Technology" },
+  { slug: "startup-guides", label: "Startup Guides" },
 ];
 
 export const blogPosts: BlogPost[] = [
@@ -138,6 +138,62 @@ export const blogPosts: BlogPost[] = [
       
       <h2>Our Recommendation</h2>
       <p>If your team already knows React and Next.js, select React Native to share styling structures and utilities. If you are building graphic-heavy interfaces requiring custom canvas drawings, Flutter is an excellent alternative.</p>
+    `,
+  },
+  {
+    slug: "custom-software-replaces-spreadsheets-accelerates-onboarding",
+    title: "How Custom Software Replaces Spreadsheets and Accelerates Onboarding",
+    category: "business-technology",
+    categoryLabel: "Business Technology",
+    tags: ["Custom Software", "Enterprise Operations", "Database Design", "Productivity"],
+    publishedAt: "June 10, 2026",
+    excerpt: "Why growing companies outgrow Excel, and how a custom operations database panel reduces onboarding errors and compiles operational reports automatically.",
+    readTime: "6 min read",
+    author: {
+      name: "Naveen Malik",
+      role: "Engineering Lead",
+      avatar: "NM",
+    },
+    content: `
+      <h2>The Limits of Spreadsheet Operations</h2>
+      <p>Many growing businesses manage their core workflows inside shared spreadsheets. While spreadsheets are easy to set up initially, they quickly become problematic as team sizes scale. Version control errors, deleted cell formulas, and lack of secure role boundaries lead to operational delays and onboarding errors.</p>
+      
+      <h2>1. Centralized Data and Row Security</h2>
+      <p>Custom web applications store your data in a secure relational database (like PostgreSQL). This ensures there is a single source of truth, and database rules enforce that users can only see or edit records relevant to their role. Administrative staff can manage configurations, while operational personnel focus on task execution without accidental data deletion.</p>
+      
+      <h2>2. Automating Onboarding Task Queues</h2>
+      <p>Instead of manually emailing team members when a client signs a contract, custom software assigns onboarding tasks to specific queues automatically. New users are guided through step-by-step forms with fields validated in real-time, preventing incomplete entries.</p>
+      
+      <h2>3. Real-Time Report Compilation</h2>
+      <p>Compiling weekly performance reports manually wastes several hours of administrative time. Custom dashboards track task completion dates, user actions, and client milestones, compiling charts and data summaries automatically to help managers make informed decisions.</p>
+    `,
+  },
+  {
+    slug: "technical-playbook-build-launch-saas-mvp-12-weeks",
+    title: "The Technical Playbook to Build and Launch a SaaS MVP in 12 Weeks",
+    category: "startup-guides",
+    categoryLabel: "Startup Guides",
+    tags: ["SaaS MVP", "Stripe Billing", "Database Isolation", "Agile Sprints"],
+    publishedAt: "June 18, 2026",
+    excerpt: "An engineering blueprint to scope database boundaries, configure Stripe billing, and launch your SaaS MVP quickly without building from scratch.",
+    readTime: "8 min read",
+    author: {
+      name: "Sarah Mitchell",
+      role: "Product Owner",
+      avatar: "SM",
+    },
+    content: `
+      <h2>Scoping the Minimum Viable Product (MVP)</h2>
+      <p>The primary reason SaaS launches get delayed is scope creep. To launch your subscription platform within 12 weeks, you must focus on the core feature that solves your user's primary problem, deferring complex integrations and configurations to future development phases.</p>
+      
+      <h2>1. Designing Multi-Tenant Isolation</h2>
+      <p>For an MVP, we recommend logical tenant isolation. By adding a tenant ID key to your database tables and checking this boundary in all backend query routes, you can isolate user data securely within a shared database, keeping server expenses low and setup simple.</p>
+      
+      <h2>2. Configuring Standard Stripe Billing Webhooks</h2>
+      <p>Avoid coding custom billing rules. Use Stripe's pre-built checkout pages and customer portal tools. Your backend only needs to implement a webhook listener that updates the account status in your database when events like successful payments or cancellations occur.</p>
+      
+      <h2>3. Planning Agile 2-Week Sprints</h2>
+      <p>Organize development into six 2-week sprints. Focus on database schemas and user authentication first, build the core feature in Sprints 2-3, connect billing and settings panels in Sprint 4, run security and data boundaries checks in Sprint 5, and deploy with clean CDN caching rules in Sprint 6.</p>
     `,
   },
 ];

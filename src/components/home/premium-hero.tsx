@@ -35,7 +35,7 @@ export function PremiumHero() {
               className="inline-flex items-center gap-2 rounded-full border border-accent-secondary/30 bg-accent-secondary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent-secondary"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
-              Next-Gen Technology Engine
+              Software Development Company
             </motion.div>
 
             <motion.h1
@@ -46,9 +46,9 @@ export function PremiumHero() {
             >
               BUILDING THE
               <br />
-              FUTURE OF
+              SYSTEMS THAT
               <br />
-              <span className="gradient-text">DIGITAL INNOVATION</span>
+              <span className="gradient-text">DRIVE BUSINESS</span>
             </motion.h1>
 
             <motion.p
@@ -57,7 +57,7 @@ export function PremiumHero() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xl text-sm leading-relaxed text-muted sm:text-base md:text-lg font-sans"
             >
-              We create next-generation digital products, AI solutions, and immersive experiences that redefine modern business.
+              Magnivel Technologies is a software development company that helps businesses build websites, web applications, SaaS platforms, mobile apps, AI solutions, and custom software.
             </motion.p>
 
             <motion.div
@@ -66,12 +66,12 @@ export function PremiumHero() {
               transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 flex flex-wrap gap-4"
             >
-              <MagneticButton href="#services">
-                Explore
+              <MagneticButton href="/contact">
+                Get Free Consultation
                 <Icon name="arrow-right" size={14} className="text-white" />
               </MagneticButton>
               <MagneticButton href="/portfolio" variant="secondary">
-                View Work
+                View Our Work
                 <Icon name="external-link" size={14} className="text-muted group-hover:text-white" />
               </MagneticButton>
             </motion.div>
@@ -84,9 +84,9 @@ export function PremiumHero() {
               className="mt-12 flex flex-wrap gap-8 border-t border-white/5 pt-8"
             >
               {[
-                { label: "AI & ML Integration", spec: "NEURAL CORE" },
-                { label: "Core Web Vitals Optimized", spec: "99+ LIGHTHOUSE" },
-                { label: "Silicon Valley Design Standard", spec: "PREMIUM UX" },
+                { label: "Applied Intelligence", spec: "AI & ML DEVELOPMENT" },
+                { label: "Core Web Vitals Optimized", spec: "99+ LIGHTHOUSE SCORE" },
+                { label: "Client-Centric Collaboration", spec: "TRANSPARENT PROCESS" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-[#D9B08C] font-mono">
@@ -111,7 +111,7 @@ export function PremiumHero() {
               {/* Animated CyberSphere */}
               <CyberSphere />
 
-              {/* Float Card 1: Neural Core status */}
+              {/* Float Card 1: AI Solutions status */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -121,12 +121,12 @@ export function PremiumHero() {
                   <Icon name="brain" size={14} />
                 </div>
                 <div>
-                  <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">Neural Core</h4>
-                  <p className="font-mono text-[10px] text-white">{"SYSTEM ACTIVE // 98.4%"}</p>
+                  <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">AI Engineering</h4>
+                  <p className="font-mono text-[10px] text-white">{"MODEL INTEGRATION // ACTIVE"}</p>
                 </div>
               </motion.div>
 
-              {/* Float Card 2: AWS Analytics status */}
+              {/* Float Card 2: Production status */}
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -137,7 +137,7 @@ export function PremiumHero() {
                 </div>
                 <div>
                   <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">Cloud Operations</h4>
-                  <p className="font-mono text-[10px] text-white">{"LATENCY // 14ms"}</p>
+                  <p className="font-mono text-[10px] text-white">{"UPTIME // 99.99%"}</p>
                 </div>
               </motion.div>
 

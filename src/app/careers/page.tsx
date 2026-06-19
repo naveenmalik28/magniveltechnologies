@@ -34,6 +34,49 @@ export const metadata: Metadata = {
   },
 };
 
+import { jobOpenings } from "@/lib/site";
+
 export default function CareersPage() {
-  return <CareersClient />;
+  const schemas = jobOpenings.map((job) => ({
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": job.position,
+    "description": `${job.description} Skills required: ${job.skills.join(", ")}. Experience: ${job.experience}. Location requirement: Remote or Hybrid.`,
+    "datePosted": "2026-06-19",
+    "validThrough": "2027-06-19",
+    "employmentType": "FULL_TIME",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Magnivel Technologies",
+      "sameAs": "https://magnivel.com",
+      "logo": "https://magnivel.com/logo.jpg"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Remote",
+        "addressRegion": "India / USA / Worldwide",
+        "addressCountry": "IN"
+      }
+    },
+    "jobLocationType": "TELECOMMUTE",
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "Worldwide"
+    }
+  }));
+
+  return (
+    <>
+      {schemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <CareersClient />
+    </>
+  );
 }

@@ -7,15 +7,15 @@ import { site } from "@/lib/site";
 import { Icon } from "@/components/icon";
 
 const servicesList = [
-  { label: "Website Development", href: "/website-development-services", desc: "Corporate sites, CMS, portals", icon: "globe" },
-  { label: "Mobile App Development", href: "/mobile-app-development", desc: "iOS, Android, cross-platform apps", icon: "smartphone" },
-  { label: "Custom Software", href: "/custom-software-development", desc: "Tailored enterprise operations", icon: "code" },
-  { label: "AI Chatbot Development", href: "/ai-chatbot-development", desc: "Gemini, Claude, GPT bots", icon: "brain" },
-  { label: "AI Automation Services", href: "/ai-automation-services", desc: "Workflow optimization & agents", icon: "sparkles" },
+  { label: "Website Development", href: "/website-development", desc: "Corporate sites, CMS, and landing pages", icon: "globe" },
+  { label: "Web Application Development", href: "/web-application-development", desc: "Interactive customer portals & dashboards", icon: "globe" },
   { label: "SaaS Development", href: "/saas-development", desc: "Multi-tenant subscription systems", icon: "layers" },
-  { label: "Ecommerce Development", href: "/ecommerce-development", desc: "High-performance online stores", icon: "layers" },
-  { label: "UI/UX Design Services", href: "/ui-ux-design-services", desc: "Premium interface wireframes", icon: "palette" },
-  { label: "SEO Services", href: "/seo-services", desc: "Core Web Vitals & organic growth", icon: "trending-up" },
+  { label: "E-commerce Development", href: "/ecommerce-development", desc: "High-performance online stores", icon: "layers" },
+  { label: "Mobile App Development", href: "/mobile-app-development", desc: "iOS, Android, cross-platform apps", icon: "smartphone" },
+  { label: "AI Solutions", href: "/ai-solutions", desc: "Private knowledge bases & LLM tools", icon: "brain" },
+  { label: "UI/UX Design", href: "/ui-ux-design", desc: "Figma wireframes & design systems", icon: "palette" },
+  { label: "API Development", href: "/api-development", desc: "RESTful, GraphQL, & integrations", icon: "server" },
+  { label: "Custom Software", href: "/custom-software-development", desc: "Tailored enterprise operations panels", icon: "code" },
 ];
 
 const pricingList = [
@@ -471,11 +471,11 @@ export function Footer() {
           <p className="text-xs font-extrabold uppercase tracking-widest text-heading">Services</p>
           <div className="grid gap-2.5">
             <Link className="transition-colors hover:text-accent-dark" href="/custom-software-development">Custom Software</Link>
-            <Link className="transition-colors hover:text-accent-dark" href="/ai-chatbot-development">AI & ML Solutions</Link>
-            <Link className="transition-colors hover:text-accent-dark" href="/website-development-services">Web Development</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/ai-solutions">AI Solutions</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/website-development">Website Development</Link>
             <Link className="transition-colors hover:text-accent-dark" href="/mobile-app-development">Mobile Apps</Link>
             <Link className="transition-colors hover:text-accent-dark" href="/saas-development">SaaS Development</Link>
-            <Link className="transition-colors hover:text-accent-dark" href="/aws-development">Cloud & DevOps</Link>
+            <Link className="transition-colors hover:text-accent-dark" href="/api-development">API Development</Link>
           </div>
         </div>
 

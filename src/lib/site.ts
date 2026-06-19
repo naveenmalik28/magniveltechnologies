@@ -3,9 +3,9 @@ export const site = {
   url: "https://magnivel.com",
   email: "contact@magnivel.com",
   phone: "+91 00000 00000",
-  tagline: "Transforming ideas into powerful digital solutions",
+  tagline: "Professional web, mobile app, and custom software development for businesses globally",
   description:
-    "Magnivel Technologies builds scalable websites, mobile apps, AI-powered platforms, cloud systems, and custom software for businesses worldwide.",
+    "Magnivel Technologies builds scalable websites, mobile apps, SaaS platforms, cloud systems, and custom software for businesses worldwide.",
   socials: {
     linkedin: "https://www.linkedin.com/company/magnivel-technologies",
     instagram: "https://www.instagram.com/magniveltechnologies",
@@ -14,58 +14,85 @@ export const site = {
 
 export const services = [
   {
-    title: "Web Development",
+    title: "Website Development",
     icon: "globe" as const,
     description:
-      "Custom business websites, portals, and enterprise applications built for performance, SEO, and qualified lead generation.",
-    features: ["SEO-ready architecture", "Core Web Vitals optimization", "Responsive UI", "Lead capture flows", "CMS-friendly structure"],
+      "Custom business websites, corporate sites, and headless CMS integrations built for speed, SEO, and lead generation.",
+    features: ["SEO-ready architecture", "Core Web Vitals optimization", "Responsive layouts", "Secure contact forms", "Content Management System (CMS)"],
     benefits:
-      "Launch a credible web presence that supports organic search, paid campaigns, and sales outreach with measurable ROI.",
+      "Establish a credible web presence that attracts visitors organically and loads instantly on all devices.",
+  },
+  {
+    title: "Web Application Development",
+    icon: "layers" as const,
+    description:
+      "Interactive, database-driven web platforms, customer dashboards, and internal business systems built with React and Next.js.",
+    features: ["Dynamic dashboards", "Role-based user permissions", "Real-time database sync", "Responsive interfaces", "API integrations"],
+    benefits:
+      "Automate business operations, manage data securely, and provide users with a smooth web interface.",
+  },
+  {
+    title: "SaaS Development",
+    icon: "layers" as const,
+    description:
+      "Multi-tenant subscription software platforms with workspace sharing, user invite tools, and Stripe billing integrations.",
+    features: ["Multi-tenant isolation", "Stripe subscription billing", "Workspace collaboration", "Admin monitoring metrics", "Scalable cloud databases"],
+    benefits:
+      "Launch a subscription product quickly with secure data isolation and automated billing cycles.",
+  },
+  {
+    title: "E-commerce Development",
+    icon: "layers" as const,
+    description:
+      "Online stores, secure checkouts, and custom payment integrations designed to streamline digital sales.",
+    features: ["Dynamic catalogs", "Secure payment gateways", "Inventory management", "Order management dashboard", "SEO optimization"],
+    benefits:
+      "Simplify buying for customers and manage inventory, checkout, and orders in one secure panel.",
   },
   {
     title: "Mobile App Development",
     icon: "smartphone" as const,
     description:
-      "Android, iOS, and cross-platform applications for customer engagement, internal tools, and mobile-first workflows.",
-    features: ["Cross-platform builds", "Offline-ready flows", "Push notifications", "Secure authentication", "App Store support"],
+      "Native and cross-platform mobile apps for iOS and Android, focusing on offline support and fluid navigation.",
+    features: ["Cross-platform builds", "Offline database sync", "Push notifications", "Secure biometrics auth", "App Store deployment"],
     benefits:
-      "Bring your service closer to users with intuitive mobile access that improves engagement and retention.",
+      "Provide clients and teams with a fast mobile tool that works smoothly even on poor network connections.",
   },
   {
-    title: "AI & Automation",
+    title: "AI Solutions",
     icon: "sparkles" as const,
     description:
-      "AI agents, chatbots, workflow automation, RAG systems, document intelligence, and business insight tools.",
-    features: ["AI chatbots", "Workflow automation", "Document processing", "Business intelligence", "RAG systems"],
+      "Private knowledge systems, custom search engines (RAG), workflow automation, and text analysis tools using LLMs.",
+    features: ["Retrieval-Augmented Generation (RAG)", "Workflow automation tools", "Natural language search", "Document processing", "Custom LLM integrations"],
     benefits:
-      "Apply AI where it saves time, improves service quality, and creates practical competitive advantage.",
+      "Automate manual reporting, search internal documents instantly, and improve data processing speeds.",
+  },
+  {
+    title: "UI/UX Design",
+    icon: "palette" as const,
+    description:
+      "User research, wireframing, high-fidelity prototypes, and dedicated design systems focused on user retention.",
+    features: ["User journey mapping", "Wireframes & prototypes", "High-fidelity mockups", "Custom design systems", "Usability testing"],
+    benefits:
+      "Reduce user confusion, improve retention rates, and establish a premium visual identity for your product.",
+  },
+  {
+    title: "API Development",
+    icon: "server" as const,
+    description:
+      "Secure, well-documented RESTful and GraphQL APIs to connect frontend apps, third-party services, and internal systems.",
+    features: ["REST & GraphQL protocols", "OAuth2 secure login", "Rate limiting & protection", "Database ORM integrations", "Automated API documentation"],
+    benefits:
+      "Ensure fast, secure data communication between your mobile app, website, and database.",
   },
   {
     title: "Custom Software Development",
     icon: "code" as const,
     description:
-      "Tailor-made software solutions for unique business processes, internal operations, and enterprise workflows.",
-    features: ["Requirements discovery", "Role-based access", "API integrations", "Data migration", "Long-term maintenance"],
+      "Tailor-made software systems designed to match your specific business workflows, internal operations, and reporting rules.",
+    features: ["Custom workflow mapping", "Role-based access controls", "Legacy data migration", "Scheduled reporting alerts", "Long-term support"],
     benefits:
-      "Replace manual work with reliable software that matches your actual business process instead of forcing compromise.",
-  },
-  {
-    title: "E-Commerce Solutions",
-    icon: "layers" as const,
-    description:
-      "Online stores, marketplaces, checkout systems, and secure payment integrations designed to convert.",
-    features: ["Product catalogs", "Secure payments", "Inventory workflows", "Order dashboards", "Performance tuning"],
-    benefits:
-      "Launch a reliable commerce experience that makes buying simple and operations manageable.",
-  },
-  {
-    title: "Cloud & DevOps",
-    icon: "cloud" as const,
-    description:
-      "Scalable cloud infrastructure, CI/CD pipelines, monitoring, and deployment systems for growing products.",
-    features: ["Cloud deployment", "CI/CD automation", "Docker environments", "Monitoring setup", "Scalable architecture"],
-    benefits:
-      "Keep your application fast, secure, observable, and ready for traffic growth.",
+      "Replace spreadsheets and fragmented software with a unified tool built for your exact business process.",
   },
 ];
 
@@ -137,38 +164,47 @@ export const budgets = [
 ];
 
 export const internationalBudgets = [
-  "Under $350",
-  "$350 - $750",
-  "$750 - $1,500",
-  "$1,500 - $3,000",
+  "Under $1,000",
+  "$1,000 - $3,000",
   "$3,000 - $5,000",
   "$5,000 - $10,000",
-  "$10,000+",
+  "$10,000 - $25,000",
+  "$25,000+",
   "Let's Discuss",
 ];
 
 export const serviceOptions = [
-  "Web Development",
+  "Website Development",
+  "Web Application Development",
+  "SaaS Development",
+  "E-commerce Development",
   "Mobile App Development",
-  "AI & Automation",
+  "AI Solutions",
+  "UI/UX Design",
+  "API Development",
   "Custom Software Development",
-  "E-Commerce Solutions",
-  "Cloud & DevOps",
 ];
 
 export const projects = [
   {
     id: "b2b-lead-platform",
     title: "B2B Lead Generation Platform",
-    category: "Web Development",
+    category: "Website Development",
     industry: "Marketing & Agencies",
     description:
-      "A conversion-focused agency website with SEO landing pages, intelligent lead capture, and analytics.",
+      "A conversion-focused marketing website with optimized page speeds, semantic SEO structure, and automated CRM lead routing.",
     challenge:
-      "The client needed a high-conversion web presence that could rank organically, capture qualified leads automatically, and replace a slow legacy WordPress site.",
+      "The client was losing prospective clients due to slow page load times over 5 seconds on their legacy system and struggled to rank for search terms.",
     solution:
-      "We built a Next.js platform with dynamic SEO landing pages, intelligent form routing, CRM integrations, and a real-time analytics dashboard for marketing teams.",
-    impact: "Qualified inquiries increased by 3x within four months of launch.",
+      "Built a statically optimized website utilizing Next.js, customized headless CMS fields for content updates, and direct API endpoints for CRM integration.",
+    businessGoal: "Build a high-performance marketing site to increase organic visitor inquiries and automate lead routing workflows.",
+    keyFeatures: [
+      "Statically generated pages for fast loading",
+      "Headless CMS integration for content management",
+      "Automated lead capture form and CRM routing",
+      "Comprehensive Core Web Vitals performance tuning"
+    ],
+    impact: "Qualified business inquiries grew by 3x within four months of launching.",
     metrics: [
       { label: "Lead Growth", value: "3x" },
       { label: "Page Speed", value: "97/100" },
@@ -181,15 +217,22 @@ export const projects = [
   {
     id: "enterprise-ops-dashboard",
     title: "Enterprise Operations Dashboard",
-    category: "Custom Software",
+    category: "Custom Software Development",
     industry: "Enterprise / Operations",
     description:
-      "Role-based operations platform for tracking customers, workflows, and team performance with automated reporting.",
+      "A unified role-based operations console for tracking client onboarding, operational queues, and daily reporting metrics.",
     challenge:
-      "Operations teams were juggling spreadsheets and disconnected tools, causing reporting delays and inconsistent customer data across departments.",
+      "Operations teams were managing workflows using disconnected spreadsheets, causing delayed reporting and client onboarding errors.",
     solution:
-      "Delivered a role-based operations hub with workflow automation, customer lifecycle tracking, team performance dashboards, and scheduled PDF reports.",
-    impact: "Manual reporting work dropped by 60% across operations teams.",
+      "Developed a custom dashboard system with secure role-based access, automated queue processing, and automated reporting logs.",
+    businessGoal: "Consolidate fragmented spreadsheet tracking into a unified web console to reduce human error and speed up onboarding.",
+    keyFeatures: [
+      "Role-based access controls (RBAC)",
+      "Automated operational task queues",
+      "Real-time data visualization charts",
+      "Scheduled PDF report generators"
+    ],
+    impact: "Saved 60% of manual tracking and report compiling hours across operations teams.",
     metrics: [
       { label: "Manual Work Saved", value: "60%" },
       { label: "Active Users", value: "200+" },
@@ -201,16 +244,23 @@ export const projects = [
   },
   {
     id: "ai-support-system",
-    title: "AI-Powered Support System",
-    category: "AI & Automation",
+    title: "AI-Powered Customer Support System",
+    category: "AI Solutions",
     industry: "Customer Support",
     description:
-      "Knowledge-assisted support platform with AI routing, response drafting, and sentiment analysis.",
+      "A private knowledge base search and ticket routing system assisting support staff with drafting client replies.",
     challenge:
-      "Support volume was overwhelming agents with repetitive tickets, slow first-response times, and no intelligent routing based on issue complexity.",
+      "The client faced high customer inquiry volumes, slow first-response times, and struggled to surface information from old technical documents.",
     solution:
-      "Implemented an AI-assisted support layer with knowledge-base RAG, auto-drafted responses, sentiment detection, and smart ticket routing to the right specialists.",
-    impact: "Average response times dropped by 75% while CSAT scores improved.",
+      "Implemented a secure Retrieval-Augmented Generation (RAG) tool indexing internal guides to assist team members with draft generations.",
+    businessGoal: "Accelerate support ticket resolution times and improve response accuracy using indexed technical guides.",
+    keyFeatures: [
+      "Retrieval-Augmented Generation (RAG) query search",
+      "Automated draft response generation for staff",
+      "Intelligent classification and routing logic",
+      "Administrative compliance and audit logs"
+    ],
+    impact: "Reduced average client response times by 75% while raising customer satisfaction scores.",
     metrics: [
       { label: "Response Time", value: "-75%" },
       { label: "CSAT Score", value: "4.8/5" },
@@ -223,15 +273,22 @@ export const projects = [
   {
     id: "multi-tenant-saas",
     title: "Multi-Tenant SaaS Platform",
-    category: "SaaS",
+    category: "SaaS Development",
     industry: "B2B SaaS",
     description:
-      "Subscription-based collaboration platform with billing, dashboards, analytics, and scalable tenant architecture.",
+      "A subscription-based collaboration platform featuring client workspace isolation, member invites, and metered usage billing.",
     challenge:
-      "A growing startup needed to launch a subscription product with multi-tenant isolation, usage-based billing, and team collaboration without rebuilding from scratch.",
+      "A startup client needed to build and scale a subscription platform requiring robust user boundaries and flexible pricing logic.",
     solution:
-      "Architected a scalable multi-tenant SaaS with Stripe billing, tenant-aware data isolation, collaborative workspaces, and admin analytics for growth teams.",
-    impact: "Launched MVP in 12 weeks; scaled to 120+ paying tenants in year one.",
+      "Designed a database with tenant-level column isolation, team management roles, Stripe API integrations, and usage metering.",
+    businessGoal: "Launch a secure subscription platform with collaborative workspace tools and automated usage-based billing.",
+    keyFeatures: [
+      "Secure logical data partitioning per tenant",
+      "Stripe payment gateway and billing webhook sync",
+      "Collaborative team workspaces and invitation links",
+      "Usage-based API metering checks"
+    ],
+    impact: "Platform launched in 12 weeks; expanded to over 120 paying customer accounts in year one.",
     metrics: [
       { label: "Time to Launch", value: "12 wks" },
       { label: "Paying Tenants", value: "120+" },
@@ -244,15 +301,22 @@ export const projects = [
   {
     id: "healthcare-appointments",
     title: "Healthcare Appointment System",
-    category: "Custom Software",
+    category: "Custom Software Development",
     industry: "Healthcare",
     description:
-      "Secure appointment scheduling and telemedicine workflow with patient portals, reminders, and admin controls.",
+      "A patient scheduling portal and automated reminder queue to organize clinic hours and appointments.",
     challenge:
-      "A healthcare provider faced double-bookings, missed appointments, and no secure way for patients to access records or join telemedicine sessions.",
+      "A multi-site healthcare clinic suffered from high appointment no-show rates and manual scheduling errors by reception staff.",
     solution:
-      "Built a HIPAA-aware scheduling system with patient portals, SMS/email reminders, WebRTC telemedicine rooms, and admin controls for practitioners.",
-    impact: "No-show rates reduced by 45% with fully automated reminder workflows.",
+      "Built a clinic workflow tool featuring a patient portal, live calendar booking, and automated email and SMS notification campaigns.",
+    businessGoal: "Reduce appointment no-shows and automate calendar booking tasks for medical staff.",
+    keyFeatures: [
+      "Clinic appointment calendar with live slots sync",
+      "Patient scheduling and billing histories portal",
+      "SMS and email notification queues",
+      "Administrative operations dashboard for clinic managers"
+    ],
+    impact: "Reduced patient no-shows by 45% via automated reminder triggers.",
     metrics: [
       { label: "No-Shows Reduced", value: "45%" },
       { label: "Appointments/mo", value: "8K+" },
@@ -264,16 +328,23 @@ export const projects = [
   },
   {
     id: "ecommerce-mobile-app",
-    title: "E-Commerce Mobile App",
+    title: "E-Commerce Mobile Application",
     category: "Mobile App Development",
     industry: "E-Commerce / Retail",
     description:
-      "Cross-platform shopping app with recommendations, real-time inventory, push notifications, and streamlined checkout.",
+      "A cross-platform mobile application supporting rapid product browsing, live inventory indicators, and mobile checkouts.",
     challenge:
-      "A retail brand needed a mobile-first shopping experience with real-time stock, personalized recommendations, and frictionless checkout to compete with larger marketplaces.",
+      "A retail merchant required a mobile shopping app with fast product indexing and one-tap checkout to drive customer sales.",
     solution:
-      "Developed a React Native app with AI-driven product recommendations, live inventory sync, push notification campaigns, and one-tap Stripe checkout.",
-    impact: "Mobile revenue grew 2.5x in the first quarter after app launch.",
+      "Built a mobile application in React Native, integrated their catalog API, and implemented native mobile payment methods.",
+    businessGoal: "Create a fast mobile shopping app to increase checkout conversion rates and product sales.",
+    keyFeatures: [
+      "Cross-platform iOS and Android mobile app code",
+      "Offline catalog browsing and search options",
+      "Fast checkout flow with credit card tokens",
+      "Targeted push notifications for seasonal sales"
+    ],
+    impact: "Mobile channel revenue expanded 2.5x in the first quarter after store launch.",
     metrics: [
       { label: "Mobile Revenue", value: "2.5x" },
       { label: "App Downloads", value: "25K+" },
@@ -340,44 +411,38 @@ export const faqs = [
 export const processSteps = [
   {
     step: 1,
-    title: "Discovery",
-    description: "Deep-dive into your business goals, users, technical requirements, and success metrics.",
+    title: "Requirement Analysis",
+    description: "We collaborate to understand your business objectives, technical requirements, and define a clear scope of work.",
     icon: "search" as const,
   },
   {
     step: 2,
-    title: "Strategy",
-    description: "Define architecture, technology stack, roadmap, and delivery milestones.",
+    title: "Planning & Design",
+    description: "We draft technical architecture, database schemas, and create intuitive UI/UX wireframes and prototypes.",
     icon: "target" as const,
   },
   {
     step: 3,
-    title: "Design",
-    description: "Craft intuitive UI/UX with wireframes, prototypes, and polished visual systems.",
-    icon: "palette" as const,
-  },
-  {
-    step: 4,
     title: "Development",
-    description: "Build in agile sprints with clean code, scalable architecture, and regular demos.",
+    description: "Our developers write clean, modular code in agile sprints, providing regular staging demos to gather early feedback.",
     icon: "code" as const,
   },
   {
-    step: 5,
-    title: "Testing",
-    description: "Rigorous QA across performance, security, responsiveness, and cross-device behavior.",
+    step: 4,
+    title: "Testing & Quality Assurance",
+    description: "We conduct rigorous testing across all devices, auditing performance, responsiveness, and security compliance.",
     icon: "shield" as const,
   },
   {
-    step: 6,
+    step: 5,
     title: "Deployment",
-    description: "Launch with CI/CD pipelines, monitoring, analytics, and production hardening.",
+    description: "We launch your application with automated pipelines, cloud monitoring, and performance optimizations.",
     icon: "rocket" as const,
   },
   {
-    step: 7,
-    title: "Support",
-    description: "Ongoing maintenance, feature enhancements, and proactive scalability planning.",
+    step: 6,
+    title: "Ongoing Support",
+    description: "We provide continuous maintenance, security updates, and feature additions to support your business growth.",
     icon: "headphones" as const,
   },
 ];
@@ -397,56 +462,62 @@ export const homeServices = [
     description: "Tailored enterprise systems, operations dashboards, and scalable backend architectures.",
   },
   {
-    title: "AI & Machine Learning Solutions",
-    href: "/ai-chatbot-development",
+    title: "AI Solutions",
+    href: "/ai-solutions",
     icon: "brain" as const,
-    description: "Intelligent agents, RAG systems, predictive models, and workflow automation powered by AI.",
+    description: "Private knowledge systems, RAG query systems, workflow automation, and custom LLM integrations.",
   },
   {
     title: "Web Application Development",
-    href: "/website-development-services",
+    href: "/web-application-development",
     icon: "globe" as const,
-    description: "High-performance web platforms, portals, and SaaS interfaces built for growth.",
+    description: "High-performance dynamic web platforms, customer portals, and internal dashboards.",
   },
   {
     title: "Mobile App Development",
     href: "/mobile-app-development",
     icon: "smartphone" as const,
-    description: "Native and cross-platform iOS & Android apps with seamless user experiences.",
+    description: "Native and cross-platform iOS & Android apps with seamless offline capabilities.",
   },
   {
-    title: "SaaS Product Development",
+    title: "SaaS Development",
     href: "/saas-development",
     icon: "layers" as const,
-    description: "Multi-tenant cloud platforms with subscription billing and team collaboration.",
+    description: "Multi-tenant cloud platforms with user workspace sharing and Stripe billing.",
   },
   {
-    title: "Cloud & DevOps Services",
-    href: "/aws-development",
-    icon: "cloud" as const,
-    description: "AWS infrastructure, CI/CD pipelines, containerization, and production monitoring.",
+    title: "Website Development",
+    href: "/website-development",
+    icon: "globe" as const,
+    description: "Corporate websites and headless CMS integrations built for speed and search ranking.",
+  },
+  {
+    title: "E-commerce Development",
+    href: "/ecommerce-development",
+    icon: "layers" as const,
+    description: "Premium digital stores, shopping cart engines, and secure payment gate integrations.",
   },
   {
     title: "UI/UX Design",
-    href: "/ui-ux-design-services",
+    href: "/ui-ux-design",
     icon: "palette" as const,
-    description: "Premium interface design, design systems, and conversion-focused user experiences.",
+    description: "Interface wireframes, user flow layouts, high-fidelity prototypes, and design systems.",
   },
   {
-    title: "API Development & Integration",
-    href: "/nodejs-development",
+    title: "API Development",
+    href: "/api-development",
     icon: "server" as const,
-    description: "RESTful APIs, GraphQL endpoints, third-party integrations, and microservices.",
+    description: "RESTful and GraphQL server endpoints, microservice routing, and third-party API syncs.",
   },
 ];
 
 export const whyChoose = [
-  { title: "Fast Development", emoji: "⚡", description: "Agile sprints and rapid prototyping get your product to market faster without sacrificing quality.", icon: "zap" as const },
-  { title: "AI-Powered Innovation", emoji: "🤖", description: "Cutting-edge LLMs, agents, and automation woven into every solution we build.", icon: "brain" as const },
-  { title: "Enterprise Security", emoji: "🔒", description: "Encrypted data, secure auth, compliance-ready architecture, and NDA protection.", icon: "shield" as const },
-  { title: "Cloud-Native Architecture", emoji: "☁️", description: "Scalable, resilient infrastructure designed for global traffic and zero-downtime deploys.", icon: "cloud" as const },
-  { title: "Scalable Solutions", emoji: "📈", description: "Architecture that grows with your business from MVP to enterprise scale.", icon: "trending-up" as const },
-  { title: "Global Support", emoji: "🌍", description: "Serving clients across India, North America, Europe, UAE, and Southeast Asia.", icon: "globe" as const },
+  { title: "Custom Development", emoji: "💻", description: "We build custom software tailored exactly to your business workflows and processes, avoiding the limitations of templates.", icon: "code" as const },
+  { title: "Transparent Communication", emoji: "💬", description: "We maintain open lines of communication, providing regular updates, staging links, and direct developer access.", icon: "zap" as const },
+  { title: "Dedicated Support", emoji: "🛠️", description: "Our team provides consistent post-launch support, monitoring system health, addressing bugs, and keeping packages updated.", icon: "shield" as const },
+  { title: "Scalable Solutions", emoji: "📈", description: "We design architectures that scale horizontally, prepared to handle growth in users, transactions, and data.", icon: "trending-up" as const },
+  { title: "Modern Technology Stack", emoji: "⚙️", description: "We build with proven modern frameworks like React, Next.js, Node.js, and Python, ensuring long-term viability.", icon: "layers" as const },
+  { title: "Long-Term Partnership", emoji: "🤝", description: "We work as your technology partner, supporting your business as it evolves, helping plan and execute future phases.", icon: "globe" as const },
 ];
 
 export const industries = [

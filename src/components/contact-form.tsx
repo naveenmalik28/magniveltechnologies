@@ -22,10 +22,13 @@ export function ContactForm() {
     const formData = new FormData(form);
     const fullName = formData.get("fullName") as string;
     const email = formData.get("email") as string;
-
+    const phoneCode = formData.get("phoneCode") as string;
+    const phoneNumber = formData.get("phoneNumber") as string;
     const country = formData.get("country") as string;
-    const messageText = formData.get("message") as string;
     const serviceType = formData.get("serviceType") as string;
+    const budget = formData.get("budget") as string;
+    const timeline = formData.get("timeline") as string;
+    const messageText = formData.get("message") as string;
 
     // Client-side validations
     const errors: Record<string, string> = {};
@@ -36,11 +39,23 @@ export function ContactForm() {
     if (!email || !emailPattern.test(email.trim())) {
       errors.email = "Please enter a valid email address.";
     }
+    if (!phoneCode || phoneCode.trim().length < 1) {
+      errors.phoneCode = "Country code is required.";
+    }
+    if (!phoneNumber || phoneNumber.trim().length < 6) {
+      errors.phoneNumber = "Phone number must be at least 6 digits.";
+    }
     if (!country || country.trim().length < 2) {
       errors.country = "Country name is required.";
     }
     if (!serviceType) {
       errors.serviceType = "Please select a service option.";
+    }
+    if (!budget) {
+      errors.budget = "Please select a project budget range.";
+    }
+    if (!timeline) {
+      errors.timeline = "Please select a project timeline.";
     }
     if (!messageText || messageText.trim().length < 20) {
       errors.message = "Please describe your project (minimum 20 characters).";
@@ -51,6 +66,10 @@ export function ContactForm() {
       setState("idle");
       return;
     }
+
+    // Append timeline to the message payload before serializing
+    const finalMessage = `[Project Timeline: ${timeline}]\n\nProject Description:\n${messageText}`;
+    formData.set("message", finalMessage);
 
     try {
       const payload = Object.fromEntries(formData.entries());
@@ -121,12 +140,36 @@ export function ContactForm() {
             error={validationErrors.email}
           />
           
+          <div className="flex gap-2">
+            <div className="w-[90px] shrink-0">
+              <label className="label">
+                <span>Code <span className="text-accent-secondary">*</span></span>
+                <input
+                  name="phoneCode"
+                  type="text"
+                  required
+                  placeholder="+91"
+                  defaultValue="+91"
+                  className={`input mt-2 ${validationErrors.phoneCode ? "border-red-500" : ""}`}
+                />
+              </label>
+            </div>
+            <div className="flex-1">
+              <Field
+                name="phoneNumber"
+                label="Phone Number"
+                type="tel"
+                placeholder="9876543210"
+                error={validationErrors.phoneNumber}
+              />
+            </div>
+          </div>
+
           <Field
             name="companyName"
             label="Company Name"
             required={false}
             placeholder="Optional"
-            className="sm:col-span-2"
           />
         </div>
       </div>
@@ -152,6 +195,37 @@ export function ContactForm() {
             placeholder="Select service area"
             options={serviceOptions}
             error={validationErrors.serviceType}
+          />
+
+          {/* Budget Selection */}
+          <Select
+            name="budget"
+            label="Project Budget"
+            placeholder="Select budget range"
+            options={[
+              "Under $1,000 (INR 80k)",
+              "$1,000 - $3,000 (INR 80k - 2.5L)",
+              "$3,000 - $5,000 (INR 2.5L - 4L)",
+              "$5,000 - $10,000 (INR 4L - 8L)",
+              "$10,000 - $25,000 (INR 8L - 20L)",
+              "$25,000+ (INR 20L+)",
+              "Let's Discuss"
+            ]}
+            error={validationErrors.budget}
+          />
+
+          {/* Timeline Selection */}
+          <Select
+            name="timeline"
+            label="Project Timeline"
+            placeholder="Select project timeline"
+            options={[
+              "Immediate (Start now)",
+              "1 - 3 Months",
+              "3 - 6 Months",
+              "Flexible / Ongoing"
+            ]}
+            error={validationErrors.timeline}
           />
         </div>
 

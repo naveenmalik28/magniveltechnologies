@@ -82,6 +82,37 @@ const nextConfig: NextConfig = {
         destination: "/:path+",
         permanent: true,
       },
+      // Service pages redirects
+      {
+        source: "/website-development-services",
+        destination: "/website-development",
+        permanent: true,
+      },
+      {
+        source: "/ui-ux-design-services",
+        destination: "/ui-ux-design",
+        permanent: true,
+      },
+      {
+        source: "/ai-chatbot-development",
+        destination: "/ai-solutions",
+        permanent: true,
+      },
+      {
+        source: "/ai-automation-services",
+        destination: "/ai-solutions",
+        permanent: true,
+      },
+      {
+        source: "/ai-development",
+        destination: "/ai-solutions",
+        permanent: true,
+      },
+      {
+        source: "/nodejs-development",
+        destination: "/api-development",
+        permanent: true,
+      },
     ];
   },
 
