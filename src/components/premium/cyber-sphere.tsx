@@ -74,7 +74,7 @@ function RotatingSphere() {
       <mesh ref={outerSphereRef}>
         <sphereGeometry args={[1.7, 40, 40]} />
         <meshBasicMaterial
-          color="#19E6D5"
+          color="#0F766E"
           wireframe
           transparent
           opacity={0.16}
@@ -85,7 +85,7 @@ function RotatingSphere() {
       <mesh ref={innerSphereRef}>
         <sphereGeometry args={[1.05, 20, 20]} />
         <meshBasicMaterial
-          color="#D9B08C"
+          color="#C68B59"
           wireframe
           transparent
           opacity={0.14}
@@ -101,7 +101,7 @@ function RotatingSphere() {
           />
         </bufferGeometry>
         <pointsMaterial
-          color="#19E6D5"
+          color="#0F766E"
           size={0.038}
           sizeAttenuation
           transparent
@@ -111,8 +111,8 @@ function RotatingSphere() {
 
       {/* Ambient and directional lights */}
       <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={1.5} color="#19e6d5" />
-      <pointLight position={[-5, -5, -5]} intensity={0.8} color="#d9b08c" />
+      <pointLight position={[5, 5, 5]} intensity={1.5} color="#0f766e" />
+      <pointLight position={[-5, -5, -5]} intensity={0.8} color="#c68b59" />
     </group>
   );
 }

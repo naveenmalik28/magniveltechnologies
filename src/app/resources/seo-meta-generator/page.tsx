@@ -16,14 +16,14 @@ export default function SEOMetaGenerator() {
   const getTitleStatus = () => {
     if (titleLength === 0) return { label: "Empty", class: "text-dimmed" };
     if (titleLength < 40) return { label: "Too Short", class: "text-amber-500 font-bold" };
-    if (titleLength <= 60) return { label: "Optimal (40-60)", class: "text-emerald-400 font-bold" };
+    if (titleLength <= 60) return { label: "Optimal (40-60)", class: "text-accent font-bold" };
     return { label: "Too Long (Over 60)", class: "text-red-400 font-bold" };
   };
 
   const getDescStatus = () => {
     if (descLength === 0) return { label: "Empty", class: "text-dimmed" };
     if (descLength < 110) return { label: "Too Short", class: "text-amber-500 font-bold" };
-    if (descLength <= 160) return { label: "Optimal (110-160)", class: "text-emerald-400 font-bold" };
+    if (descLength <= 160) return { label: "Optimal (110-160)", class: "text-accent font-bold" };
     return { label: "Too Long (Over 160)", class: "text-red-400 font-bold" };
   };
 
@@ -111,10 +111,10 @@ export default function SEOMetaGenerator() {
 
             {/* Code Export Box */}
             {title.trim() && (
-              <div className="rounded-2xl border border-white/10 bg-slate-900 p-5 text-white flex justify-between items-center shadow-xl">
+              <div className="rounded-2xl border border-subtle-border bg-background-secondary p-5 text-heading flex justify-between items-center shadow-md">
                 <div>
-                  <h4 className="text-xs font-bold text-cyan-200 uppercase tracking-widest">HTML Meta tags code</h4>
-                  <p className="text-[10px] text-slate-400 mt-1">Copy and paste these tags into your head component.</p>
+                  <h4 className="text-xs font-bold text-accent-secondary uppercase tracking-widest">HTML Meta tags code</h4>
+                  <p className="text-[10px] text-muted mt-1">Copy and paste these tags into your head component.</p>
                 </div>
                 <button
                   onClick={handleCopy}
@@ -122,7 +122,7 @@ export default function SEOMetaGenerator() {
                 >
                   {copied ? (
                     <>
-                      <Icon name="check" size={13} className="text-emerald-400 font-bold" />
+                      <Icon name="check" size={13} className="text-white font-bold" />
                       Copied Code
                     </>
                   ) : (

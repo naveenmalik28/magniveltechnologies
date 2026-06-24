@@ -18,7 +18,7 @@ function RotatingGlobe() {
     <group>
       <Sphere ref={ref} args={[1.6, 48, 48]}>
         <meshStandardMaterial
-          color="#6366f1"
+          color="#0F766E"
           wireframe
           transparent
           opacity={0.22}
@@ -26,15 +26,15 @@ function RotatingGlobe() {
       </Sphere>
       <Sphere args={[1.55, 32, 32]}>
         <meshStandardMaterial
-          color="#06b6d4"
+          color="#C68B59"
           wireframe
           transparent
           opacity={0.08}
         />
       </Sphere>
       <ambientLight intensity={0.4} />
-      <pointLight position={[4, 4, 4]} intensity={1.2} color="#8b5cf6" />
-      <pointLight position={[-4, -2, -4]} intensity={0.6} color="#06b6d4" />
+      <pointLight position={[4, 4, 4]} intensity={1.2} color="#0F766E" />
+      <pointLight position={[-4, -2, -4]} intensity={0.6} color="#C68B59" />
     </group>
   );
 }

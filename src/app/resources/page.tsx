@@ -123,7 +123,7 @@ export default function ResourceCenterPage() {
             {freeTools.map((tool) => (
               <div key={tool.title} className="glass-card flex flex-col p-5">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-accent-light/20 bg-accent-light/10 text-accent-light">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-accent/20 bg-accent-subtle text-accent">
                     <Icon name={tool.icon} size={16} />
                   </span>
                   <h4 className="text-sm font-extrabold text-heading">{tool.title}</h4>

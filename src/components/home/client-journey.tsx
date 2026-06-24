@@ -30,9 +30,9 @@ export function ClientJourney() {
 
         {/* Progress bar */}
         <div className="relative mx-auto mt-14 hidden max-w-4xl lg:block">
-          <div className="h-1 rounded-full bg-white/8">
+          <div className="h-1 rounded-full bg-subtle-border">
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-accent via-accent-secondary to-accent-light"
+              className="h-full rounded-full bg-gradient-to-r from-primary to-accent-secondary"
               style={{ width: isInView ? progressWidth : "0%" }}
             />
           </div>

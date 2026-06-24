@@ -24,7 +24,7 @@ export function TechMarquee() {
           {doubled.map((tech, i) => (
             <span
               key={`${tech}-${i}`}
-              className="inline-flex shrink-0 items-center rounded-full border border-white/10 bg-surface-elevated/80 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent-dark"
+              className="inline-flex shrink-0 items-center rounded-full border border-subtle-border bg-surface-elevated/80 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent-dark"
             >
               {tech}
             </span>

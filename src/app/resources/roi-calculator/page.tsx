@@ -77,7 +77,7 @@ export default function ROICalculator() {
                 max="60"
                 value={hours}
                 onChange={(e) => setHours(Number(e.target.value))}
-                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-background-secondary rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <span className="text-[10px] text-muted">Includes data copy-paste, file sorting, and manual verification tasks.</span>
             </div>
@@ -97,7 +97,7 @@ export default function ROICalculator() {
                 step={currency === "INR" ? 50 : 5}
                 value={rate}
                 onChange={(e) => setRate(Number(e.target.value))}
-                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-background-secondary rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <span className="text-[10px] text-muted">Average hourly cost including employee benefits and overheads.</span>
             </div>
@@ -116,7 +116,7 @@ export default function ROICalculator() {
                 max="20"
                 value={staff}
                 onChange={(e) => setStaff(Number(e.target.value))}
-                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-background-secondary rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <span className="text-[10px] text-muted">Number of team members performing this repetitive process.</span>
             </div>
@@ -125,25 +125,25 @@ export default function ROICalculator() {
           {/* Savings Summary */}
           <div className="rounded-2xl dark-panel p-6 shadow-2xl flex flex-col justify-between h-[360px] sticky top-24">
             <div>
-              <p className="text-[10px] font-extrabold uppercase tracking-widest text-cyan-200">Estimated Annual Savings</p>
+              <p className="text-[10px] font-extrabold uppercase tracking-widest text-accent-secondary">Estimated Annual Savings</p>
               <h3 className="mt-4 text-3xl font-extrabold text-white">
                 {cSign} {calculateYearlySavings().toLocaleString()}
-                <span className="text-xs font-normal text-slate-300 block mt-1">Based on 80% automation ratios</span>
+                <span className="text-xs font-normal text-white/80 block mt-1">Based on 80% automation ratios</span>
               </h3>
               
-              <div className="mt-6 border-t border-white/10 pt-5 text-xs text-slate-200 grid gap-2 font-semibold">
+              <div className="mt-6 border-t border-white/10 pt-5 text-xs text-white/90 grid gap-2 font-semibold">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Current Cost / Week:</span>
+                  <span className="text-white/60">Current Cost / Week:</span>
                   <span>{cSign} {calculateWeeklyCost().toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Current Cost / Year:</span>
+                  <span className="text-white/60">Current Cost / Year:</span>
                   <span>{cSign} {calculateYearlyCost().toLocaleString()}</span>
                 </div>
               </div>
             </div>
 
-            <Link href="/contact" className="btn-primary w-full py-3 text-xs uppercase tracking-wider text-center font-bold">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-full font-bold uppercase tracking-wider text-xs px-4 py-3 bg-white text-primary hover:bg-accent-light hover:text-primary transition-colors w-full text-center">
               Build Automation System
               <Icon name="arrow-right" size={12} />
             </Link>

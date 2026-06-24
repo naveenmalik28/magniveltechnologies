@@ -33,8 +33,8 @@ export function PortfolioShowcase() {
                 }}
                 className={`rounded-full px-4 py-2 text-xs font-bold transition ${
                   filter === cat
-                    ? "bg-accent text-white shadow-lg shadow-accent/30"
-                    : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-heading"
+                    ? "bg-accent text-white shadow-md shadow-accent/15"
+                    : "border border-subtle-border bg-surface text-muted hover:border-accent/30 hover:text-heading"
                 }`}
               >
                 {cat}
@@ -76,10 +76,10 @@ export function PortfolioShowcase() {
                     <div className="absolute inset-0 bg-[#0b1020]/25" />
                     <div className="relative flex flex-col">
                       <div className="flex items-center justify-between px-5 pt-5">
-                        <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                        <span className="rounded-full border border-accent-secondary/30 bg-accent-secondary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-secondary backdrop-blur-sm">
                           {project.category}
                         </span>
-                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-semibold text-white/70">
+                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-semibold text-white/80">
                           {project.industry}
                         </span>
                       </div>
@@ -109,7 +109,7 @@ export function PortfolioShowcase() {
                       {project.metrics.map((m) => (
                         <div
                           key={m.label}
-                          className="rounded-xl border border-white/8 bg-surface-elevated/80 p-3 text-center"
+                          className="rounded-xl border border-subtle-border bg-surface-elevated/80 p-3 text-center"
                         >
                           <p className="text-lg font-extrabold gradient-text">{m.value}</p>
                           <p className="mt-0.5 text-[9px] font-semibold uppercase tracking-wider text-dimmed">
@@ -125,7 +125,7 @@ export function PortfolioShowcase() {
                         {project.stack.map((tech) => (
                           <span
                             key={tech}
-                            className="rounded-lg border border-white/8 bg-surface px-2.5 py-1 text-[11px] font-semibold text-muted"
+                            className="rounded-lg border border-subtle-border bg-surface px-2.5 py-1 text-[11px] font-semibold text-muted"
                           >
                             {tech}
                           </span>
@@ -159,8 +159,8 @@ export function PortfolioShowcase() {
                       className="overflow-hidden border-t border-subtle-border"
                     >
                       <div className="grid gap-6 bg-surface/40 p-6 sm:grid-cols-2 md:grid-cols-4 sm:p-8">
-                        <div>
-                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#D9B08C]">
+                         <div>
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-secondary">
                             <Icon name="target" size={14} />
                             Business Goal
                           </p>
@@ -188,15 +188,15 @@ export function PortfolioShowcase() {
                           </div>
                         </div>
                         <div>
-                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-400">
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent">
                             <Icon name="trending-up" size={14} />
                             Business Impact
                           </p>
                           <p className="mt-3 text-xs sm:text-sm font-semibold leading-relaxed text-foreground font-sans">
                             {project.impact}
                           </p>
-                          <div className="mt-4 rounded-xl border border-emerald-400/20 bg-emerald-400/5 px-4 py-3">
-                            <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                          <div className="mt-4 rounded-xl border border-accent/20 bg-accent-subtle px-4 py-3">
+                            <p className="text-[10px] font-bold uppercase tracking-wider text-accent">
                               Key Result
                             </p>
                             <p className="mt-1 text-2xl font-extrabold text-heading">

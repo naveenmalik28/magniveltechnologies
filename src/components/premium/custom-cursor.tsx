@@ -59,25 +59,25 @@ export function CustomCursor() {
     <>
       {/* Outer Ring */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[100] h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent-secondary bg-transparent opacity-70"
+        className="pointer-events-none fixed left-0 top-0 z-[100] h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary bg-transparent opacity-70"
         style={{
           x: ringX,
           y: ringY,
           scale: hovered ? 1.6 : 1,
-          borderColor: hovered ? "var(--accent-dark)" : "var(--accent-secondary)",
-          backgroundColor: hovered ? "rgba(25, 230, 213, 0.05)" : "rgba(25, 230, 213, 0)",
-          boxShadow: hovered ? "0 0 20px rgba(25, 230, 213, 0.3)" : "none",
+          borderColor: hovered ? "var(--accent-secondary)" : "var(--primary)",
+          backgroundColor: hovered ? "rgba(15, 118, 110, 0.05)" : "rgba(15, 118, 110, 0)",
+          boxShadow: hovered ? "0 0 10px rgba(15, 118, 110, 0.2)" : "none",
         }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       />
       {/* Inner Dot */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[101] h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-secondary"
+        className="pointer-events-none fixed left-0 top-0 z-[101] h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
         style={{
           x: mouseX,
           y: mouseY,
           scale: hovered ? 0.4 : 1,
-          backgroundColor: hovered ? "var(--accent-dark)" : "var(--accent-secondary)",
+          backgroundColor: hovered ? "var(--accent-secondary)" : "var(--primary)",
         }}
       />
     </>

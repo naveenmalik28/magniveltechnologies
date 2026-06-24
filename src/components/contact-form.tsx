@@ -99,14 +99,14 @@ export function ContactForm() {
 
   if (state === "success") {
     return (
-      <div className="glow-card flex flex-col items-center justify-center p-10 text-center sm:p-14 animate-fade-up border border-[#00FFC8]/20 bg-[#111A1E]/80">
+      <div className="glass-card flex flex-col items-center justify-center p-10 text-center sm:p-14 animate-fade-up">
         {/* Animated Checkmark */}
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#00FFC8]/10 text-[#00FFC8] border border-[#00FFC8]/30 shadow-[0_0_30px_rgba(0,255,200,0.25)]">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-accent/10 text-accent border border-accent/20 shadow-md shadow-accent/5">
           <svg className="h-10 w-10 animate-bounce" fill="none" stroke="currentColor" strokeWidth="3.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="font-heading mt-8 text-2xl font-extrabold uppercase tracking-widest text-white">Verification Success</h3>
+        <h3 className="font-heading mt-8 text-2xl font-extrabold uppercase tracking-widest text-heading">Verification Success</h3>
         <p className="mt-4 text-xs leading-relaxed text-muted max-w-sm font-sans">
           Your secure project transmission is complete. Our engineering lead will review your request and initialize communication within 24 hours.
         </p>
@@ -124,7 +124,7 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="glass-card grid gap-6 p-6 sm:p-8">
       {/* Step 1: Contact Information */}
       <div>
-        <h3 className="font-heading text-xs font-bold uppercase tracking-widest text-[#D9B08C]">01 // Personal & Company Info</h3>
+        <h3 className="font-heading text-xs font-bold uppercase tracking-widest text-accent-secondary">01 // Personal & Company Info</h3>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 animate-fade-in">
           <Field
             name="fullName"
@@ -174,11 +174,11 @@ export function ContactForm() {
         </div>
       </div>
 
-      <hr className="border-white/5" />
+      <hr className="border-subtle-border" />
 
       {/* Step 2: Project Specifications */}
       <div>
-        <h3 className="font-heading text-xs font-bold uppercase tracking-widest text-[#D9B08C]">02 // Project Specifications</h3>
+        <h3 className="font-heading text-xs font-bold uppercase tracking-widest text-accent-secondary">02 // Project Specifications</h3>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           {/* Country Field with Manual entry */}
           <Field
@@ -240,7 +240,7 @@ export function ContactForm() {
               rows={5}
               placeholder="Explain the scope, timeline, integrations, or automation goals (minimum 20 characters)..."
               className={`input resize-none mt-2 ${
-                validationErrors.message ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-white/5 focus:border-accent-secondary"
+                validationErrors.message ? "border-red-500 focus:border-red-500 focus:ring-red-100" : "border-subtle-border focus:border-accent"
               }`}
             />
           </label>
@@ -254,8 +254,8 @@ export function ContactForm() {
       {message && (
         <div className={`text-center p-3 rounded-lg border text-xs font-semibold ${
           state === "error"
-            ? "bg-red-500/10 border-red-500/30 text-red-400"
-            : "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
+            ? "bg-red-50 border-red-200 text-red-600"
+            : "bg-accent-subtle border-accent/20 text-accent"
         }`}>
           {message}
         </div>
@@ -341,11 +341,11 @@ function Select({
             error ? "border-red-500 focus:border-red-500" : ""
           }`}
         >
-          <option value="" disabled className="bg-[#111A1E] text-muted">
+          <option value="" disabled className="bg-surface text-muted">
             {placeholder}
           </option>
           {options.map((option) => (
-            <option key={option} value={option} className="bg-[#111A1E] text-white">
+            <option key={option} value={option} className="bg-surface text-heading">
               {option}
             </option>
           ))}

@@ -56,12 +56,12 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.4 }}
-              className={`relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${project.gradient}`}
+              className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-subtle-border bg-gradient-to-br ${project.gradient}"
             >
               <div className="absolute inset-0 bg-grid opacity-30" />
               <div className="absolute inset-0 bg-[#0b1020]/40" />
               <div className="relative flex h-full flex-col justify-end p-6 sm:p-8">
-                <span className="inline-flex w-fit rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-400">
+                <span className="inline-flex w-fit rounded-full border border-accent-secondary/30 bg-accent-secondary/10 px-3 py-1 text-xs font-bold text-accent-secondary">
                   {project.impact}
                 </span>
                 <h3 className="mt-4 text-2xl font-extrabold text-white sm:text-3xl">{project.title}</h3>
@@ -83,7 +83,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-white/10 bg-surface-elevated px-3 py-1 text-xs font-semibold text-foreground"
+                      className="rounded-lg border border-subtle-border bg-surface-elevated px-3 py-1 text-xs font-semibold text-foreground"
                     >
                       {t}
                     </span>
@@ -93,17 +93,17 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
             </AnimatePresence>
 
             <div className="mt-8 flex items-center gap-4">
-              <button
+               <button
                 onClick={prev}
                 aria-label="Previous project"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-surface text-foreground transition hover:border-accent/40 hover:text-accent-dark"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-subtle-border bg-surface text-foreground transition hover:border-accent/40 hover:text-accent-dark"
               >
                 <Icon name="chevron-right" size={18} className="rotate-180" />
               </button>
               <button
                 onClick={next}
                 aria-label="Next project"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-surface text-foreground transition hover:border-accent/40 hover:text-accent-dark"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-subtle-border bg-surface text-foreground transition hover:border-accent/40 hover:text-accent-dark"
               >
                 <Icon name="chevron-right" size={18} />
               </button>
@@ -114,7 +114,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                     onClick={() => setActive(i)}
                     aria-label={`Go to project ${i + 1}`}
                     className={`h-2 rounded-full transition-all ${
-                      i === active ? "w-8 bg-accent" : "w-2 bg-white/20 hover:bg-white/40"
+                      i === active ? "w-8 bg-accent" : "w-2 bg-subtle-border hover:bg-border-hover"
                     }`}
                   />
                 ))}

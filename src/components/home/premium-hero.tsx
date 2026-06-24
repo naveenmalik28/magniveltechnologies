@@ -17,8 +17,8 @@ export function PremiumHero() {
       <ParticlesBackground count={35} />
       
       {/* Dark vignette overlays */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-[#0B1215]" />
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-[#0B1215]/40 to-transparent hidden lg:block" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-background/40 to-transparent hidden lg:block" />
 
       <motion.div
         style={{ opacity }}
@@ -34,7 +34,7 @@ export function PremiumHero() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="inline-flex items-center gap-2 rounded-full border border-accent-secondary/30 bg-accent-secondary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent-secondary"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Software Development Company
             </motion.div>
 
@@ -42,7 +42,7 @@ export function PremiumHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-white sm:text-5xl md:text-6xl lg:text-7xl"
+              className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-heading sm:text-5xl md:text-6xl lg:text-7xl"
             >
               BUILDING THE
               <br />
@@ -72,7 +72,7 @@ export function PremiumHero() {
               </MagneticButton>
               <MagneticButton href="/portfolio" variant="secondary">
                 View Our Work
-                <Icon name="external-link" size={14} className="text-muted group-hover:text-white" />
+                <Icon name="external-link" size={14} className="text-primary" />
               </MagneticButton>
             </motion.div>
 
@@ -81,7 +81,7 @@ export function PremiumHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="mt-12 flex flex-wrap gap-8 border-t border-white/5 pt-8"
+              className="mt-12 flex flex-wrap gap-8 border-t border-subtle-border pt-8"
             >
               {[
                 { label: "Applied Intelligence", spec: "AI & ML DEVELOPMENT" },
@@ -89,7 +89,7 @@ export function PremiumHero() {
                 { label: "Client-Centric Collaboration", spec: "TRANSPARENT PROCESS" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-[#D9B08C] font-mono">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-accent-secondary font-mono">
                     {"// "}{item.spec}
                   </span>
                   <span className="text-[11px] font-bold text-muted font-heading uppercase tracking-wider">
@@ -115,14 +115,14 @@ export function PremiumHero() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="glass-card absolute left-2 top-[10%] z-20 flex items-center gap-3 p-3 shadow-2xl backdrop-blur-md"
+                className="glass-card absolute left-2 top-[10%] z-20 flex items-center gap-3 p-3 shadow-2xl backdrop-blur-md border border-subtle-border"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/20">
                   <Icon name="brain" size={14} />
                 </div>
                 <div>
                   <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">AI Engineering</h4>
-                  <p className="font-mono text-[10px] text-white">{"MODEL INTEGRATION // ACTIVE"}</p>
+                  <p className="font-mono text-[10px] text-heading">{"MODEL INTEGRATION // ACTIVE"}</p>
                 </div>
               </motion.div>
 
@@ -130,14 +130,14 @@ export function PremiumHero() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="glass-card absolute right-4 bottom-[15%] z-20 flex items-center gap-3 p-3 shadow-2xl backdrop-blur-md"
+                className="glass-card absolute right-4 bottom-[15%] z-20 flex items-center gap-3 p-3 shadow-2xl backdrop-blur-md border border-subtle-border"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-success/15 text-success border border-success/20 animate-pulse">
-                  <span className="h-2 w-2 rounded-full bg-success" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/20 animate-pulse">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
                 </div>
                 <div>
                   <h4 className="text-[9px] font-bold uppercase tracking-widest text-muted">Cloud Operations</h4>
-                  <p className="font-mono text-[10px] text-white">{"UPTIME // 99.99%"}</p>
+                  <p className="font-mono text-[10px] text-heading">{"UPTIME // 99.99%"}</p>
                 </div>
               </motion.div>
 
@@ -153,7 +153,7 @@ export function PremiumHero() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <a href="#services" className="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5 cursor-pointer">
+        <a href="#services" className="flex h-10 w-6 items-start justify-center rounded-full border border-subtle-border p-1.5 cursor-pointer">
           <motion.div 
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

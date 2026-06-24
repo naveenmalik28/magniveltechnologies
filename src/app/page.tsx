@@ -154,11 +154,11 @@ export default function Home() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary transition group-hover:border-accent-secondary/50 group-hover:shadow-lg group-hover:shadow-accent-secondary/20">
                   <Icon name={service.icon} size={22} />
                 </span>
-                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white">{service.title}</h3>
+                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading">{service.title}</h3>
                 <p className="mt-4 flex-1 text-xs leading-relaxed text-muted font-sans">{service.description}</p>
                 <Link
                   href={service.href}
-                  className="link-underline mt-8 inline-flex items-center gap-1.5 text-xs font-bold font-heading uppercase tracking-widest text-[#D9B08C] hover:text-accent-secondary"
+                  className="link-underline mt-8 inline-flex items-center gap-1.5 text-xs font-bold font-heading uppercase tracking-widest text-accent-secondary hover:text-primary"
                 >
                   Learn More
                   <Icon name="arrow-right" size={12} className="transition-transform group-hover:translate-x-1" />
@@ -173,8 +173,8 @@ export default function Home() {
       <CaseStudiesSection />
 
       {/* Why Choose Magnivel */}
-      <section className="relative overflow-hidden border-y border-white/5 py-32">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent-secondary/5 via-transparent to-accent/5" />
+      <section className="relative overflow-hidden border-y border-subtle-border bg-background-secondary py-32">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent-secondary/3 via-transparent to-primary/3" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Why Magnivel"
@@ -189,7 +189,7 @@ export default function Home() {
                 <span className="text-3xl" role="img" aria-hidden="true">
                   {item.emoji}
                 </span>
-                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white">{item.title}</h3>
+                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading">{item.title}</h3>
                 <p className="mt-4 text-xs leading-relaxed text-muted font-sans">{item.description}</p>
               </article>
             ))}
@@ -203,7 +203,7 @@ export default function Home() {
       <TestimonialsCarousel reviews={clientReviews} />
 
       {/* FAQ */}
-      <section className="border-t border-white/5 py-32">
+      <section className="border-t border-subtle-border bg-background-secondary py-32">
         <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-5">
             <SectionTitle
@@ -215,13 +215,13 @@ export default function Home() {
           <div className="grid gap-6 lg:col-span-7">
             {faqs.map((faq) => (
               <details key={faq.question} className="group glass-card p-6">
-                <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-white select-none font-heading uppercase tracking-wide">
+                <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-heading select-none font-heading uppercase tracking-wide">
                   {faq.question}
                   <span className="text-accent-secondary transition-transform group-open:rotate-180">
                     <Icon name="chevron-down" size={16} />
                   </span>
                 </summary>
-                <p className="mt-4 border-t border-white/5 pt-4 text-xs leading-relaxed text-muted font-sans">
+                <p className="mt-4 border-t border-subtle-border/30 pt-4 text-xs leading-relaxed text-muted font-sans">
                   {faq.answer}
                 </p>
               </details>
@@ -231,11 +231,11 @@ export default function Home() {
       </section>
 
       {/* Contact CTA */}
-      <section className="relative overflow-hidden py-32 border-t border-white/5 bg-gradient-to-b from-transparent to-[#0B1215]">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-secondary/5 via-transparent to-accent/5 animate-pulse-glow" />
+      <section className="relative overflow-hidden py-32 border-t border-subtle-border bg-gradient-to-b from-transparent to-background-secondary">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-secondary/3 via-transparent to-primary/3 animate-pulse-glow" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="font-heading text-3xl font-extrabold uppercase tracking-widest text-white sm:text-4xl lg:text-5xl">
+            <h2 className="font-heading text-3xl font-extrabold uppercase tracking-widest text-heading sm:text-4xl lg:text-5xl">
               Ready to Build Something{" "}
               <span className="gradient-text">Amazing?</span>
             </h2>

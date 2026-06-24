@@ -54,21 +54,21 @@ function WorldMap() {
     >
       <defs>
         <radialGradient id="mapGlow">
-          <stop offset="0%" stopColor="#6366f1" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+          <stop offset="0%" stopColor="#0F766E" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#0F766E" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="dotGlow">
-          <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
+          <stop offset="0%" stopColor="#C68B59" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#C68B59" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#6366f1" stopOpacity="0.5" />
-          <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.5" />
+          <stop offset="0%" stopColor="#0F766E" stopOpacity="0.5" />
+          <stop offset="50%" stopColor="#C68B59" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#0F766E" stopOpacity="0.5" />
         </linearGradient>
         {/* Grid pattern */}
         <pattern id="mapGrid" width="5" height="5" patternUnits="userSpaceOnUse">
-          <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(99,102,241,0.06)" strokeWidth="0.15" />
+          <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(15,118,110,0.08)" strokeWidth="0.15" />
         </pattern>
       </defs>
 
@@ -77,10 +77,10 @@ function WorldMap() {
 
       {/* Latitude / longitude lines for depth */}
       {[15, 30, 45].map((y) => (
-        <line key={`lat-${y}`} x1="2" y1={y} x2="98" y2={y} stroke="rgba(99,102,241,0.04)" strokeWidth="0.2" strokeDasharray="1 2" />
+        <line key={`lat-${y}`} x1="2" y1={y} x2="98" y2={y} stroke="rgba(15,118,110,0.05)" strokeWidth="0.2" strokeDasharray="1 2" />
       ))}
       {[20, 40, 60, 80].map((x) => (
-        <line key={`lng-${x}`} x1={x} y1="2" x2={x} y2="58" stroke="rgba(99,102,241,0.04)" strokeWidth="0.2" strokeDasharray="1 2" />
+        <line key={`lng-${x}`} x1={x} y1="2" x2={x} y2="58" stroke="rgba(15,118,110,0.05)" strokeWidth="0.2" strokeDasharray="1 2" />
       ))}
 
       {/* Continent shapes */}
@@ -88,8 +88,8 @@ function WorldMap() {
         <motion.path
           key={i}
           d={d}
-          fill="rgba(99,102,241,0.06)"
-          stroke="rgba(99,102,241,0.15)"
+          fill="rgba(15,118,110,0.04)"
+          stroke="rgba(15,118,110,0.15)"
           strokeWidth="0.3"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -130,7 +130,7 @@ function WorldMap() {
             cx={region.x}
             cy={region.y}
             r="1.4"
-            fill="#06b6d4"
+            fill="#C68B59"
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ delay: 0.4 + i * 0.15, type: "spring" }}
@@ -142,7 +142,7 @@ function WorldMap() {
               cy={region.y}
               r="2"
               fill="none"
-              stroke="#06b6d4"
+              stroke="#C68B59"
               strokeWidth="0.3"
               initial={{ r: 2, opacity: 0.8 }}
               animate={{ r: 6, opacity: 0 }}
@@ -154,7 +154,7 @@ function WorldMap() {
             x={region.x}
             y={region.y + 4.5}
             textAnchor="middle"
-            fill="#94a3b8"
+            fill="#6B7280"
             fontSize="2.2"
             fontFamily="system-ui"
           >
@@ -168,9 +168,9 @@ function WorldMap() {
 
 export function GlobalPresence() {
   return (
-    <section className="relative overflow-hidden border-y border-subtle-border py-24">
+    <section className="relative overflow-hidden border-y border-subtle-border bg-background-secondary py-24">
       {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-secondary/5 via-transparent to-accent-light/5" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-secondary/3 via-transparent to-primary/3" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -196,13 +196,13 @@ export function GlobalPresence() {
             </div>
 
             {/* Region tags below the map */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 border-t border-white/6 pt-4">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 border-t border-subtle-border pt-4">
               {globalRegions.map((region) => (
                 <span
                   key={region.name}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-accent-light/20 bg-accent-light/5 px-2.5 py-1 text-[10px] font-semibold text-accent-light sm:text-xs"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-accent-secondary/20 bg-accent-secondary/5 px-2.5 py-1 text-[10px] font-semibold text-accent-secondary sm:text-xs"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent-light" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary" />
                   {region.name}
                 </span>
               ))}
@@ -229,8 +229,8 @@ export function GlobalPresence() {
                 transition={{ delay: i * 0.08, duration: 0.4 }}
                 className="glass-card flex flex-col items-center p-3 text-center sm:p-4"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent-light/20 bg-accent-light/10">
-                  <Icon name="map-pin" size={14} className="text-accent-light" />
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/20 bg-primary/5">
+                  <Icon name="map-pin" size={14} className="text-primary" />
                 </span>
                 <p className="mt-2 text-xs font-bold text-heading sm:text-sm">
                   {region.name}
@@ -254,7 +254,7 @@ export function GlobalPresence() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="glass-card group p-5"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent-dark transition group-hover:border-accent/40 group-hover:shadow-lg group-hover:shadow-accent/20">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/5 text-primary transition group-hover:border-primary/40 group-hover:shadow-lg group-hover:shadow-primary/10">
                 <Icon name={cap.icon} size={18} />
               </span>
               <h3 className="mt-4 text-sm font-extrabold text-heading">

@@ -48,7 +48,7 @@ export function TestimonialsCarousel({ reviews }: { reviews: Review[] }) {
                 &ldquo;{review.quote}&rdquo;
               </p>
               {review.metrics ? (
-                <span className="mt-4 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-400">
+                <span className="mt-4 inline-flex rounded-full border border-accent/20 bg-accent-subtle px-3 py-1 text-xs font-bold text-accent">
                   {review.metrics}
                 </span>
               ) : null}
@@ -65,7 +65,7 @@ export function TestimonialsCarousel({ reviews }: { reviews: Review[] }) {
               </div>
             </motion.article>
           </AnimatePresence>
-
+ 
           <div className="mt-8 flex justify-center gap-3">
             {reviews.map((r, i) => (
               <button
@@ -75,7 +75,7 @@ export function TestimonialsCarousel({ reviews }: { reviews: Review[] }) {
                 className={`flex h-10 w-10 items-center justify-center rounded-full text-xs font-bold transition ${
                   i === active
                     ? "bg-accent text-white"
-                    : "border border-white/10 bg-surface text-muted hover:border-accent/30"
+                    : "border border-subtle-border bg-surface text-muted hover:border-accent/30"
                 }`}
               >
                 {r.initials}

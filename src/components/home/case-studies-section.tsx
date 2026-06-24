@@ -44,7 +44,7 @@ export function CaseStudiesSection() {
               className={`rounded-full px-4 py-2 text-xs font-bold transition ${
                 i === active
                   ? "bg-accent text-white shadow-lg shadow-accent/30"
-                  : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-foreground"
+                  : "border border-subtle-border bg-surface text-muted hover:border-primary/30 hover:text-heading"
               }`}
             >
               {cs.industry}
@@ -107,7 +107,7 @@ export function CaseStudiesSection() {
             {/* Story details */}
             <div className="flex flex-col justify-center gap-5 sm:gap-6">
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-dark">
+                <p className="text-xs font-bold uppercase tracking-widest text-accent-secondary">
                   The Challenge
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -115,7 +115,7 @@ export function CaseStudiesSection() {
                 </p>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-light">
+                <p className="text-xs font-bold uppercase tracking-widest text-accent-secondary">
                   Our Solution
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -123,10 +123,10 @@ export function CaseStudiesSection() {
                 </p>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
                   Business Impact
                 </p>
-                <p className="mt-2 text-sm font-semibold text-foreground">
+                <p className="mt-2 text-sm font-semibold text-heading">
                   {study.impact}
                 </p>
               </div>
@@ -138,7 +138,7 @@ export function CaseStudiesSection() {
                   {study.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-white/10 bg-surface-elevated px-3 py-1 text-xs font-semibold text-foreground transition hover:border-accent/30 hover:text-accent-dark"
+                      className="rounded-lg border border-subtle-border bg-[#F7F4EF]/50 px-3 py-1 text-xs font-semibold text-foreground transition hover:border-primary/30 hover:text-accent-secondary"
                     >
                       {t}
                     </span>

@@ -104,17 +104,17 @@ OUTPUT GUIDELINES:
           </div>
 
           {/* Prompt Preview Codebox */}
-          <div className="rounded-2xl border border-subtle-border bg-slate-900 p-6 shadow-2xl flex flex-col justify-between h-[360px] text-white">
-            <div className="flex justify-between items-center border-b border-white/10 pb-3 mb-4">
-              <span className="font-mono text-[10px] uppercase text-cyan-200 tracking-wider font-bold">System Prompt Blueprint</span>
+          <div className="rounded-2xl border border-subtle-border bg-background-secondary p-6 shadow-md flex flex-col justify-between h-[360px] text-heading">
+            <div className="flex justify-between items-center border-b border-subtle-border pb-3 mb-4">
+              <span className="font-mono text-[10px] uppercase text-accent-secondary tracking-wider font-bold">System Prompt Blueprint</span>
               {task.trim() && (
                 <button
                   onClick={handleCopy}
-                  className="text-xs font-bold text-slate-300 hover:text-white cursor-pointer inline-flex items-center gap-1 transition-colors"
+                  className="text-xs font-bold text-muted hover:text-heading cursor-pointer inline-flex items-center gap-1 transition-colors"
                 >
                   {copied ? (
                     <>
-                      <Icon name="check" size={13} className="text-emerald-400 font-bold" />
+                      <Icon name="check" size={13} className="text-accent font-bold" />
                       Copied!
                     </>
                   ) : (
@@ -128,7 +128,7 @@ OUTPUT GUIDELINES:
             </div>
 
             <div className="flex-1 overflow-y-auto pr-1">
-              <pre className="font-mono text-xs text-slate-300 whitespace-pre-wrap leading-relaxed">
+              <pre className="font-mono text-xs text-foreground whitespace-pre-wrap leading-relaxed">
                 {generatePrompt()}
               </pre>
             </div>

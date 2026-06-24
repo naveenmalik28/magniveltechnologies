@@ -44,7 +44,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                     </div>
                   </div>
 
-                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-accent/30 bg-surface-elevated shadow-lg shadow-accent/20">
+                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-accent/20 bg-surface shadow-md shadow-primary/5">
                     <Icon name={step.icon} size={22} className="text-accent-dark" />
                     <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white">
                       {step.step}

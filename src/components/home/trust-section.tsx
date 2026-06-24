@@ -44,7 +44,7 @@ export function TrustSection() {
         <StaggerContainer className="mt-12 flex flex-wrap justify-center gap-3">
           {indicators.map((item) => (
             <StaggerItem key={item}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-4 py-2 text-xs font-semibold text-emerald-400">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-semibold text-primary">
                 <Icon name="check-circle" size={14} />
                 {item}
               </span>

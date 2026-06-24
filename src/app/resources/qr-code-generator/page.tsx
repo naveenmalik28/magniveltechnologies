@@ -61,7 +61,7 @@ export default function QRCodeGenerator() {
             <span className="font-mono text-[10px] uppercase text-muted tracking-wider font-bold block mb-4">
               Generated QR Code Preview
             </span>
-            <div className="h-52 w-52 rounded-xl border border-white/10 bg-white flex items-center justify-center overflow-hidden shadow-inner p-2.5">
+            <div className="h-52 w-52 rounded-xl border border-subtle-border bg-white flex items-center justify-center overflow-hidden shadow-inner p-2.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={qrUrl}

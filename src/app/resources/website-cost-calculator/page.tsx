@@ -96,7 +96,7 @@ export default function WebsiteCostCalculator() {
                 max="50"
                 value={pages}
                 onChange={(e) => setPages(Number(e.target.value))}
-                className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-background-secondary rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <span className="text-[10px] text-muted">Includes headers, content sections, and contact layouts.</span>
             </div>
@@ -115,7 +115,7 @@ export default function WebsiteCostCalculator() {
                   <label
                     key={val}
                     className={`rounded-xl border p-3 flex gap-3 cursor-pointer select-none transition-all ${
-                      design === val ? "bg-accent-subtle/30 border-accent" : "border-subtle-border bg-white/5"
+                      design === val ? "bg-accent-subtle border-accent" : "border-subtle-border bg-surface hover:border-border-hover"
                     }`}
                   >
                     <input
@@ -167,28 +167,28 @@ export default function WebsiteCostCalculator() {
           {/* Results Summary Box */}
           <div className="rounded-2xl dark-panel p-6 shadow-2xl flex flex-col justify-between h-[360px] sticky top-24">
             <div>
-              <p className="text-[10px] font-extrabold uppercase tracking-widest text-cyan-200">Estimated Cost Range</p>
+              <p className="text-[10px] font-extrabold uppercase tracking-widest text-accent-secondary">Estimated Cost Range</p>
               <h3 className="mt-4 text-3xl font-extrabold text-white">
                 {currency === "INR" ? "₹" : "$"} {formattedPrice}
-                <span className="text-xs font-normal text-slate-300 block mt-1">± 10% estimation range</span>
+                <span className="text-xs font-normal text-white/80 block mt-1">± 10% estimation range</span>
               </h3>
-              <ul className="mt-6 space-y-2.5 text-xs text-slate-200 font-semibold border-t border-white/10 pt-5">
+              <ul className="mt-6 space-y-2.5 text-xs text-white/90 font-semibold border-t border-white/10 pt-5">
                 <li className="flex items-center gap-1.5">
-                  <Icon name="check-circle" size={13} className="text-cyan-300" />
+                  <Icon name="check-circle" size={13} className="text-accent-secondary" />
                   Codebase ownership included
                 </li>
                 <li className="flex items-center gap-1.5">
-                  <Icon name="check-circle" size={13} className="text-cyan-300" />
+                  <Icon name="check-circle" size={13} className="text-accent-secondary" />
                   Full mobile responsive grids
                 </li>
                 <li className="flex items-center gap-1.5">
-                  <Icon name="check-circle" size={13} className="text-cyan-300" />
+                  <Icon name="check-circle" size={13} className="text-accent-secondary" />
                   Speed optimized default configs
                 </li>
               </ul>
             </div>
 
-            <Link href="/contact" className="btn-primary w-full py-3 text-xs uppercase tracking-wider text-center font-bold">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-full font-bold uppercase tracking-wider text-xs px-4 py-3 bg-white text-primary hover:bg-accent-light hover:text-primary transition-colors w-full text-center">
               Submit Spec Proposal
               <Icon name="arrow-right" size={12} />
             </Link>

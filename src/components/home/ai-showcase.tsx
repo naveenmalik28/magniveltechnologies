@@ -54,7 +54,7 @@ export function AiShowcase() {
                 return (
                   <motion.span
                     key={label}
-                    className="absolute rounded-full border border-white/10 bg-surface px-2 py-0.5 text-[9px] font-bold text-accent-light"
+                    className="absolute rounded-full border border-subtle-border bg-surface px-2 py-0.5 text-[9px] font-bold text-accent-secondary"
                     style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
@@ -73,14 +73,14 @@ export function AiShowcase() {
                   href={solution.href}
                   className="glass-card group block h-full p-5 transition hover:border-accent/40"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent-light/20 bg-accent-light/10 text-accent-light transition group-hover:shadow-lg group-hover:shadow-accent-light/20">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/5 text-primary transition group-hover:shadow-lg group-hover:shadow-primary/10">
                     <Icon name={solution.icon} size={18} />
                   </span>
-                  <h3 className="mt-4 text-sm font-extrabold text-heading group-hover:text-accent-dark transition">
+                  <h3 className="mt-4 text-sm font-extrabold text-heading group-hover:text-accent-secondary transition">
                     {solution.title}
                   </h3>
                   <p className="mt-2 text-xs leading-relaxed text-muted">{solution.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-accent-dark opacity-0 transition group-hover:opacity-100">
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-accent-secondary opacity-0 transition group-hover:opacity-100">
                     Explore
                     <Icon name="arrow-right" size={12} />
                   </span>
