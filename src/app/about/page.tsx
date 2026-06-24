@@ -81,7 +81,7 @@ export default function AboutPage() {
               <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary">
                 <Icon name={pillar.icon} size={22} />
               </span>
-              <h2 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white">{pillar.title}</h2>
+              <h2 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading">{pillar.title}</h2>
               <p className="mt-4 text-xs leading-relaxed text-muted font-sans">{pillar.text}</p>
             </article>
           ))}
@@ -89,7 +89,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="border-y border-white/5 bg-surface/10 py-32">
+      <section className="border-y border-subtle-border bg-surface/10 py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Our Values"
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary">
                   <Icon name={value.icon} size={18} />
                 </span>
-                <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-white">{value.title}</h3>
+                <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-heading">{value.title}</h3>
                 <p className="mt-3 text-xs leading-relaxed text-muted font-sans">{value.desc}</p>
               </article>
             ))}

@@ -16,11 +16,11 @@ export default function NotFound() {
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground px-4">
       <div className="max-w-md text-center">
         <div className="mb-8">
-          <h1 className="text-8xl font-bold text-accent-light mb-2">404</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-purple-600 mx-auto rounded-full" />
+          <h1 className="text-8xl font-bold text-accent-secondary mb-2">404</h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-secondary mx-auto rounded-full" />
         </div>
 
-        <h2 className="text-4xl font-bold text-white mb-4">Page Not Found</h2>
+        <h2 className="text-4xl font-bold text-heading mb-4">Page Not Found</h2>
         
         <p className="text-muted text-lg mb-8">
           Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been moved or deleted.
@@ -56,7 +56,7 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-accent-light hover:text-white transition-colors"
+                className="text-sm text-accent hover:text-accent-dark transition-colors"
               >
                 {link.label}
               </Link>

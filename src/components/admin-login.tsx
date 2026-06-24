@@ -39,37 +39,37 @@ export function AdminLoginForm() {
   return (
     <form 
       onSubmit={onSubmit} 
-      className="grid gap-5 rounded-xl border border-white/10 bg-slate-950/45 p-6 sm:p-8 shadow-2xl relative glow-card backdrop-blur-xl"
+      className="glass-card grid gap-5 p-6 sm:p-8"
     >
-      <label className="grid gap-2 text-sm font-medium text-slate-300">
+      <label className="grid gap-2 text-sm font-semibold text-heading">
         <span>Email Address</span>
         <input 
           name="email" 
           type="email" 
           required 
           placeholder="admin@magnivel.com"
-          className="rounded-lg border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/25 placeholder:text-slate-500 transition-all"
+          className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
         />
       </label>
       
-      <label className="grid gap-2 text-sm font-medium text-slate-300">
+      <label className="grid gap-2 text-sm font-semibold text-heading">
         <span>Password</span>
         <input 
           name="password" 
           type="password" 
           required 
           placeholder="••••••••"
-          className="rounded-lg border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/25 placeholder:text-slate-500 transition-all"
+          className="w-full rounded-lg border border-subtle-border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-dimmed focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
         />
       </label>
       
       <button 
         disabled={loading} 
-        className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent-light px-5 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+        className="btn-primary w-full py-3.5 mt-2 text-xs"
       >
         {loading ? (
           <>
-            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
@@ -81,7 +81,7 @@ export function AdminLoginForm() {
       </button>
       
       {error ? (
-        <div className="mt-2 text-center p-3 rounded-lg border border-red-500/20 bg-red-950/20 text-red-400 text-xs font-semibold">
+        <div className="mt-2 text-center p-3 rounded-lg border border-red-200 bg-red-55/30 text-red-600 text-xs font-semibold">
           {error}
         </div>
       ) : null}

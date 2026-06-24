@@ -19,7 +19,7 @@ export default async function AdminLoginPage() {
       <div className="relative w-full max-w-md flex flex-col gap-6 z-10">
         {/* Brand Header */}
         <div className="text-center flex flex-col items-center gap-3">
-          <Link href="/" className="group inline-flex items-center gap-2.5 text-2xl font-extrabold tracking-tight text-white">
+          <Link href="/" className="group inline-flex items-center gap-2.5 text-2xl font-extrabold tracking-tight text-heading">
             <Image 
               src="/logo.jpg" 
               alt="Magnivel Technologies Logo" 
@@ -31,10 +31,10 @@ export default async function AdminLoginPage() {
               Magnivel <span className="bg-linear-to-r from-accent to-accent-light bg-clip-text text-transparent">Technologies</span>
             </span>
           </Link>
-          <h1 className="mt-4 text-xl font-bold tracking-tight text-white">
+          <h1 className="mt-4 text-xl font-bold tracking-tight text-heading">
             Control Console
           </h1>
-          <p className="text-xs text-slate-300 leading-relaxed max-w-xs">
+          <p className="text-xs text-muted leading-relaxed max-w-xs">
             Sign in with authorized administrative credentials to review project leads and client inquiries.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default async function AdminLoginPage() {
         <AdminLoginForm />
 
         <div className="text-center mt-4">
-          <Link href="/" className="text-xs font-semibold text-accent-light hover:underline inline-flex items-center gap-1.5">
+          <Link href="/" className="text-xs font-semibold text-accent hover:underline inline-flex items-center gap-1.5">
             ← Return to public website
           </Link>
         </div>

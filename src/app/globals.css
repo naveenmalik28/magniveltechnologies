@@ -11,6 +11,7 @@
   --surface-elevated: #F3EEE7;
   --primary: #0F766E;
   --accent: #0F766E;
+  --accent-hover: #115E59;
   --accent-secondary: #C68B59;
   --accent-light: #EAD7C5;
   --accent-dark: #C68B59;
@@ -38,6 +39,7 @@
   --color-surface-elevated: var(--surface-elevated);
   --color-primary: var(--primary);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-secondary: var(--accent-secondary);
   --color-accent-light: var(--accent-light);
   --color-accent-dark: var(--accent-dark);
@@ -184,6 +186,7 @@ body {
   transform: translateY(-2px);
   background: var(--accent-hover);
   border-color: var(--accent-hover);
+  color: #ffffff !important;
   box-shadow: 0 15px 35px rgba(15, 118, 110, 0.28);
 }
 

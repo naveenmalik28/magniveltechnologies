@@ -126,7 +126,7 @@ export function ServicePageTemplate({
               className="rounded-xl border border-subtle-border bg-background p-5 hover:border-accent-light/20 transition-all"
             >
               <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-400 border border-emerald-400/20">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
                   <Icon name="check" size={12} />
                 </span>
                 <h4 className="text-xs font-extrabold text-heading uppercase tracking-wide">{feat.title}</h4>
@@ -228,7 +228,7 @@ export function ServicePageTemplate({
             {ctaDesc}
           </p>
           <div className="mt-8 flex justify-center">
-            <Link href="/contact" className="btn-primary text-xs uppercase tracking-wider">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-full font-bold uppercase tracking-wider text-xs px-6 py-3 bg-white text-primary hover:bg-accent-light hover:text-primary transition-colors cursor-pointer">
               Start Your Project
               <Icon name="arrow-right" size={14} />
             </Link>

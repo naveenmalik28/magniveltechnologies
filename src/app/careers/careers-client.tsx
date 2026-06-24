@@ -67,13 +67,13 @@ export function CareersClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-white sm:text-5xl md:text-6xl lg:text-7xl"
+                className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-heading sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 BUILD THE
                 <br />
                 <span className="gradient-text">FUTURE WITH US</span>
               </motion.h1>
-
+ 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export function CareersClient() {
               >
                 Join our team and help build innovative software, web applications, mobile apps, AI solutions, and digital products for clients worldwide. We are always looking for talented developers and innovators to join our growing team.
               </motion.p>
-
+ 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export function CareersClient() {
                   className="btn-secondary cursor-pointer font-heading font-bold"
                 >
                   Apply Now
-                  <Icon name="mail" size={14} className="text-muted group-hover:text-white" />
+                  <Icon name="mail" size={14} className="text-primary group-hover:text-primary" />
                 </button>
               </motion.div>
 
@@ -149,26 +149,26 @@ export function CareersClient() {
                     <Icon name="code" size={12} />
                   </span>
                   <div>
-                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-[#text-muted]">Frontend Core</h4>
-                    <p className="font-mono text-[9px] text-white">React / Next.js</p>
+                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-muted font-heading">Frontend Core</h4>
+                    <p className="font-mono text-[9px] text-heading">React / Next.js</p>
                   </div>
                 </motion.div>
-
+ 
                 {/* Floating Tech Badge 2: AI */}
                 <motion.div
                   animate={{ y: [0, 12, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   className="glass-card absolute right-4 top-[15%] z-20 flex items-center gap-2.5 p-2.5 shadow-2xl backdrop-blur-md"
                 >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D9B08C]/15 text-[#D9B08C] border border-[#D9B08C]/20">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
                     <Icon name="brain" size={12} />
                   </span>
                   <div>
-                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-[#text-muted]">Intelligence</h4>
-                    <p className="font-mono text-[9px] text-white">AI / LLM Agents</p>
+                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-muted font-heading">Intelligence</h4>
+                    <p className="font-mono text-[9px] text-heading">AI / LLM Agents</p>
                   </div>
                 </motion.div>
-
+ 
                 {/* Floating Tech Badge 3: Node / Python */}
                 <motion.div
                   animate={{ y: [0, -14, 0] }}
@@ -179,11 +179,11 @@ export function CareersClient() {
                     <Icon name="server" size={12} />
                   </span>
                   <div>
-                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-[#text-muted]">Backend Services</h4>
-                    <p className="font-mono text-[9px] text-white">Node / Python</p>
+                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-muted font-heading">Backend Services</h4>
+                    <p className="font-mono text-[9px] text-heading">Node / Python</p>
                   </div>
                 </motion.div>
-
+ 
                 {/* Floating Tech Badge 4: Cloud */}
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
@@ -194,8 +194,8 @@ export function CareersClient() {
                     <Icon name="cloud" size={12} />
                   </span>
                   <div>
-                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-[#text-muted]">Infrastructure</h4>
-                    <p className="font-mono text-[9px] text-white">AWS / Cloud</p>
+                    <h4 className="text-[8px] font-bold uppercase tracking-widest text-muted font-heading">Infrastructure</h4>
+                    <p className="font-mono text-[9px] text-heading">AWS / Cloud</p>
                   </div>
                 </motion.div>
 
@@ -213,7 +213,7 @@ export function CareersClient() {
           <button
             onClick={() => scrollToSection(openingsRef)}
             aria-label="Scroll down to openings"
-            className="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5 cursor-pointer"
+            className="flex h-10 w-6 items-start justify-center rounded-full border border-subtle-border p-1.5 cursor-pointer"
           >
             <motion.div 
               animate={{ y: [0, 12, 0] }}
@@ -223,7 +223,7 @@ export function CareersClient() {
           </button>
         </motion.div>
       </section>
-
+ 
       {/* Why Join Us Section */}
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <ScrollReveal>
@@ -235,7 +235,7 @@ export function CareersClient() {
             className="mx-auto"
           />
         </ScrollReveal>
-
+ 
         <StaggerContainer className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {careersBenefits.map((benefit) => (
             <StaggerItem key={benefit.title}>
@@ -244,7 +244,7 @@ export function CareersClient() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary group-hover:border-accent-secondary/50 group-hover:bg-accent-secondary/15 transition-all duration-300">
                     <Icon name={benefit.icon} size={22} />
                   </span>
-                  <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-white group-hover:text-accent-secondary transition-colors duration-300">
+                  <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading group-hover:text-accent transition-colors duration-300">
                     {benefit.title}
                   </h3>
                   <p className="mt-4 text-xs leading-relaxed text-muted font-sans">
@@ -279,8 +279,8 @@ export function CareersClient() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
                   activeCategory === cat
-                    ? "border-accent-secondary/60 bg-accent-secondary/10 text-accent-light shadow-[0_0_15px_rgba(25,230,213,0.15)]"
-                    : "border-white/5 bg-[#111A1E]/30 text-dimmed hover:text-white hover:border-white/20"
+                    ? "border-accent bg-accent text-white shadow-sm shadow-accent/15"
+                    : "border-subtle-border bg-surface text-muted hover:border-accent/30 hover:text-heading"
                 }`}
               >
                 {cat}
@@ -302,27 +302,27 @@ export function CareersClient() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   key={job.id}
-                  className="glass-card flex flex-col justify-between p-6 h-full group border border-white/5 hover:border-accent-secondary/30 transition-all duration-300"
+                  className="glass-card flex flex-col justify-between p-6 h-full group"
                 >
                   <div>
                     {/* Badge and Location */}
                     <div className="flex items-center justify-between gap-4">
-                      <span className="badge font-mono text-[9px] text-accent-light bg-accent-secondary/5 border-accent-secondary/20">
+                      <span className="badge font-mono text-[9px]">
                         OPEN
                       </span>
-                      <span className="text-[10px] font-bold text-dimmed font-mono uppercase tracking-widest flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-muted font-mono uppercase tracking-widest flex items-center gap-1">
                         <Icon name="globe" size={10} className="text-accent-secondary" />
                         {job.location}
                       </span>
                     </div>
 
                     {/* Position */}
-                    <h3 className="font-heading mt-4 text-base font-extrabold uppercase tracking-wide text-white group-hover:text-accent-light transition-colors duration-300">
+                    <h3 className="font-heading mt-4 text-base font-extrabold uppercase tracking-wide text-heading group-hover:text-accent transition-colors duration-300">
                       {job.position}
                     </h3>
                     
                     {/* Experience required */}
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#D9B08C] font-mono mt-1">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-accent-secondary font-mono mt-1">
                       Experience: {job.experience}
                     </p>
 
@@ -336,7 +336,7 @@ export function CareersClient() {
                       {job.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2 py-0.5 rounded text-[9px] font-bold font-mono tracking-wide bg-white/5 border border-white/5 text-dimmed group-hover:border-accent-secondary/10 group-hover:text-white transition-all duration-300"
+                          className="px-2 py-0.5 rounded text-[9px] font-bold font-mono tracking-wide bg-surface border border-subtle-border text-muted group-hover:border-accent-secondary/20 group-hover:text-accent-secondary transition-all duration-300"
                         >
                           {skill}
                         </span>
@@ -345,10 +345,10 @@ export function CareersClient() {
                   </div>
 
                   {/* Apply Action inside Card */}
-                  <div className="mt-8 border-t border-white/5 pt-4">
+                  <div className="mt-8 border-t border-subtle-border pt-4">
                     <button
                       onClick={() => handleApplyClick(job.position)}
-                      className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-widest text-dimmed group-hover:text-accent-light transition-colors duration-300 cursor-pointer"
+                      className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-widest text-muted group-hover:text-accent transition-colors duration-300 cursor-pointer"
                     >
                       <span>Apply For This Role</span>
                       <Icon name="chevron-right" size={14} className="transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -369,7 +369,7 @@ export function CareersClient() {
               <p className="text-muted font-sans text-sm">No positions currently open in this category.</p>
               <button
                 onClick={() => setActiveCategory("All")}
-                className="mt-4 text-xs font-bold text-accent-light uppercase tracking-widest underline"
+                className="mt-4 text-xs font-bold text-accent uppercase tracking-widest underline"
               >
                 Reset Filters
               </button>
@@ -397,12 +397,12 @@ export function CareersClient() {
           <StaggerContainer className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
             {applicationSteps.map((stepItem) => (
               <StaggerItem key={stepItem.step}>
-                <div className="glass-card p-6 flex flex-col h-full hover:border-accent-secondary/20 hover:shadow-[0_20px_60px_rgba(25,230,213,0.05)] transition-all duration-300">
+                <div className="glass-card p-6 flex flex-col h-full hover:border-accent-secondary/20 hover:shadow-md transition-all duration-300">
                   {/* Step bubble */}
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-accent-secondary/30 bg-accent-secondary/5 font-mono text-xs font-bold text-accent-light shadow-[0_0_15px_rgba(25,230,213,0.1)]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-accent-secondary/30 bg-accent-secondary/5 font-mono text-xs font-bold text-accent-secondary shadow-sm shadow-accent-secondary/5">
                     {stepItem.step}
                   </div>
-                  <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-white">
+                  <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-heading">
                     {stepItem.title}
                   </h3>
                   <p className="mt-3 text-xs leading-relaxed text-muted font-sans">
@@ -416,9 +416,9 @@ export function CareersClient() {
       </section>
 
       {/* Apply Now Section */}
-      <section ref={applyRef} id="apply" className="border-t border-white/5 py-24 scroll-mt-24">
+      <section ref={applyRef} id="apply" className="border-t border-subtle-border py-24 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="glass-card relative overflow-hidden p-8 sm:p-16 lg:p-20 text-center rounded-2xl border border-white/5 hover:border-accent-secondary/20 transition-all duration-500">
+          <div className="glass-card relative overflow-hidden p-8 sm:p-16 lg:p-20 text-center rounded-2xl border border-subtle-border hover:border-accent-secondary/20 transition-all duration-500">
             {/* Glowing background meshes */}
             <div className="pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
             <div className="pointer-events-none absolute -left-10 -bottom-10 h-72 w-72 rounded-full bg-accent-secondary/10 blur-3xl animate-pulse-glow" />
@@ -429,7 +429,7 @@ export function CareersClient() {
                 Career Gateway
               </span>
 
-              <h2 className="font-heading text-3xl font-extrabold uppercase leading-[1.1] tracking-widest text-white sm:text-4xl lg:text-5xl">
+              <h2 className="font-heading text-3xl font-extrabold uppercase leading-[1.1] tracking-widest text-heading sm:text-4xl lg:text-5xl">
                 Ready To <span className="gradient-text">Join Our Team?</span>
               </h2>
 
@@ -437,7 +437,7 @@ export function CareersClient() {
                 Send your updated resume, cover letter, and a link to your portfolio to our recruiting mailbox:
               </p>
 
-              <div className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#0B1215]/50 border border-white/5 font-mono text-sm sm:text-base text-white shadow-inner select-all">
+              <div className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-background-secondary border border-subtle-border font-mono text-sm sm:text-base text-heading shadow-inner select-all">
                 <Icon name="mail" size={16} className="text-accent-secondary" />
                 contact@magnivel.com
               </div>
@@ -449,11 +449,11 @@ export function CareersClient() {
                   )}&body=${encodeURIComponent(
                     "Hi Magnivel Recruiting Team,\n\nI am writing to express my interest in joining Magnivel Technologies. Attached is my resume and portfolio.\n\nPosition of interest:\nFull Name:\nPhone:\nLinkedIn / GitHub:\n\nThank you."
                   )}`}
-                  className="btn-primary flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_30px_rgba(25,230,213,0.2)] font-heading font-bold"
+                  className="btn-primary flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-primary/10 font-heading font-bold"
                 >
                   Send Resume
                   <Icon name="mail" size={14} className="text-white" />
-                </a>
+                </a >
                 <button
                   onClick={() => scrollToSection(openingsRef)}
                   className="btn-secondary cursor-pointer font-heading font-bold"
