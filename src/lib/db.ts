@@ -16,11 +16,11 @@ if (process.env.NODE_ENV !== "production") {
   globalForDb.magnivelPrisma = prisma;
 }
 
-export type LeadStatus = "new" | "contacted" | "closed";
+export type LeadStatus = "new" | "contacted" | "in discussion" | "proposal sent" | "won" | "closed";
 export type Lead = PrismaLead & { status: LeadStatus };
 
 export function isLeadStatus(status: string): status is LeadStatus {
-  return ["new", "contacted", "closed"].includes(status);
+  return ["new", "contacted", "in discussion", "proposal sent", "won", "closed"].includes(status);
 }
 
 export async function assertDatabaseConnection() {

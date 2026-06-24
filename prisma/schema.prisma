@@ -26,8 +26,11 @@ model Lead {
   country      String   @default("") @db.VarChar(100)
   service_type String   @db.VarChar(100)
   budget       String   @db.VarChar(100)
+  timeline     String   @default("") @db.VarChar(100)
   message      String
   status       String   @default("new") @db.VarChar(20)
+  notes        String   @default("") @db.Text
+  archived     Boolean  @default(false)
   created_at   DateTime @default(now())
 
   @@map("leads")

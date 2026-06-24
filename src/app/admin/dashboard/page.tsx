@@ -9,18 +9,18 @@ export const dynamic = "force-dynamic";
 type Summary = {
   total: number;
   newLeads: number;
-  contacted: number;
+  activeLeads: number;
   closed: number;
 };
 
 export default async function AdminDashboardPage() {
-  const [total, newLeads, contacted, closed] = await Promise.all([
-    prisma.lead.count(),
-    prisma.lead.count({ where: { status: "new" } }),
-    prisma.lead.count({ where: { status: "contacted" } }),
-    prisma.lead.count({ where: { status: "closed" } }),
+  const [total, newLeads, activeLeads, closed] = await Promise.all([
+    prisma.lead.count({ where: { archived: false } }),
+    prisma.lead.count({ where: { status: "new", archived: false } }),
+    prisma.lead.count({ where: { status: { in: ["contacted", "in discussion", "proposal sent"] }, archived: false } }),
+    prisma.lead.count({ where: { status: { in: ["won", "closed"] }, archived: false } }),
   ]);
-  const summary: Summary = { total, newLeads, contacted, closed };
+  const summary: Summary = { total, newLeads, activeLeads, closed };
 
   return (
     <AdminFrame title="Dashboard Console" activeTab="dashboard">
@@ -29,8 +29,8 @@ export default async function AdminDashboardPage() {
         {[
           { label: "Total Inquiries", value: summary.total, icon: "globe", color: "text-slate-600 bg-slate-50 border-slate-200" },
           { label: "New Requests", value: summary.newLeads, icon: "zap", color: "text-accent-dark bg-accent-subtle border-accent/15" },
-          { label: "Contacted Leads", value: summary.contacted, icon: "message-circle", color: "text-yellow-600 bg-yellow-50 border-yellow-200" },
-          { label: "Closed Accounts", value: summary.closed, icon: "check-circle", color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
+          { label: "Active Discussions", value: summary.activeLeads, icon: "message-circle", color: "text-yellow-600 bg-yellow-50 border-yellow-200" },
+          { label: "Won & Closed", value: summary.closed, icon: "check-circle", color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
         ].map((item) => (
           <div 
             key={item.label} 

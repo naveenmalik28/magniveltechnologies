@@ -80,6 +80,7 @@ export async function POST(request: Request) {
         country: lead.country,
         service_type: lead.serviceType,
         budget: lead.budget,
+        timeline: lead.timeline,
         message: lead.message,
       },
     });

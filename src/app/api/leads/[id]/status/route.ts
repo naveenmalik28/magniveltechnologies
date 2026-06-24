@@ -9,7 +9,7 @@ export async function PATCH(request: NextRequest, context: { params: Promise<{ i
   if (!admin) return NextResponse.json({ message: "Unauthorized." }, { status: 401 });
 
   const body = (await request.json()) as { status?: LeadStatus };
-  if (!body.status || !["new", "contacted", "closed"].includes(body.status)) {
+  if (!body.status || !["new", "contacted", "in discussion", "proposal sent", "won", "closed"].includes(body.status)) {
     return NextResponse.json({ message: "Invalid status." }, { status: 400 });
   }
 

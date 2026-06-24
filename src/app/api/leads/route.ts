@@ -10,10 +10,12 @@ export async function GET(request: NextRequest) {
 
   const search = request.nextUrl.searchParams.get("search") || "";
   const status = request.nextUrl.searchParams.get("status") || "";
-  const statusFilter = ["new", "contacted", "closed"].includes(status) ? status : undefined;
+  const showArchived = request.nextUrl.searchParams.get("archived") === "true";
+  const statusFilter = ["new", "contacted", "in discussion", "proposal sent", "won", "closed"].includes(status) ? status : undefined;
 
   const leads = await prisma.lead.findMany({
     where: {
+      archived: showArchived,
       ...(search
         ? {
             OR: [
@@ -28,7 +30,7 @@ export async function GET(request: NextRequest) {
       ...(statusFilter ? { status: statusFilter } : {}),
     },
     orderBy: { created_at: "desc" },
-    take: 100,
+    take: 200,
   });
 
   return NextResponse.json({ leads });
