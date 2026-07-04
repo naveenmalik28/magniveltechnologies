@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | Magnivel Technologies",
     description:
-      "Start your next software project with Magnivel Technologies. Have an idea? Tell us about your timeline and budget, and our team will follow up promptly.",
+      "Start your next software project with Magnivel Technologies. Have an idea? Tell us about your project requirements, and our team will follow up promptly.",
     url: "https://magnivel.com/contact",
     type: "website",
   },
@@ -52,7 +52,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Get In Touch"
         title="Start your next software project with Magnivel Technologies."
-        description="Have an idea for a custom SaaS, enterprise dashboard, high-performance website, or mobile application? Tell us about your timeline and budget, and our engineering team will follow up promptly."
+        description="Have an idea for a custom SaaS, enterprise dashboard, high-performance website, or mobile application? Tell us about your project requirements, and our engineering team will follow up promptly."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:grid lg:grid-cols-[0.85fr_1.15fr] lg:gap-12 lg:px-8 items-start">

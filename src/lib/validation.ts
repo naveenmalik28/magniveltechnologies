@@ -110,8 +110,8 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
   
   if (data.country.length < 2) return { error: "Please select your country." };
   if (!validServices.includes(data.serviceType)) return { error: "Please select a valid service option." };
-  if (!validBudgets.includes(data.budget)) return { error: "Please select a valid budget range." };
-  if (!validTimelines.includes(data.timeline)) return { error: "Please select a valid expected timeline." };
+  if (data.budget && !validBudgets.includes(data.budget)) return { error: "Please select a valid budget range." };
+  if (data.timeline && !validTimelines.includes(data.timeline)) return { error: "Please select a valid expected timeline." };
   
   if (data.message.length < 20) return { error: "Project description must be at least 20 characters." };
   if (data.message.length > 2000) return { error: "Project description must not exceed 2000 characters." };

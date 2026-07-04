@@ -199,7 +199,7 @@ export function LeadDetailConsole({ initialLead }: { initialLead: Lead }) {
             { label: "Company Name", value: lead.company_name || "Not provided", emoji: "🏢" },
             { label: "Country", value: lead.country, emoji: "🌍" },
             { label: "Required Service", value: lead.service_type, emoji: "🔧" },
-            { label: "Project Budget", value: lead.budget, emoji: "💰" },
+            { label: "Project Budget", value: lead.budget || "Not provided", emoji: "💰" },
             { label: "Expected Timeline", value: lead.timeline || "Not provided", emoji: "⏱️" },
           ].map((item) => (
             <div key={item.label} className="rounded-2xl border border-subtle-border bg-[#FCFBF8]/50 p-4 transition-all hover:bg-[#FCFBF8]">

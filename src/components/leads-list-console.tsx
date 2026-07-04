@@ -109,7 +109,7 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
       l.company_name || "N/A",
       l.country,
       l.service_type,
-      l.budget,
+      l.budget || "N/A",
       l.timeline || "N/A",
       new Date(l.created_at).toLocaleDateString(),
       l.status,
@@ -140,7 +140,7 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
       l.company_name || "N/A",
       l.country,
       l.service_type,
-      l.budget,
+      l.budget || "N/A",
       l.timeline || "N/A",
       new Date(l.created_at).toLocaleDateString(),
       l.status,
@@ -337,7 +337,7 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-col gap-0.5">
-                        <span className="font-bold text-heading text-xs">💰 {lead.budget}</span>
+                        <span className="font-bold text-heading text-xs">💰 {lead.budget || "N/A"}</span>
                         <span className="text-gray-500 text-xs">⏱️ {lead.timeline || "N/A"}</span>
                       </div>
                     </td>

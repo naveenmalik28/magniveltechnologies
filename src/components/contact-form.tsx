@@ -121,8 +121,6 @@ export function ContactForm() {
     const email = formData.get("email") as string;
     const companyName = formData.get("companyName") as string;
     const serviceType = formData.get("serviceType") as string;
-    const budget = formData.get("budget") as string;
-    const timeline = formData.get("timeline") as string;
     const messageText = formData.get("message") as string;
 
     // Client-side validations
@@ -152,14 +150,6 @@ export function ContactForm() {
       errors.serviceType = "Please select a service option.";
     }
 
-    if (!budget) {
-      errors.budget = "Please select a budget range.";
-    }
-
-    if (!timeline) {
-      errors.timeline = "Please select an expected timeline.";
-    }
-
     if (!messageText || messageText.trim().length < 20) {
       errors.message = "Project description must be at least 20 characters.";
     } else if (messageText.trim().length > 2000) {
@@ -180,8 +170,8 @@ export function ContactForm() {
       companyName,
       country,
       serviceType,
-      budget,
-      timeline,
+      budget: "",
+      timeline: "",
       message: messageText,
     };
 
@@ -455,68 +445,6 @@ export function ContactForm() {
             )}
           </label>
 
-          {/* Project Budget */}
-          <label className="contact-label">
-            <span>Project Budget <span className="text-red-500">*</span></span>
-            <div className="relative">
-              <select
-                name="budget"
-                required
-                defaultValue=""
-                className={`contact-input appearance-none pr-10 ${
-                  validationErrors.budget ? "border-red-500" : ""
-                }`}
-              >
-                <option value="" disabled className="text-gray-400">
-                  Select your budget
-                </option>
-                <option value="Less than $1,000">Less than $1,000</option>
-                <option value="$1,000 - $5,000">$1,000 - $5,000</option>
-                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                <option value="$10,000+">$10,000+</option>
-              </select>
-              <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-400">
-                <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                </svg>
-              </span>
-            </div>
-            {validationErrors.budget && (
-              <p className="text-xs font-semibold text-red-500 mt-1">{validationErrors.budget}</p>
-            )}
-          </label>
-
-          {/* Project Timeline */}
-          <label className="contact-label">
-            <span>Project Timeline <span className="text-red-500">*</span></span>
-            <div className="relative">
-              <select
-                name="timeline"
-                required
-                defaultValue=""
-                className={`contact-input appearance-none pr-10 ${
-                  validationErrors.timeline ? "border-red-500" : ""
-                }`}
-              >
-                <option value="" disabled className="text-gray-400">
-                  Select expected timeline
-                </option>
-                <option value="Immediately">Immediately</option>
-                <option value="Within 2 Weeks">Within 2 Weeks</option>
-                <option value="Within 1 Month">Within 1 Month</option>
-                <option value="1-3 Months">1-3 Months</option>
-                <option value="Flexible">Flexible</option>
-              </select>
-              <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-400">
-                <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                </svg>
-              </span>
-            </div>
-            {validationErrors.timeline && (
-              <p className="text-xs font-semibold text-red-500 mt-1">{validationErrors.timeline}</p>
-            )}
-          </label>
         </div>
 
         {/* Project Description */}
@@ -528,7 +456,7 @@ export function ContactForm() {
             ref={textareaRef}
             rows={4}
             onChange={handleDescriptionChange}
-            placeholder="Tell us about your project requirements, business goals, preferred technologies, and expected timeline."
+            placeholder="Tell us about your project requirements, business goals, and preferred technologies."
             className={`contact-input resize-none py-4 min-h-[120px] overflow-hidden ${
               validationErrors.message ? "border-red-500" : ""
             }`}
