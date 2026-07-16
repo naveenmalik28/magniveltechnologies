@@ -16,6 +16,7 @@ const servicesList = [
   { label: "UI/UX Design", href: "/ui-ux-design", desc: "Figma wireframes & design systems", icon: "palette" },
   { label: "API Development", href: "/api-development", desc: "RESTful, GraphQL, & integrations", icon: "server" },
   { label: "Custom Software", href: "/custom-software-development", desc: "Tailored enterprise operations panels", icon: "code" },
+  { label: "Ready Websites", href: "/ready-websites", desc: "Browse & purchase pre-built websites", icon: "globe" },
 ];
 
 const pricingList = [

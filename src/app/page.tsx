@@ -169,6 +169,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ready-to-Launch Websites CTA Section */}
+      <section className="border-t border-subtle-border bg-background-secondary/50 py-20 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/3 to-accent-secondary/3 animate-pulse-glow" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="glass-card p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border-primary/10">
+            <div className="max-w-2xl">
+              <span className="section-eyebrow mb-4">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary animate-pulse" />
+                Launch Instantly
+              </span>
+              <h3 className="font-heading text-2xl font-extrabold uppercase tracking-wider text-heading sm:text-3xl">
+                Ready-Made Websites for Sale
+              </h3>
+              <p className="mt-4 text-xs leading-relaxed text-muted sm:text-sm font-medium">
+                Skip the long custom development and scoping process. Launch your restaurant, e-commerce, or corporate business online in 5–7 days with our pre-built, premium website templates. Fully responsive, SEO optimized, and customized for your branding.
+              </p>
+            </div>
+            <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+              <Link href="/ready-websites" className="btn-primary premium-btn text-center justify-center py-3.5 px-6">
+                Browse Marketplace
+                <Icon name="arrow-right" size={14} />
+              </Link>
+              <Link href="/ready-websites/restaurant-website-template" className="btn-secondary text-center justify-center py-3.5 px-6">
+                Featured Template
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <AiShowcase />
       <CaseStudiesSection />
 
