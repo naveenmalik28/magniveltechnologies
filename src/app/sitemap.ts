@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/portfolio',
     '/technologies',
     '/contact',
+    '/careers',
     
     // SEO Services Pages
     '/website-development',
@@ -47,6 +48,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/aws-development',
     '/ai-development',
     
+    // Ready-Made Websites Marketplace
+    '/ready-websites',
+    '/ready-websites/restaurant-website-template',
+    '/ready-websites/dairy-brand-ecommerce-template',
+    
     // Resources & Tools
     '/resources',
     '/templates',
@@ -58,18 +64,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/resources/qr-code-generator',
     '/resources/roi-calculator',
     
-    // Blog categories & static posts
+    // Blog Categories & Posts
     '/blog',
     '/blog/category/ai',
     '/blog/category/web-development',
     '/blog/category/mobile-apps',
-    '/blog/category/software-development',
     '/blog/category/saas',
-    '/blog/category/startups',
+    '/blog/category/business-technology',
+    '/blog/category/startup-guides',
     '/blog/building-secure-rag-chatbot-gemini',
     '/blog/optimizing-nextjs-core-web-vitals',
     '/blog/reducing-stripe-churn-saas-webhooks',
     '/blog/react-native-vs-flutter-in-2026',
+    '/blog/custom-software-replaces-spreadsheets-accelerates-onboarding',
+    '/blog/technical-playbook-build-launch-saas-mvp-12-weeks',
   ];
 
   const baseRoutes: MetadataRoute.Sitemap = publicRoutes.map((route) => ({
