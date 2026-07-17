@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   },
   verification: {
     // Add your Google Search Console verification code
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
+    google: "24bLWaNZf7xr7kcMLhAajsTKXtq5RGVr_71V-CUAV3Q",
   },
   alternates: {
     canonical: "https://magnivel.com",
