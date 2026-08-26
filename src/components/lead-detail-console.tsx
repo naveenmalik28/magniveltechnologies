@@ -197,7 +197,7 @@ export function LeadDetailConsole({ initialLead }: { initialLead: Lead }) {
             { label: "Contact Email", value: lead.email, emoji: "📧", href: `mailto:${lead.email}` },
             { label: "Phone Number", value: lead.phone_code ? `${lead.phone_code} ${lead.phone_number}` : lead.phone_number || "Not provided", emoji: "📞", href: lead.phone_number ? `tel:${lead.phone_code}${lead.phone_number}` : undefined },
             { label: "Company Name", value: lead.company_name || "Not provided", emoji: "🏢" },
-            { label: "Country", value: lead.country, emoji: "🌍" },
+            { label: "Country", value: lead.country || "Not provided", emoji: "🌍" },
             { label: "Required Service", value: lead.service_type, emoji: "🔧" },
             { label: "Project Budget", value: lead.budget || "Not provided", emoji: "💰" },
             { label: "Expected Timeline", value: lead.timeline || "Not provided", emoji: "⏱️" },

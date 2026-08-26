@@ -1,100 +1,16 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
+import { useState, useRef } from "react";
 
 type FormState = "idle" | "loading" | "success" | "error";
-
-interface CountryInfo {
-  name: string;
-  code: string;
-  flag: string;
-}
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
-  // Phone input state
-  const [phone, setPhone] = useState("");
-
-  // Country dropdown states
-  const [country, setCountry] = useState("");
-  const [countriesList, setCountriesList] = useState<CountryInfo[]>([]);
-  const [loadingCountries, setLoadingCountries] = useState(false);
-  const [countrySearch, setCountrySearch] = useState("");
-  const [isCountryOpen, setIsCountryOpen] = useState(false);
-  const countryRef = useRef<HTMLDivElement>(null);
-
   // Description auto-resize ref
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // Automatic country detection
-  const [detectedCountry, setDetectedCountry] = useState("in");
-
-  useEffect(() => {
-    // Detect country on mount
-    if (typeof window !== "undefined") {
-      const lang = navigator.language || (navigator.languages && navigator.languages[0]);
-      if (lang) {
-        const parts = lang.split("-");
-        if (parts.length > 1) {
-          const countryCode = parts[1].toLowerCase();
-          if (countryCode.length === 2) {
-            setDetectedCountry(countryCode);
-            return;
-          }
-        }
-      }
-      try {
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        if (tz) {
-          if (tz.includes("Calcutta") || tz.includes("Kolkata") || tz.includes("Asia/Kolkata")) {
-            setDetectedCountry("in");
-          } else if (tz.includes("Europe/London") || tz.includes("London")) {
-            setDetectedCountry("gb");
-          } else if (tz.includes("Australia/")) {
-            setDetectedCountry("au");
-          } else if (tz.includes("Canada/") || tz.includes("America/Toronto")) {
-            setDetectedCountry("ca");
-          } else if (tz.includes("Singapore")) {
-            setDetectedCountry("sg");
-          } else if (tz.includes("Dubai") || tz.includes("Asia/Dubai")) {
-            setDetectedCountry("ae");
-          } else if (tz.includes("Berlin") || tz.includes("Europe/Berlin")) {
-            setDetectedCountry("de");
-          }
-        }
-      } catch {}
-    }
-  }, []);
-
-  // Click outside listener for country dropdown
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (countryRef.current && !countryRef.current.contains(event.target as Node)) {
-        setIsCountryOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  // Lazy-load countries list on focus/click
-  async function loadCountries() {
-    if (countriesList.length > 0 || loadingCountries) return;
-    setLoadingCountries(true);
-    try {
-      const mod = await import("@/lib/countries");
-      setCountriesList(mod.countries);
-    } catch (err) {
-      console.error("Failed to load country list", err);
-    } finally {
-      setLoadingCountries(false);
-    }
-  }
 
   // Handle auto-resizing textarea
   function handleDescriptionChange() {
@@ -104,10 +20,6 @@ export function ContactForm() {
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
   }
-
-  const filteredCountries = countriesList.filter((c) =>
-    c.name.toLowerCase().includes(countrySearch.toLowerCase())
-  );
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -136,16 +48,6 @@ export function ContactForm() {
       errors.email = "Please enter a valid email address.";
     }
 
-    // Phone validation
-    const phoneDigits = phone.replace(/\D/g, "");
-    if (!phone || phoneDigits.length < 7 || phoneDigits.length > 15 || !phone.startsWith("+")) {
-      errors.phone = "Please enter a valid international phone number (e.g. +91 98765 43210).";
-    }
-
-    if (!country) {
-      errors.country = "Please select your country.";
-    }
-
     if (!serviceType) {
       errors.serviceType = "Please select a service option.";
     }
@@ -162,13 +64,10 @@ export function ContactForm() {
       return;
     }
 
-    // Build payload using E.164 phone string
     const payload = {
       fullName,
       email,
-      phoneNumber: phone,
       companyName,
-      country,
       serviceType,
       budget: "",
       timeline: "",
@@ -185,9 +84,6 @@ export function ContactForm() {
 
       if (response.ok) {
         form.reset();
-        setPhone("");
-        setCountry("");
-        setCountrySearch("");
         if (textareaRef.current) textareaRef.current.style.height = "auto";
         setState("success");
         setMessage(result.message || "Your inquiry has been received successfully.");
@@ -227,7 +123,7 @@ export function ContactForm() {
 
   return (
     <>
-      {/* Styles block for exact design guidelines and library overrides */}
+      {/* Styles block for exact design guidelines */}
       <style>{`
         .contact-input {
           height: 56px !important;
@@ -253,41 +149,6 @@ export function ContactForm() {
           font-size: 13px;
           font-weight: 600;
           color: #374151;
-        }
-        .react-international-phone-input-container {
-          display: flex;
-          width: 100%;
-          position: relative;
-        }
-        .react-international-phone-country-selector-button {
-          height: 56px !important;
-          border-radius: 16px 0 0 16px !important;
-          border: 1px solid #E5E7EB !important;
-          border-right: none !important;
-          background-color: #FFFFFF !important;
-          padding: 0 14px !important;
-          cursor: pointer;
-          transition: all 0.25s ease-in-out !important;
-        }
-        .react-international-phone-country-selector-button:focus-visible {
-          outline: 2px solid #0F766E !important;
-        }
-        .react-international-phone-input {
-          height: 56px !important;
-          width: 100% !important;
-          border-radius: 0 16px 16px 0 !important;
-          border: 1px solid #E5E7EB !important;
-          background-color: #FFFFFF !important;
-          color: #1F2937 !important;
-          font-size: 14px !important;
-          font-weight: 500 !important;
-          padding: 0 16px !important;
-          transition: all 0.25s ease-in-out !important;
-        }
-        .react-international-phone-input:focus {
-          border-color: #0F766E !important;
-          box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1) !important;
-          outline: none !important;
         }
       `}</style>
 
@@ -323,20 +184,6 @@ export function ContactForm() {
             )}
           </label>
 
-          {/* Phone Number */}
-          <div className="contact-label">
-            <span>Phone Number <span className="text-red-500">*</span></span>
-            <PhoneInput
-              defaultCountry={detectedCountry}
-              value={phone}
-              onChange={(phone) => setPhone(phone)}
-              placeholder="Enter phone number"
-            />
-            {validationErrors.phone && (
-              <p className="text-xs font-semibold text-red-500 mt-1">{validationErrors.phone}</p>
-            )}
-          </div>
-
           {/* Company Name */}
           <label className="contact-label">
             <span>Company Name <span className="text-gray-400 font-normal">(Optional)</span></span>
@@ -347,68 +194,6 @@ export function ContactForm() {
               className="contact-input"
             />
           </label>
-
-          {/* Searchable Country Selector */}
-          <div className="contact-label" ref={countryRef}>
-            <span>Country <span className="text-red-500">*</span></span>
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => {
-                  loadCountries();
-                  setIsCountryOpen(!isCountryOpen);
-                }}
-                className={`contact-input text-left flex items-center justify-between ${
-                  validationErrors.country ? "border-red-500" : ""
-                }`}
-              >
-                <span className={country ? "text-heading" : "text-gray-400"}>
-                  {country || "Select your country"}
-                </span>
-                <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {isCountryOpen && (
-                <div className="absolute z-50 mt-1.5 w-full rounded-2xl border border-gray-200 bg-white p-2 shadow-xl animate-fade-in max-h-72 overflow-hidden flex flex-col">
-                  <input
-                    type="text"
-                    placeholder="Search country..."
-                    value={countrySearch}
-                    onChange={(e) => setCountrySearch(e.target.value)}
-                    className="w-full h-11 px-3 border border-gray-200 rounded-xl outline-none focus:border-[#0F766E] text-sm mb-2"
-                  />
-                  <div className="overflow-y-auto flex-1 min-h-[160px]">
-                    {loadingCountries ? (
-                      <div className="p-4 text-center text-xs text-gray-400">Loading country list...</div>
-                    ) : filteredCountries.length === 0 ? (
-                      <div className="p-4 text-center text-xs text-gray-400">No countries found</div>
-                    ) : (
-                      filteredCountries.map((c) => (
-                        <button
-                          key={c.code}
-                          type="button"
-                          onClick={() => {
-                            setCountry(c.name);
-                            setIsCountryOpen(false);
-                            setCountrySearch("");
-                          }}
-                          className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-gray-50 flex items-center gap-3 text-sm text-heading hover:text-[#0F766E] transition-colors"
-                        >
-                          <span>{c.flag}</span>
-                          <span className="font-medium">{c.name}</span>
-                        </button>
-                      ))
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-            {validationErrors.country && (
-              <p className="text-xs font-semibold text-red-500 mt-1">{validationErrors.country}</p>
-            )}
-          </div>
 
           {/* Service Required */}
           <label className="contact-label">
@@ -444,7 +229,6 @@ export function ContactForm() {
               <p className="text-xs font-semibold text-red-500 mt-1">{validationErrors.serviceType}</p>
             )}
           </label>
-
         </div>
 
         {/* Project Description */}
@@ -494,3 +278,4 @@ export function ContactForm() {
     </>
   );
 }
+

@@ -74,13 +74,13 @@ export async function POST(request: Request) {
       data: {
         full_name: lead.fullName,
         email: lead.email,
-        phone_code: lead.phoneCode,
-        phone_number: lead.phoneNumber,
+        phone_code: lead.phoneCode || "",
+        phone_number: lead.phoneNumber || "",
         company_name: lead.companyName || null,
-        country: lead.country,
+        country: lead.country || "",
         service_type: lead.serviceType,
-        budget: lead.budget,
-        timeline: lead.timeline,
+        budget: lead.budget || "",
+        timeline: lead.timeline || "",
         message: lead.message,
       },
     });

@@ -1,13 +1,13 @@
 export type ContactInput = {
   fullName: string;
   email: string;
-  phoneCode: string;
-  phoneNumber: string;
-  companyName: string;
-  country: string;
+  phoneCode?: string;
+  phoneNumber?: string;
+  companyName?: string;
+  country?: string;
   serviceType: string;
-  budget: string;
-  timeline: string;
+  budget?: string;
+  timeline?: string;
   message: string;
 };
 
@@ -82,7 +82,7 @@ const validTimelines = [
 export function validateContact(payload: unknown): { data?: ContactInput; error?: string } {
   const body = payload as Record<string, unknown>;
   
-  // The client may send raw phone, or phoneCode/phoneNumber. We handle both.
+  // The client may send raw phone, or phoneCode/phoneNumber.
   const rawPhone = clean(body.phoneNumber || body.phone);
   const parsed = parsePhoneNumber(rawPhone);
   
@@ -103,12 +103,12 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
   if (data.fullName.length > 100) return { error: "Full name must not exceed 100 characters." };
   if (!emailPattern.test(data.email)) return { error: "Please enter a valid email address." };
   
-  const fullPhoneNumber = data.phoneCode + data.phoneNumber;
-  if (!phonePattern.test(fullPhoneNumber)) {
+  // Optional phone validation only if provided
+  const fullPhoneNumber = (data.phoneCode || "") + (data.phoneNumber || "");
+  if (fullPhoneNumber.length > 0 && !phonePattern.test(fullPhoneNumber)) {
     return { error: "Please enter a valid international phone number format (e.g. +919876543210)." };
   }
   
-  if (data.country.length < 2) return { error: "Please select your country." };
   if (!validServices.includes(data.serviceType)) return { error: "Please select a valid service option." };
   if (data.budget && !validBudgets.includes(data.budget)) return { error: "Please select a valid budget range." };
   if (data.timeline && !validTimelines.includes(data.timeline)) return { error: "Please select a valid expected timeline." };

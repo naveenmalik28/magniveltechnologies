@@ -105,9 +105,9 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
     const rows = filteredLeads.map((l) => [
       l.full_name,
       l.email,
-      `${l.phone_code}${l.phone_number}`,
+      l.phone_number ? `${l.phone_code}${l.phone_number}` : "N/A",
       l.company_name || "N/A",
-      l.country,
+      l.country || "N/A",
       l.service_type,
       l.budget || "N/A",
       l.timeline || "N/A",
@@ -136,9 +136,9 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
     const rows = filteredLeads.map((l) => [
       l.full_name,
       l.email,
-      `${l.phone_code}${l.phone_number}`,
+      l.phone_number ? `${l.phone_code}${l.phone_number}` : "N/A",
       l.company_name || "N/A",
-      l.country,
+      l.country || "N/A",
       l.service_type,
       l.budget || "N/A",
       l.timeline || "N/A",
@@ -320,7 +320,9 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
                         {lead.full_name}
                       </Link>
                       <p className="text-xs text-gray-500 mt-0.5 font-medium">{lead.email}</p>
-                      <p className="text-xs text-gray-400 font-mono mt-0.5">{lead.phone_code}{lead.phone_number}</p>
+                      {lead.phone_number ? (
+                        <p className="text-xs text-gray-400 font-mono mt-0.5">{lead.phone_code}{lead.phone_number}</p>
+                      ) : null}
                       {lead.company_name ? (
                         <span className="inline-flex items-center gap-1 rounded bg-gray-50 border border-gray-200/60 px-2 py-0.5 text-[10px] text-gray-500 font-bold mt-1.5">
                           🏢 {lead.company_name}
@@ -332,7 +334,7 @@ export function LeadsListConsole({ initialLeads }: { initialLeads: Lead[] }) {
                     </td>
                     <td className="px-6 py-4">
                       <span className="rounded-lg border border-teal-100 bg-teal-50/50 px-2.5 py-1 text-xs font-bold text-teal-800">
-                        {lead.country}
+                        {lead.country || "N/A"}
                       </span>
                     </td>
                     <td className="px-6 py-4">
