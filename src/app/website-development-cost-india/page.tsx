@@ -29,7 +29,7 @@ const benefits = [
 ];
 
 const features = [
-  { title: "Landing Page Budgets", desc: "For single-product launches or campaign pages. Typical budgets: INR 15,000 - INR 35,000." },
+  { title: "Landing Page Budgets", desc: "For single-product launches or campaign pages. Typical budgets: INR 10,000 - INR 35,000." },
   { title: "Corporate Website Tiers", desc: "5-15 pages with clean design, database setup, and contact widgets: INR 45,000 - INR 1,20,000." },
   { title: "E-Commerce Store Budgets", desc: "Catalog integration, secure payments setup, cart flows: INR 75,000 - INR 2,50,000." },
   { title: "Custom Web Portals", desc: "Bespoke user portals, dashboards, APIs, role-based workflows: INR 2,00,000 - INR 5,00,000+." },

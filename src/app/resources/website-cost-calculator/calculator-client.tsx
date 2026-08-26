@@ -7,41 +7,55 @@ import { Icon } from "@/components/icon";
 
 export function CalculatorClient() {
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
-  const [pages, setPages] = useState(5);
-  const [design, setDesign] = useState<"template" | "custom" | "premium">("custom");
+  const [pages, setPages] = useState(1);
+  const [design, setDesign] = useState<"template" | "custom" | "premium">("template");
   const [cms, setCms] = useState(false);
   const [ecommerce, setEcommerce] = useState(false);
   const [auth, setAuth] = useState(false);
   const [seo, setSeo] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Estimation math
+  // Estimation math tailored for INR (starts at ₹10,000 for 1 page) and USD (starts at $120 for 1 page)
   const calculatePrice = () => {
-    let basePriceUSD = 400;
-    
-    // Page cost
-    basePriceUSD += pages * 45;
-
-    // Design level multiplier
-    if (design === "custom") basePriceUSD += 500;
-    if (design === "premium") basePriceUSD += 1200;
-
-    // Features
-    if (cms) basePriceUSD += 300;
-    if (ecommerce) basePriceUSD += 600;
-    if (auth) basePriceUSD += 500;
-    if (seo) basePriceUSD += 250;
-
-    // Convert if currency is INR
     if (currency === "INR") {
-      const rate = 83; // Standard conversion rate
-      const price = basePriceUSD * rate;
-      // Round to nearest 5k
-      return Math.round(price / 5000) * 5000;
-    }
+      let totalINR = 10000; // Base price for 1 page
 
-    // Round to nearest 100
-    return Math.round(basePriceUSD / 100) * 100;
+      // Additional pages beyond 1
+      if (pages > 1) {
+        totalINR += (pages - 1) * 2000; // ₹2,000 per additional page
+      }
+
+      // Visual Design Tiers
+      if (design === "custom") totalINR += 8000;
+      if (design === "premium") totalINR += 20000;
+
+      // Optional Modules
+      if (cms) totalINR += 5000;
+      if (ecommerce) totalINR += 12000;
+      if (auth) totalINR += 8000;
+      if (seo) totalINR += 4000;
+
+      return totalINR;
+    } else {
+      let totalUSD = 120; // Base price for 1 page
+
+      // Additional pages beyond 1
+      if (pages > 1) {
+        totalUSD += (pages - 1) * 25; // $25 per additional page
+      }
+
+      // Visual Design Tiers
+      if (design === "custom") totalUSD += 100;
+      if (design === "premium") totalUSD += 250;
+
+      // Optional Modules
+      if (cms) totalUSD += 60;
+      if (ecommerce) totalUSD += 150;
+      if (auth) totalUSD += 100;
+      if (seo) totalUSD += 50;
+
+      return totalUSD;
+    }
   };
 
   const formattedPrice = calculatePrice().toLocaleString();
@@ -97,7 +111,7 @@ export function CalculatorClient() {
             <div className="grid gap-2">
               <div className="flex justify-between items-center text-sm font-bold text-heading">
                 <span>2. Number of Pages</span>
-                <span className="text-accent-dark">{pages} Pages</span>
+                <span className="text-accent-dark">{pages} {pages === 1 ? "Page" : "Pages"}</span>
               </div>
               <input
                 type="range"
@@ -117,8 +131,8 @@ export function CalculatorClient() {
               <span className="text-sm font-bold text-heading">3. Visual Design Quality</span>
               <div className="grid gap-2">
                 {[
-                  ["template", "Template Theme Base", "Basic customized theme setup. Good for basic testing."],
-                  ["custom", "Professional Custom Layout", "Tailored grid files design. Optimized conversions."],
+                  ["template", "Template Theme Base", "Basic customized theme setup. Good for simple launches."],
+                  ["custom", "Professional Custom Layout", "Tailored grid design with optimized conversions."],
                   ["premium", "Premium Immersive Branding", "Immersive custom visuals, 3D illustrations, scroll animations."]
                 ].map(([val, label, desc]) => (
                   <label
