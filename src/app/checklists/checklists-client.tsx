@@ -37,7 +37,9 @@ const seoAuditChecklist: ChecklistItem[] = [
 
 export function ChecklistsClient() {
   const [activeTab, setActiveTab] = useState<"web" | "saas" | "seo">("web");
-  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({
+    "web-1": true,
+  });
 
   const activeChecklist =
     activeTab === "web"
@@ -76,64 +78,58 @@ export function ChecklistsClient() {
         description="Verify your application is production-ready. Tick items off in real-time, view your completion progress, and follow detailed audit steps."
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-md mb-10">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-subtle-border/50 pb-5">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Main Panel */}
+        <div className="rounded-2xl border border-subtle-border bg-surface p-6 shadow-lg mb-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-subtle-border/60 pb-5">
+            {/* Tab navigation buttons */}
             <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setActiveTab("web")}
-                className={`rounded-lg px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                  activeTab === "web"
-                    ? "bg-accent text-white shadow-sm shadow-accent/30"
-                    : "bg-white/5 text-muted border border-subtle-border hover:bg-white/10 hover:text-heading"
-                }`}
-              >
-                Website Launch Checklist
-              </button>
-              <button
-                onClick={() => setActiveTab("saas")}
-                className={`rounded-lg px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                  activeTab === "saas"
-                    ? "bg-accent text-white shadow-sm shadow-accent/30"
-                    : "bg-white/5 text-muted border border-subtle-border hover:bg-white/10 hover:text-heading"
-                }`}
-              >
-                SaaS MVP Checklist
-              </button>
-              <button
-                onClick={() => setActiveTab("seo")}
-                className={`rounded-lg px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                  activeTab === "seo"
-                    ? "bg-accent text-white shadow-sm shadow-accent/30"
-                    : "bg-white/5 text-muted border border-subtle-border hover:bg-white/10 hover:text-heading"
-                }`}
-              >
-                SEO Audit Checklist
-              </button>
+              {[
+                { id: "web", label: "Website Launch Checklist" },
+                { id: "saas", label: "SaaS MVP Checklist" },
+                { id: "seo", label: "SEO Audit Checklist" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as "web" | "saas" | "seo")}
+                  className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer ${
+                    activeTab === tab.id
+                      ? "bg-primary text-white shadow-md shadow-primary/20"
+                      : "bg-background-secondary text-muted border border-subtle-border hover:border-primary/40 hover:text-heading"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
 
+            {/* Reset button */}
             <button
               onClick={handleReset}
-              className="text-xs font-bold text-dimmed hover:text-heading cursor-pointer inline-flex items-center gap-1 transition-colors"
+              className="text-xs font-bold text-muted hover:text-heading cursor-pointer inline-flex items-center gap-1.5 transition-colors self-start sm:self-auto"
             >
-              <Icon name="x" size={12} />
-              Reset Current List
+              <Icon name="x" size={14} />
+              Reset List
             </button>
           </div>
 
+          {/* Progress bar container */}
           <div className="mt-6">
-            <div className="flex justify-between items-center text-xs font-bold text-heading mb-2">
-              <span>Task Progress</span>
-              <span className={progressPercent === 100 ? "text-emerald-400" : ""}>
+            <div className="flex justify-between items-center text-xs font-bold text-heading mb-2.5">
+              <span className="flex items-center gap-1.5">
+                <Icon name="check-circle" size={15} className="text-primary" />
+                Task Completion Progress
+              </span>
+              <span className={`font-mono text-sm ${progressPercent === 100 ? "text-emerald-600 font-extrabold" : "text-primary"}`}>
                 {completedTasks} / {totalTasks} Completed ({progressPercent}%)
               </span>
             </div>
-            <div className="h-2 w-full rounded-full bg-white/10 overflow-hidden">
+            <div className="h-3 w-full rounded-full bg-slate-100 border border-slate-200 overflow-hidden p-0.5 shadow-inner">
               <div
                 className={`h-full transition-all duration-500 ease-out rounded-full ${
                   progressPercent === 100
-                    ? "bg-gradient-to-r from-emerald-500 to-emerald-400"
-                    : "bg-gradient-to-r from-accent to-accent-light"
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-500 shadow-sm"
+                    : "bg-gradient-to-r from-primary to-accent-secondary shadow-sm"
                 }`}
                 style={{ width: `${progressPercent}%` }}
               />
@@ -141,56 +137,63 @@ export function ChecklistsClient() {
           </div>
         </div>
 
-        <div className="grid gap-4">
-          {activeChecklist.map((item, index) => (
-            <label
-              key={item.id}
-              onClick={() => handleToggle(item.id)}
-              className={`rounded-xl border p-5 flex gap-4 cursor-pointer transition-all duration-200 select-none ${
-                checkedItems[item.id]
-                  ? "bg-emerald-500/10 border-emerald-500/30 hover:bg-emerald-500/15"
-                  : "bg-surface border-subtle-border hover:border-accent/30 hover:bg-surface-hover"
-              }`}
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
+        {/* Tasks Checklist Cards */}
+        <div className="grid gap-3.5">
+          {activeChecklist.map((item, index) => {
+            const isChecked = !!checkedItems[item.id];
+            return (
               <div
-                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-all duration-200 ${
-                  checkedItems[item.id]
-                    ? "bg-emerald-500 border-emerald-500 shadow-sm shadow-emerald-500/30"
-                    : "border-white/20 bg-white/5 hover:border-accent/50"
+                key={item.id}
+                onClick={() => handleToggle(item.id)}
+                className={`rounded-2xl border p-5 flex gap-4 cursor-pointer transition-all duration-200 select-none shadow-sm ${
+                  isChecked
+                    ? "bg-emerald-50/70 border-emerald-300/80 shadow-emerald-900/5"
+                    : "bg-surface border-subtle-border hover:border-primary/40 hover:bg-slate-50/80 hover:shadow-md"
                 }`}
+                style={{ animationDelay: `${index * 40}ms` }}
               >
-                {checkedItems[item.id] && (
-                  <Icon name="check" size={12} className="text-white font-bold" />
-                )}
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <h3
-                  className={`text-sm font-extrabold transition-colors duration-200 ${
-                    checkedItems[item.id]
-                      ? "line-through text-muted"
-                      : "text-heading"
+                {/* Visible high-contrast Checkbox */}
+                <div
+                  className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 transition-all duration-200 ${
+                    isChecked
+                      ? "bg-emerald-600 border-emerald-600 shadow-md shadow-emerald-600/30 text-white"
+                      : "border-slate-300 bg-white hover:border-primary hover:bg-slate-50"
                   }`}
                 >
-                  {item.task}
-                </h3>
-                <p
-                  className={`mt-1.5 text-xs leading-relaxed transition-colors duration-200 ${
-                    checkedItems[item.id] ? "text-dimmed" : "text-muted"
-                  }`}
-                >
-                  {item.desc}
-                </p>
-              </div>
+                  {isChecked && (
+                    <Icon name="check" size={14} className="text-white font-extrabold" />
+                  )}
+                </div>
 
-              {checkedItems[item.id] && (
-                <span className="mt-0.5 text-[10px] font-bold text-emerald-400 uppercase tracking-wider shrink-0">
-                  Done
-                </span>
-              )}
-            </label>
-          ))}
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3
+                      className={`text-sm font-extrabold transition-colors duration-200 ${
+                        isChecked
+                          ? "line-through text-slate-500"
+                          : "text-heading"
+                      }`}
+                    >
+                      {item.task}
+                    </h3>
+                    {isChecked && (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-700 uppercase tracking-wider shrink-0">
+                        <Icon name="check" size={10} /> Completed
+                      </span>
+                    )}
+                  </div>
+                  <p
+                    className={`mt-1 text-xs leading-relaxed transition-colors duration-200 ${
+                      isChecked ? "text-slate-500" : "text-muted font-medium"
+                    }`}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </PageShell>
