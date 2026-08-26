@@ -44,9 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/python-development',
     '/react-development',
     '/django-development',
-    '/nodejs-development',
     '/aws-development',
-    '/ai-development',
     
     // Ready-Made Websites Marketplace
     '/ready-websites',

@@ -213,6 +213,7 @@ export const projects = [
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
     gradient: "from-indigo-600/60 via-violet-600/40 to-cyan-600/50",
     visual: "analytics" as const,
+    demoUrl: "/portfolio/b2b_leadgen_platform.html",
   },
   {
     id: "enterprise-ops-dashboard",
@@ -241,6 +242,7 @@ export const projects = [
     stack: ["React", "Node.js", "PostgreSQL", "Redis"],
     gradient: "from-violet-600/60 via-purple-600/40 to-indigo-600/50",
     visual: "dashboard" as const,
+    demoUrl: "/portfolio/enterprise_ops_dashboard.html",
   },
   {
     id: "ai-support-system",

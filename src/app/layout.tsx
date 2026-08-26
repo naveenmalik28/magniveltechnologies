@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { CustomCursor } from "@/components/premium/custom-cursor";
+import { WebVitalsReporter } from "@/components/web-vitals-reporter";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -159,44 +160,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        
-        {/* Web Vitals Monitoring */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.vitalsUrl = "https://api.web-vitals.dev/v1/report";
-              
-              function getConnectionSpeed() {
-                return 'connection' in navigator &&
-                  navigator['connection'] &&
-                  'effectiveType' in navigator['connection']
-                  ? navigator['connection']['effectiveType']
-                  : '';
-              }
-              
-              function sendToAnalytics(metric) {
-                const analyticsData = {
-                  dsn: "https://YOUR_ANALYTICS_KEY",
-                  id: "YOUR_SITE_ID",
-                  name: metric.name,
-                  value: metric.value.toString(),
-                  delta: metric.delta.toString(),
-                  rating: metric.rating,
-                  tag: metric.id,
-                  speed: getConnectionSpeed(),
-                };
-                
-                // Send to your analytics service
-                if (window.location.hostname !== 'localhost') {
-                  navigator.sendBeacon(window.vitalsUrl, JSON.stringify(analyticsData));
-                }
-              }
-            `,
-          }}
-        />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-accent-secondary/30 selection:text-white">
         <CustomCursor />
+        <WebVitalsReporter />
         {children}
       </body>
     </html>

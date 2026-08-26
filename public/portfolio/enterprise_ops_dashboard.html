@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexusOps – Enterprise Operations Console</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --base:#0D1117;
+  --panel:#161B27;
+  --card:#1F2937;
+  --card2:#253041;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --cyan:#06B6D4;
+  --cyan-dim:rgba(6,182,212,0.1);
+  --cyan-border:rgba(6,182,212,0.25);
+  --text:#F8FAFC;
+  --text2:#CBD5E1;
+  --muted:#64748B;
+  --green:#10B981;
+  --green-dim:rgba(16,185,129,0.12);
+  --amber:#F59E0B;
+  --amber-dim:rgba(245,158,11,0.12);
+  --red:#EF4444;
+  --red-dim:rgba(239,68,68,0.12);
+  --purple:#A78BFA;
+  --purple-dim:rgba(167,139,250,0.12);
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',sans-serif;
+}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--sans);background:var(--base);color:var(--text);display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+
+/* ── TOP BAR ── */
+.topbar{height:48px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1rem;gap:1rem;flex-shrink:0;z-index:100}
+.tb-logo{font-family:var(--mono);font-size:.85rem;font-weight:700;color:var(--cyan);letter-spacing:-.01em;white-space:nowrap}
+.tb-logo span{color:var(--text2);font-weight:400}
+.tb-divider{width:1px;height:20px;background:var(--border2);flex-shrink:0}
+.tb-breadcrumb{font-size:.75rem;color:var(--muted);font-family:var(--mono)}
+.tb-breadcrumb span{color:var(--text2)}
+
+.role-switcher{display:flex;gap:.3rem;background:var(--base);border:1px solid var(--border2);border-radius:7px;padding:.25rem}
+.role-btn{font-family:var(--sans);font-size:.72rem;font-weight:600;padding:.3rem .75rem;border-radius:5px;border:none;cursor:pointer;transition:all .18s;color:var(--muted);background:transparent;white-space:nowrap}
+.role-btn.active{background:var(--cyan);color:#000}
+.role-btn:hover:not(.active){color:var(--text2);background:var(--card)}
+
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:.8rem}
+.tb-time{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.tb-avatar{width:28px;height:28px;border-radius:50%;background:var(--cyan-dim);border:1px solid var(--cyan-border);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--cyan)}
+.tb-notif{width:28px;height:28px;border-radius:6px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;position:relative}
+.notif-badge{position:absolute;top:4px;right:4px;width:7px;height:7px;border-radius:50%;background:var(--red);border:1px solid var(--panel)}
+
+/* ── LAYOUT ── */
+.app-body{display:flex;flex:1;overflow:hidden}
+
+/* ── SIDEBAR ── */
+.sidebar{width:200px;background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.sb-section{padding:.75rem .75rem .25rem;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sb-item{display:flex;align-items:center;gap:.6rem;padding:.45rem .75rem;border-radius:6px;margin:0 .4rem .1rem;cursor:pointer;font-size:.78rem;color:var(--muted);transition:all .15s;position:relative}
+.sb-item:hover{background:var(--card);color:var(--text2)}
+.sb-item.active{background:var(--cyan-dim);color:var(--cyan);border:1px solid var(--cyan-border)}
+.sb-item .sb-icon{font-size:.9rem;width:18px;text-align:center}
+.sb-badge{margin-left:auto;background:var(--red);color:#fff;font-size:.6rem;font-weight:700;padding:.1rem .35rem;border-radius:100px;min-width:18px;text-align:center}
+.sb-badge.amber{background:var(--amber);color:#000}
+.sb-badge.cyan{background:var(--cyan);color:#000}
+.sb-footer{margin-top:auto;padding:.75rem;border-top:1px solid var(--border)}
+.sb-user{display:flex;align-items:center;gap:.6rem}
+.sb-user-avatar{width:30px;height:30px;border-radius:50%;background:var(--purple-dim);border:1px solid rgba(167,139,250,.2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--purple);flex-shrink:0}
+.sb-user-name{font-size:.75rem;font-weight:600;color:var(--text2)}
+.sb-user-role{font-size:.65rem;color:var(--muted)}
+
+/* ── MAIN ── */
+.main{flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:1rem}
+
+/* ── RIGHT PANEL ── */
+.right-panel{width:280px;background:var(--panel);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0}
+.rp-tab-bar{display:flex;border-bottom:1px solid var(--border)}
+.rp-tab{flex:1;padding:.6rem;text-align:center;font-size:.7rem;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
+.rp-tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.rp-body{flex:1;padding:.9rem;overflow-y:auto}
+
+/* ── CARDS / WIDGETS ── */
+.row{display:flex;gap:1rem}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.kpi-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.kpi-card.cyan::before{background:var(--cyan)}
+.kpi-card.green::before{background:var(--green)}
+.kpi-card.amber::before{background:var(--amber)}
+.kpi-card.red::before{background:var(--red)}
+.kpi-label{font-size:.67rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.kpi-val{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);line-height:1}
+.kpi-delta{font-size:.7rem;margin-top:.35rem}
+.kpi-delta.up{color:var(--green)}
+.kpi-delta.down{color:var(--red)}
+.kpi-delta.neutral{color:var(--muted)}
+
+.widget{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.widget-header{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-bottom:1px solid var(--border)}
+.widget-title{font-size:.75rem;font-weight:600;color:var(--text2)}
+.widget-sub{font-size:.65rem;color:var(--muted);margin-top:.1rem}
+.widget-action{font-size:.68rem;color:var(--cyan);cursor:pointer;font-weight:500}
+
+/* ── ONBOARDING TABLE ── */
+.ob-table{width:100%;border-collapse:collapse}
+.ob-table th{font-size:.65rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:.55rem 1rem;text-align:left;border-bottom:1px solid var(--border);background:var(--base)}
+.ob-table td{font-size:.77rem;padding:.6rem 1rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:middle}
+.ob-table tr:last-child td{border-bottom:none}
+.ob-table tr:hover td{background:rgba(255,255,255,.02)}
+.client-name{font-weight:600;color:var(--text);font-size:.8rem}
+.client-id{font-family:var(--mono);font-size:.65rem;color:var(--muted)}
+
+.status-chip{display:inline-flex;align-items:center;gap:.3rem;padding:.18rem .55rem;border-radius:100px;font-size:.67rem;font-weight:600}
+.status-chip.active{background:var(--green-dim);color:var(--green)}
+.status-chip.pending{background:var(--amber-dim);color:var(--amber)}
+.status-chip.review{background:var(--purple-dim);color:var(--purple)}
+.status-chip.blocked{background:var(--red-dim);color:var(--red)}
+.status-chip.new{background:var(--cyan-dim);color:var(--cyan)}
+
+.progress-wrap{display:flex;align-items:center;gap:.6rem}
+.prog-bar{flex:1;height:5px;background:var(--card);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;background:var(--cyan)}
+.prog-fill.green{background:var(--green)}
+.prog-fill.amber{background:var(--amber)}
+.prog-fill.red{background:var(--red)}
+.prog-pct{font-family:var(--mono);font-size:.65rem;color:var(--muted);min-width:28px;text-align:right}
+
+.avatar-sm{width:24px;height:24px;border-radius:50%;background:var(--card2);border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:var(--text2)}
+
+/* ── QUEUE ── */
+.queue-list{display:flex;flex-direction:column;gap:0}
+.queue-item{display:flex;align-items:center;gap:.7rem;padding:.65rem 1rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.queue-item:last-child{border-bottom:none}
+.queue-item:hover{background:rgba(255,255,255,.02)}
+.queue-item.selected{background:var(--cyan-dim);border-left:2px solid var(--cyan)}
+.qi-priority{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.qi-priority.high{background:var(--red)}
+.qi-priority.med{background:var(--amber)}
+.qi-priority.low{background:var(--green)}
+.qi-body{flex:1;min-width:0}
+.qi-title{font-size:.77rem;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qi-meta{font-size:.67rem;color:var(--muted);margin-top:.15rem}
+.qi-time{font-family:var(--mono);font-size:.65rem;color:var(--muted);flex-shrink:0}
+.qi-tag{font-size:.6rem;font-weight:600;padding:.1rem .4rem;border-radius:4px;flex-shrink:0}
+
+/* ── MINI SPARKLINE ── */
+.sparkline-wrap{padding:.9rem 1rem}
+.spark-labels{display:flex;justify-content:space-between;font-size:.65rem;color:var(--muted);margin-bottom:.5rem;font-family:var(--mono)}
+.spark-svg{width:100%;height:50px}
+.spark-foot{display:flex;justify-content:space-between;margin-top:.4rem}
+.spark-stat{text-align:center}
+.spark-stat-val{font-family:var(--mono);font-size:.85rem;font-weight:700;color:var(--text)}
+.spark-stat-lbl{font-size:.62rem;color:var(--muted)}
+
+/* ── RIGHT PANEL ITEMS ── */
+.rp-section-title{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;margin-top:.9rem}
+.rp-section-title:first-child{margin-top:0}
+.activity-item{display:flex;gap:.6rem;margin-bottom:.75rem}
+.act-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.act-text{font-size:.74rem;color:var(--text2);line-height:1.5}
+.act-time{font-size:.65rem;color:var(--muted);margin-top:.15rem;font-family:var(--mono)}
+
+.alert-item{background:var(--card);border-radius:7px;padding:.65rem .8rem;margin-bottom:.5rem;border-left:3px solid transparent}
+.alert-item.warn{border-left-color:var(--amber)}
+.alert-item.error{border-left-color:var(--red)}
+.alert-item.info{border-left-color:var(--cyan)}
+.alert-title{font-size:.74rem;font-weight:600;color:var(--text)}
+.alert-desc{font-size:.67rem;color:var(--muted);margin-top:.15rem}
+
+.checklist-item{display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.74rem;color:var(--text2)}
+.checklist-item:last-child{border-bottom:none}
+.check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;cursor:pointer}
+.check-box.done{background:var(--green-dim);border-color:var(--green);color:var(--green)}
+
+/* ── REPORTING SECTION ── */
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.report-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem}
+.report-title{font-size:.72rem;font-weight:600;color:var(--text2);margin-bottom:.7rem}
+.bar-group{display:flex;flex-direction:column;gap:.45rem}
+.bar-row{display:flex;align-items:center;gap:.6rem}
+.bar-lbl{font-size:.68rem;color:var(--muted);min-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:7px;background:var(--card);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.bar-num{font-family:var(--mono);font-size:.68rem;color:var(--text2);min-width:28px;text-align:right}
+
+/* ── ROLE PANELS ── */
+.role-panel{display:none}
+.role-panel.visible{display:contents}
+
+/* ── SCROLLBARS ── */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--card2);border-radius:3px}
+
+/* ── TABS ── */
+.tab-row{display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 1rem}
+.tab{font-size:.74rem;font-weight:500;color:var(--muted);padding:.5rem .9rem;border-bottom:2px solid transparent;cursor:pointer;transition:all .15s}
+.tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.tab:hover:not(.active){color:var(--text2)}
+.tab-content{display:none;flex:1;overflow-y:auto}
+.tab-content.active{display:flex;flex-direction:column}
+
+@media(max-width:1100px){.right-panel{display:none}}
+@media(max-width:700px){.sidebar{display:none}.kpi-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="tb-logo">NexusOps <span>Console</span></div>
+  <div class="tb-divider"></div>
+  <div class="tb-breadcrumb">Operations / <span id="breadcrumbRole">Ops Manager</span></div>
+  <div class="tb-divider"></div>
+  <div class="role-switcher">
+    <button class="role-btn active" onclick="switchRole('ops')">Ops Manager</button>
+    <button class="role-btn" onclick="switchRole('ae')">Account Exec</button>
+    <button class="role-btn" onclick="switchRole('admin')">Admin</button>
+  </div>
+  <div class="tb-right">
+    <div class="tb-time" id="clockEl">--:--:--</div>
+    <div class="tb-notif">🔔<div class="notif-badge"></div></div>
+    <div class="tb-avatar" id="topAvatar">OM</div>
+  </div>
+</div>
+
+<!-- APP BODY -->
+<div class="app-body">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div style="padding:.6rem .4rem .2rem">
+      <div class="sb-section">Core</div>
+      <div class="sb-item active" id="sb-overview"><span class="sb-icon">⬛</span>Overview</div>
+      <div class="sb-item" id="sb-onboard"><span class="sb-icon">🧩</span>Onboarding<span class="sb-badge amber" id="sbObBadge">7</span></div>
+      <div class="sb-item" id="sb-queue"><span class="sb-icon">📋</span>Queue<span class="sb-badge" id="sbQBadge">12</span></div>
+      <div class="sb-item" id="sb-reports"><span class="sb-icon">📊</span>Reports</div>
+      <div class="sb-section">Manage</div>
+      <div class="sb-item" id="sb-clients"><span class="sb-icon">🏢</span>Clients</div>
+      <div class="sb-item" id="sb-team"><span class="sb-icon">👥</span>Team</div>
+      <div class="sb-item" id="sb-settings"><span class="sb-icon">⚙️</span>Settings</div>
+    </div>
+    <div class="sb-footer">
+      <div class="sb-user">
+        <div class="sb-user-avatar" id="sbAvatar">OM</div>
+        <div><div class="sb-user-name" id="sbName">Alex Mercer</div><div class="sb-user-role" id="sbRole">Ops Manager</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main" id="mainContent">
+
+    <!-- ── OPS MANAGER VIEW ── -->
+    <div class="role-panel visible" id="panel-ops">
+
+      <!-- KPIs -->
+      <div class="kpi-row">
+        <div class="kpi-card cyan">
+          <div class="kpi-label">Active Onboardings</div>
+          <div class="kpi-val">34</div>
+          <div class="kpi-delta up">↑ 6 this week</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-label">Completed Today</div>
+          <div class="kpi-val">11</div>
+          <div class="kpi-delta up">↑ 22% vs yesterday</div>
+        </div>
+        <div class="kpi-card amber">
+          <div class="kpi-label">Queue Backlog</div>
+          <div class="kpi-val">28</div>
+          <div class="kpi-delta down">↑ 4 since 9am</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-label">SLA Breaches</div>
+          <div class="kpi-val">3</div>
+          <div class="kpi-delta down">↑ 2 unresolved</div>
+        </div>
+      </div>
+
+      <!-- Onboarding Table + Queue -->
+      <div class="row" style="flex:1;min-height:0">
+        <div class="widget" style="flex:1.6;display:flex;flex-direction:column;min-height:0">
+          <div class="widget-header">
+            <div><div class="widget-title">Client Onboarding Tracker</div><div class="widget-sub">34 active · sorted by priority</div></div>
+            <div style="display:flex;gap:.5rem;align-items:center">
+              <select style="background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.68rem;padding:.25rem .5rem;border-radius:5px;font-family:var(--sans)">
+                <option>All stages</option><option>Document Review</option><option>KYC</option><option>Integration</option>
+              </select>
+              <div class="widget-action">+ New</div>
+            </div>
+          </div>
+          <div style="overflow-y:auto;flex:1">
+            <table class="ob-table">
+              <thead><tr>
+                <th>Client</th><th>Stage</th><th>Owner</th><th>Progress</th><th>Status</th><th>ETA</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="client-name">Brightwave Inc</div><div class="client-id">#CLT-0041</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">KYC Review</td>
+                  <td><div class="avatar-sm" title="Sarah K">SK</div></td>
+                  <td><div class="progress-wrap"><div class="prog-bar"><div class="prog-fill green" style="width:82%"></div></div><div class="prog-pct">82%</div></div></td>
+                  <td><span class="status-chip active">● Active</span></td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">Aug 27</td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Nexus Financial</div><div class="client-id">#CLT-0039</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">Doc Upload</td>
+                  <td><div class="avatar-sm" title="Raj P">RP</div></td>
+                  <td><div class="progress-wrap"><div class="prog-bar"><div class="prog-fill amber" style="width:45%"></div></div><div class="prog-pct">45%</div></div></td>
+                  <td><span class="status-chip pending">◐ Pending</span></td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--red)">Aug 26</td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Orbis Logistics</div><div class="client-id">#CLT-0037</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">Integration</td>
+                  <td><div class="avatar-sm" title="Mike T">MT</div></td>
+                  <td><div class="progress-wrap"><div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div><div class="prog-pct">60%</div></div></td>
+                  <td><span class="status-chip review">◈ In Review</span></td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">Aug 29</td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Luminos Capital</div><div class="client-id">#CLT-0035</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">Compliance</td>
+                  <td><div class="avatar-sm" title="Anna L">AL</div></td>
+                  <td><div class="progress-wrap"><div class="prog-bar"><div class="prog-fill red" style="width:20%"></div></div><div class="prog-pct">20%</div></div></td>
+                  <td><span class="status-chip blocked">✕ Blocked</span></td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--red)">Aug 25</td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Stackline SaaS</div><div class="client-id">#CLT-0042</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">Kickoff</td>
+                  <td><div class="avatar-sm" title="Dana W">DW</div></td>
+                  <td><div class="progress-wrap"><div class="prog-bar"><div class="prog-fill" style="width:10%"></div></div><div class="prog-pct">10%</div></div></td>
+                  <td><span class="status-chip new">✦ New</span></td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">Sep 02</td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Finloop Corp</div><div class="client-id">#CLT-0033</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">Final Sign-off</td>
+                  <td><div class="avatar-sm" title="James R">JR</div></td>
+                  <td><div class="progress-wrap"><div class="prog-bar"><div class="prog-fill green" style="width:95%"></div></div><div class="prog-pct">95%</div></div></td>
+                  <td><span class="status-chip active">● Active</span></td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--green)">Today</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Queue Widget -->
+        <div class="widget" style="width:260px;display:flex;flex-direction:column;min-height:0">
+          <div class="widget-header">
+            <div><div class="widget-title">Operations Queue</div><div class="widget-sub">28 items · 3 critical</div></div>
+          </div>
+          <div style="overflow-y:auto;flex:1" class="queue-list">
+            <div class="queue-item selected">
+              <div class="qi-priority high"></div>
+              <div class="qi-body"><div class="qi-title">Luminos Capital – KYC block</div><div class="qi-meta">Compliance · Assigned to you</div></div>
+              <div class="qi-time">2m</div>
+            </div>
+            <div class="queue-item">
+              <div class="qi-priority high"></div>
+              <div class="qi-body"><div class="qi-title">SLA breach · Nexus Financial</div><div class="qi-meta">Escalation · Auto-flagged</div></div>
+              <div class="qi-time">14m</div>
+            </div>
+            <div class="queue-item">
+              <div class="qi-priority med"></div>
+              <div class="qi-body"><div class="qi-title">API key rotation · Orbis</div><div class="qi-meta">Integration · Mike T</div></div>
+              <div class="qi-time">1h</div>
+            </div>
+            <div class="queue-item">
+              <div class="qi-priority med"></div>
+              <div class="qi-body"><div class="qi-title">Document re-upload request</div><div class="qi-meta">Brightwave Inc · Sarah K</div></div>
+              <div class="qi-time">2h</div>
+            </div>
+            <div class="queue-item">
+              <div class="qi-priority low"></div>
+              <div class="qi-body"><div class="qi-title">Welcome pack sent · Stackline</div><div class="qi-meta">Onboarding · Auto</div></div>
+              <div class="qi-time">3h</div>
+            </div>
+            <div class="queue-item">
+              <div class="qi-priority low"></div>
+              <div class="qi-body"><div class="qi-title">Finloop final checklist</div><div class="qi-meta">Sign-off · James R</div></div>
+              <div class="qi-time">4h</div>
+            </div>
+            <div class="queue-item">
+              <div class="qi-priority med"></div>
+              <div class="qi-body"><div class="qi-title">Team capacity report due</div><div class="qi-meta">Reporting · EOD</div></div>
+              <div class="qi-time">6h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reporting Row -->
+      <div class="report-grid">
+        <div class="report-card">
+          <div class="report-title">Onboarding by Stage — Today</div>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-lbl">Kickoff</span><div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--cyan)"></div></div><span class="bar-num">7</span></div>
+            <div class="bar-row"><span class="bar-lbl">Doc Upload</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--cyan)"></div></div><span class="bar-num">8</span></div>
+            <div class="bar-row"><span class="bar-lbl">KYC Review</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--amber)"></div></div><span class="bar-num">6</span></div>
+            <div class="bar-row"><span class="bar-lbl">Integration</span><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--amber)"></div></div><span class="bar-num">5</span></div>
+            <div class="bar-row"><span class="bar-lbl">Sign-off</span><div class="bar-track"><div class="bar-fill" style="width:30%;background:var(--green)"></div></div><span class="bar-num">3</span></div>
+            <div class="bar-row"><span class="bar-lbl">Completed</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--green)"></div></div><span class="bar-num">11</span></div>
+          </div>
+        </div>
+        <div class="report-card">
+          <div class="report-title">Queue Resolution — This Week</div>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-lbl">Mon</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--indigo,#4F6EF7)"></div></div><span class="bar-num">18</span></div>
+            <div class="bar-row"><span class="bar-lbl">Tue</span><div class="bar-track"><div class="bar-fill" style="width:75%;background:var(--indigo,#4F6EF7)"></div></div><span class="bar-num">23</span></div>
+            <div class="bar-row"><span class="bar-lbl">Wed</span><div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--cyan)"></div></div><span class="bar-num">28</span></div>
+            <div class="bar-row"><span class="bar-lbl">Thu</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--muted)"></div></div><span class="bar-num">12</span></div>
+            <div class="bar-row"><span class="bar-lbl">Fri</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--muted)"></div></div><span class="bar-num">3</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panel-ops -->
+
+    <!-- ── ACCOUNT EXEC VIEW ── -->
+    <div class="role-panel" id="panel-ae">
+      <div class="kpi-row">
+        <div class="kpi-card cyan">
+          <div class="kpi-label">My Active Clients</div>
+          <div class="kpi-val">12</div>
+          <div class="kpi-delta up">↑ 2 new this week</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-label">Pipeline Value</div>
+          <div class="kpi-val" style="font-size:1.3rem">$2.4M</div>
+          <div class="kpi-delta up">↑ 14% MoM</div>
+        </div>
+        <div class="kpi-card amber">
+          <div class="kpi-label">Follow-ups Due</div>
+          <div class="kpi-val">5</div>
+          <div class="kpi-delta neutral">3 today · 2 overdue</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-label">At-Risk Accounts</div>
+          <div class="kpi-val">2</div>
+          <div class="kpi-delta down">Needs attention</div>
+        </div>
+      </div>
+
+      <div class="row" style="flex:1;min-height:0">
+        <div class="widget" style="flex:1;display:flex;flex-direction:column;min-height:0">
+          <div class="tab-row">
+            <div class="tab active">My Clients</div>
+            <div class="tab">Opportunities</div>
+            <div class="tab">Activity Log</div>
+          </div>
+          <div class="tab-content active" style="overflow-y:auto">
+            <table class="ob-table">
+              <thead><tr>
+                <th>Client</th><th>Health</th><th>ARR</th><th>Last Contact</th><th>Next Action</th><th>Stage</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="client-name">Brightwave Inc</div><div class="client-id">Enterprise · 200 seats</div></td>
+                  <td><span class="status-chip active">● Healthy</span></td>
+                  <td style="font-family:var(--mono);font-size:.77rem">$240K</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Today, 10:30</td>
+                  <td style="font-size:.72rem;color:var(--cyan)">Renewal call</td>
+                  <td><span class="status-chip review">◈ Renewing</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Orbis Logistics</div><div class="client-id">Mid-market · 80 seats</div></td>
+                  <td><span class="status-chip pending">◐ At Risk</span></td>
+                  <td style="font-family:var(--mono);font-size:.77rem">$96K</td>
+                  <td style="font-size:.72rem;color:var(--muted)">3 days ago</td>
+                  <td style="font-size:.72rem;color:var(--amber)">Health check</td>
+                  <td><span class="status-chip pending">◐ Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Finloop Corp</div><div class="client-id">Enterprise · 500 seats</div></td>
+                  <td><span class="status-chip active">● Healthy</span></td>
+                  <td style="font-family:var(--mono);font-size:.77rem">$580K</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Yesterday</td>
+                  <td style="font-size:.72rem;color:var(--cyan)">Upsell deck</td>
+                  <td><span class="status-chip active">● Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Luminos Capital</div><div class="client-id">SMB · 30 seats</div></td>
+                  <td><span class="status-chip blocked">✕ Churning</span></td>
+                  <td style="font-family:var(--mono);font-size:.77rem">$36K</td>
+                  <td style="font-size:.72rem;color:var(--red)">8 days ago</td>
+                  <td style="font-size:.72rem;color:var(--red)">Escalate now</td>
+                  <td><span class="status-chip blocked">✕ At Risk</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Stackline SaaS</div><div class="client-id">Startup · 15 seats</div></td>
+                  <td><span class="status-chip new">✦ New</span></td>
+                  <td style="font-family:var(--mono);font-size:.77rem">$18K</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Onboarding</td>
+                  <td style="font-size:.72rem;color:var(--cyan)">Kickoff call</td>
+                  <td><span class="status-chip new">✦ Trial</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="widget" style="width:240px;display:flex;flex-direction:column">
+          <div class="widget-header"><div class="widget-title">Today's Tasks</div></div>
+          <div style="padding:.6rem .9rem;flex:1;overflow-y:auto">
+            <div class="checklist-item"><div class="check-box done">✓</div>QBR deck for Finloop</div>
+            <div class="checklist-item"><div class="check-box done">✓</div>Send renewal quote · Brightwave</div>
+            <div class="checklist-item"><div class="check-box">　</div>Health call · Orbis Logistics</div>
+            <div class="checklist-item"><div class="check-box">　</div>Escalation note · Luminos</div>
+            <div class="checklist-item"><div class="check-box">　</div>Kickoff prep · Stackline</div>
+            <div class="checklist-item"><div class="check-box">　</div>Weekly pipeline update</div>
+            <div class="checklist-item"><div class="check-box">　</div>Forecast submission by EOD</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-card">
+          <div class="report-title">My Pipeline by Stage</div>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-lbl">Prospecting</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--muted)"></div></div><span class="bar-num">$480K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Qualified</span><div class="bar-track"><div class="bar-fill" style="width:55%;background:var(--cyan)"></div></div><span class="bar-num">$660K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Proposal</span><div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--cyan)"></div></div><span class="bar-num">$840K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Negotiation</span><div class="bar-track"><div class="bar-fill" style="width:30%;background:var(--amber)"></div></div><span class="bar-num">$360K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Closed Won</span><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--green)"></div></div><span class="bar-num">$600K</span></div>
+          </div>
+        </div>
+        <div class="report-card">
+          <div class="report-title">Monthly Touchpoints</div>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-lbl">Calls</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--cyan)"></div></div><span class="bar-num">24</span></div>
+            <div class="bar-row"><span class="bar-lbl">Emails</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--cyan)"></div></div><span class="bar-num">31</span></div>
+            <div class="bar-row"><span class="bar-lbl">Meetings</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--purple,#A78BFA)"></div></div><span class="bar-num">12</span></div>
+            <div class="bar-row"><span class="bar-lbl">QBRs</span><div class="bar-track"><div class="bar-fill" style="width:13%;background:var(--amber)"></div></div><span class="bar-num">4</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /panel-ae -->
+
+    <!-- ── ADMIN VIEW ── -->
+    <div class="role-panel" id="panel-admin">
+      <div class="kpi-row">
+        <div class="kpi-card cyan">
+          <div class="kpi-label">Total Users</div>
+          <div class="kpi-val">148</div>
+          <div class="kpi-delta up">↑ 6 this month</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-label">System Uptime</div>
+          <div class="kpi-val">99.9%</div>
+          <div class="kpi-delta up">30-day average</div>
+        </div>
+        <div class="kpi-card amber">
+          <div class="kpi-label">Open Tickets</div>
+          <div class="kpi-val">17</div>
+          <div class="kpi-delta down">↑ 5 unassigned</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-label">Security Alerts</div>
+          <div class="kpi-val">2</div>
+          <div class="kpi-delta down">Needs review</div>
+        </div>
+      </div>
+
+      <div class="row" style="flex:1;min-height:0">
+        <div class="widget" style="flex:1;display:flex;flex-direction:column;min-height:0">
+          <div class="widget-header">
+            <div><div class="widget-title">User Management</div><div class="widget-sub">148 users · 4 roles</div></div>
+            <div class="widget-action">+ Add User</div>
+          </div>
+          <div style="overflow-y:auto;flex:1">
+            <table class="ob-table">
+              <thead><tr>
+                <th>User</th><th>Role</th><th>Department</th><th>Last Active</th><th>2FA</th><th>Status</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="client-name">Sarah Kim</div><div class="client-id">sarah.kim@nexusops.io</div></td>
+                  <td style="font-size:.72rem;color:var(--cyan)">Ops Manager</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Operations</td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">2m ago</td>
+                  <td style="color:var(--green);font-size:.8rem">✓</td>
+                  <td><span class="status-chip active">● Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Raj Patel</div><div class="client-id">raj.patel@nexusops.io</div></td>
+                  <td style="font-size:.72rem;color:var(--purple)">Account Exec</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Revenue</td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">1h ago</td>
+                  <td style="color:var(--green);font-size:.8rem">✓</td>
+                  <td><span class="status-chip active">● Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Dana Walsh</div><div class="client-id">dana.walsh@nexusops.io</div></td>
+                  <td style="font-size:.72rem;color:var(--amber)">Analyst</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Finance</td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">3h ago</td>
+                  <td style="color:var(--red);font-size:.8rem">✕</td>
+                  <td><span class="status-chip pending">◐ Pending</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">James Rhodes</div><div class="client-id">j.rhodes@nexusops.io</div></td>
+                  <td style="font-size:.72rem;color:var(--cyan)">Ops Manager</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Operations</td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">Yesterday</td>
+                  <td style="color:var(--green);font-size:.8rem">✓</td>
+                  <td><span class="status-chip active">● Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="client-name">Priya Sharma</div><div class="client-id">p.sharma@nexusops.io</div></td>
+                  <td style="font-size:.72rem;color:var(--muted)">Viewer</td>
+                  <td style="font-size:.72rem;color:var(--muted)">Legal</td>
+                  <td style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">3 days ago</td>
+                  <td style="color:var(--red);font-size:.8rem">✕</td>
+                  <td><span class="status-chip blocked">✕ Inactive</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:.75rem;width:240px">
+          <div class="widget" style="flex:1">
+            <div class="widget-header"><div class="widget-title">System Alerts</div></div>
+            <div style="padding:.7rem">
+              <div class="alert-item error">
+                <div class="alert-title">Suspicious login · Dana Walsh</div>
+                <div class="alert-desc">New device · Lagos, NG · 04:12 UTC</div>
+              </div>
+              <div class="alert-item warn">
+                <div class="alert-title">2FA not set · 14 users</div>
+                <div class="alert-desc">Policy enforcement due Aug 30</div>
+              </div>
+              <div class="alert-item info">
+                <div class="alert-title">Backup completed</div>
+                <div class="alert-desc">All data replicated · 02:00 UTC</div>
+              </div>
+            </div>
+          </div>
+          <div class="widget" style="flex:1">
+            <div class="widget-header"><div class="widget-title">Role Distribution</div></div>
+            <div style="padding:.7rem">
+              <div class="bar-group">
+                <div class="bar-row"><span class="bar-lbl">Ops Mgr</span><div class="bar-track"><div class="bar-fill" style="width:25%;background:var(--cyan)"></div></div><span class="bar-num">18</span></div>
+                <div class="bar-row"><span class="bar-lbl">Acct Exec</span><div class="bar-track"><div class="bar-fill" style="width:45%;background:var(--purple,#A78BFA)"></div></div><span class="bar-num">34</span></div>
+                <div class="bar-row"><span class="bar-lbl">Analyst</span><div class="bar-track"><div class="bar-fill" style="width:55%;background:var(--amber)"></div></div><span class="bar-num">41</span></div>
+                <div class="bar-row"><span class="bar-lbl">Viewer</span><div class="bar-track"><div class="bar-fill" style="width:72%;background:var(--muted)"></div></div><span class="bar-num">55</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-card">
+          <div class="report-title">API Usage — Last 7 Days (calls / day)</div>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-lbl">Mon</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--cyan)"></div></div><span class="bar-num">12K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Tue</span><div class="bar-track"><div class="bar-fill" style="width:75%;background:var(--cyan)"></div></div><span class="bar-num">15K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Wed</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--cyan)"></div></div><span class="bar-num">20K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Thu</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--cyan)"></div></div><span class="bar-num">16K</span></div>
+            <div class="bar-row"><span class="bar-lbl">Fri</span><div class="bar-track"><div class="bar-fill" style="width:65%;background:var(--cyan)"></div></div><span class="bar-num">13K</span></div>
+          </div>
+        </div>
+        <div class="report-card">
+          <div class="report-title">Storage Usage by Module</div>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-lbl">Documents</span><div class="bar-track"><div class="bar-fill" style="width:85%;background:var(--amber)"></div></div><span class="bar-num">8.5GB</span></div>
+            <div class="bar-row"><span class="bar-lbl">Audit Logs</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--muted)"></div></div><span class="bar-num">4.0GB</span></div>
+            <div class="bar-row"><span class="bar-lbl">Reports</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:var(--muted)"></div></div><span class="bar-num">2.0GB</span></div>
+            <div class="bar-row"><span class="bar-lbl">Backups</span><div class="bar-track"><div class="bar-fill" style="width:35%;background:var(--green)"></div></div><span class="bar-num">3.5GB</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /panel-admin -->
+
+  </div><!-- /main -->
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="rp-tab-bar">
+      <div class="rp-tab active" onclick="setRpTab(this,'rp-activity')">Activity</div>
+      <div class="rp-tab" onclick="setRpTab(this,'rp-alerts')">Alerts</div>
+      <div class="rp-tab" onclick="setRpTab(this,'rp-notes')">Notes</div>
+    </div>
+
+    <div id="rp-activity" class="rp-body">
+      <div class="rp-section-title">Live Activity</div>
+      <div class="activity-item"><div class="act-dot" style="background:var(--green)"></div><div><div class="act-text">Finloop Corp onboarding moved to <strong>Final Sign-off</strong></div><div class="act-time">just now</div></div></div>
+      <div class="activity-item"><div class="act-dot" style="background:var(--red)"></div><div><div class="act-text">SLA breach flagged · <strong>Nexus Financial</strong> (Doc Upload &gt;48h)</div><div class="act-time">14m ago</div></div></div>
+      <div class="activity-item"><div class="act-dot" style="background:var(--cyan)"></div><div><div class="act-text">New client added · <strong>Stackline SaaS</strong> · 15 seats</div><div class="act-time">1h ago</div></div></div>
+      <div class="activity-item"><div class="act-dot" style="background:var(--amber)"></div><div><div class="act-text">Queue item escalated · Luminos Capital compliance block</div><div class="act-time">2h ago</div></div></div>
+      <div class="activity-item"><div class="act-dot" style="background:var(--green)"></div><div><div class="act-text">KYC approved · <strong>Brightwave Inc</strong></div><div class="act-time">3h ago</div></div></div>
+      <div class="activity-item"><div class="act-dot" style="background:var(--muted)"></div><div><div class="act-text">Daily report generated and distributed to 8 recipients</div><div class="act-time">6h ago</div></div></div>
+
+      <div class="rp-section-title">Daily Summary</div>
+      <div style="background:var(--card);border-radius:8px;padding:.8rem;font-size:.75rem;color:var(--text2);line-height:1.6">
+        <div style="margin-bottom:.4rem"><span style="color:var(--muted)">Onboardings completed:</span> <strong style="color:var(--green)">11</strong></div>
+        <div style="margin-bottom:.4rem"><span style="color:var(--muted)">Queue resolved:</span> <strong>28</strong></div>
+        <div style="margin-bottom:.4rem"><span style="color:var(--muted)">SLA breaches:</span> <strong style="color:var(--red)">3</strong></div>
+        <div><span style="color:var(--muted)">Team utilisation:</span> <strong style="color:var(--cyan)">87%</strong></div>
+      </div>
+    </div>
+
+    <div id="rp-alerts" class="rp-body" style="display:none">
+      <div class="rp-section-title">Active Alerts</div>
+      <div class="alert-item error" style="margin-bottom:.5rem">
+        <div class="alert-title">SLA Breach · Nexus Financial</div>
+        <div class="alert-desc">Doc upload stage overdue by 14h · Escalate</div>
+      </div>
+      <div class="alert-item error" style="margin-bottom:.5rem">
+        <div class="alert-title">Blocked · Luminos Capital</div>
+        <div class="alert-desc">Compliance hold · External dependency</div>
+      </div>
+      <div class="alert-item warn" style="margin-bottom:.5rem">
+        <div class="alert-title">Queue backlog growing</div>
+        <div class="alert-desc">28 items · 4 added since 9am</div>
+      </div>
+      <div class="alert-item info" style="margin-bottom:.5rem">
+        <div class="alert-title">Finloop sign-off pending</div>
+        <div class="alert-desc">Final approval needed · James R</div>
+      </div>
+    </div>
+
+    <div id="rp-notes" class="rp-body" style="display:none">
+      <div class="rp-section-title">Quick Notes</div>
+      <textarea style="width:100%;height:100px;background:var(--card);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:.78rem;padding:.6rem;border-radius:7px;resize:none;outline:none;line-height:1.5" placeholder="Add a note for today's shift…"></textarea>
+      <div class="rp-section-title" style="margin-top:.9rem">Pinned Notes</div>
+      <div style="background:var(--card);border-radius:7px;padding:.7rem;font-size:.75rem;color:var(--text2);line-height:1.6;margin-bottom:.5rem;border-left:3px solid var(--amber)">Luminos Capital — waiting on legal clearance from their end. Follow up Thursday EOD.</div>
+      <div style="background:var(--card);border-radius:7px;padding:.7rem;font-size:.75rem;color:var(--text2);line-height:1.6;border-left:3px solid var(--cyan)">Nexus Financial — new primary contact is Priya Mehta. Update CRM record.</div>
+    </div>
+  </div>
+
+</div><!-- /app-body -->
+
+<script>
+// Clock
+function updateClock(){
+  const now=new Date();
+  document.getElementById('clockEl').textContent=now.toLocaleTimeString('en-GB',{hour12:false});
+}
+updateClock();setInterval(updateClock,1000);
+
+// Role switcher
+const roles={
+  ops:{label:'Ops Manager',breadcrumb:'Ops Manager',avatar:'OM',name:'Alex Mercer',role:'Ops Manager'},
+  ae:{label:'Account Exec',breadcrumb:'Account Executive',avatar:'AE',name:'Jordan Lee',role:'Account Executive'},
+  admin:{label:'Admin',breadcrumb:'System Administrator',avatar:'AD',name:'Chris Park',role:'System Admin'}
+};
+
+function switchRole(r){
+  document.querySelectorAll('.role-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.role-panel').forEach(p=>p.classList.remove('visible'));
+  document.getElementById('panel-'+r).classList.add('visible');
+  const d=roles[r];
+  document.getElementById('breadcrumbRole').textContent=d.breadcrumb;
+  document.getElementById('topAvatar').textContent=d.avatar;
+  document.getElementById('sbAvatar').textContent=d.avatar;
+  document.getElementById('sbName').textContent=d.name;
+  document.getElementById('sbRole').textContent=d.role;
+}
+
+// Right panel tabs
+function setRpTab(el,panelId){
+  document.querySelectorAll('.rp-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.rp-body').forEach(p=>p.style.display='none');
+  document.getElementById(panelId).style.display='block';
+}
+
+// Sidebar items
+document.querySelectorAll('.sb-item').forEach(item=>{
+  item.addEventListener('click',function(){
+    document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

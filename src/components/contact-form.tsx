@@ -64,6 +64,8 @@ export function ContactForm() {
       return;
     }
 
+    const website = formData.get("website") as string;
+
     const payload = {
       fullName,
       email,
@@ -72,6 +74,7 @@ export function ContactForm() {
       budget: "",
       timeline: "",
       message: messageText,
+      website: website || "",
     };
 
     try {
@@ -153,6 +156,8 @@ export function ContactForm() {
       `}</style>
 
       <form onSubmit={onSubmit} className="grid gap-6 p-6 sm:p-8 rounded-[24px] border border-subtle-border bg-white shadow-xl">
+        {/* Honeypot field for bot prevention */}
+        <input name="website" type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <div className="grid gap-6 sm:grid-cols-2">
           {/* Full Name */}
           <label className="contact-label">

@@ -5,6 +5,25 @@ import { validateContact } from "@/lib/validation";
 
 export const dynamic = "force-dynamic";
 
+// In-memory sliding-window IP rate limiter
+const ipRequestMap = new Map<string, number[]>();
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = ipRequestMap.get(ip) || [];
+  const validTimestamps = timestamps.filter((ts) => now - ts < RATE_LIMIT_WINDOW_MS);
+
+  if (validTimestamps.length >= MAX_REQUESTS_PER_WINDOW) {
+    return true;
+  }
+
+  validTimestamps.push(now);
+  ipRequestMap.set(ip, validTimestamps);
+  return false;
+}
+
 function getErrorCode(error: unknown) {
   return typeof error === "object" && error !== null && "code" in error
     ? String((error as { code?: unknown }).code)
@@ -19,49 +38,45 @@ function contactFailureResponse(error: unknown) {
   const code = getErrorCode(error);
   const message = getErrorMessage(error);
 
-  if (message.includes("DATABASE_URL is not configured")) {
-    console.error("Contact form configuration error: DATABASE_URL is missing");
-    return NextResponse.json(
-      { message: "Database is not configured. Please check Vercel environment variables." },
-      { status: 500 },
-    );
-  }
-
-  if (code === "P2021") {
-    console.error("Contact form database error: leads table is missing");
-    return NextResponse.json(
-      { message: "Database table is missing. Please run migrations on your Vercel environment." },
-      { status: 500 },
-    );
-  }
-
-  if (code === "P2022") {
-    console.error("Contact form database error: a leads column is missing");
-    return NextResponse.json(
-      { message: "Database schema is out of date. Please run migrations on your Vercel environment." },
-      { status: 500 },
-    );
-  }
+  console.error("Contact form database submission failed:", { code, message, error });
 
   if (["P1000", "P1001", "P1002", "P1003"].includes(code)) {
-    console.error("Contact form database connection error:", code, message);
     return NextResponse.json(
-      { message: "Database connection failed. Please try again later." },
+      { message: "Service is temporarily busy. Please try again in a few minutes." },
       { status: 503 },
     );
   }
 
-  console.error("Contact form database submission failed", error);
-  return NextResponse.json({ message: "Unable to submit inquiry right now." }, { status: 500 });
+  return NextResponse.json(
+    { message: "Unable to submit inquiry right now. Please try again later." },
+    { status: 500 },
+  );
 }
 
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { message: "Too many submission attempts. Please wait a few minutes before trying again." },
+        { status: 429 },
+      );
+    }
+
     let body: unknown;
     try {
       body = await request.json();
     } catch {
       return NextResponse.json({ message: "Invalid request body." }, { status: 400 });
+    }
+
+    // Honeypot anti-spam check: bots fill hidden fields like 'website' or 'b_hp'
+    const recordBody = body as Record<string, unknown>;
+    if (recordBody.website || recordBody.b_hp) {
+      console.warn(`Honeypot bot caught from IP: ${ip}`);
+      // Return fake 200 response to trick bot into stopping
+      return NextResponse.json({ message: "Thank you. Your inquiry has been received." });
     }
 
     const validation = validateContact(body);

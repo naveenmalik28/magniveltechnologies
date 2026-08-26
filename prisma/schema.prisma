@@ -33,5 +33,7 @@ model Lead {
   archived     Boolean  @default(false)
   created_at   DateTime @default(now())
 
+  @@index([created_at])
+  @@index([status])
   @@map("leads")
 }

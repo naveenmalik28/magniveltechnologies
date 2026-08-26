@@ -57,9 +57,9 @@ const techList = [
   { label: "Python Development", href: "/python-development" },
   { label: "React Development", href: "/react-development" },
   { label: "Django Development", href: "/django-development" },
-  { label: "Node.js Development", href: "/nodejs-development" },
+  { label: "Node.js Development", href: "/api-development" },
   { label: "AWS Cloud Setup", href: "/aws-development" },
-  { label: "AI & ML Development", href: "/ai-development" },
+  { label: "AI & ML Development", href: "/ai-solutions" },
 ];
 
 export function Navigation() {
@@ -95,7 +95,7 @@ export function Navigation() {
             priority
           />
           <span className="truncate font-heading uppercase text-[11px] tracking-wider font-bold">
-            Magnivel <span className="text-primary">Tech</span>
+            Magnivel <span className="text-primary">Technologies</span>
           </span>
         </Link>
 
@@ -444,7 +444,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="max-w-sm text-sm leading-relaxed text-[#D1D5DB]">
-            Premium AI-powered software engineering. We build intelligent web platforms, mobile applications, SaaS products, and enterprise solutions for ambitious brands worldwide.
+            We build web applications, mobile apps, and custom AI tools designed to help businesses scale. Modern engineering with a focus on speed, performance, and real results.
           </p>
           <div className="flex items-center gap-3 pt-1">
             <a
