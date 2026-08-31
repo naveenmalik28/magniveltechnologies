@@ -9,7 +9,6 @@ import { GlobalPresence } from "@/components/home/global-presence";
 import { PremiumHero } from "@/components/home/premium-hero";
 import { TechEcosystem } from "@/components/home/tech-ecosystem";
 import { TechMarquee } from "@/components/home/tech-marquee";
-import { TestimonialsCarousel } from "@/components/home/testimonials-carousel";
 import { TrustSection } from "@/components/home/trust-section";
 import { PageShell, SectionTitle } from "@/components/page-shell";
 import { faqs, homeServices, whyChoose, workingWithUs } from "@/lib/site";
