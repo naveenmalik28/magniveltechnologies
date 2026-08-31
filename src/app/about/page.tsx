@@ -25,27 +25,27 @@ export const metadata: Metadata = {
 
 const pillars = [
   {
-    title: "Company Overview",
-    text: "We combine engineering discipline, business intelligence, and high-fidelity user experiences. Every script and schema we build is structured to withstand massive organic growth.",
+    title: "What We Do",
+    text: "We build custom software — websites, web applications, SaaS platforms, mobile apps, and AI tools. We work with React, Next.js, Node.js, Python, Django, PostgreSQL, and AWS.",
     icon: "monitor",
   },
   {
     title: "Our Mission",
-    text: "To empower growing businesses by delivering robust, clean-coded, and highly performant digital products. We replace manual bottlenecks with secure, automated software pipelines.",
+    text: "To help businesses replace spreadsheets, manual processes, and disconnected tools with clean, well-built software that actually works. No overpromising, no buzzwords.",
     icon: "shield",
   },
   {
-    title: "Our Vision",
-    text: "To be the premier global technology partner for ambitious companies. We aim to establish high standards in code clarity, conversion optimization, and stable SaaS architectures.",
+    title: "Our Approach",
+    text: "We keep things simple. You talk directly to the developers. We ship working code every week. You own everything we build. We stay available after launch.",
     icon: "rocket",
   },
 ];
 
 const values = [
-  { title: "Engineering Excellence", desc: "Clean architecture, rigorous code reviews, and production-grade deployments.", icon: "code" },
-  { title: "Client Partnership", desc: "Transparent communication, weekly demos, and collaborative decision-making.", icon: "users" },
-  { title: "Innovation First", desc: "AI, cloud-native systems, and modern frameworks at the core of every build.", icon: "sparkles" },
-  { title: "Global Delivery", desc: "Serving clients across India, North America, Europe, UAE, and Southeast Asia.", icon: "globe" },
+  { title: "Clean Code", desc: "Well-structured architecture, code reviews, and production-grade deployments. No spaghetti code.", icon: "code" },
+  { title: "Direct Access", desc: "You talk to the developers who write your code. No middlemen relaying messages.", icon: "users" },
+  { title: "Modern Stack", desc: "React, Next.js, Node.js, Python, Django, PostgreSQL, AWS — frameworks with long-term community support.", icon: "sparkles" },
+  { title: "Global Delivery", desc: "India-based engineering team serving clients across North America, Europe, UAE, and Southeast Asia.", icon: "globe" },
 ];
 
 export default function AboutPage() {
@@ -53,8 +53,8 @@ export default function AboutPage() {
     <PageShell>
       <PageHeader
         eyebrow="About Magnivel Technologies"
-        title="We engineer secure, scalable software systems built to grow."
-        description="Magnivel Technologies is a modern digital agency partnering with startups and enterprises to design, develop, and deploy production-grade websites, web portals, SaaS products, mobile apps, and custom AI systems."
+        title="Software built around how your business actually works."
+        description="Magnivel Technologies is a software development company based in India. We build websites, web applications, SaaS platforms, mobile apps, and AI systems for startups and growing businesses worldwide."
       />
 
       {/* Stats */}
@@ -70,8 +70,8 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Who We Are"
-          title="Built on purpose, driven by innovation"
-          description="A team of engineers, designers, and strategists committed to delivering software that creates lasting business value."
+          title="Built on purpose, not buzzwords"
+          description="We're a small team that takes on a limited number of projects at a time, so every client gets direct attention from senior developers."
           centered
           className="mx-auto"
         />

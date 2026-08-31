@@ -24,9 +24,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://magnivel.com"),
-  title: "Magnivel Technologies",
+  title: "Magnivel Technologies | Custom Software, Web Apps & AI Development",
   description:
-    "Web Development, Mobile Apps, AI Solutions and Custom Software Development",
+    "Magnivel Technologies builds websites, web apps, mobile apps, SaaS platforms, and AI systems for startups and growing businesses worldwide.",
   keywords: [
     "Magnivel Technologies",
     "software development company",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     address: true,
   },
   openGraph: {
-    title: "Magnivel Technologies | AI-Powered Digital Products",
+    title: "Magnivel Technologies | Custom Software, Web Apps & AI Development",
     description:
-      "We help startups, businesses and enterprises build scalable digital products that drive growth and innovation.",
+      "We build websites, web apps, mobile apps, SaaS platforms, and AI systems for startups and growing businesses.",
     url: "https://magnivel.com",
     siteName: "Magnivel Technologies",
     type: "website",
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Magnivel Technologies",
-    description: "Building AI-Powered Websites, Applications & SaaS Platforms",
+    title: "Magnivel Technologies | Custom Software & AI Development",
+    description: "Websites, web apps, mobile apps, SaaS platforms, and AI systems for growing businesses.",
     site: "@magnivelinc",
   },
   robots: {
@@ -111,7 +111,7 @@ const jsonLd = {
   url: "https://magnivel.com",
   email: "contact@magnivel.com",
   description:
-    "Software development company specializing in AI-powered websites, web applications, mobile apps, SaaS platforms, and custom software solutions.",
+    "Software development company building websites, web applications, mobile apps, SaaS platforms, and custom AI systems for businesses worldwide.",
   foundingDate: "2021",
   areaServed: "Worldwide",
   knowsAbout: [

@@ -65,13 +65,14 @@ export function ContactForm() {
     }
 
     const website = formData.get("website") as string;
+    const budget = formData.get("budget") as string;
 
     const payload = {
       fullName,
       email,
       companyName,
       serviceType,
-      budget: "",
+      budget: budget || "",
       timeline: "",
       message: messageText,
       website: website || "",
@@ -218,6 +219,7 @@ export function ContactForm() {
                 <option value="Website Development">Website Development</option>
                 <option value="Web Application Development">Web Application Development</option>
                 <option value="Mobile App Development">Mobile App Development</option>
+                <option value="SaaS Development">SaaS Development</option>
                 <option value="AI Solutions">AI Solutions</option>
                 <option value="Custom Software">Custom Software</option>
                 <option value="UI/UX Design">UI/UX Design</option>
@@ -234,6 +236,32 @@ export function ContactForm() {
               <p className="text-xs font-semibold text-red-500 mt-1">{validationErrors.serviceType}</p>
             )}
           </label>
+
+          {/* Budget Range */}
+          <label className="contact-label sm:col-span-2">
+            <span>Budget Range <span className="text-gray-400 font-normal">(Optional)</span></span>
+            <div className="relative">
+              <select
+                name="budget"
+                defaultValue=""
+                className="contact-input appearance-none pr-10"
+              >
+                <option value="">Select a budget range</option>
+                <option value="Under $1,000">Under $1,000</option>
+                <option value="$1,000 - $3,000">$1,000 – $3,000</option>
+                <option value="$3,000 - $5,000">$3,000 – $5,000</option>
+                <option value="$5,000 - $10,000">$5,000 – $10,000</option>
+                <option value="$10,000 - $25,000">$10,000 – $25,000</option>
+                <option value="$25,000+">$25,000+</option>
+                <option value="Let's Discuss">Let&apos;s Discuss</option>
+              </select>
+              <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-400">
+                <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                </svg>
+              </span>
+            </div>
+          </label>
         </div>
 
         {/* Project Description */}
@@ -245,7 +273,7 @@ export function ContactForm() {
             ref={textareaRef}
             rows={4}
             onChange={handleDescriptionChange}
-            placeholder="Tell us about your project requirements, business goals, and preferred technologies."
+            placeholder="Tell us about your project — what you want to build, who it's for, and any specific requirements."
             className={`contact-input resize-none py-4 min-h-[120px] overflow-hidden ${
               validationErrors.message ? "border-red-500" : ""
             }`}
@@ -279,6 +307,25 @@ export function ContactForm() {
             "Send Project Inquiry"
           )}
         </button>
+
+        {/* What Happens Next */}
+        <div className="rounded-2xl border border-subtle-border bg-[#F7F4EF]/50 p-5 mt-1">
+          <p className="text-xs font-bold uppercase tracking-widest text-accent-secondary mb-3">What Happens Next</p>
+          <div className="grid gap-2.5 text-xs text-muted leading-relaxed">
+            <div className="flex items-start gap-2.5">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-bold mt-0.5">1</span>
+              <span>We review your requirements within 24 hours.</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-bold mt-0.5">2</span>
+              <span>We schedule a call to discuss scope, timeline, and budget.</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-bold mt-0.5">3</span>
+              <span>We send you a detailed proposal with clear deliverables.</span>
+            </div>
+          </div>
+        </div>
       </form>
     </>
   );

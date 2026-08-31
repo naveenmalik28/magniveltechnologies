@@ -180,7 +180,7 @@ export function GlobalPresence() {
             Worldwide Delivery, Local Excellence
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted">
-            Serving clients across continents with conference technology, publishing platforms, and research ecosystem solutions.
+            Our development team is based in India, building software for clients across North America, Europe, UAE, and Southeast Asia.
           </p>
         </ScrollReveal>
 

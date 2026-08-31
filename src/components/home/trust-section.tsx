@@ -5,10 +5,10 @@ import { AnimatedCounter, ScrollReveal, StaggerContainer, StaggerItem } from "@/
 import { trustMetrics } from "@/lib/home-data";
 
 const indicators = [
-  "Enterprise-Grade Security",
-  "NDA Protected Projects",
-  "24/7 Support Available",
-  "Agile Delivery Model",
+  "NDA-Protected Engagements",
+  "100% Source Code Ownership",
+  "Post-Launch Support Included",
+  "Agile Sprint Delivery",
 ];
 
 export function TrustSection() {
@@ -19,10 +19,10 @@ export function TrustSection() {
         <ScrollReveal className="text-center">
           <span className="section-eyebrow">Trust & Credibility</span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl lg:text-5xl">
-            Proven Expertise You Can Rely On
+            What You Can Count On
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted">
-            Years of delivering enterprise-grade software with measurable business impact across industries worldwide.
+            We focus on clean code, clear communication, and delivering what we promise.
           </p>
         </ScrollReveal>
 

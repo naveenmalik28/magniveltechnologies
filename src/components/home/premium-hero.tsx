@@ -44,11 +44,11 @@ export function PremiumHero() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-heading sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              BUILDING THE
+              WE BUILD
               <br />
-              SYSTEMS THAT
+              SOFTWARE THAT
               <br />
-              <span className="gradient-text">DRIVE BUSINESS</span>
+              <span className="gradient-text">MOVES BUSINESS</span>
             </motion.h1>
 
             <motion.p
@@ -57,7 +57,7 @@ export function PremiumHero() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xl text-sm leading-relaxed text-muted sm:text-base md:text-lg font-sans"
             >
-              Magnivel Technologies is a software development company that helps businesses build websites, web applications, SaaS platforms, mobile apps, AI solutions, and custom software.
+              We design and build websites, web apps, mobile apps, SaaS platforms, and AI-powered systems for startups and growing businesses.
             </motion.p>
 
             <motion.div
@@ -67,7 +67,7 @@ export function PremiumHero() {
               className="mt-8 flex flex-wrap gap-4"
             >
               <MagneticButton href="/contact">
-                Get Free Consultation
+                Start a Project
                 <Icon name="arrow-right" size={14} className="text-white" />
               </MagneticButton>
               <MagneticButton href="/portfolio" variant="secondary">
@@ -84,9 +84,9 @@ export function PremiumHero() {
               className="mt-12 flex flex-wrap gap-8 border-t border-subtle-border pt-8"
             >
               {[
-                { label: "Applied Intelligence", spec: "AI & ML DEVELOPMENT" },
-                { label: "Core Web Vitals Optimized", spec: "99+ LIGHTHOUSE SCORE" },
-                { label: "Client-Centric Collaboration", spec: "TRANSPARENT PROCESS" },
+                { label: "Web, Mobile & SaaS", spec: "FULL-STACK DEVELOPMENT" },
+                { label: "AI, RAG & Automation", spec: "AI & ML DEVELOPMENT" },
+                { label: "Direct Developer Access", spec: "TRANSPARENT PROCESS" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-accent-secondary font-mono">

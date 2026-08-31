@@ -12,7 +12,7 @@ import { TechMarquee } from "@/components/home/tech-marquee";
 import { TestimonialsCarousel } from "@/components/home/testimonials-carousel";
 import { TrustSection } from "@/components/home/trust-section";
 import { PageShell, SectionTitle } from "@/components/page-shell";
-import { faqs, homeServices, whyChoose } from "@/lib/site";
+import { faqs, homeServices, whyChoose, workingWithUs } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Magnivel Technologies | Web, Mobile App & AI Development Company",
@@ -48,38 +48,7 @@ export const metadata: Metadata = {
   },
 };
 
-const clientReviews = [
-  {
-    name: "Rajesh Kumar",
-    role: "CEO & Founder",
-    company: "TechVentures India",
-    quote:
-      "Magnivel Technologies transformed our digital presence. Their AI agents and clean web builds have automated our leads routing flawlessly.",
-    rating: 5,
-    metrics: "3x Inquiries Growth",
-    initials: "RK",
-  },
-  {
-    name: "Sarah Mitchell",
-    role: "Head of Product",
-    company: "DataFlow Systems USA",
-    quote:
-      "Working with Magnivel was exceptional. They built our customer operations panel quickly, and the Gemini integration saves our support reps hours every day.",
-    rating: 5,
-    metrics: "60% Staff Hours Saved",
-    initials: "SM",
-  },
-  {
-    name: "Faisal Al-Suwaidi",
-    role: "Managing Director",
-    company: "Apex Properties Dubai",
-    quote:
-      "Highly competent tech partner. They delivered a custom database engine on budget and under schedule. Recommended for complex software engineering.",
-    rating: 5,
-    metrics: "100% Reliable Deployment",
-    initials: "FA",
-  },
-];
+
 
 const structuredData = [
   {
@@ -208,8 +177,8 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Why Magnivel"
-            title="Engineered for Scalability"
-            description="We combine cutting-edge technology with proven engineering practices to deliver solutions that drive real business outcomes."
+            title="How We Work"
+            description="Here's what you get when you work with Magnivel Technologies."
             centered
             className="mx-auto"
           />
@@ -230,7 +199,31 @@ export default function Home() {
       <TechEcosystem />
       <GlobalPresence />
       <ClientJourney />
-      <TestimonialsCarousel reviews={clientReviews} />
+      {/* What Working With Us Looks Like */}
+      <section className="border-t border-subtle-border py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <span className="section-eyebrow">Our Process</span>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl">
+              What Working With Us Looks Like
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base text-muted">
+              We believe in transparency over testimonials. Here&apos;s how we actually work with clients.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {workingWithUs.map((item, i) => (
+              <article key={item.title} className="glass-card p-8">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-extrabold border border-primary/20">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-heading mt-5 text-base font-extrabold uppercase tracking-wide text-heading">{item.title}</h3>
+                <p className="mt-3 text-xs leading-relaxed text-muted font-sans">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <section className="border-t border-subtle-border bg-background-secondary py-32">
@@ -270,15 +263,15 @@ export default function Home() {
               <span className="gradient-text">Amazing?</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-xs text-muted sm:text-sm font-sans uppercase tracking-widest">
-              Let&apos;s discuss your next software, AI, or digital transformation project.
+              Tell us about your project — we&apos;ll review it and get back to you within 24 hours.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary premium-btn">
-                Book Consultation
+                Start a Project
                 <Icon name="arrow-right" size={16} />
               </Link>
               <a href="mailto:contact@magnivel.com" className="btn-secondary premium-btn">
-                Contact Us
+                Email Us Directly
                 <Icon name="mail" size={16} />
               </a>
             </div>

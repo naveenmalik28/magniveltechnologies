@@ -20,16 +20,16 @@ export function CaseStudiesSection() {
         <ScrollReveal>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span className="section-eyebrow">Case Studies</span>
+              <span className="section-eyebrow">Portfolio</span>
               <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl lg:text-5xl">
-                Real Results, Real Impact
+                What We Can Build
               </h2>
               <p className="mt-4 max-w-xl text-base text-muted">
-                Detailed stories of how we solve complex business challenges with intelligent software engineering.
+                These concept projects show the types of systems we design and build. Each demonstrates our engineering approach for a specific business need.
               </p>
             </div>
             <Link href="/portfolio" className="btn-secondary shrink-0 text-xs">
-              All Case Studies
+              View All Projects
               <Icon name="arrow-right" size={14} />
             </Link>
           </div>
@@ -70,9 +70,12 @@ export function CaseStudiesSection() {
               <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#0b1020]/30" />
 
               {/* Industry badge */}
-              <div className="absolute left-4 top-4 z-10">
+              <div className="absolute left-4 top-4 z-10 flex gap-2">
                 <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
                   {study.industry}
+                </span>
+                <span className="inline-flex rounded-full border border-amber-300/30 bg-amber-500/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200 backdrop-blur-sm">
+                  Concept Project
                 </span>
               </div>
 
@@ -124,7 +127,7 @@ export function CaseStudiesSection() {
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">
-                  Business Impact
+                  What This Achieves
                 </p>
                 <p className="mt-2 text-sm font-semibold text-heading">
                   {study.impact}

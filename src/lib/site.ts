@@ -2,10 +2,9 @@ export const site = {
   name: "Magnivel Technologies",
   url: "https://magnivel.com",
   email: "contact@magnivel.com",
-  phone: "+91 00000 00000",
-  tagline: "Professional web, mobile app, and custom software development for businesses globally",
+  tagline: "Custom software, web apps, mobile apps, SaaS platforms, and AI systems built around how your business works",
   description:
-    "Magnivel Technologies builds scalable websites, mobile apps, SaaS platforms, cloud systems, and custom software for businesses worldwide.",
+    "Magnivel Technologies builds websites, web applications, mobile apps, SaaS platforms, and custom AI systems for startups and growing businesses worldwide.",
   socials: {
     linkedin: "https://www.linkedin.com/company/magnivel-technologies",
     instagram: "https://www.instagram.com/magniveltechnologies",
@@ -358,27 +357,26 @@ export const projects = [
   },
 ];
 
-export const testimonials = [
+export const workingWithUs = [
   {
-    name: "Rajesh Kumar",
-    role: "CEO & Founder",
-    company: "TechVentures India",
-    text: "Magnivel Technologies transformed our digital presence. Their team delivered a strong platform with impressive design, speed, and attention to detail.",
-    rating: 5,
+    title: "Direct Communication",
+    description: "You talk directly to the developers building your product. No account managers, no middlemen. We use Slack, email, or WhatsApp — whatever works for you.",
   },
   {
-    name: "Sarah Mitchell",
-    role: "Head of Product",
-    company: "DataFlow Systems",
-    text: "Working with Magnivel was excellent. They built our operations dashboard quickly, and the AI automation saved our team many hours each week.",
-    rating: 5,
+    title: "Weekly Demos",
+    description: "Every week, we show you what we've built on a live staging link. You can test features, give feedback, and see real progress.",
   },
   {
-    name: "Amit Patel",
-    role: "CTO",
-    company: "CloudNine Labs",
-    text: "Their technical execution is outstanding. Magnivel architected our SaaS platform from scratch and gave us a clean foundation for scale.",
-    rating: 5,
+    title: "Source Code Ownership",
+    description: "You own 100% of the code, databases, and deployment infrastructure. We hand over everything — no lock-in, no proprietary dependencies.",
+  },
+  {
+    title: "Clear Documentation",
+    description: "We deliver technical documentation, deployment guides, and admin manuals so your team can maintain and extend the product independently.",
+  },
+  {
+    title: "Post-Launch Support",
+    description: "After launch, we provide bug fixes, monitoring, security patches, and feature updates. We don't disappear after deployment.",
   },
 ];
 
@@ -450,10 +448,10 @@ export const processSteps = [
 ];
 
 export const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "100%", label: "Client Focused" },
   { value: "20+", label: "Technologies" },
-  { value: "Global", label: "Service Reach" },
+  { value: "100%", label: "Code Ownership" },
+  { value: "Direct", label: "Developer Access" },
+  { value: "Global", label: "Delivery Reach" },
 ];
 
 export const homeServices = [
@@ -514,12 +512,12 @@ export const homeServices = [
 ];
 
 export const whyChoose = [
-  { title: "Custom Development", emoji: "💻", description: "We build custom software tailored exactly to your business workflows and processes, avoiding the limitations of templates.", icon: "code" as const },
-  { title: "Transparent Communication", emoji: "💬", description: "We maintain open lines of communication, providing regular updates, staging links, and direct developer access.", icon: "zap" as const },
-  { title: "Dedicated Support", emoji: "🛠️", description: "Our team provides consistent post-launch support, monitoring system health, addressing bugs, and keeping packages updated.", icon: "shield" as const },
-  { title: "Scalable Solutions", emoji: "📈", description: "We design architectures that scale horizontally, prepared to handle growth in users, transactions, and data.", icon: "trending-up" as const },
-  { title: "Modern Technology Stack", emoji: "⚙️", description: "We build with proven modern frameworks like React, Next.js, Node.js, and Python, ensuring long-term viability.", icon: "layers" as const },
-  { title: "Long-Term Partnership", emoji: "🤝", description: "We work as your technology partner, supporting your business as it evolves, helping plan and execute future phases.", icon: "globe" as const },
+  { title: "Built for Your Workflow", emoji: "💻", description: "We build software that matches how your business actually works — not a template you have to adapt to.", icon: "code" as const },
+  { title: "You Talk to Developers", emoji: "💬", description: "No project managers relaying messages. You communicate directly with the engineers who write your code.", icon: "zap" as const },
+  { title: "Support After Launch", emoji: "🛠️", description: "We handle bug fixes, security patches, server monitoring, and feature updates after your product goes live.", icon: "shield" as const },
+  { title: "Built to Handle Growth", emoji: "📈", description: "We design database schemas and APIs that handle increasing users, transactions, and data without breaking.", icon: "trending-up" as const },
+  { title: "Proven Tech Stack", emoji: "⚙️", description: "React, Next.js, Node.js, Python, Django, PostgreSQL, AWS — frameworks with large communities and long-term support.", icon: "layers" as const },
+  { title: "Long-Term Partnership", emoji: "🤝", description: "We stay with you beyond launch — helping plan new features, optimize performance, and scale as your business grows.", icon: "globe" as const },
 ];
 
 export const industries = [
@@ -535,15 +533,8 @@ export const industries = [
   "Startups",
 ];
 
-export const trustedBy = [
-  "Govixa India",
-  "TechVentures",
-  "DataFlow Systems",
-  "CloudNine Labs",
-  "Artisan Digital",
-  "ScaleUp AI",
-  "NovaByte",
-];
+/* Client logos removed — will be populated when verified client permissions are available */
+export const trustedBy: string[] = [];
 
 export const careersBenefits = [
   {
