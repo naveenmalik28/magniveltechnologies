@@ -349,28 +349,24 @@ export default function AIChatbotCostPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      {/* Breadcrumb Navigation */}
-      <div className="border-b border-subtle-border bg-surface/50 py-3 text-xs text-muted">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2">
-            <Link href="/" className="hover:text-heading transition-colors">
-              Home
-            </Link>
-            <span className="text-dimmed">/</span>
-            <Link href="/services" className="hover:text-heading transition-colors">
-              Services
-            </Link>
-            <span className="text-dimmed">/</span>
-            <span className="font-semibold text-heading">AI Chatbot Development Cost</span>
-          </nav>
-        </div>
-      </div>
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-subtle-border bg-grid gradient-mesh py-16 sm:py-24">
+      {/* Hero Section with Integrated Breadcrumbs */}
+      <section className="relative overflow-hidden border-b border-subtle-border bg-grid gradient-mesh pt-28 pb-16 sm:pt-36 sm:pb-24">
         <div className="absolute left-1/2 top-0 h-96 w-[50rem] -translate-x-1/2 rounded-full bg-accent-secondary/5 blur-3xl animate-pulse-glow pointer-events-none" />
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation */}
+          <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs font-medium text-muted">
+            <Link href="/" className="hover:text-primary transition-colors">
+              Home
+            </Link>
+            <span className="text-dimmed">/</span>
+            <Link href="/services" className="hover:text-primary transition-colors">
+              Services
+            </Link>
+            <span className="text-dimmed">/</span>
+            <span className="text-heading font-semibold">AI Chatbot Development Cost</span>
+          </nav>
+
           <div className="max-w-3xl">
             <span className="section-eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary" />
