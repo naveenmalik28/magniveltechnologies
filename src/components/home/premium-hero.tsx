@@ -32,7 +32,7 @@ export function PremiumHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full border border-accent-secondary/30 bg-accent-secondary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent-secondary"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-primary"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Software Development Company
@@ -42,7 +42,7 @@ export function PremiumHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-heading sm:text-5xl md:text-6xl lg:text-7xl"
+              className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-heading sm:text-5xl md:text-6xl lg:text-7xl"
             >
               WE BUILD
               <br />
@@ -89,7 +89,7 @@ export function PremiumHero() {
                 { label: "Direct Developer Access", spec: "TRANSPARENT PROCESS" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-accent-secondary font-mono">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-primary font-mono">
                     {"// "}{item.spec}
                   </span>
                   <span className="text-[11px] font-bold text-muted font-heading uppercase tracking-wider">
@@ -157,7 +157,7 @@ export function PremiumHero() {
           <motion.div 
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="h-1.5 w-1 rounded-full bg-accent-secondary" 
+            className="h-1.5 w-1 rounded-full bg-primary" 
           />
         </a>
       </motion.div>

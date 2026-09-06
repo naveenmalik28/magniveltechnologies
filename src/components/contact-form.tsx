@@ -105,7 +105,7 @@ export function ContactForm() {
   if (state === "success") {
     return (
       <div className="glass-card flex flex-col items-center justify-center p-10 text-center sm:p-14 animate-fade-up max-w-xl mx-auto rounded-[24px] border border-subtle-border bg-white shadow-xl">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 text-[#0F766E] border border-teal-100 shadow-md shadow-teal-50">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 text-[#1769E0] border border-blue-100 shadow-md shadow-blue-50">
           <svg className="h-8 w-8 animate-bounce" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
@@ -137,14 +137,14 @@ export function ContactForm() {
           padding: 0 18px !important;
           font-size: 14px !important;
           font-weight: 500 !important;
-          color: #1F2937 !important;
+          color: #0B1F3A !important;
           outline: none !important;
           transition: all 0.25s ease-in-out !important;
           width: 100% !important;
         }
         .contact-input:focus {
-          border-color: #0F766E !important;
-          box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1) !important;
+          border-color: #1769E0 !important;
+          box-shadow: 0 0 0 4px rgba(23, 105, 224, 0.1) !important;
         }
         .contact-label {
           display: flex;

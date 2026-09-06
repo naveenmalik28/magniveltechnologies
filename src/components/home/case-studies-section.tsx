@@ -67,7 +67,7 @@ export function CaseStudiesSection() {
               className={`relative flex flex-col rounded-2xl bg-gradient-to-br ${study.gradient}`}
             >
               <div className="pointer-events-none absolute inset-0 rounded-2xl bg-grid opacity-20" />
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#0b1020]/30" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#071A33]/30" />
 
               {/* Industry badge */}
               <div className="absolute left-4 top-4 z-10 flex gap-2">
@@ -85,7 +85,7 @@ export function CaseStudiesSection() {
               </div>
 
               {/* Title + metrics footer */}
-              <div className="relative border-t border-white/10 bg-[#0b1020]/60 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4">
+              <div className="relative border-t border-white/10 bg-[#071A33]/60 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4">
                 <h3 className="text-base font-extrabold text-white sm:text-lg lg:text-xl">
                   {study.title}
                 </h3>
@@ -110,7 +110,7 @@ export function CaseStudiesSection() {
             {/* Story details */}
             <div className="flex flex-col justify-center gap-5 sm:gap-6">
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-secondary">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
                   The Challenge
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -118,7 +118,7 @@ export function CaseStudiesSection() {
                 </p>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-secondary">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
                   Our Solution
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -141,7 +141,7 @@ export function CaseStudiesSection() {
                   {study.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-subtle-border bg-[#F7F4EF]/50 px-3 py-1 text-xs font-semibold text-foreground transition hover:border-primary/30 hover:text-accent-secondary"
+                      className="rounded-lg border border-subtle-border bg-[#F1EEE5]/50 px-3 py-1 text-xs font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
                     >
                       {t}
                     </span>

@@ -50,8 +50,8 @@ export function BlogClient() {
               onClick={() => setSelectedCategory("all")}
               className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === "all"
-                  ? "bg-accent text-white shadow-lg shadow-accent/25"
-                  : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-heading"
+                  ? "bg-accent text-white shadow-lg shadow-primary/20"
+                  : "border border-white/10 bg-surface text-muted hover:border-primary/20 hover:text-heading"
               }`}
             >
               All Articles
@@ -62,8 +62,8 @@ export function BlogClient() {
                 onClick={() => setSelectedCategory(cat.slug)}
                 className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   selectedCategory === cat.slug
-                    ? "bg-accent text-white shadow-lg shadow-accent/25"
-                    : "border border-white/10 bg-surface text-muted hover:border-accent/30 hover:text-heading"
+                    ? "bg-accent text-white shadow-lg shadow-primary/20"
+                    : "border border-white/10 bg-surface text-muted hover:border-primary/20 hover:text-heading"
                 }`}
               >
                 {cat.label}
@@ -83,7 +83,7 @@ export function BlogClient() {
                   <div className="flex items-center justify-between gap-2">
                     <Link
                       href={`/blog/category/${post.category}`}
-                      className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-accent-dark transition hover:border-accent/40"
+                      className="rounded-full border border-primary/15 bg-primary/8 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-primary transition hover:border-primary/25"
                     >
                       {post.categoryLabel}
                     </Link>
@@ -91,7 +91,7 @@ export function BlogClient() {
                   </div>
 
                   <Link href={`/blog/${post.slug}`} className="block">
-                    <h3 className="mt-4 text-lg font-extrabold text-heading transition group-hover:text-accent-dark leading-snug">
+                    <h3 className="mt-4 text-lg font-extrabold text-heading transition group-hover:text-primary leading-snug">
                       {post.title}
                     </h3>
                   </Link>
@@ -103,7 +103,7 @@ export function BlogClient() {
 
                 <div className="mt-6 flex items-center justify-between border-t border-subtle-border pt-4">
                   <div className="flex items-center gap-2.5">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-secondary text-[10px] font-bold text-white">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#071A33] to-[#1769E0] text-[10px] font-bold text-white">
                       {post.author.avatar}
                     </span>
                     <div>

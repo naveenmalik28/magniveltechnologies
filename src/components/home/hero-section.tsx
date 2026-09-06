@@ -10,9 +10,9 @@ export function HeroSection() {
   return (
     <section className="gradient-mesh bg-grid relative overflow-hidden">
       <ParticlesBackground count={24} />
-      <div className="pointer-events-none absolute left-1/4 top-20 h-96 w-96 rounded-full bg-accent/15 blur-[120px]" />
-      <div className="pointer-events-none absolute right-1/4 top-40 h-80 w-80 rounded-full bg-accent-secondary/10 blur-[100px]" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-accent-light/8 blur-[80px]" />
+      <div className="pointer-events-none absolute left-1/4 top-20 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
+      <div className="pointer-events-none absolute right-1/4 top-40 h-80 w-80 rounded-full bg-accent-secondary/6 blur-[100px]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-[80px]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-32">
         <div>
@@ -20,9 +20,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-dark"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-light animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             AI-Powered Software Development
           </motion.span>
 

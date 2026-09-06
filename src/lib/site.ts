@@ -9,6 +9,16 @@ export const site = {
     linkedin: "https://www.linkedin.com/company/magnivel-technologies",
     instagram: "https://www.instagram.com/magniveltechnologies",
   },
+  address: {
+    title: "Corporate Office",
+    line1: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24",
+    line2: "Northwest, Delhi, 110085, India",
+    full: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24, Northwest, Delhi, 110085, India",
+    city: "Northwest Delhi",
+    state: "Delhi",
+    postalCode: "110085",
+    country: "India",
+  },
 };
 
 export const services = [

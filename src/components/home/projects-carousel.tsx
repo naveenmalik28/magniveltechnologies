@@ -59,9 +59,9 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
               className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-subtle-border bg-gradient-to-br ${project.gradient}"
             >
               <div className="absolute inset-0 bg-grid opacity-30" />
-              <div className="absolute inset-0 bg-[#0b1020]/40" />
+              <div className="absolute inset-0 bg-[#071A33]/40" />
               <div className="relative flex h-full flex-col justify-end p-6 sm:p-8">
-                <span className="inline-flex w-fit rounded-full border border-accent-secondary/30 bg-accent-secondary/10 px-3 py-1 text-xs font-bold text-accent-secondary">
+                <span className="inline-flex w-fit rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-bold text-primary">
                   {project.impact}
                 </span>
                 <h3 className="mt-4 text-2xl font-extrabold text-white sm:text-3xl">{project.title}</h3>
@@ -96,14 +96,14 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                <button
                 onClick={prev}
                 aria-label="Previous project"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-subtle-border bg-surface text-foreground transition hover:border-accent/40 hover:text-accent-dark"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-subtle-border bg-surface text-foreground transition hover:border-primary/30 hover:text-primary"
               >
                 <Icon name="chevron-right" size={18} className="rotate-180" />
               </button>
               <button
                 onClick={next}
                 aria-label="Next project"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-subtle-border bg-surface text-foreground transition hover:border-accent/40 hover:text-accent-dark"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-subtle-border bg-surface text-foreground transition hover:border-primary/30 hover:text-primary"
               >
                 <Icon name="chevron-right" size={18} />
               </button>

@@ -58,6 +58,14 @@ const structuredData = [
     description:
       "Global technology partner delivering AI-powered software, enterprise platforms, digital transformation solutions, and scalable innovation.",
     areaServed: "Worldwide",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24",
+      addressLocality: "Northwest Delhi",
+      addressRegion: "Delhi",
+      postalCode: "110085",
+      addressCountry: "IN",
+    },
     serviceType: [
       "AI Solutions",
       "Custom Software Development",
@@ -119,14 +127,14 @@ export default function Home() {
                 key={service.title}
                 className="glass-card flex flex-col p-8 transition-all"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary transition group-hover:border-accent-secondary/50 group-hover:shadow-lg group-hover:shadow-accent-secondary/20">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/15 bg-primary/5 text-primary transition group-hover:border-primary/50 group-hover:shadow-lg group-hover:shadow-primary/20">
                   <Icon name={service.icon} size={22} />
                 </span>
-                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading">{service.title}</h3>
-                <p className="mt-4 flex-1 text-xs leading-relaxed text-muted font-sans">{service.description}</p>
+                <h3 className="font-heading mt-6 font-semibold text-lg text-heading">{service.title}</h3>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted font-sans">{service.description}</p>
                 <Link
                   href={service.href}
-                  className="link-underline mt-8 inline-flex items-center gap-1.5 text-xs font-bold font-heading uppercase tracking-widest text-accent-secondary hover:text-primary"
+                  className="link-underline mt-8 inline-flex items-center gap-1.5 text-sm font-semibold font-heading tracking-wide text-primary hover:text-heading"
                 >
                   Learn More
                   <Icon name="arrow-right" size={12} className="transition-transform group-hover:translate-x-1" />
@@ -139,15 +147,15 @@ export default function Home() {
 
       {/* Ready-to-Launch Websites CTA Section */}
       <section className="border-t border-subtle-border bg-background-secondary/50 py-20 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/3 to-accent-secondary/3 animate-pulse-glow" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/3 to-primary/3 animate-pulse-glow" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="glass-card p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border-primary/10">
             <div className="max-w-2xl">
               <span className="section-eyebrow mb-4">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 Launch Instantly
               </span>
-              <h3 className="font-heading text-2xl font-extrabold uppercase tracking-wider text-heading sm:text-3xl">
+              <h3 className="font-heading text-2xl font-bold tracking-tight text-heading sm:text-3xl">
                 Ready-Made Websites for Sale
               </h3>
               <p className="mt-4 text-xs leading-relaxed text-muted sm:text-sm font-medium">
@@ -172,7 +180,7 @@ export default function Home() {
 
       {/* Why Choose Magnivel */}
       <section className="relative overflow-hidden border-y border-subtle-border bg-background-secondary py-32">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent-secondary/3 via-transparent to-primary/3" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/3 via-transparent to-primary/3" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="Why Magnivel"
@@ -187,7 +195,7 @@ export default function Home() {
                 <span className="text-3xl" role="img" aria-hidden="true">
                   {item.emoji}
                 </span>
-                <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading">{item.title}</h3>
+                <h3 className="font-heading mt-6 font-semibold text-lg text-heading">{item.title}</h3>
                 <p className="mt-4 text-xs leading-relaxed text-muted font-sans">{item.description}</p>
               </article>
             ))}
@@ -216,7 +224,7 @@ export default function Home() {
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-extrabold border border-primary/20">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="font-heading mt-5 text-base font-extrabold uppercase tracking-wide text-heading">{item.title}</h3>
+                <h3 className="font-heading mt-5 font-semibold text-lg text-heading">{item.title}</h3>
                 <p className="mt-3 text-xs leading-relaxed text-muted font-sans">{item.description}</p>
               </article>
             ))}
@@ -237,9 +245,9 @@ export default function Home() {
           <div className="grid gap-6 lg:col-span-7">
             {faqs.map((faq) => (
               <details key={faq.question} className="group glass-card p-6">
-                <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-heading select-none font-heading uppercase tracking-wide">
+                <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold text-heading select-none font-heading">
                   {faq.question}
-                  <span className="text-accent-secondary transition-transform group-open:rotate-180">
+                  <span className="text-primary transition-transform group-open:rotate-180">
                     <Icon name="chevron-down" size={16} />
                   </span>
                 </summary>
@@ -254,14 +262,14 @@ export default function Home() {
 
       {/* Contact CTA */}
       <section className="relative overflow-hidden py-32 border-t border-subtle-border bg-gradient-to-b from-transparent to-background-secondary">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-secondary/3 via-transparent to-primary/3 animate-pulse-glow" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-primary/3 animate-pulse-glow" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="font-heading text-3xl font-extrabold uppercase tracking-widest text-heading sm:text-4xl lg:text-5xl">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl">
               Ready to Build Something{" "}
               <span className="gradient-text">Amazing?</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-xs text-muted sm:text-sm font-sans uppercase tracking-widest">
+            <p className="mx-auto mt-6 max-w-2xl text-xs text-muted sm:text-sm font-sans">
               Tell us about your project — we&apos;ll review it and get back to you within 24 hours.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">

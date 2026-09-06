@@ -14,7 +14,7 @@ const indicators = [
 export function TrustSection() {
   return (
     <section className="relative overflow-hidden border-y border-subtle-border py-24">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent-light/5" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/3 via-transparent to-accent-secondary/3" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center">
           <span className="section-eyebrow">Trust & Credibility</span>
@@ -30,7 +30,7 @@ export function TrustSection() {
           {trustMetrics.map((metric, i) => (
             <ScrollReveal key={metric.label} delay={i * 0.08}>
               <div className="glass-card group p-6 text-center">
-                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent-dark transition group-hover:shadow-lg group-hover:shadow-accent/25">
+                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl border border-primary/15 bg-primary/8 text-primary transition group-hover:shadow-lg group-hover:shadow-primary/25">
                   <Icon name={metric.icon} size={18} />
                 </span>
                 <div className="mt-4">

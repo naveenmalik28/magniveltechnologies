@@ -32,7 +32,7 @@ export function ClientJourney() {
         <div className="relative mx-auto mt-14 hidden max-w-4xl lg:block">
           <div className="h-1 rounded-full bg-subtle-border">
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-primary to-accent-secondary"
+              className="h-full rounded-full bg-gradient-to-r from-[#071A33] to-[#1769E0]"
               style={{ width: isInView ? progressWidth : "0%" }}
             />
           </div>
@@ -48,8 +48,8 @@ export function ClientJourney() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <div className="relative mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-accent/25 bg-accent/10">
-                <Icon name={step.icon} size={20} className="text-accent-dark" />
+              <div className="relative mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-accent/10">
+                <Icon name={step.icon} size={20} className="text-primary" />
                 <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[9px] font-bold text-white">
                   {step.step}
                 </span>

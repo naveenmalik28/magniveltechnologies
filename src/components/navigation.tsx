@@ -81,8 +81,8 @@ export function Navigation() {
     >
       <nav className={`mx-auto flex items-center justify-between gap-4 rounded-full border px-6 py-2.5 shadow-sm backdrop-blur-md transition-all duration-500 ${
         scrolled
-          ? "border-black/5 bg-[rgba(252,251,248,0.82)] shadow-[0_10px_30px_rgba(20,20,20,0.04)] py-2"
-          : "border-black/5 bg-[rgba(252,251,248,0.82)] py-3.5"
+          ? "border-black/5 bg-[rgba(248,246,240,0.85)] shadow-[0_10px_30px_rgba(7,26,51,0.04)] py-2"
+          : "border-black/5 bg-[rgba(248,246,240,0.85)] py-3.5"
       }`}>
         {/* Logo */}
         <Link href="/" className="group flex min-w-0 items-center gap-2 text-base font-extrabold tracking-widest text-heading">
@@ -101,7 +101,7 @@ export function Navigation() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden items-center gap-6 font-heading font-bold lg:flex">
-          <Link href="/about" className="link-underline text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors">
+          <Link href="/about" className="link-underline text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors">
             About
           </Link>
 
@@ -111,7 +111,7 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("services")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors cursor-pointer font-bold font-heading">
+            <button className="flex items-center gap-1 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors cursor-pointer">
               Services
               <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`} />
             </button>
@@ -138,7 +138,7 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("pricing")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors cursor-pointer font-bold font-heading">
+            <button className="flex items-center gap-1 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors cursor-pointer">
               Pricing
               <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "pricing" ? "rotate-180" : ""}`} />
             </button>
@@ -160,7 +160,7 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("industries")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors cursor-pointer font-bold font-heading">
+            <button className="flex items-center gap-1 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors cursor-pointer">
               Industries
               <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
             </button>
@@ -184,7 +184,7 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("tech")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors cursor-pointer font-bold font-heading">
+            <button className="flex items-center gap-1 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors cursor-pointer">
               Technologies
               <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
             </button>
@@ -208,14 +208,14 @@ export function Navigation() {
             onMouseEnter={() => setActiveDropdown("resources")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors cursor-pointer font-bold font-heading">
+            <button className="flex items-center gap-1 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors cursor-pointer">
               Resources & Tools
               <Icon name="chevron-down" size={12} className={`transition-transform duration-200 ${activeDropdown === "resources" ? "rotate-180" : ""}`} />
             </button>
             <div className="absolute right-0 top-full z-50 w-[560px] pt-2 transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">
               <div className="rounded-xl border border-subtle-border bg-surface p-5 shadow-xl grid grid-cols-[1.2fr_1fr] gap-5">
                 <div>
-                  <h4 className="text-[10px] font-bold font-heading uppercase tracking-widest text-accent-secondary px-2.5 mb-2">Resource Library</h4>
+                  <h4 className="text-[10px] font-bold font-heading uppercase tracking-widest text-primary px-2.5 mb-2">Resource Library</h4>
                   <div className="flex flex-col gap-1">
                     {resourceList.map((res) => (
                       <Link key={res.href} href={res.href} className="flex gap-2.5 rounded-lg p-2 transition-colors hover:bg-background-secondary">
@@ -245,7 +245,7 @@ export function Navigation() {
             </div>
           </div>
 
-          <Link href="/portfolio" className="link-underline text-[10px] uppercase tracking-widest text-muted hover:text-primary transition-colors">
+          <Link href="/portfolio" className="link-underline text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors">
             Portfolio
           </Link>
         </div>
@@ -272,7 +272,7 @@ export function Navigation() {
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg p-2.5 text-sm hover:bg-surface-hover hover:text-heading"
+              className="block rounded-lg p-2.5 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors"
             >
               About
             </Link>
@@ -383,7 +383,7 @@ export function Navigation() {
             <Link
               href="/portfolio"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg p-2.5 text-sm hover:bg-surface-hover hover:text-heading"
+              className="block rounded-lg p-2.5 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors"
             >
               Portfolio
             </Link>
@@ -391,7 +391,7 @@ export function Navigation() {
             <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg p-2.5 text-sm hover:bg-surface-hover hover:text-heading"
+              className="block rounded-lg p-2.5 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors"
             >
               Careers
             </Link>
@@ -416,7 +416,7 @@ function AccordionSection({ title, children }: { title: string; children: React.
     <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between rounded-lg p-2.5 text-sm hover:bg-surface-hover hover:text-heading font-semibold text-muted cursor-pointer"
+        className="flex w-full items-center justify-between rounded-lg p-2.5 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors cursor-pointer"
       >
         <span>{title}</span>
         <Icon name="chevron-down" size={14} className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -428,31 +428,40 @@ function AccordionSection({ title, children }: { title: string; children: React.
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#1F2937] text-[#D1D5DB]">
+    <footer className="border-t border-[#0F2847] bg-[#071A33] text-[#94A3B8]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-5 lg:px-8">
         <div className="flex flex-col gap-4 lg:col-span-2">
-          <Link href="/" className="group flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white">
+          <Link href="/" className="group flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-[#F8F6F0]">
             <Image
               src="/logo.jpg"
               alt="Magnivel Technologies logo"
               width={36}
               height={36}
-              className="rounded-lg object-cover border border-white/10"
+              className="rounded-lg object-cover border border-[#0F2847]"
             />
             <span>
-              Magnivel <span className="gradient-text">Technologies</span>
+              Magnivel <span className="text-[#3B82F6]">Technologies</span>
             </span>
           </Link>
-          <p className="max-w-sm text-sm leading-relaxed text-[#D1D5DB]">
+          <p className="max-w-sm text-sm leading-relaxed text-[#94A3B8]">
             We build web applications, mobile apps, and custom AI tools designed to help businesses scale. Modern engineering with a focus on speed, performance, and real results.
           </p>
+          <div className="flex items-start gap-2.5 text-xs text-[#94A3B8] max-w-sm">
+            <Icon name="map-pin" size={16} className="text-[#3B82F6] shrink-0 mt-0.5" />
+            <div>
+              <p className="font-bold uppercase tracking-wider text-[10px] text-[#CBD5E1]">{site.address.title}</p>
+              <p className="mt-0.5 text-xs leading-relaxed text-[#94A3B8]">
+                {site.address.full}
+              </p>
+            </div>
+          </div>
           <div className="flex items-center gap-3 pt-1">
             <a
               href={site.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[#D1D5DB] transition-all hover:-translate-y-0.5 hover:border-accent-secondary hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#0F2847] bg-white/5 text-[#94A3B8] transition-all hover:-translate-y-0.5 hover:border-[#3B82F6] hover:text-[#F8F6F0]"
             >
               <Icon name="linkedin" size={16} />
             </a>
@@ -461,59 +470,59 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[#D1D5DB] transition-all hover:-translate-y-0.5 hover:border-accent-secondary hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#0F2847] bg-white/5 text-[#94A3B8] transition-all hover:-translate-y-0.5 hover:border-[#3B82F6] hover:text-[#F8F6F0]"
             >
               <Icon name="instagram" size={16} />
             </a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-[#D1D5DB]">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white">Services</p>
+        <div className="flex flex-col gap-4 text-sm text-[#94A3B8]">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-[#F8F6F0]">Services</p>
           <div className="grid gap-2.5">
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/custom-software-development">Custom Software</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/ai-solutions">AI Solutions</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/website-development">Website Development</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/mobile-app-development">Mobile Apps</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/saas-development">SaaS Development</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/api-development">API Development</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/custom-software-development">Custom Software</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/ai-solutions">AI Solutions</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/website-development">Website Development</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/mobile-app-development">Mobile Apps</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/saas-development">SaaS Development</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/api-development">API Development</Link>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-[#D1D5DB]">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white">Technologies</p>
+        <div className="flex flex-col gap-4 text-sm text-[#94A3B8]">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-[#F8F6F0]">Technologies</p>
           <div className="grid gap-2.5">
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/react-development">React & Next.js</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/python-development">Python & Django</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/nodejs-development">Node.js</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/aws-development">AWS Cloud</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/technologies">All Technologies</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/react-development">React & Next.js</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/python-development">Python & Django</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/nodejs-development">Node.js</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/aws-development">AWS Cloud</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/technologies">All Technologies</Link>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-[#D1D5DB]">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white">Quick Links</p>
+        <div className="flex flex-col gap-4 text-sm text-[#94A3B8]">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-[#F8F6F0]">Quick Links</p>
           <div className="grid gap-2.5">
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/about">About Us</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/portfolio">Portfolio</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/careers">Careers</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/blog">Blog</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/contact">Contact</Link>
-            <Link className="transition-colors text-[#E5E7EB] hover:text-white" href="/resources">Resources</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/about">About Us</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/portfolio">Portfolio</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/careers">Careers</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/blog">Blog</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/contact">Contact</Link>
+            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/resources">Resources</Link>
           </div>
-          <div className="mt-2 border-t border-white/10 pt-4">
-            <a className="flex items-center gap-2 transition-colors text-[#E5E7EB] hover:text-white" href={`mailto:${site.email}`}>
-              <Icon name="mail" size={14} className="text-accent-secondary" />
+          <div className="mt-2 border-t border-[#0F2847] pt-4">
+            <a className="flex items-center gap-2 transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href={`mailto:${site.email}`}>
+              <Icon name="mail" size={14} className="text-[#3B82F6]" />
               {site.email}
             </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-6 text-xs text-[#9CA3AF]">
+      <div className="border-t border-[#0F2847] py-6 text-xs text-[#64748B]">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 sm:flex-row sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Magnivel Technologies. All rights reserved.</p>
-          <p className="text-[#9CA3AF]">Global delivery across India, USA, Europe, UAE &amp; Southeast Asia</p>
+          <p className="text-[#64748B]">Global delivery across India, USA, Europe, UAE &amp; Southeast Asia</p>
         </div>
       </div>
     </footer>

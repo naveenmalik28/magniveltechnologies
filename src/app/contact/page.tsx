@@ -29,6 +29,11 @@ const contactDetails = [
     href: `mailto:${site.email}`,
   },
   {
+    icon: "map-pin",
+    label: "Corporate Office",
+    value: site.address.full,
+  },
+  {
     icon: "globe",
     label: "Official Hub",
     value: site.url.replace("https://", ""),
@@ -67,14 +72,14 @@ export default function ContactPage() {
           <div className="flex flex-col gap-4 border-t border-subtle-border pt-5">
             {contactDetails.map((item) => (
               <div key={item.label} className="flex items-center gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent-dark">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/15 bg-primary/8 text-primary">
                   <Icon name={item.icon} size={16} />
                 </span>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-dimmed">{item.label}</p>
                   {item.href ? (
                     <a
-                      className="mt-0.5 text-sm font-semibold text-foreground transition hover:text-accent-dark"
+                      className="mt-0.5 text-sm font-semibold text-foreground transition hover:text-primary"
                       href={item.href}
                       target={item.icon === "globe" ? "_blank" : undefined}
                       rel={item.icon === "globe" ? "noopener noreferrer" : undefined}
@@ -89,8 +94,8 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="rounded-xl border border-accent/20 bg-accent/5 p-4">
-            <p className="text-xs font-bold text-accent-dark">Global Delivery</p>
+          <div className="rounded-xl border border-primary/15 bg-primary/5 p-4">
+            <p className="text-xs font-bold text-primary">Global Delivery</p>
             <p className="mt-1 text-xs text-muted leading-relaxed">
               Serving clients across India, North America, Europe, UAE, and Southeast Asia.
             </p>

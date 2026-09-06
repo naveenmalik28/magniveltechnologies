@@ -53,7 +53,7 @@ export function TestimonialsCarousel({ reviews }: { reviews: Review[] }) {
                 </span>
               ) : null}
               <div className="mt-8 flex flex-col items-center gap-3">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-secondary text-lg font-bold text-white">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#071A33] to-[#1769E0] text-lg font-bold text-white">
                   {review.initials}
                 </div>
                 <div>

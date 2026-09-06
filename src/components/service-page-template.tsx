@@ -126,7 +126,7 @@ export function ServicePageTemplate({
               className="rounded-xl border border-subtle-border bg-background p-5 hover:border-accent-light/20 transition-all"
             >
               <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary/15 bg-primary/5 text-primary">
                   <Icon name="check" size={12} />
                 </span>
                 <h4 className="text-xs font-extrabold text-heading uppercase tracking-wide">{feat.title}</h4>
@@ -151,7 +151,7 @@ export function ServicePageTemplate({
                 key={p.step}
                 className="rounded-xl border border-subtle-border bg-surface p-5 flex flex-col justify-between hover:border-accent/30 transition-all relative"
               >
-                <span className="absolute top-4 right-4 text-2xl font-extrabold text-accent/10">0{p.step}</span>
+                <span className="absolute top-4 right-4 text-2xl font-extrabold text-navy/10">0{p.step}</span>
                 <div>
                   <h4 className="text-xs font-extrabold text-heading uppercase tracking-wide">{p.title}</h4>
                   <p className="mt-3 text-[10px] leading-relaxed text-muted">{p.desc}</p>
@@ -179,7 +179,7 @@ export function ServicePageTemplate({
                   key={tech}
                   className="rounded-xl border border-subtle-border bg-background px-5 py-3 text-xs font-bold text-heading hover:border-accent/20 transition-all flex items-center gap-2"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   {tech}
                 </div>
               ))}
@@ -206,7 +206,7 @@ export function ServicePageTemplate({
               >
                 <summary className="cursor-pointer font-bold text-heading text-xs sm:text-sm flex justify-between items-center select-none">
                   {faq.question}
-                  <span className="transition-transform group-open:rotate-180 text-accent">
+                  <span className="transition-transform group-open:rotate-180 text-primary">
                     <Icon name="chevron-down" size={14} />
                   </span>
                 </summary>

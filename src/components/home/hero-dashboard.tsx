@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { Icon } from "@/components/icon";
 
 const nodes = [
-  { x: 50, y: 20, label: "AI Core", color: "#0F766E" },
-  { x: 20, y: 45, label: "Analytics", color: "#C68B59" },
-  { x: 80, y: 40, label: "Mobile", color: "#C68B59" },
-  { x: 35, y: 75, label: "Cloud", color: "#0F766E" },
-  { x: 70, y: 72, label: "API", color: "#C68B59" },
+  { x: 50, y: 20, label: "AI Core", color: "#1769E0" },
+  { x: 20, y: 45, label: "Analytics", color: "#3B82F6" },
+  { x: 80, y: 40, label: "Mobile", color: "#3B82F6" },
+  { x: 35, y: 75, label: "Cloud", color: "#1769E0" },
+  { x: 70, y: 72, label: "API", color: "#3B82F6" },
 ];
 
 const connections = [
@@ -25,7 +25,7 @@ const services = [
 
 const statusItems = [
   { label: "AI Models", status: "Active", color: "text-primary" },
-  { label: "Data Pipeline", status: "Streaming", color: "text-accent-secondary" },
+  { label: "Data Pipeline", status: "Streaming", color: "text-primary" },
 ];
 
 export function HeroDashboard() {
@@ -37,7 +37,7 @@ export function HeroDashboard() {
       className="relative"
     >
       {/* Glow backdrop */}
-      <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/8 via-accent-secondary/4 to-accent-light/8 blur-xl" />
+      <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/8 via-primary/4 to-accent-light/8 blur-xl" />
 
       {/* Main card — no overflow-hidden so nothing gets clipped */}
       <div className="glass-card relative p-4 sm:p-5 md:p-6">
@@ -48,7 +48,7 @@ export function HeroDashboard() {
             <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80 sm:h-3 sm:w-3" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80 sm:h-3 sm:w-3" />
           </div>
-          <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-accent-secondary sm:text-[10px]">
+          <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-primary sm:text-[10px]">
             magnivel-intelligence
           </span>
         </div>
@@ -56,7 +56,7 @@ export function HeroDashboard() {
         {/* Content grid — stacks on mobile, side-by-side on lg */}
         <div className="mt-3 grid gap-3 sm:mt-4 sm:gap-4 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Network visualization — aspect-ratio on mobile only, flexible on desktop */}
-          <div className="relative aspect-[4/3] rounded-xl border border-subtle-border bg-[#F3EEE7]/90 p-3 sm:p-4 lg:aspect-auto lg:min-h-[240px]">
+          <div className="relative aspect-[4/3] rounded-xl border border-subtle-border bg-[#EBE8DF]/90 p-3 sm:p-4 lg:aspect-auto lg:min-h-[240px]">
             <svg
               viewBox="0 0 100 100"
               className="h-full w-full"
@@ -84,8 +84,8 @@ export function HeroDashboard() {
                   x2="100%"
                   y2="100%"
                 >
-                  <stop offset="0%" stopColor="#0F766E" />
-                  <stop offset="100%" stopColor="#C68B59" />
+                  <stop offset="0%" stopColor="#1769E0" />
+                  <stop offset="100%" stopColor="#3B82F6" />
                 </linearGradient>
               </defs>
               {nodes.map((node, i) => (
@@ -118,7 +118,7 @@ export function HeroDashboard() {
                     x={node.x}
                     y={node.y + 8}
                     textAnchor="middle"
-                    fill="#6B7280"
+                    fill="#526174"
                     fontSize="3.5"
                     fontFamily="monospace"
                   >
@@ -137,7 +137,7 @@ export function HeroDashboard() {
               <Icon name="brain" size={14} />
             </motion.div>
             <motion.div
-              className="absolute bottom-2 left-2 flex h-6 w-6 items-center justify-center rounded-lg border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary sm:bottom-3 sm:left-3 sm:h-8 sm:w-8"
+              className="absolute bottom-2 left-2 flex h-6 w-6 items-center justify-center rounded-lg border border-primary/20 bg-primary/5 text-primary sm:bottom-3 sm:left-3 sm:h-8 sm:w-8"
               animate={{ y: [0, 4, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}
             >
@@ -148,7 +148,7 @@ export function HeroDashboard() {
           {/* Side panels — all content visible, no clipping */}
           <div className="flex flex-col gap-2 sm:gap-2.5">
             {/* Performance mini chart */}
-            <div className="rounded-xl border border-subtle-border bg-[#F3EEE7]/80 p-2.5 sm:p-3">
+            <div className="rounded-xl border border-subtle-border bg-[#EBE8DF]/80 p-2.5 sm:p-3">
               <p className="text-[9px] font-bold uppercase tracking-wider text-muted sm:text-[10px]">
                 Performance
               </p>
@@ -156,7 +156,7 @@ export function HeroDashboard() {
                 {barHeights.map((h, i) => (
                   <motion.div
                     key={i}
-                    className="flex-1 rounded-sm bg-gradient-to-t from-primary to-accent-secondary"
+                    className="flex-1 rounded-sm bg-gradient-to-t from-[#071A33] to-[#1769E0]"
                     initial={{ height: 0 }}
                     animate={{ height: `${h}%` }}
                     transition={{ delay: 0.8 + i * 0.08, duration: 0.5 }}
@@ -168,13 +168,13 @@ export function HeroDashboard() {
             {/* Mobile preview + AWS status — always side-by-side */}
             <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
               {/* Mobile App preview */}
-              <div className="rounded-xl border border-subtle-border bg-[#F3EEE7]/80 p-2 sm:p-2.5">
+              <div className="rounded-xl border border-subtle-border bg-[#EBE8DF]/80 p-2 sm:p-2.5">
                 <div className="mx-auto w-10 rounded-lg border border-subtle-border bg-surface p-1 sm:w-12 sm:p-1.5">
                   <div className="mx-auto mb-1 h-0.5 w-3 rounded-full bg-black/10 sm:mb-1.5 sm:h-1 sm:w-4" />
                   <div className="space-y-0.5 sm:space-y-1">
                     <div className="h-0.5 w-full rounded bg-primary/40 sm:h-1" />
-                    <div className="h-0.5 w-3/4 rounded bg-accent-secondary/30 sm:h-1" />
-                    <div className="h-0.5 w-1/2 rounded bg-accent-secondary/20 sm:h-1" />
+                    <div className="h-0.5 w-3/4 rounded bg-primary/30 sm:h-1" />
+                    <div className="h-0.5 w-1/2 rounded bg-primary/20 sm:h-1" />
                   </div>
                 </div>
                 <p className="mt-1.5 text-center text-[8px] font-semibold text-muted sm:mt-2 sm:text-[9px]">
@@ -183,12 +183,12 @@ export function HeroDashboard() {
               </div>
 
               {/* AWS Status panel */}
-              <div className="rounded-xl border border-subtle-border bg-[#F3EEE7]/80 p-2 sm:p-2.5">
+              <div className="rounded-xl border border-subtle-border bg-[#EBE8DF]/80 p-2 sm:p-2.5">
                 <div className="flex items-center gap-1 sm:gap-1.5">
                   <Icon
                     name="server"
                     size={12}
-                    className="shrink-0 text-accent-secondary"
+                    className="shrink-0 text-primary"
                   />
                   <span className="truncate font-mono text-[8px] text-primary sm:text-[9px]">
                     AWS Live
@@ -213,7 +213,7 @@ export function HeroDashboard() {
               {statusItems.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center justify-between rounded-lg border border-subtle-border bg-[#F7F4EF]/50 px-2.5 py-1.5 sm:px-3 sm:py-2"
+                  className="flex items-center justify-between rounded-lg border border-subtle-border bg-[#F1EEE5]/50 px-2.5 py-1.5 sm:px-3 sm:py-2"
                 >
                   <span className="text-[9px] font-semibold text-foreground sm:text-[10px]">
                     {item.label}
@@ -224,14 +224,14 @@ export function HeroDashboard() {
                         className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
                           item.color === "text-primary"
                             ? "bg-primary"
-                            : "bg-accent-secondary"
+                            : "bg-primary"
                         }`}
                       />
                       <span
                         className={`relative inline-flex h-1.5 w-1.5 rounded-full ${
                           item.color === "text-primary"
                             ? "bg-primary"
-                            : "bg-accent-secondary"
+                            : "bg-primary"
                         }`}
                       />
                     </span>

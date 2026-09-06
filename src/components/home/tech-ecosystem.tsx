@@ -22,18 +22,18 @@ export function TechEcosystem() {
           {techEcosystem.map((group) => (
             <StaggerItem key={group.category}>
               <div className="glass-card group h-full p-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-secondary">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
                   {group.category}
                 </p>
                 <div className="mt-5 flex flex-col gap-2.5">
                   {group.items.map((tech, i) => (
                     <motion.span
                       key={tech}
-                      className="rounded-lg border border-subtle-border bg-[#F7F4EF]/50 px-3 py-2 text-sm font-semibold text-foreground transition"
+                      className="rounded-lg border border-subtle-border bg-[#F1EEE5]/50 px-3 py-2 text-sm font-semibold text-foreground transition"
                       whileHover={{
                         scale: 1.03,
-                        borderColor: "rgba(15, 118, 110, 0.3)",
-                        boxShadow: "0 8px 24px -8px rgba(15, 118, 110, 0.12)",
+                        borderColor: "rgba(23, 105, 224, 0.3)",
+                        boxShadow: "0 8px 24px -8px rgba(23, 105, 224, 0.12)",
                       }}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}

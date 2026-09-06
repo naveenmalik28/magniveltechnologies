@@ -45,8 +45,8 @@ export function CareersClient() {
         <ParticlesBackground count={30} />
         
         {/* Dark vignette overlays */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-[#0B1215]" />
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-[#0B1215]/40 to-transparent hidden lg:block" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-[#071A33]" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-[#071A33]/40 to-transparent hidden lg:block" />
 
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -57,7 +57,7 @@ export function CareersClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-flex items-center gap-2 rounded-full border border-accent-secondary/30 bg-accent-secondary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-accent-secondary"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-primary"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
                 Careers at Magnivel Technologies
@@ -67,7 +67,7 @@ export function CareersClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-wider text-heading sm:text-5xl md:text-6xl lg:text-7xl"
+                className="font-heading mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-heading sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 BUILD THE
                 <br />
@@ -118,7 +118,7 @@ export function CareersClient() {
                   { label: "Collaborative Culture", spec: "TEAM MINDSET" },
                 ].map((item) => (
                   <div key={item.label} className="flex flex-col gap-1">
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#D9B08C] font-mono">
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#94A3B8] font-mono">
                       {"// "}{item.spec}
                     </span>
                     <span className="text-[11px] font-bold text-muted font-heading uppercase tracking-wider">
@@ -145,7 +145,7 @@ export function CareersClient() {
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                   className="glass-card absolute left-2 top-[10%] z-20 flex items-center gap-2.5 p-2.5 shadow-2xl backdrop-blur-md"
                 >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/15">
                     <Icon name="code" size={12} />
                   </span>
                   <div>
@@ -160,7 +160,7 @@ export function CareersClient() {
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   className="glass-card absolute right-4 top-[15%] z-20 flex items-center gap-2.5 p-2.5 shadow-2xl backdrop-blur-md"
                 >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/20">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/15">
                     <Icon name="brain" size={12} />
                   </span>
                   <div>
@@ -218,7 +218,7 @@ export function CareersClient() {
             <motion.div 
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="h-1.5 w-1 rounded-full bg-accent-secondary" 
+              className="h-1.5 w-1 rounded-full bg-primary" 
             />
           </button>
         </motion.div>
@@ -241,7 +241,7 @@ export function CareersClient() {
             <StaggerItem key={benefit.title}>
               <article className="glass-card h-full p-8 flex flex-col justify-between group">
                 <div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary group-hover:border-accent-secondary/50 group-hover:bg-accent-secondary/15 transition-all duration-300">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/15 bg-primary/5 text-primary group-hover:border-primary/30 group-hover:bg-primary/10 transition-all duration-300">
                     <Icon name={benefit.icon} size={22} />
                   </span>
                   <h3 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading group-hover:text-accent transition-colors duration-300">
@@ -251,7 +251,7 @@ export function CareersClient() {
                     {benefit.description}
                   </p>
                 </div>
-                <div className="mt-6 h-0.5 w-8 bg-accent/20 group-hover:w-16 group-hover:bg-accent-secondary transition-all duration-300" />
+                <div className="mt-6 h-0.5 w-8 bg-accent/20 group-hover:w-16 group-hover:bg-primary transition-all duration-300" />
               </article>
             </StaggerItem>
           ))}
@@ -311,7 +311,7 @@ export function CareersClient() {
                         OPEN
                       </span>
                       <span className="text-[10px] font-bold text-muted font-mono uppercase tracking-widest flex items-center gap-1">
-                        <Icon name="globe" size={10} className="text-accent-secondary" />
+                        <Icon name="globe" size={10} className="text-primary" />
                         {job.location}
                       </span>
                     </div>
@@ -322,7 +322,7 @@ export function CareersClient() {
                     </h3>
                     
                     {/* Experience required */}
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-accent-secondary font-mono mt-1">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-primary font-mono mt-1">
                       Experience: {job.experience}
                     </p>
 
@@ -336,7 +336,7 @@ export function CareersClient() {
                       {job.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2 py-0.5 rounded text-[9px] font-bold font-mono tracking-wide bg-surface border border-subtle-border text-muted group-hover:border-accent-secondary/20 group-hover:text-accent-secondary transition-all duration-300"
+                          className="px-2 py-0.5 rounded text-[9px] font-bold font-mono tracking-wide bg-surface border border-subtle-border text-muted group-hover:border-primary/15 group-hover:text-primary transition-all duration-300"
                         >
                           {skill}
                         </span>
@@ -392,14 +392,14 @@ export function CareersClient() {
 
         <div className="mt-16 relative">
           {/* Connector Line in Background for Desktop */}
-          <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-accent/10 via-accent-secondary/30 to-accent/10 -translate-y-1/2 hidden lg:block pointer-events-none" />
+          <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-primary/10 via-accent-secondary/20 to-primary/10 -translate-y-1/2 hidden lg:block pointer-events-none" />
 
           <StaggerContainer className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
             {applicationSteps.map((stepItem) => (
               <StaggerItem key={stepItem.step}>
-                <div className="glass-card p-6 flex flex-col h-full hover:border-accent-secondary/20 hover:shadow-md transition-all duration-300">
+                <div className="glass-card p-6 flex flex-col h-full hover:border-primary/15 hover:shadow-md transition-all duration-300">
                   {/* Step bubble */}
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-accent-secondary/30 bg-accent-secondary/5 font-mono text-xs font-bold text-accent-secondary shadow-sm shadow-accent-secondary/5">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-primary/5 font-mono text-xs font-bold text-primary shadow-sm shadow-primary/5">
                     {stepItem.step}
                   </div>
                   <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-heading">
@@ -418,18 +418,18 @@ export function CareersClient() {
       {/* Apply Now Section */}
       <section ref={applyRef} id="apply" className="border-t border-subtle-border py-24 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="glass-card relative overflow-hidden p-8 sm:p-16 lg:p-20 text-center rounded-2xl border border-subtle-border hover:border-accent-secondary/20 transition-all duration-500">
+          <div className="glass-card relative overflow-hidden p-8 sm:p-16 lg:p-20 text-center rounded-2xl border border-subtle-border hover:border-primary/15 transition-all duration-500">
             {/* Glowing background meshes */}
             <div className="pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
-            <div className="pointer-events-none absolute -left-10 -bottom-10 h-72 w-72 rounded-full bg-accent-secondary/10 blur-3xl animate-pulse-glow" />
+            <div className="pointer-events-none absolute -left-10 -bottom-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
 
             <div className="relative z-10 max-w-3xl mx-auto">
               <span className="section-eyebrow mb-6">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 Career Gateway
               </span>
 
-              <h2 className="font-heading text-3xl font-extrabold uppercase leading-[1.1] tracking-widest text-heading sm:text-4xl lg:text-5xl">
+              <h2 className="font-heading text-3xl font-extrabold leading-[1.1] tracking-tight text-heading sm:text-4xl lg:text-5xl">
                 Ready To <span className="gradient-text">Join Our Team?</span>
               </h2>
 
@@ -438,7 +438,7 @@ export function CareersClient() {
               </p>
 
               <div className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-background-secondary border border-subtle-border font-mono text-sm sm:text-base text-heading shadow-inner select-all">
-                <Icon name="mail" size={16} className="text-accent-secondary" />
+                <Icon name="mail" size={16} className="text-primary" />
                 contact@magnivel.com
               </div>
 

@@ -34,8 +34,8 @@ export function PortfolioShowcase() {
                 }}
                 className={`rounded-full px-4 py-2 text-xs font-bold transition ${
                   filter === cat
-                    ? "bg-accent text-white shadow-md shadow-accent/15"
-                    : "border border-subtle-border bg-surface text-muted hover:border-accent/30 hover:text-heading"
+                    ? "bg-accent text-white shadow-md shadow-primary/10"
+                    : "border border-subtle-border bg-surface text-muted hover:border-primary/20 hover:text-heading"
                 }`}
               >
                 {cat}
@@ -75,10 +75,10 @@ export function PortfolioShowcase() {
                     className={`relative bg-gradient-to-br ${project.gradient} lg:min-h-[360px]`}
                   >
                     <div className="absolute inset-0 bg-grid opacity-20" />
-                    <div className="absolute inset-0 bg-[#0b1020]/25" />
+                    <div className="absolute inset-0 bg-[#071A33]/25" />
                     <div className="relative flex flex-col">
                       <div className="flex items-center justify-between px-5 pt-5">
-                        <span className="rounded-full border border-accent-secondary/30 bg-accent-secondary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-secondary backdrop-blur-sm">
+                        <span className="rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur-sm">
                           {project.category}
                         </span>
                         <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-semibold text-white/80">
@@ -91,9 +91,9 @@ export function PortfolioShowcase() {
                           <button
                             type="button"
                             onClick={() => setActiveDemo({ url: (project as { demoUrl: string }).demoUrl, title: project.title })}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-teal-400/40 bg-teal-500/20 px-3 py-1 text-[11px] font-extrabold text-teal-200 backdrop-blur-md hover:bg-teal-500/30 transition-all cursor-pointer shadow-lg"
+                            className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/40 bg-blue-500/20 px-3 py-1 text-[11px] font-extrabold text-blue-200 backdrop-blur-md hover:bg-blue-500/30 transition-all cursor-pointer shadow-lg"
                           >
-                            <span className="h-2 w-2 rounded-full bg-teal-400 animate-pulse" />
+                            <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
                             Live Interactive Demo Available
                           </button>
                         </div>
@@ -113,7 +113,7 @@ export function PortfolioShowcase() {
 
                   {/* Summary */}
                   <div className="flex flex-col justify-center p-6 sm:p-8">
-                    <h3 className="text-xl font-extrabold text-heading sm:text-2xl">{project.title}</h3>
+                    <h3 className="text-xl font-bold tracking-tight text-heading sm:text-2xl">{project.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted font-sans">{project.description}</p>
 
                     {/* Key metrics badge row */}
@@ -146,7 +146,7 @@ export function PortfolioShowcase() {
                         <button
                           type="button"
                           onClick={() => setActiveDemo({ url: (project as { demoUrl: string }).demoUrl, title: project.title })}
-                          className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-primary-hover transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-primary-hover transition-colors cursor-pointer"
                         >
                           <Icon name="external-link" size={14} />
                           Launch Live Application
@@ -156,7 +156,7 @@ export function PortfolioShowcase() {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : project.id)}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-dark transition hover:text-accent-light cursor-pointer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition hover:text-accent-secondary cursor-pointer"
                       >
                         {isExpanded ? "Hide details" : "Case study details"}
                         <Icon
@@ -181,14 +181,14 @@ export function PortfolioShowcase() {
                     >
                       <div className="grid gap-6 bg-surface/40 p-6 sm:grid-cols-2 md:grid-cols-4 sm:p-8">
                         <div>
-                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-secondary">
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
                             <Icon name="target" size={14} />
                             Business Goal
                           </p>
                           <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted">{project.businessGoal}</p>
                         </div>
                         <div>
-                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent-secondary">
+                          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
                             <Icon name="code" size={14} />
                             Key Features
                           </p>
@@ -216,7 +216,7 @@ export function PortfolioShowcase() {
                           <p className="mt-3 text-xs sm:text-sm font-semibold leading-relaxed text-foreground font-sans">
                             {project.impact}
                           </p>
-                          <div className="mt-4 rounded-xl border border-accent/20 bg-accent-subtle px-4 py-3">
+                          <div className="mt-4 rounded-xl border border-primary/15 bg-accent-subtle px-4 py-3">
                             <p className="text-[10px] font-bold uppercase tracking-wider text-accent">
                               Key Result
                             </p>
@@ -239,12 +239,12 @@ export function PortfolioShowcase() {
       {/* Interactive Application Modal */}
       {activeDemo && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 sm:p-6 animate-fade-in">
-          <div className="relative flex h-[90vh] w-full max-w-6xl flex-col rounded-2xl border border-white/10 bg-[#0d1117] shadow-2xl overflow-hidden">
+          <div className="relative flex h-[90vh] w-full max-w-6xl flex-col rounded-2xl border border-white/10 bg-[#071A33] shadow-2xl overflow-hidden">
             {/* Modal Bar */}
-            <div className="flex items-center justify-between border-b border-white/10 bg-[#161b22] px-4 py-3 sm:px-6">
+            <div className="flex items-center justify-between border-b border-white/10 bg-[#0F2847] px-4 py-3 sm:px-6">
               <div className="flex items-center gap-3">
                 <span className="flex h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="font-heading text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
+                <span className="font-heading text-xs sm:text-sm font-bold text-white uppercase tracking-tight">
                   Live Application Demo: {activeDemo.title}
                 </span>
               </div>

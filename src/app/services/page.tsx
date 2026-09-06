@@ -35,10 +35,10 @@ export default function ServicesPage() {
             <article key={service.title} className="glow-card flex flex-col justify-between p-6 sm:p-8">
               <div>
                 <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-subtle text-accent-dark">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-subtle text-primary">
                     <Icon name={service.icon} size={22} />
                   </span>
-                  <h2 className="text-2xl font-extrabold text-heading">{service.title}</h2>
+                  <h2 className="text-2xl font-bold tracking-tight text-heading">{service.title}</h2>
                 </div>
 
                 <p className="mt-5 text-sm leading-relaxed text-muted sm:text-base">
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                   <ul className="mt-4 grid gap-2.5 text-xs font-semibold text-muted sm:grid-cols-2">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2">
-                        <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-accent-dark">
+                        <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-primary">
                           <Icon name="check" size={11} />
                         </span>
                         {feature}
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                   </ul>
                 </div>
 
-                <div className="mt-6 rounded-lg border border-accent/10 bg-accent-subtle p-4 text-xs text-accent-dark sm:text-sm">
+                <div className="mt-6 rounded-lg border border-accent/10 bg-accent-subtle p-4 text-xs text-primary sm:text-sm">
                   <span className="font-bold">Business Outcome:</span> {service.benefits}
                 </div>
               </div>

@@ -29,7 +29,7 @@ export function FloatingCta() {
         >
           <Link
             href="/contact"
-            className="premium-btn btn-primary flex items-center gap-2 rounded-full px-5 py-3.5 text-xs font-bold shadow-2xl shadow-accent/40 sm:px-6 sm:text-sm"
+            className="premium-btn btn-primary flex items-center gap-2 rounded-full px-5 py-3.5 text-xs font-bold shadow-2xl shadow-primary/30 sm:px-6 sm:text-sm"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />

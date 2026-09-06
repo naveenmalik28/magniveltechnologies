@@ -58,7 +58,7 @@ export default function AboutPage() {
       />
 
       {/* Stats */}
-      <section className="border-b border-white/5 py-20">
+      <section className="border-b border-subtle-border py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
           {stats.map((stat) => (
             <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
@@ -78,10 +78,10 @@ export default function AboutPage() {
         <div className="mt-20 grid gap-8 md:grid-cols-3">
           {pillars.map((pillar) => (
             <article key={pillar.title} className="glass-card p-8">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/15 bg-primary/5 text-primary">
                 <Icon name={pillar.icon} size={22} />
               </span>
-              <h2 className="font-heading mt-6 text-base font-extrabold uppercase tracking-wide text-heading">{pillar.title}</h2>
+              <h2 className="font-heading mt-6 text-lg font-semibold tracking-tight text-heading">{pillar.title}</h2>
               <p className="mt-4 text-xs leading-relaxed text-muted font-sans">{pillar.text}</p>
             </article>
           ))}
@@ -100,10 +100,10 @@ export default function AboutPage() {
           <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
               <article key={value.title} className="glass-card p-6 text-center">
-                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-accent-secondary/20 bg-accent-secondary/5 text-accent-secondary">
+                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-primary/15 bg-primary/5 text-primary">
                   <Icon name={value.icon} size={18} />
                 </span>
-                <h3 className="font-heading mt-6 text-sm font-extrabold uppercase tracking-wide text-heading">{value.title}</h3>
+                <h3 className="font-heading mt-6 text-lg font-semibold tracking-tight text-heading">{value.title}</h3>
                 <p className="mt-3 text-xs leading-relaxed text-muted font-sans">{value.desc}</p>
               </article>
             ))}

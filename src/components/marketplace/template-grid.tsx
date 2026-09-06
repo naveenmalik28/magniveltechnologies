@@ -37,7 +37,7 @@ export function TemplateGrid() {
                 className={`relative flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold font-heading uppercase tracking-wider transition-all cursor-pointer border ${
                   isActive
                     ? "border-primary bg-primary text-white"
-                    : "border-subtle-border bg-surface text-muted hover:border-accent-secondary/40 hover:text-heading"
+                    : "border-subtle-border bg-surface text-muted hover:border-primary/30 hover:text-heading"
                 }`}
               >
                 <Icon name={cat.icon} size={14} />
@@ -45,14 +45,14 @@ export function TemplateGrid() {
                 {cat.count > 0 && (
                   <span
                     className={`ml-1 rounded-full px-2 py-0.5 text-[9px] font-extrabold ${
-                      isActive ? "bg-white text-primary" : "bg-accent-subtle text-accent-dark"
+                      isActive ? "bg-white text-primary" : "bg-accent-subtle text-primary"
                     }`}
                   >
                     {cat.count}
                   </span>
                 )}
                 {cat.isComingSoon && (
-                  <span className="rounded bg-accent-secondary/20 px-1.5 py-0.5 text-[8px] font-extrabold uppercase text-accent-secondary">
+                  <span className="rounded bg-primary/15 px-1.5 py-0.5 text-[8px] font-extrabold uppercase text-primary">
                     Soon
                   </span>
                 )}
@@ -99,7 +99,7 @@ export function TemplateGrid() {
             <div>
               <div className="relative aspect-video w-full bg-surface-elevated/40 border-b border-subtle-border flex flex-col items-center justify-center p-6 group overflow-hidden">
                 {/* Clean gradient background mesh */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-secondary/5 transition-transform group-hover:scale-105 duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 transition-transform group-hover:scale-105 duration-700" />
                 
                 {/* Mockup browser header */}
                 <div className="absolute top-0 inset-x-0 h-6 border-b border-subtle-border/60 bg-background-secondary/80 flex items-center gap-1.5 px-3">
@@ -119,7 +119,7 @@ export function TemplateGrid() {
                   <h4 className="mt-2 text-[11px] font-extrabold text-heading uppercase tracking-wide">
                     {tpl.title}
                   </h4>
-                  <span className="mt-1 text-[9px] font-bold text-accent-secondary uppercase tracking-widest">
+                  <span className="mt-1 text-[9px] font-bold text-primary uppercase tracking-widest">
                     Live Preview Ready
                   </span>
                 </div>
@@ -143,7 +143,7 @@ export function TemplateGrid() {
 
               <div className="p-6">
                 {/* Category and title */}
-                <span className="text-[9px] font-extrabold uppercase tracking-widest text-accent-secondary">
+                <span className="text-[9px] font-extrabold uppercase tracking-widest text-primary">
                   {tpl.category}
                 </span>
                 <h3 className="mt-2 text-base font-extrabold text-heading leading-snug hover:text-primary transition-colors">
@@ -168,7 +168,7 @@ export function TemplateGrid() {
                       </span>
                     </div>
                   </div>
-                  <span className="rounded bg-accent-subtle border border-accent/15 px-2 py-0.5 text-[8px] font-extrabold uppercase tracking-widest text-accent-dark">
+                  <span className="rounded bg-accent-subtle border border-accent/15 px-2 py-0.5 text-[8px] font-extrabold uppercase tracking-widest text-primary">
                     {tpl.deliveryDays} Days Delivery
                   </span>
                 </div>
@@ -228,7 +228,7 @@ export function TemplateGrid() {
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="rounded bg-accent-secondary/15 px-2.5 py-0.5 text-[8px] font-extrabold uppercase tracking-widest text-accent-secondary">
+                  <span className="rounded bg-primary/10 px-2.5 py-0.5 text-[8px] font-extrabold uppercase tracking-widest text-primary">
                     Coming Soon
                   </span>
                   <span className="text-[10px] text-dimmed font-bold">Premium Spec</span>
@@ -247,22 +247,22 @@ export function TemplateGrid() {
 
                 <ul className="mt-4 space-y-1.5 text-[10px] text-muted font-semibold">
                   <li className="flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-accent-secondary" />
+                    <span className="h-1 w-1 rounded-full bg-primary" />
                     Branded Custom UI Design
                   </li>
                   <li className="flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-accent-secondary" />
+                    <span className="h-1 w-1 rounded-full bg-primary" />
                     Dynamic Reservation & CMS
                   </li>
                   <li className="flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-accent-secondary" />
+                    <span className="h-1 w-1 rounded-full bg-primary" />
                     Core Web Vitals Optimized
                   </li>
                 </ul>
               </div>
 
               <div className="mt-8 border-t border-subtle-border/30 pt-4 flex items-center justify-between">
-                <span className="text-[10px] text-accent-secondary font-bold font-heading uppercase tracking-wider">
+                <span className="text-[10px] text-primary font-bold font-heading uppercase tracking-tight">
                   Pre-Order Available
                 </span>
                 <Link

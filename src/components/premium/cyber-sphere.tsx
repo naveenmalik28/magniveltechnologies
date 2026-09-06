@@ -74,7 +74,7 @@ function RotatingSphere() {
       <mesh ref={outerSphereRef}>
         <sphereGeometry args={[1.7, 40, 40]} />
         <meshBasicMaterial
-          color="#0F766E"
+          color="#1769E0"
           wireframe
           transparent
           opacity={0.16}
@@ -85,7 +85,7 @@ function RotatingSphere() {
       <mesh ref={innerSphereRef}>
         <sphereGeometry args={[1.05, 20, 20]} />
         <meshBasicMaterial
-          color="#C68B59"
+          color="#3B82F6"
           wireframe
           transparent
           opacity={0.14}
@@ -101,7 +101,7 @@ function RotatingSphere() {
           />
         </bufferGeometry>
         <pointsMaterial
-          color="#0F766E"
+          color="#1769E0"
           size={0.038}
           sizeAttenuation
           transparent
@@ -111,8 +111,8 @@ function RotatingSphere() {
 
       {/* Ambient and directional lights */}
       <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={1.5} color="#0f766e" />
-      <pointLight position={[-5, -5, -5]} intensity={0.8} color="#c68b59" />
+      <pointLight position={[5, 5, 5]} intensity={1.5} color="#1769E0" />
+      <pointLight position={[-5, -5, -5]} intensity={0.8} color="#3B82F6" />
     </group>
   );
 }
@@ -121,7 +121,7 @@ export function CyberSphere() {
   return (
     <div className="relative h-[280px] w-full sm:h-[340px] md:h-[380px] lg:h-[440px]">
       {/* Dynamic glow blur underneath */}
-      <div className="absolute inset-0 m-auto h-48 w-48 rounded-full bg-accent-secondary/15 blur-3xl" />
+      <div className="absolute inset-0 m-auto h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
       
       <Canvas
         camera={{ position: [0, 0, 4.5], fov: 45 }}

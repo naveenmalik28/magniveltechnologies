@@ -8,33 +8,33 @@ import { aiSolutions } from "@/lib/home-data";
 
 export function AiShowcase() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-24 bg-[#071A33]">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
-        <div className="absolute right-1/4 bottom-0 h-80 w-80 rounded-full bg-accent-secondary/10 blur-[100px]" />
+        <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#1769E0]/8 blur-[120px]" />
+        <div className="absolute right-1/4 bottom-0 h-80 w-80 rounded-full bg-[#3B82F6]/6 blur-[100px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <ScrollReveal>
-            <span className="section-eyebrow">AI Innovation</span>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl lg:text-5xl">
+            <span className="section-eyebrow border-[#1A3A5C] bg-[#0F2847] text-[#3B82F6]">AI Innovation</span>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#F8F6F0] sm:text-4xl lg:text-5xl">
               AI-First Thinking,{" "}
               <span className="gradient-text">Enterprise Results</span>
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted">
+            <p className="mt-4 text-base leading-relaxed text-[#94A3B8]">
               From intelligent chatbots to autonomous workflows, we embed cutting-edge AI into every layer of your digital products.
             </p>
 
             {/* Futuristic AI brain visual */}
             <div className="relative mt-10 hidden aspect-square max-w-xs lg:block">
               <motion.div
-                className="absolute inset-0 rounded-full border border-accent/20"
+                className="absolute inset-0 rounded-full border border-[#1769E0]/20"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute inset-4 rounded-full border border-accent-light/15"
+                className="absolute inset-4 rounded-full border border-[#3B82F6]/15"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
               />
@@ -42,9 +42,9 @@ export function AiShowcase() {
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="flex h-24 w-24 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 shadow-2xl shadow-accent/20"
+                  className="flex h-24 w-24 items-center justify-center rounded-2xl border border-[#1769E0]/30 bg-[#1769E0]/10 shadow-2xl shadow-[#1769E0]/20"
                 >
-                  <Icon name="brain" size={40} className="text-accent-dark" />
+                  <Icon name="brain" size={40} className="text-[#3B82F6]" />
                 </motion.div>
               </div>
               {["GPT", "RAG", "ML", "Agents"].map((label, i) => {
@@ -54,7 +54,7 @@ export function AiShowcase() {
                 return (
                   <motion.span
                     key={label}
-                    className="absolute rounded-full border border-subtle-border bg-surface px-2 py-0.5 text-[9px] font-bold text-accent-secondary"
+                    className="absolute rounded-full border border-[#0F2847] bg-[#0F2847] px-2 py-0.5 text-[9px] font-bold text-[#3B82F6]"
                     style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
@@ -71,16 +71,16 @@ export function AiShowcase() {
               <StaggerItem key={solution.title}>
                 <Link
                   href={solution.href}
-                  className="glass-card group block h-full p-5 transition hover:border-accent/40"
+                  className="group block h-full p-5 transition bg-[#0F2847] border border-[#1A3A5C] hover:border-[#3B82F6]/30 rounded-2xl"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/5 text-primary transition group-hover:shadow-lg group-hover:shadow-primary/10">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1769E0]/20 bg-[#1769E0]/10 text-[#3B82F6] transition group-hover:shadow-lg group-hover:shadow-[#1769E0]/10">
                     <Icon name={solution.icon} size={18} />
                   </span>
-                  <h3 className="mt-4 text-sm font-extrabold text-heading group-hover:text-accent-secondary transition">
+                  <h3 className="mt-4 text-sm font-extrabold text-[#F8F6F0] group-hover:text-[#3B82F6] transition">
                     {solution.title}
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted">{solution.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-accent-secondary opacity-0 transition group-hover:opacity-100">
+                  <p className="mt-2 text-xs leading-relaxed text-[#94A3B8]">{solution.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-[#3B82F6] opacity-0 transition group-hover:opacity-100">
                     Explore
                     <Icon name="arrow-right" size={12} />
                   </span>

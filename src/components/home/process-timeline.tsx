@@ -25,7 +25,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
         </ScrollReveal>
 
         <StaggerContainer className="relative mt-16">
-          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-accent via-accent-secondary to-accent-light lg:block" />
+          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#071A33] via-[#1769E0] to-[#3B82F6] lg:block" />
           <div className="grid gap-6 lg:gap-0">
             {steps.map((step, index) => (
               <StaggerItem key={step.step}>
@@ -36,7 +36,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? "lg:text-right lg:pr-12" : "lg:text-left lg:pl-12"}`}>
                     <div className={`glass-card p-6 ${index % 2 === 0 ? "lg:ml-auto lg:max-w-md" : "lg:mr-auto lg:max-w-md"}`}>
-                      <span className="text-xs font-bold uppercase tracking-widest text-accent-dark">
+                      <span className="text-xs font-bold uppercase tracking-widest text-primary">
                         Step {String(step.step).padStart(2, "0")}
                       </span>
                       <h3 className="mt-2 text-lg font-extrabold text-heading">{step.title}</h3>

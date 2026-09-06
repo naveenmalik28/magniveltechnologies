@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { CustomCursor } from "@/components/premium/custom-cursor";
 import { WebVitalsReporter } from "@/components/web-vitals-reporter";
@@ -10,8 +10,8 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
@@ -114,6 +114,14 @@ const jsonLd = {
     "Software development company building websites, web applications, mobile apps, SaaS platforms, and custom AI systems for businesses worldwide.",
   foundingDate: "2021",
   areaServed: "Worldwide",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24",
+    addressLocality: "Northwest Delhi",
+    addressRegion: "Delhi",
+    postalCode: "110085",
+    addressCountry: "IN",
+  },
   knowsAbout: [
     "Website Development",
     "Web Application Development",
@@ -152,7 +160,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         {/* Structured Data */}
@@ -161,7 +169,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-accent-secondary/30 selection:text-white">
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary/15 selection:text-heading">
         <CustomCursor />
         <WebVitalsReporter />
         {children}

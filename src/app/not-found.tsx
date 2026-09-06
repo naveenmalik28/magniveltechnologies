@@ -16,8 +16,8 @@ export default function NotFound() {
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground px-4">
       <div className="max-w-md text-center">
         <div className="mb-8">
-          <h1 className="text-8xl font-bold text-accent-secondary mb-2">404</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-secondary mx-auto rounded-full" />
+          <h1 className="text-8xl font-bold text-primary mb-2">404</h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#071A33] to-[#1769E0] mx-auto rounded-full" />
         </div>
 
         <h2 className="text-4xl font-bold text-heading mb-4">Page Not Found</h2>
@@ -29,7 +29,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent-light transition-colors duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition-colors duration-200"
           >
             <Icon name="arrow-left" size={18} />
             Back to Home
@@ -37,7 +37,7 @@ export default function NotFound() {
           
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-accent text-accent font-semibold rounded-lg hover:bg-accent-subtle transition-colors duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary text-primary font-semibold rounded-lg hover:bg-primary/5 transition-colors duration-200"
           >
             <Icon name="mail" size={18} />
             Get Help
@@ -56,7 +56,7 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-accent hover:text-accent-dark transition-colors"
+                className="text-sm text-primary hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
