@@ -260,6 +260,45 @@ export function PostgreSQLLogo({ className = "h-8 w-auto", ...props }: LogoProps
   );
 }
 
+export function RazorpayLogo({ className = "h-7 w-auto", ...props }: LogoProps) {
+  return (
+    <svg viewBox="0 0 130 36" className={className} aria-hidden="true" {...props}>
+      {/* Razorpay Emblem */}
+      <path
+        fill="#0C2340"
+        d="M9.8 30.5L20.6 5.5h10.2L20 30.5H9.8z"
+      />
+      <path
+        fill="#3395FF"
+        d="M20.2 30.5l6.8-15.8h10.2l-6.8 15.8H20.2z"
+      />
+      <path
+        fill="#528FF0"
+        d="M17.1 19.5h8.2l-2.4 5.5h-8.2l2.4-5.5z"
+      />
+      {/* Razorpay Brand Typography in vector paths */}
+      <g fill="#0C2340">
+        {/* R */}
+        <path d="M43.5 8.5h6.2c3.4 0 5.4 1.8 5.4 4.5 0 2.2-1.3 3.7-3.2 4.2l3.6 7.3h-3.4l-3.2-6.6h-2.5v6.6h-2.9V8.5zm2.9 6.8h3c1.7 0 2.7-.9 2.7-2.3 0-1.4-1-2.2-2.7-2.2h-3v4.5z" />
+        {/* a */}
+        <path d="M60.8 24.5h-2.6v-1.8c-.8 1.3-2.2 2-3.8 2-2.6 0-4.3-1.6-4.3-4.1 0-2.8 2.3-4.1 5.6-4.1h2.2v-.8c0-1.2-.8-1.9-2.2-1.9-1.2 0-2.2.5-2.8 1.2l-1.6-1.6c1.1-1.2 2.7-1.9 4.6-1.9 3.1 0 4.9 1.6 4.9 4.3v6.7zm-2.6-3.8v-1.7h-1.9c-1.8 0-3 .6-3 2.1 0 1.2.9 1.9 2.2 1.9 1.6 0 2.7-.9 2.7-2.3z" />
+        {/* z */}
+        <path d="M63 12h8.5v2.3l-5.6 7.6h5.8v2.6H63v-2.3l5.6-7.6H63V12z" />
+        {/* o */}
+        <path d="M78.5 11.6c3.7 0 6.2 2.7 6.2 6.5s-2.5 6.5-6.2 6.5-6.2-2.7-6.2-6.5 2.5-6.5 6.2-6.5zm0 10.4c2.1 0 3.4-1.7 3.4-3.9s-1.3-3.9-3.4-3.9-3.4 1.7-3.4 3.9 1.3 3.9 3.4 3.9z" />
+        {/* r */}
+        <path d="M86.8 12h2.7v2.2c.7-1.5 2-2.4 3.5-2.4.4 0 .7.1 1 .2v2.8c-.4-.1-.8-.2-1.3-.2-1.9 0-3.1 1.4-3.1 3.7v6.2h-2.8V12z" />
+        {/* p */}
+        <path d="M96 12h2.6v1.8c.8-1.3 2.3-2 3.9-2 3.3 0 5.6 2.6 5.6 6.4s-2.3 6.4-5.6 6.4c-1.6 0-3-.7-3.9-2v6H96V12zm5.8 10.2c2 0 3.4-1.6 3.4-3.8s-1.4-3.8-3.4-3.8-3.4 1.6-3.4 3.8 1.4 3.8 3.4 3.8z" />
+        {/* a */}
+        <path d="M117.8 24.5h-2.6v-1.8c-.8 1.3-2.2 2-3.8 2-2.6 0-4.3-1.6-4.3-4.1 0-2.8 2.3-4.1 5.6-4.1h2.2v-.8c0-1.2-.8-1.9-2.2-1.9-1.2 0-2.2.5-2.8 1.2l-1.6-1.6c1.1-1.2 2.7-1.9 4.6-1.9 3.1 0 4.9 1.6 4.9 4.3v6.7zm-2.6-3.8v-1.7h-1.9c-1.8 0-3 .6-3 2.1 0 1.2.9 1.9 2.2 1.9 1.6 0 2.7-.9 2.7-2.3z" />
+        {/* y */}
+        <path d="M120.2 12h3l2.8 7.8 2.7-7.8h3l-4.5 11.8c-1.1 2.9-2.5 4.3-5 4.3-.6 0-1.2-.1-1.7-.3v-2.4c.4.1.8.2 1.2.2 1.3 0 2.1-.7 2.7-2.3l.3-.8-4.5-10.5z" />
+      </g>
+    </svg>
+  );
+}
+
 export function PartnerLogo({ id, className = "h-8 w-auto" }: { id: string; className?: string }) {
   switch (id) {
     case "google":
@@ -286,6 +325,8 @@ export function PartnerLogo({ id, className = "h-8 w-auto" }: { id: string; clas
       return <AtlassianLogo className={className} />;
     case "stripe":
       return <StripeLogo className={className} />;
+    case "razorpay":
+      return <RazorpayLogo className={className} />;
     case "twilio":
       return <TwilioLogo className={className} />;
     case "github":
