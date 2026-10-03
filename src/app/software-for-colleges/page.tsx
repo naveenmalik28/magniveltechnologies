@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies designs enterprise software for colleges and universities. Admission portals, department dashboards, student credit trackers, and LMS systems.",
   keywords: ["college management system", "university software developer", "student credit tracker", "online admission portal", "lms developer"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-colleges",
+    canonical: "https://www.magnivel.com/software-for-colleges",
   },
 };
 

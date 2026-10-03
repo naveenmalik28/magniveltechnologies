@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides AI automation services. Streamline operations with LangChain pipelines, automated PDF data extraction, and AI agents.",
   keywords: ["AI automation services", "workflow automation agency", "automated PDF parser AI", "LangChain developer", "AI agent solutions"],
   alternates: {
-    canonical: "https://magnivel.com/ai-automation-services",
+    canonical: "https://www.magnivel.com/ai-automation-services",
   },
 };
 

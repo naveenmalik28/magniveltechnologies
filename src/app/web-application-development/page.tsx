@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies delivers dynamic web application development services, custom customer dashboards, database integrations, and scalable admin portals built with Next.js and React.",
   keywords: ["web application development", "custom web app", "React developer", "Next.js dashboard", "customer portal builder", "software engineering"],
   alternates: {
-    canonical: "https://magnivel.com/web-application-development",
+    canonical: "https://www.magnivel.com/web-application-development",
   },
 };
 

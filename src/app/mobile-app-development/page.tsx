@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides professional iOS and Android mobile app development services using React Native to deliver fast, offline-ready mobile applications.",
   keywords: ["mobile app development", "React Native developer", "iOS and Android app builder", "hybrid mobile app", "offline-ready mobile app", "app store launch"],
   alternates: {
-    canonical: "https://magnivel.com/mobile-app-development",
+    canonical: "https://www.magnivel.com/mobile-app-development",
   },
 };
 

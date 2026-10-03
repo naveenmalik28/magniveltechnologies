@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies partners with startups to build high-performance MVPs. Next.js SaaS builds, Stripe payments integration, and AWS cloud configurations.",
   keywords: ["startup software developer", "mvp development agency", "saas startup builder", "rapid prototyping software", "tech partner startups"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-startups",
+    canonical: "https://www.magnivel.com/software-for-startups",
   },
 };
 

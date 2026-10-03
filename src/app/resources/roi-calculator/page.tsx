@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "Workflow Automation Calculator",
   ],
   alternates: {
-    canonical: "https://magnivel.com/resources/roi-calculator",
+    canonical: "https://www.magnivel.com/resources/roi-calculator",
   },
   openGraph: {
     title: "AI & Software Automation ROI Calculator | Magnivel Technologies",
     description:
       "Calculate manual task costs and annual financial savings from implementing custom AI automation and software workflows.",
-    url: "https://magnivel.com/resources/roi-calculator",
+    url: "https://www.magnivel.com/resources/roi-calculator",
     type: "website",
   },
 };

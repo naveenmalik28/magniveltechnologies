@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Technology Stack | Magnivel Technologies",
     description: "Modern, reliable tools chosen for scale and stability. Industry-proven stacks that guarantee optimal performance and security.",
-    url: "https://magnivel.com/technologies",
+    url: "https://www.magnivel.com/technologies",
     type: "website",
   },
   alternates: {
-    canonical: "https://magnivel.com/technologies",
+    canonical: "https://www.magnivel.com/technologies",
   },
 };
 

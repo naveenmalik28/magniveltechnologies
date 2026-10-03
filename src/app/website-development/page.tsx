@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides high-performance custom website development services, headless CMS integrations, and search-optimized web platforms for businesses globally.",
   keywords: ["website development", "corporate website development", "custom CMS integration", "Next.js web developer", "responsive business website", "web engineering"],
   alternates: {
-    canonical: "https://magnivel.com/website-development",
+    canonical: "https://www.magnivel.com/website-development",
   },
 };
 

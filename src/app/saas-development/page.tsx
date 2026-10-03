@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides custom SaaS product development services, multi-tenant cloud architectures, Stripe billing integrations, and workspace collaboration panels.",
   keywords: ["SaaS development", "multi-tenant architecture", "Stripe subscription billing", "SaaS platform builder", "software as a service developer", "Next.js SaaS"],
   alternates: {
-    canonical: "https://magnivel.com/saas-development",
+    canonical: "https://www.magnivel.com/saas-development",
   },
 };
 

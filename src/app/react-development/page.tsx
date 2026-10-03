@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides professional React & Next.js frontend development services. High-performance dashboards, responsive interfaces, and custom visual assets.",
   keywords: ["react development services", "next.js frontend developer", "responsive ui component", "react state management", "tailwind css developer"],
   alternates: {
-    canonical: "https://magnivel.com/react-development",
+    canonical: "https://www.magnivel.com/react-development",
   },
 };
 

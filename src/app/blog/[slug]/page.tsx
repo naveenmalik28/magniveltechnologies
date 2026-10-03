@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${post.title} | Blog`,
     description: post.excerpt,
     alternates: {
-      canonical: `https://magnivel.com/blog/${post.slug}`,
+      canonical: `https://www.magnivel.com/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://magnivel.com/blog/${post.slug}`,
+      url: `https://www.magnivel.com/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author.name],
@@ -68,12 +68,12 @@ export default async function BlogPostPage({ params }: PageProps) {
       name: "Magnivel Technologies",
       logo: {
         "@type": "ImageObject",
-        url: "https://magnivel.com/logo.jpg",
+        url: "https://www.magnivel.com/logo.jpg",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://magnivel.com/blog/${post.slug}`,
+      "@id": `https://www.magnivel.com/blog/${post.slug}`,
     },
   };
 

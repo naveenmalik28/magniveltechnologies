@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "software scoping guidelines",
   ],
   alternates: {
-    canonical: "https://magnivel.com/guides",
+    canonical: "https://www.magnivel.com/guides",
   },
 };
 

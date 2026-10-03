@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Learn what it costs to build a multi-tenant SaaS platform. Detailed guide on database isolation, Stripe payment splits, user analytics, and MVP budget ranges.",
   keywords: ["saas development cost", "saas mvp price", "saas platform budget", "subscription system pricing", "stripe software cost"],
   alternates: {
-    canonical: "https://magnivel.com/saas-development-cost",
+    canonical: "https://www.magnivel.com/saas-development-cost",
   },
 };
 

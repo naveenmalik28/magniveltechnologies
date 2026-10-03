@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Understand the factors driving mobile app development costs. Learn about platform differences, custom UI, developer rates, and budgeting for iOS & Android apps.",
   keywords: ["mobile app development cost", "app design price", "iOS app budget", "Android development cost", "React Native app pricing"],
   alternates: {
-    canonical: "https://magnivel.com/mobile-app-development-cost",
+    canonical: "https://www.magnivel.com/mobile-app-development-cost",
   },
 };
 

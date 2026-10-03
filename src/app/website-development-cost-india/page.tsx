@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Find website development costs in India. Educational guide on pricing factors, CMS choices, e-commerce integration, and budget ranges for startups & enterprises.",
   keywords: ["website development cost india", "web design price india", "corporate website budget", "ecommerce store cost", "custom website pricing"],
   alternates: {
-    canonical: "https://magnivel.com/website-development-cost-india",
+    canonical: "https://www.magnivel.com/website-development-cost-india",
   },
 };
 

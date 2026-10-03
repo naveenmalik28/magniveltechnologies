@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "Free QR Builder",
   ],
   alternates: {
-    canonical: "https://magnivel.com/resources/qr-code-generator",
+    canonical: "https://www.magnivel.com/resources/qr-code-generator",
   },
   openGraph: {
     title: "Custom QR Code Generator | Magnivel Technologies",
     description:
       "Generate dynamic, high-resolution QR codes with customizable brand colors for websites, products, and links.",
-    url: "https://magnivel.com/resources/qr-code-generator",
+    url: "https://www.magnivel.com/resources/qr-code-generator",
     type: "website",
   },
 };

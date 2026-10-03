@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides professional custom software development services, enterprise operations panels, dashboard builds, and backend system engineering.",
   keywords: ["custom software development", "custom software engineer", "enterprise software systems", "database development", "software dashboard builder", "backend developer"],
   alternates: {
-    canonical: "https://magnivel.com/custom-software-development",
+    canonical: "https://www.magnivel.com/custom-software-development",
   },
 };
 

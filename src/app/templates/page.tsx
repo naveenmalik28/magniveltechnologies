@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Download free project spec templates, RFP blueprints, UI wireframes grids, and database schemas models from Magnivel Technologies.",
   keywords: ["RFP templates", "project spec templates", "wireframe grids figma", "database schema doc", "scoping blueprint"],
   alternates: {
-    canonical: "https://magnivel.com/templates",
+    canonical: "https://www.magnivel.com/templates",
   },
 };
 

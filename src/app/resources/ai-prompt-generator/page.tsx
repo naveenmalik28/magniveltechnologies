@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "GPT Prompt Builder",
   ],
   alternates: {
-    canonical: "https://magnivel.com/resources/ai-prompt-generator",
+    canonical: "https://www.magnivel.com/resources/ai-prompt-generator",
   },
   openGraph: {
     title: "AI Prompt Generator | Magnivel Technologies",
     description:
       "Generate structured, high-quality system prompts for LLMs instantly with role, tone, and format parameters.",
-    url: "https://magnivel.com/resources/ai-prompt-generator",
+    url: "https://www.magnivel.com/resources/ai-prompt-generator",
     type: "website",
   },
 };

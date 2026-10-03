@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies builds custom restaurant management software. Online ordering systems, digital QR menus, table booking portals, and POS integrations.",
   keywords: ["restaurant management software", "online food ordering system", "digital qr menu builder", "table reservation portal", "pos integration developer"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-restaurants",
+    canonical: "https://www.magnivel.com/software-for-restaurants",
   },
 };
 

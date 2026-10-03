@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "Custom Software Pricing",
   ],
   alternates: {
-    canonical: "https://magnivel.com/resources/website-cost-calculator",
+    canonical: "https://www.magnivel.com/resources/website-cost-calculator",
   },
   openGraph: {
     title: "Website Cost Calculator | Magnivel Technologies",
     description:
       "Estimate website development cost instantly. Calculate budget based on page count, design tier, e-commerce, CMS, and custom feature requirements.",
-    url: "https://magnivel.com/resources/website-cost-calculator",
+    url: "https://www.magnivel.com/resources/website-cost-calculator",
     type: "website",
   },
 };

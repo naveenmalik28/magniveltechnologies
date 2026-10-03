@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies builds custom AI Chatbots & RAG systems. Integrate GPT-4o, Claude 3.5 Sonnet, and Gemini API to automate customer support and support workflows.",
   keywords: ["AI chatbot development services", "custom GPT integration", "RAG systems development", "AI customer support bot", "LLM chatbot developer"],
   alternates: {
-    canonical: "https://magnivel.com/ai-chatbot-development",
+    canonical: "https://www.magnivel.com/ai-chatbot-development",
   },
 };
 

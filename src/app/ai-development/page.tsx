@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides custom AI & machine learning development services. Integrate LLMs, build RAG engines, customize GPT/Claude agents, and automate workflows.",
   keywords: ["ai development services", "custom llm developer", "rag architecture engine", "gemini claude integration", "machine learning development"],
   alternates: {
-    canonical: "https://magnivel.com/ai-development",
+    canonical: "https://www.magnivel.com/ai-development",
   },
 };
 

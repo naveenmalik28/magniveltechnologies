@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "chatbot implementation cost",
   ],
   alternates: {
-    canonical: "https://magnivel.com/ai-chatbot-development-cost",
+    canonical: "https://www.magnivel.com/ai-chatbot-development-cost",
   },
   openGraph: {
     title: "AI Chatbot Development Cost: 2026 Pricing Guide & Factors | Magnivel Technologies",
     description:
       "A complete guide to AI chatbot development costs, pricing models, RAG database setups, API token economics, and ongoing operational budgets.",
-    url: "https://magnivel.com/ai-chatbot-development-cost",
+    url: "https://www.magnivel.com/ai-chatbot-development-cost",
     type: "article",
   },
 };
@@ -46,19 +46,19 @@ const structuredData = [
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://magnivel.com",
+        item: "https://www.magnivel.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Cost Guides",
-        item: "https://magnivel.com/services",
+        item: "https://www.magnivel.com/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "AI Chatbot Development Cost",
-        item: "https://magnivel.com/ai-chatbot-development-cost",
+        item: "https://www.magnivel.com/ai-chatbot-development-cost",
       },
     ],
   },
@@ -139,7 +139,7 @@ const structuredData = [
     provider: {
       "@type": "Organization",
       name: "Magnivel Technologies",
-      url: "https://magnivel.com",
+      url: "https://www.magnivel.com",
     },
     serviceType: "Custom AI Chatbot Development",
     description:

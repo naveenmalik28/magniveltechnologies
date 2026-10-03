@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: "About Magnivel Technologies",
     description:
       "We engineer secure, scalable software systems built to grow. Learn about our mission, vision, and approach to building high-performance digital products.",
-    url: "https://magnivel.com/about",
+    url: "https://www.magnivel.com/about",
     type: "website",
   },
   alternates: {
-    canonical: "https://magnivel.com/about",
+    canonical: "https://www.magnivel.com/about",
   },
 };
 

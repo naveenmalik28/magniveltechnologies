@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "roi calculator tools",
   ],
   alternates: {
-    canonical: "https://magnivel.com/resources",
+    canonical: "https://www.magnivel.com/resources",
   },
 };
 

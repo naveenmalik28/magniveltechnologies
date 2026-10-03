@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies develops custom manufacturing and ERP software. SKU databases, inventory tracking, quality inspection logs, and shop-floor dashboards.",
   keywords: ["manufacturing ERP software", "custom inventory tracking", "sku database developer", "shop floor management dashboard", "work order scheduler"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-manufacturing",
+    canonical: "https://www.magnivel.com/software-for-manufacturing",
   },
 };
 

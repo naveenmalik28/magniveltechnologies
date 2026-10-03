@@ -1,6 +1,6 @@
 export const site = {
   name: "Magnivel Technologies",
-  url: "https://magnivel.com",
+  url: "https://www.magnivel.com",
   email: "contact@magnivel.com",
   tagline: "Custom software, web apps, mobile apps, SaaS platforms, and AI systems built around how your business works",
   description:

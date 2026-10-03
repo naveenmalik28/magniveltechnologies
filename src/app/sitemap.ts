@@ -1,35 +1,42 @@
 import { MetadataRoute } from 'next';
+import { blogPosts, blogCategories } from '@/lib/blog';
+import { TEMPLATES } from '@/lib/ready-websites-data';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://magnivel.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.magnivel.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const publicRoutes = [
+  const coreRoutes = [
     '',
     '/about',
     '/services',
     '/technologies',
     '/contact',
     '/careers',
-    
-    // SEO Services Pages
+
+    // Core SEO Services Pages
     '/website-development',
+    '/website-development-services',
     '/web-application-development',
     '/saas-development',
     '/ecommerce-development',
     '/mobile-app-development',
     '/ai-solutions',
+    '/ai-development',
+    '/ai-automation-services',
+    '/ai-chatbot-development',
     '/ui-ux-design',
+    '/ui-ux-design-services',
     '/api-development',
     '/custom-software-development',
     '/seo-services',
-    
+
     // Pricing Pages
     '/website-development-cost-india',
     '/mobile-app-development-cost',
     '/custom-software-cost',
     '/ai-chatbot-development-cost',
     '/saas-development-cost',
-    
+
     // Industry Verticals
     '/software-for-schools',
     '/software-for-colleges',
@@ -38,19 +45,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/software-for-restaurants',
     '/software-for-manufacturing',
     '/software-for-startups',
-    
+
     // Technology Specializations
     '/python-development',
     '/react-development',
     '/django-development',
+    '/nodejs-development',
     '/aws-development',
-    
-    // Ready-Made Websites Marketplace
+
+    // Ready-Made Websites Hub
     '/ready-websites',
-    '/ready-websites/restaurant-website-template',
-    '/ready-websites/dairy-brand-ecommerce-template',
-    
-    // Resources & Tools
+
+    // Resources & Interactive Tools
     '/resources',
     '/templates',
     '/checklists',
@@ -60,29 +66,59 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/resources/seo-meta-generator',
     '/resources/qr-code-generator',
     '/resources/roi-calculator',
-    
-    // Blog Categories & Posts
+
+    // Blog Hub
     '/blog',
-    '/blog/category/ai',
-    '/blog/category/web-development',
-    '/blog/category/mobile-apps',
-    '/blog/category/saas',
-    '/blog/category/business-technology',
-    '/blog/category/startup-guides',
-    '/blog/building-secure-rag-chatbot-gemini',
-    '/blog/optimizing-nextjs-core-web-vitals',
-    '/blog/reducing-stripe-churn-saas-webhooks',
-    '/blog/react-native-vs-flutter-in-2026',
-    '/blog/custom-software-replaces-spreadsheets-accelerates-onboarding',
-    '/blog/technical-playbook-build-launch-saas-mvp-12-weeks',
   ];
 
-  const baseRoutes: MetadataRoute.Sitemap = publicRoutes.map((route) => ({
-    url: `${BASE_URL}${route}`,
+  const coreEntries: MetadataRoute.Sitemap = coreRoutes.map((route) => {
+    let priority = 0.8;
+    let changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] = 'monthly';
+
+    if (route === '') {
+      priority = 1.0;
+      changeFrequency = 'weekly';
+    } else if (
+      route === '/services' ||
+      route.includes('-development') ||
+      route.includes('-services') ||
+      route === '/ready-websites'
+    ) {
+      priority = 0.9;
+      changeFrequency = 'weekly';
+    } else if (route.includes('-cost')) {
+      priority = 0.85;
+      changeFrequency = 'monthly';
+    }
+
+    return {
+      url: `${BASE_URL}${route}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+    };
+  });
+
+  const categoryEntries: MetadataRoute.Sitemap = blogCategories.map((cat) => ({
+    url: `${BASE_URL}/blog/category/${cat.slug}`,
     lastModified: new Date(),
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency: 'weekly',
+    priority: 0.7,
   }));
 
-  return baseRoutes;
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  const templateEntries: MetadataRoute.Sitemap = TEMPLATES.map((tmpl) => ({
+    url: `${BASE_URL}/ready-websites/${tmpl.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
+  return [...coreEntries, ...categoryEntries, ...blogEntries, ...templateEntries];
 }

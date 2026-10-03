@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies develops custom school management software. Portals for student tracking, fee collection, staff logs, and parent communication.",
   keywords: ["school management software", "student information system", "online school fee portal", "parent portal developer", "school administration tools"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-schools",
+    canonical: "https://www.magnivel.com/software-for-schools",
   },
 };
 

@@ -23,8 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://magnivel.com"),
-  title: "Magnivel Technologies | Custom Software, Web Apps & AI Development",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.magnivel.com"),
+  title: {
+    default: "Magnivel Technologies | Custom Software, Web Apps & AI Development",
+    template: "%s | Magnivel Technologies",
+  },
   description:
     "Magnivel Technologies builds websites, web apps, mobile apps, SaaS platforms, and AI systems for startups and growing businesses worldwide.",
   keywords: [
@@ -53,13 +56,13 @@ export const metadata: Metadata = {
     title: "Magnivel Technologies | Custom Software, Web Apps & AI Development",
     description:
       "We build websites, web apps, mobile apps, SaaS platforms, and AI systems for startups and growing businesses.",
-    url: "https://magnivel.com",
+    url: "https://www.magnivel.com",
     siteName: "Magnivel Technologies",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://magnivel.com/logo.jpg",
+        url: "https://www.magnivel.com/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Magnivel Technologies",
@@ -71,6 +74,7 @@ export const metadata: Metadata = {
     title: "Magnivel Technologies | Custom Software & AI Development",
     description: "Websites, web apps, mobile apps, SaaS platforms, and AI systems for growing businesses.",
     site: "@magnivelinc",
+    images: ["https://www.magnivel.com/logo.jpg"],
   },
   robots: {
     index: true,
@@ -86,11 +90,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add your Google Search Console verification code
     google: "24bLWaNZf7xr7kcMLhAajsTKXtq5RGVr_71V-CUAV3Q",
   },
   alternates: {
-    canonical: "https://magnivel.com",
+    canonical: "https://www.magnivel.com",
   },
   icons: {
     icon: [
@@ -105,50 +108,85 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://magnivel.com/#organization",
-  name: "Magnivel Technologies",
-  url: "https://magnivel.com",
-  email: "contact@magnivel.com",
-  description:
-    "Software development company building websites, web applications, mobile apps, SaaS platforms, and custom AI systems for businesses worldwide.",
-  foundingDate: "2021",
-  areaServed: "Worldwide",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24",
-    addressLocality: "Northwest Delhi",
-    addressRegion: "Delhi",
-    postalCode: "110085",
-    addressCountry: "IN",
-  },
-  knowsAbout: [
-    "Website Development",
-    "Web Application Development",
-    "Mobile App Development",
-    "SaaS Development",
-    "AI Solutions",
-    "Custom Software Development",
-  ],
-  serviceType: [
-    "Website Development",
-    "Web Application Development",
-    "Mobile App Development",
-    "SaaS Development",
-    "AI Solutions",
-    "Custom Software Development",
-  ],
-  logo: {
-    "@type": "ImageObject",
-    url: "https://magnivel.com/logo.jpg",
-    width: 200,
-    height: 200,
-  },
-  sameAs: [
-    "https://twitter.com/magnivelinc",
-    "https://www.linkedin.com/company/magnivel-technologies",
-    "https://www.instagram.com/magniveltechnologies",
-    "https://github.com/magnivel",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.magnivel.com/#organization",
+      name: "Magnivel Technologies",
+      url: "https://www.magnivel.com",
+      email: "contact@magnivel.com",
+      description:
+        "Software development company building websites, web applications, mobile apps, SaaS platforms, and custom AI systems for businesses worldwide.",
+      foundingDate: "2021",
+      areaServed: "Worldwide",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24",
+        addressLocality: "Northwest Delhi",
+        addressRegion: "Delhi",
+        postalCode: "110085",
+        addressCountry: "IN",
+      },
+      knowsAbout: [
+        "Website Development",
+        "Web Application Development",
+        "Mobile App Development",
+        "SaaS Development",
+        "AI Solutions",
+        "Custom Software Development",
+      ],
+      serviceType: [
+        "Website Development",
+        "Web Application Development",
+        "Mobile App Development",
+        "SaaS Development",
+        "AI Solutions",
+        "Custom Software Development",
+      ],
+      logo: {
+        "@type": "ImageObject",
+        "@id": "https://www.magnivel.com/#logo",
+        url: "https://www.magnivel.com/logo.jpg",
+        caption: "Magnivel Technologies Logo",
+      },
+      image: {
+        "@id": "https://www.magnivel.com/#logo",
+      },
+      sameAs: [
+        "https://twitter.com/magnivelinc",
+        "https://www.linkedin.com/company/magnivel-technologies",
+        "https://www.instagram.com/magniveltechnologies",
+        "https://github.com/magnivel",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.magnivel.com/#website",
+      url: "https://www.magnivel.com",
+      name: "Magnivel Technologies",
+      publisher: {
+        "@id": "https://www.magnivel.com/#organization",
+      },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.magnivel.com/#service",
+      name: "Magnivel Technologies",
+      url: "https://www.magnivel.com",
+      parentOrganization: {
+        "@id": "https://www.magnivel.com/#organization",
+      },
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "4th Floor, #26-27, Pocket 11 Rohini, Sector 24",
+        addressLocality: "Northwest Delhi",
+        addressRegion: "Delhi",
+        postalCode: "110085",
+        addressCountry: "IN",
+      },
+    },
   ],
 };
 

@@ -27,17 +27,17 @@ export const metadata: Metadata = {
     "API Development",
   ],
   alternates: {
-    canonical: "https://magnivel.com",
+    canonical: "https://www.magnivel.com",
   },
   openGraph: {
     title: "Magnivel Technologies | Web, Mobile App & AI Development Company",
     description:
       "Magnivel Technologies provides website development, SaaS applications, mobile apps, AI solutions, e-commerce platforms, and custom software development services for businesses worldwide.",
-    url: "https://magnivel.com",
+    url: "https://www.magnivel.com",
     type: "website",
     images: [
       {
-        url: "https://magnivel.com/logo.jpg",
+        url: "https://www.magnivel.com/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Magnivel Technologies",
@@ -53,7 +53,7 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Magnivel Technologies",
-    url: "https://magnivel.com",
+    url: "https://www.magnivel.com",
     description:
       "Global technology partner delivering AI-powered software, enterprise platforms, digital transformation solutions, and scalable innovation.",
     areaServed: "Worldwide",

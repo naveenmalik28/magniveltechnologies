@@ -53,10 +53,10 @@ export default async function TemplateDetailPage({ params }: PageProps) {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://magnivel.com/#organization",
+    "@id": "https://www.magnivel.com/#organization",
     name: "Magnivel Technologies",
-    url: "https://magnivel.com",
-    logo: "https://magnivel.com/logo.jpg",
+    url: "https://www.magnivel.com",
+    logo: "https://www.magnivel.com/logo.jpg",
     email: "contact@magnivel.com"
   };
 
@@ -65,7 +65,7 @@ export default async function TemplateDetailPage({ params }: PageProps) {
     "@type": "Product",
     name: template.title,
     description: template.shortDesc,
-    image: "https://magnivel.com/logo.jpg",
+    image: "https://www.magnivel.com/logo.jpg",
     offers: {
       "@type": "AggregateOffer",
       "priceCurrency": "USD",
@@ -118,13 +118,13 @@ export default async function TemplateDetailPage({ params }: PageProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://magnivel.com"
+        "item": "https://www.magnivel.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Ready Websites",
-        "item": "https://magnivel.com/ready-websites"
+        "item": "https://www.magnivel.com/ready-websites"
       },
       {
         "@type": "ListItem",
@@ -139,16 +139,16 @@ export default async function TemplateDetailPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Magnivel Technologies",
-    "url": "https://magnivel.com"
+    "url": "https://www.magnivel.com"
   };
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Magnivel Technologies",
-    "image": "https://magnivel.com/logo.jpg",
-    "@id": "https://magnivel.com/#organization",
-    "url": "https://magnivel.com",
+    "image": "https://www.magnivel.com/logo.jpg",
+    "@id": "https://www.magnivel.com/#organization",
+    "url": "https://www.magnivel.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "New Delhi",

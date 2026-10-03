@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services | Magnivel Technologies",
     description: "Scalable software services for startups, SMBs, enterprises, and international clients.",
-    url: "https://magnivel.com/services",
+    url: "https://www.magnivel.com/services",
     type: "website",
   },
   alternates: {
-    canonical: "https://magnivel.com/services",
+    canonical: "https://www.magnivel.com/services",
   },
 };
 

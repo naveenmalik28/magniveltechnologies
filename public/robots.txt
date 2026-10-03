@@ -9,4 +9,4 @@ Disallow: /admin/
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://magnivel.com/sitemap.xml
+Sitemap: https://www.magnivel.com/sitemap.xml

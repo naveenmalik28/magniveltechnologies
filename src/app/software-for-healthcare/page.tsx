@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies develops secure, custom healthcare software. Portals for patient scheduling, EHR integrations, HIPAA-compliant messaging, and billing.",
   keywords: ["healthcare software solutions", "ehr integration service", "patient portal developer", "hipaa compliant database", "telemedicine software"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-healthcare",
+    canonical: "https://www.magnivel.com/software-for-healthcare",
   },
 };
 

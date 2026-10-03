@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies delivers custom AI solutions, secure private knowledge bases (RAG), automated document analysis tools, and LLM API integrations.",
   keywords: ["AI solutions", "machine learning integration", "custom LLM developer", "RAG vector search", "workflow automation developer", "AI chatbot builder"],
   alternates: {
-    canonical: "https://magnivel.com/ai-solutions",
+    canonical: "https://www.magnivel.com/ai-solutions",
   },
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies builds custom real estate software. Property listing portals, broker CRM dashboards, interactive maps, and lead management databases.",
   keywords: ["real estate software", "property portal developer", "broker crm system", "interactive property map", "real estate website builder"],
   alternates: {
-    canonical: "https://magnivel.com/software-for-real-estate",
+    canonical: "https://www.magnivel.com/software-for-real-estate",
   },
 };
 

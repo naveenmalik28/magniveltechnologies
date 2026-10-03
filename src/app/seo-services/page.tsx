@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides technical and on-page SEO services. Core Web Vitals optimizations, structured schema markups, and content growth frameworks.",
   keywords: ["seo services company", "technical seo audit", "core web vitals optimization", "schema markup generator", "on page seo expert"],
   alternates: {
-    canonical: "https://magnivel.com/seo-services",
+    canonical: "https://www.magnivel.com/seo-services",
   },
 };
 

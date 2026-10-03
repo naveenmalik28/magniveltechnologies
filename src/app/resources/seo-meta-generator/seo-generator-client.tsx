@@ -92,7 +92,7 @@ export function SeoGeneratorClient() {
               </span>
               <div className="font-sans max-w-xl text-left bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <span className="text-xs text-slate-600 block truncate leading-none">
-                  https://magnivel.com &gt; {slug || "page-path"}
+                  https://www.magnivel.com &gt; {slug || "page-path"}
                 </span>
                 <h3 className="mt-1.5 text-base text-blue-800 hover:underline cursor-pointer font-normal line-clamp-1">
                   {title || "Magnivel Technologies — Enter title text on left..."}

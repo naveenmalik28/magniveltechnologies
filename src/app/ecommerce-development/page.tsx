@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides high-performance custom e-commerce development services, secure payment checkouts, dynamic inventory dashboards, and headless commerce setups.",
   keywords: ["ecommerce development", "online store builder", "custom ecommerce", "payment gateway developer", "headless commerce", "Next.js ecommerce"],
   alternates: {
-    canonical: "https://magnivel.com/ecommerce-development",
+    canonical: "https://www.magnivel.com/ecommerce-development",
   },
 };
 

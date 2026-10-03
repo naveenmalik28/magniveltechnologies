@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides custom API development services, RESTful and GraphQL endpoints, secure OAuth2 credentials, and third-party SaaS integrations.",
   keywords: ["API development", "RESTful API developer", "GraphQL development", "system integration", "secure backend api", "microservices integration"],
   alternates: {
-    canonical: "https://magnivel.com/api-development",
+    canonical: "https://www.magnivel.com/api-development",
   },
 };
 

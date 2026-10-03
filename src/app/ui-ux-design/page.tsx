@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies delivers custom user interface (UI) and user experience (UX) design services, interactive Figma wireframes, design systems, and usability audits.",
   keywords: ["ui ux design", "figma designer", "user interface design", "wireframes and prototypes", "design system builder", "ux audit"],
   alternates: {
-    canonical: "https://magnivel.com/ui-ux-design",
+    canonical: "https://www.magnivel.com/ui-ux-design",
   },
 };
 

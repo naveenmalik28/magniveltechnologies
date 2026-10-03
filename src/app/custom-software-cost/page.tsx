@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Learn how custom software development costs are estimated. Guide to team sizing, database structures, legacy integration, and budget ranges for enterprise tools.",
   keywords: ["custom software cost", "software development price", "enterprise system cost", "database project budget", "custom portal cost"],
   alternates: {
-    canonical: "https://magnivel.com/custom-software-cost",
+    canonical: "https://www.magnivel.com/custom-software-cost",
   },
 };
 

@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "Magnivel Technologies"
   ],
   alternates: {
-    canonical: "https://magnivel.com/ready-websites",
+    canonical: "https://www.magnivel.com/ready-websites",
   },
   openGraph: {
     title: "Ready-Made Business Websites for Sale | Magnivel Technologies",
     description:
       "Launch your business faster with premium pre-built website templates from Magnivel Technologies. Customizable, mobile-responsive, and SEO-friendly.",
-    url: "https://magnivel.com/ready-websites",
+    url: "https://www.magnivel.com/ready-websites",
     type: "website",
   },
 };
@@ -116,8 +116,8 @@ const faqsMarketplace = [
 const schemaLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://magnivel.com/ready-websites/#webpage",
-  url: "https://magnivel.com/ready-websites",
+  "@id": "https://www.magnivel.com/ready-websites/#webpage",
+  url: "https://www.magnivel.com/ready-websites",
   name: "Ready-Made Business Websites for Sale | Magnivel Technologies",
   description: "Browse and purchase premium, fully customizable, responsive, and SEO-optimized website templates ready to launch in 5-7 days.",
   publisher: {
@@ -125,7 +125,7 @@ const schemaLd = {
     name: "Magnivel Technologies",
     logo: {
       "@type": "ImageObject",
-      url: "https://magnivel.com/logo.jpg"
+      url: "https://www.magnivel.com/logo.jpg"
     }
   }
 };

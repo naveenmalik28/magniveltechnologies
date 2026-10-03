@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides professional Python development services. Custom data extraction scripts, Django backend APIs, and machine learning models integrations.",
   keywords: ["python development services", "django backend developer", "python web scraping scripts", "machine learning integration python", "custom python scripts"],
   alternates: {
-    canonical: "https://magnivel.com/python-development",
+    canonical: "https://www.magnivel.com/python-development",
   },
 };
 

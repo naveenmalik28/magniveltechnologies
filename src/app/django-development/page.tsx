@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides custom Django backend development services. Robust database schemas, secure admin dashboards, and Django Rest Framework APIs.",
   keywords: ["django development services", "django developer python", "django rest framework api", "secure python backend", "django admin custom"],
   alternates: {
-    canonical: "https://magnivel.com/django-development",
+    canonical: "https://www.magnivel.com/django-development",
   },
 };
 

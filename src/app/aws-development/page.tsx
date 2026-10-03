@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides professional AWS development and DevOps services. Scalable cloud infrastructure, EC2/S3 setups, secure RDS databases, and CI/CD pipelines.",
   keywords: ["aws development services", "cloud devops engineer", "aws s3 storage setup", "rds database configuration", "github actions cicd"],
   alternates: {
-    canonical: "https://magnivel.com/aws-development",
+    canonical: "https://www.magnivel.com/aws-development",
   },
 };
 

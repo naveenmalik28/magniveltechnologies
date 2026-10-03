@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Magnivel Technologies provides professional Node.js backend development services. Fast, event-driven APIs, Express/NestJS frameworks, and database integrations.",
   keywords: ["nodejs development services", "expressjs developer node", "nestjs backend developer", "real time database api", "node backend engineer"],
   alternates: {
-    canonical: "https://magnivel.com/nodejs-development",
+    canonical: "https://www.magnivel.com/nodejs-development",
   },
 };
 

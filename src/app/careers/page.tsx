@@ -15,17 +15,17 @@ export const metadata: Metadata = {
     "Remote Software Jobs",
   ],
   alternates: {
-    canonical: "https://magnivel.com/careers",
+    canonical: "https://www.magnivel.com/careers",
   },
   openGraph: {
     title: "Careers | Magnivel Technologies",
     description:
       "Explore career opportunities at Magnivel Technologies. Join our engineering team to build innovative software, web applications, mobile apps, and AI solutions.",
-    url: "https://magnivel.com/careers",
+    url: "https://www.magnivel.com/careers",
     type: "website",
     images: [
       {
-        url: "https://magnivel.com/logo.jpg",
+        url: "https://www.magnivel.com/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Careers at Magnivel Technologies",

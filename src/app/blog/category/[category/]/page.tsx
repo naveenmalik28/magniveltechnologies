@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${cat.label} Articles | Blog`,
     description: `Read technical articles, guides, and updates about ${cat.label} from the Magnivel Technologies engineering team.`,
     alternates: {
-      canonical: `https://magnivel.com/blog/category/${category}`,
+      canonical: `https://www.magnivel.com/blog/category/${category}`,
     },
   };
 }

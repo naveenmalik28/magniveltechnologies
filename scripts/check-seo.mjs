@@ -11,8 +11,7 @@ import https from 'https';
 import http from 'http';
 import { URL } from 'url';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://magnivel.com';
-const BASE_URL = new URL(SITE_URL);
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.magnivel.com';
 
 // Color codes for console output
 const colors = {
@@ -176,9 +175,9 @@ async function checkPages() {
       const result = await fetchUrl(`${SITE_URL}${page.path}`);
       if (result.status === 200) {
         const hasMetaDescription = result.body.includes('name="description"');
-        const hasCanonical = result.body.includes(`href="${page.path}"`);
+        const hasCanonical = result.body.includes('rel="canonical"');
         
-        log(`   ✓ ${page.title} (${page.path}) - Status ${result.status}`);
+        log(`   ✓ ${page.title} (${page.path}) - Status ${result.status} (Canonical: ${hasCanonical ? '✓' : '✗'})`);
         if (!hasMetaDescription) {
           log(`     ⚠ Missing meta description`, 'yellow');
         }

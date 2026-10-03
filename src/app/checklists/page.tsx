@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "Production Readiness",
   ],
   alternates: {
-    canonical: "https://magnivel.com/checklists",
+    canonical: "https://www.magnivel.com/checklists",
   },
   openGraph: {
     title: "Engineering Checklists & Audits | Magnivel Technologies",
     description:
       "Verify your web application, SaaS MVP, and SEO readiness with interactive launch checklists from Magnivel Technologies.",
-    url: "https://magnivel.com/checklists",
+    url: "https://www.magnivel.com/checklists",
     type: "website",
   },
 };

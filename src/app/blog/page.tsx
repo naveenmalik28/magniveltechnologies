@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "Next.js Best Practices",
   ],
   alternates: {
-    canonical: "https://magnivel.com/blog",
+    canonical: "https://www.magnivel.com/blog",
   },
   openGraph: {
     title: "Blog & Insights | Magnivel Technologies",
     description:
       "Explore technical tutorials, architectural guides, SaaS lessons, and AI automation insights from the engineering team at Magnivel Technologies.",
-    url: "https://magnivel.com/blog",
+    url: "https://www.magnivel.com/blog",
     type: "website",
   },
 };

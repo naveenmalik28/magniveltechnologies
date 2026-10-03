@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "Meta Description Generator",
   ],
   alternates: {
-    canonical: "https://magnivel.com/resources/seo-meta-generator",
+    canonical: "https://www.magnivel.com/resources/seo-meta-generator",
   },
   openGraph: {
     title: "SEO Meta Generator & SERP Preview | Magnivel Technologies",
     description:
       "Preview and build optimal meta titles and description tags for Google Search. Real-time character counts and SERP snippet preview.",
-    url: "https://magnivel.com/resources/seo-meta-generator",
+    url: "https://www.magnivel.com/resources/seo-meta-generator",
     type: "website",
   },
 };

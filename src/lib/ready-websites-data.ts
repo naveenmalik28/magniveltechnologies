@@ -159,7 +159,7 @@ export const TEMPLATES: WebsiteTemplate[] = [
         "restaurant website developer",
         "Magnivel Technologies"
       ],
-      canonicalUrl: "https://magnivel.com/ready-websites/restaurant-website-template"
+      canonicalUrl: "https://www.magnivel.com/ready-websites/restaurant-website-template"
     }
   },
   {
@@ -253,7 +253,7 @@ export const TEMPLATES: WebsiteTemplate[] = [
         "direct to consumer food store",
         "Magnivel Technologies"
       ],
-      canonicalUrl: "https://magnivel.com/ready-websites/dairy-brand-ecommerce-template"
+      canonicalUrl: "https://www.magnivel.com/ready-websites/dairy-brand-ecommerce-template"
     }
   }
 ];

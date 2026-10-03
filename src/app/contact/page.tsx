@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     title: "Contact Us | Magnivel Technologies",
     description:
       "Start your next software project with Magnivel Technologies. Have an idea? Tell us about your project requirements, and our team will follow up promptly.",
-    url: "https://magnivel.com/contact",
+    url: "https://www.magnivel.com/contact",
     type: "website",
   },
   alternates: {
-    canonical: "https://magnivel.com/contact",
+    canonical: "https://www.magnivel.com/contact",
   },
 };
 
