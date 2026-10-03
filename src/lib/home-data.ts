@@ -21,66 +21,6 @@ export const trustMetrics = [
   { value: "NDA", label: "Protected Projects", icon: "lock" as const },
 ];
 
-export const caseStudies = [
-  {
-    id: "healthcare-scheduler",
-    title: "AI-Powered Patient Scheduler",
-    industry: "Healthcare",
-    isConceptProject: true,
-    challenge:
-      "A healthcare network needed to replace manual appointment scheduling that caused long patient wait times and overloaded support staff with repetitive booking requests.",
-    solution:
-      "We built an AI scheduling system with LangChain orchestration, Gemini API integration, and real-time practitioner availability matching across PostgreSQL.",
-    tech: ["Next.js", "LangChain", "Gemini API", "PostgreSQL", "AWS"],
-    impact: "Designed to significantly reduce manual scheduling overhead and improve patient experience.",
-    metrics: [
-      { label: "Stack", value: "AI + RAG" },
-      { label: "Architecture", value: "HIPAA" },
-      { label: "Response", value: "<2s" },
-    ],
-    gradient: "from-indigo-600/60 via-violet-600/40 to-cyan-600/50",
-    visual: "healthcare" as const,
-  },
-  {
-    id: "b2b-analytics-saas",
-    title: "Multi-Tenant B2B Analytics SaaS",
-    industry: "SaaS / Enterprise",
-    isConceptProject: true,
-    challenge:
-      "A B2B startup needed a scalable analytics platform with usage-based pricing, team collaboration, and real-time metrics dashboards for enterprise clients.",
-    solution:
-      "Built a multi-tenant SaaS architecture with Redis caching, Stripe subscription billing, dynamic role-based dashboards, and granular usage tracking.",
-    tech: ["React", "Node.js", "Redis", "Stripe API", "PostgreSQL"],
-    impact: "Designed to support scalable multi-tenant workloads with automated billing and team workspaces.",
-    metrics: [
-      { label: "Multi-Tenant", value: "Yes" },
-      { label: "Billing", value: "Stripe" },
-      { label: "Latency", value: "<50ms" },
-    ],
-    gradient: "from-violet-600/60 via-purple-600/40 to-indigo-600/50",
-    visual: "saas" as const,
-  },
-  {
-    id: "real-estate-portal",
-    title: "Real Estate Portal with QR Integrations",
-    industry: "Real Estate",
-    isConceptProject: true,
-    challenge:
-      "A property developer needed a responsive inventory platform with live location mapping, automated broker alerts, and QR-based lead capture at physical sites.",
-    solution:
-      "Architected a Django-powered property database with AWS S3 media storage, PDF brochure generation, QR code lead routing, and mobile-first UI.",
-    tech: ["Django", "Python", "AWS S3", "PostgreSQL", "Tailwind CSS"],
-    impact: "Built for high-volume lead capture with automated broker notification and mobile-first browsing.",
-    metrics: [
-      { label: "Backend", value: "Django" },
-      { label: "Storage", value: "AWS S3" },
-      { label: "Mobile", value: "First" },
-    ],
-    gradient: "from-cyan-600/60 via-teal-600/40 to-emerald-600/50",
-    visual: "realestate" as const,
-  },
-];
-
 export const aiSolutions = [
   {
     title: "AI Chatbots",

@@ -1118,7 +1118,6 @@ export default function AIChatbotCostPage() {
               { href: "/web-application-development", label: "Web Application Development" },
               { href: "/api-development", label: "API & Backend Development" },
               { href: "/saas-development", label: "SaaS Platform Development" },
-              { href: "/portfolio", label: "View Portfolio Projects" },
               { href: "/contact", label: "Contact Engineering Team" },
             ].map((link) => (
               <Link

@@ -167,7 +167,6 @@ async function checkPages() {
   const pages = [
     { path: '/about', title: 'About' },
     { path: '/services', title: 'Services' },
-    { path: '/portfolio', title: 'Portfolio' },
     { path: '/contact', title: 'Contact' },
     { path: '/technologies', title: 'Technologies' },
   ];

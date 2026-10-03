@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { Icon } from "@/components/icon";
 import { AiShowcase } from "@/components/home/ai-showcase";
-import { CaseStudiesSection } from "@/components/home/case-studies-section";
 import { ClientJourney } from "@/components/home/client-journey";
 import { GlobalPresence } from "@/components/home/global-presence";
 import { PremiumHero } from "@/components/home/premium-hero";
@@ -176,7 +175,6 @@ export default function Home() {
       </section>
 
       <AiShowcase />
-      <CaseStudiesSection />
 
       {/* Why Choose Magnivel */}
       <section className="relative overflow-hidden border-y border-subtle-border bg-background-secondary py-32">

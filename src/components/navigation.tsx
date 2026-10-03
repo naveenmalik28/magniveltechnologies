@@ -245,16 +245,15 @@ export function Navigation() {
             </div>
           </div>
 
-          <Link href="/portfolio" className="link-underline text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors">
-            Portfolio
-          </Link>
         </div>
 
         {/* Action Button & Hamburger */}
         <div className="flex items-center gap-3">
-          <Link href="/contact" className="btn-primary hidden px-4 py-2.5 text-xs sm:inline-flex">
-            Start Project
-          </Link>
+          <div className="hidden lg:block">
+            <Link href="/contact" className="btn-primary !hidden px-4 py-2.5 text-xs lg:!inline-flex">
+              Start Project
+            </Link>
+          </div>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-subtle-border bg-surface text-heading hover:bg-background-secondary transition-colors lg:hidden"
@@ -381,14 +380,6 @@ export function Navigation() {
             </AccordionSection>
 
             <Link
-              href="/portfolio"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg p-2.5 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors"
-            >
-              Portfolio
-            </Link>
-
-            <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
               className="block rounded-lg p-2.5 text-xs font-medium tracking-wide font-heading text-heading hover:text-primary transition-colors"
@@ -504,7 +495,6 @@ export function Footer() {
           <p className="text-xs font-extrabold uppercase tracking-widest text-[#F8F6F0]">Quick Links</p>
           <div className="grid gap-2.5">
             <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/about">About Us</Link>
-            <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/portfolio">Portfolio</Link>
             <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/careers">Careers</Link>
             <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/blog">Blog</Link>
             <Link className="transition-colors text-[#CBD5E1] hover:text-[#F8F6F0]" href="/contact">Contact</Link>

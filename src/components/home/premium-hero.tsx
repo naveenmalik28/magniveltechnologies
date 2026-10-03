@@ -70,9 +70,9 @@ export function PremiumHero() {
                 Start a Project
                 <Icon name="arrow-right" size={14} className="text-white" />
               </MagneticButton>
-              <MagneticButton href="/portfolio" variant="secondary">
-                View Our Work
-                <Icon name="external-link" size={14} className="text-primary" />
+              <MagneticButton href="#services" variant="secondary">
+                Explore Services
+                <Icon name="arrow-right" size={14} className="text-primary" />
               </MagneticButton>
             </motion.div>
 

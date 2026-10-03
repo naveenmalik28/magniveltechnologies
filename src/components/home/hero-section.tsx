@@ -55,9 +55,9 @@ export function HeroSection() {
               Start Your Project
               <Icon name="arrow-right" size={16} />
             </Link>
-            <Link href="/portfolio" className="btn-secondary">
-              View Our Work
-              <Icon name="external-link" size={16} />
+            <Link href="#services" className="btn-secondary">
+              Explore Services
+              <Icon name="arrow-right" size={16} />
             </Link>
           </motion.div>
         </div>

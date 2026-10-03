@@ -50,7 +50,7 @@ export default function NotFound() {
             {[
               { href: "/", label: "Home" },
               { href: "/services", label: "Services" },
-              { href: "/portfolio", label: "Portfolio" },
+              { href: "/contact", label: "Contact" },
               { href: "/about", label: "About" },
             ].map((link) => (
               <Link

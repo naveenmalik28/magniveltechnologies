@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/motion";
 import { partnerPlatforms, partnerCategories } from "@/lib/partners-data";
@@ -162,20 +161,6 @@ export function TechEcosystem() {
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted font-sans">
               From custom software and SaaS platforms to e-commerce, cloud infrastructure and digital growth, Magnivel Technologies can help you plan, build and scale your solution.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact?interest=Project-Inquiry"
-                className="btn-primary"
-              >
-                Start a Project
-              </Link>
-              <Link
-                href="/contact?interest=Tech-Consultation"
-                className="btn-secondary"
-              >
-                Talk to Our Team
-              </Link>
-            </div>
           </div>
         </div>
       </div>
