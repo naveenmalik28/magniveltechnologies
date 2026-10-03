@@ -69,9 +69,10 @@ export async function POST(request: Request) {
     const ok = await verifyAdminCredentials(validation.data.email, validation.data.password);
     if (!ok) return NextResponse.json({ message: "Invalid admin credentials." }, { status: 401 });
 
-    const token = await createAdminToken(validation.data.email);
+    const rememberMe = Boolean(validation.data.remember);
+    const token = await createAdminToken(validation.data.email, rememberMe);
     const response = NextResponse.json({ message: "Signed in." });
-    response.cookies.set({ ...adminCookieOptions(), value: token });
+    response.cookies.set({ ...adminCookieOptions(rememberMe), value: token });
     return response;
   } catch (error) {
     return loginFailureResponse(error);

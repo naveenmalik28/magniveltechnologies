@@ -8,11 +8,11 @@ function secret() {
   return new TextEncoder().encode(value);
 }
 
-export async function createAdminToken(email: string) {
+export async function createAdminToken(email: string, rememberMe: boolean = false) {
   return new SignJWT({ email })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("8h")
+    .setExpirationTime(rememberMe ? "30d" : "7d")
     .sign(secret());
 }
 

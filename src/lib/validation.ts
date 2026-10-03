@@ -14,6 +14,7 @@ export type ContactInput = {
 export type LoginInput = {
   email: string;
   password: string;
+  remember?: boolean;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -121,9 +122,10 @@ export function validateContact(payload: unknown): { data?: ContactInput; error?
 
 export function validateLogin(payload: unknown): { data?: LoginInput; error?: string } {
   const body = payload as Record<string, unknown>;
-  const data = {
+  const data: LoginInput = {
     email: clean(body.email).toLowerCase(),
     password: clean(body.password),
+    remember: Boolean(body.remember === "true" || body.remember === true || body.remember === "on"),
   };
 
   if (!emailPattern.test(data.email)) return { error: "A valid email is required." };

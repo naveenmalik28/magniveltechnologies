@@ -17,14 +17,14 @@ export async function requireAdminFromRequest(request: NextRequest) {
   return verifyToken(request.cookies.get(adminCookieName)?.value);
 }
 
-export function adminCookieOptions() {
+export function adminCookieOptions(rememberMe: boolean = false) {
   return {
     name: adminCookieName,
     httpOnly: true,
     sameSite: "lax" as const,
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 60 * 60 * 8,
+    maxAge: rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 24 * 7,
   };
 }
 
