@@ -406,77 +406,26 @@ export const careersBenefits = [
   },
 ];
 
-export const jobOpenings = [
-  {
-    id: "full-stack-developer",
-    position: "Full Stack Developer",
-    experience: "2+ Years",
-    location: "Remote / Hybrid",
-    skills: ["React.js", "Next.js", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "REST APIs", "Git"],
-    description: "Develop and maintain scalable web applications, APIs, and enterprise software solutions.",
-  },
-  {
-    id: "react-next-developer",
-    position: "React & Next.js Developer",
-    experience: "1+ Years",
-    location: "Remote / Hybrid",
-    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux"],
-    description: "Build modern, responsive, and high-performance user interfaces and web applications.",
-  },
-  {
-    id: "frontend-developer",
-    position: "Frontend Developer",
-    experience: "1+ Years",
-    location: "Remote / Hybrid",
-    skills: ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "Tailwind CSS"],
-    description: "Create beautiful user experiences and responsive frontend applications.",
-  },
-  {
-    id: "backend-developer",
-    position: "Backend Developer",
-    experience: "2+ Years",
-    location: "Remote / Hybrid",
-    skills: ["Node.js", "Express.js", "Python", "Django", "PostgreSQL", "REST APIs"],
-    description: "Design and develop secure, scalable backend systems and APIs.",
-  },
-  {
-    id: "python-developer",
-    position: "Python Developer",
-    experience: "2+ Years",
-    location: "Remote / Hybrid",
-    skills: ["Python", "Django", "Django REST Framework", "PostgreSQL", "API Development"],
-    description: "Build backend services, APIs, automation tools, and scalable applications.",
-  },
-  {
-    id: "ai-engineer",
-    position: "AI Engineer",
-    experience: "1+ Years",
-    location: "Remote / Hybrid",
-    skills: ["Python", "LLMs", "OpenAI APIs", "LangChain", "Vector Databases", "Machine Learning"],
-    description: "Develop AI-powered applications, automation systems, chatbots, and intelligent solutions.",
-  },
-];
-
 export const applicationSteps = [
   {
     step: "01",
-    title: "Select Position",
-    description: "Choose a suitable position from our open list.",
+    title: "Prepare Profile",
+    description: "Prepare your updated resume, GitHub profile, and recent project details.",
   },
   {
     step: "02",
-    title: "Prepare Assets",
-    description: "Prepare your updated resume and portfolio links.",
+    title: "Introduce Yourself",
+    description: "Tell us about your core strengths, preferred engineering stack, and career goals.",
   },
   {
     step: "03",
     title: "Send Application",
-    description: "Send your resume with the job title in the subject line to contact@magnivel.com.",
+    description: "Send your details directly to our recruiting inbox at contact@magnivel.com.",
   },
   {
     step: "04",
-    title: "Evaluation",
-    description: "Our team will review your application and contact shortlisted candidates for interviews.",
+    title: "Evaluation & Interview",
+    description: "Our engineering leads review every profile and schedule technical discussions.",
   },
 ];
 
